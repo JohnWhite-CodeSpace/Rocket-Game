@@ -21,10 +21,11 @@ public class AssetSetter {
 				j[i] = (random2.nextInt(5)*(max-min)+min);
 				k[i] = (random2.nextInt(5)*(max2-min2)+min2);
 				gp.asteroids[i] = new OBJ_Asteroid(gp);
-				gp.asteroids[i].worldx = gp.Tilesize*250+ gp.Tilesize*j[i]-gp.Tilesize*k[i]
+				int worldx = gp.Tilesize*250+ gp.Tilesize*j[i]-gp.Tilesize*k[i]
 						+10*k[i]-5*j[i];
-				gp.asteroids[i].worldy = gp.Tilesize*250+ gp.Tilesize*j[i]-gp.Tilesize*k[i]
+				int worldy = gp.Tilesize*250+ gp.Tilesize*j[i]-gp.Tilesize*k[i]
 						+10*k[i]-5*j[i];
+				gp.asteroids[i].set(worldx,worldy,"up",true,null);
 			}
 		
 	}
@@ -33,20 +34,5 @@ public class AssetSetter {
 		gp.spacestation.worldx = gp.Tilesize*94;
 		gp.spacestation.worldy = gp.Tilesize*75;
 	}
-	public void SetPluto() {
-		gp.pluto.worldx = gp.Tilesize*50;
-		gp.pluto.worldy = gp.Tilesize*50;
-	}
-	public void SetNeptune() {
-		gp.neptune.worldx = gp.Tilesize*75;
-		gp.neptune.worldy = gp.Tilesize*46;
-	}
-	public void SetUranus() {
-		gp.uranus.worldx = gp.Tilesize*68;
-		gp.uranus.worldy = gp.Tilesize*40;
-	}
-	public void SetSaturn() {
-		gp.saturn.worldx = gp.Tilesize*20;
-		gp.saturn.worldy = gp.Tilesize*10;
-	}
+
 }

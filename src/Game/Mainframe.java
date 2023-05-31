@@ -21,7 +21,7 @@ public class Mainframe extends JFrame{
 	JMenu menu;
 	JMenuItem Author, Exit, Options, Chonker, Speedy, MusicOn, MusicOff;
 	ImageIcon icon;
-	
+	//public static JFrame window;
 	private static final long serialVersionUID = 1L;
 	
 	public Mainframe() throws IOException {
@@ -29,12 +29,11 @@ public class Mainframe extends JFrame{
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Rocket Game");
-		gamePanel = new GamePanel();
+		gamePanel = new GamePanel(this);
 		this.add(gamePanel);
 		this.pack();
 		this.setLocationRelativeTo(null);
 		this.setIconImage(icon.getImage());
-		
 		CreateUIComponent();
 		
 	}
@@ -65,20 +64,24 @@ public class Mainframe extends JFrame{
 		menubar.add(menu);
 		this.setJMenuBar(menubar);
 	}
-	
+
 	public void Exit() {
 		System.exit(0);
 	}
 	public void Author() {
 		JOptionPane.showMessageDialog(this,"Author: Jan Bialy nr 323614","Author Window", JOptionPane.INFORMATION_MESSAGE);
 	}
+	public int GetWidth() {
+		return getWidth();
+	}
+	public int GetHeight() {
+		return getHeight();
+	}
 	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		Mainframe frame = new Mainframe();
-		
-		
-		frame.setVisible(true);
+		Mainframe window = new Mainframe();
+		window.setVisible(true);
 	}
-
+	
 }

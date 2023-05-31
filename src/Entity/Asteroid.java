@@ -23,8 +23,14 @@ public class Asteroid extends Entity{
 	public void update() {
 		collisionOn=false;
 		gp.CollisionCheck.CheckTile(this);
-		gp.CollisionCheck.playerCheck(this);
-		
+		boolean contactPlayer = gp.CollisionCheck.playerCheck(this);
+		if(this.type ==2 && contactPlayer==true) {
+			if(gp.player.invincible==false) {
+				gp.ui.showMessage("Asteroid collision detected!");
+				gp.player.life-=1;
+				gp.player.invincible=true;
+			}
+		}
 		
 		if(collisionOn==false) {
 			switch(direction) {
@@ -46,7 +52,14 @@ public class Asteroid extends Entity{
 				case "fastupright":worldy-=HyperSpeed; worldx+=HyperSpeed;break;
 				
 				}
-			
+			if(invincible==true) {
+				invincibleCounter++;
+				System.out.println(invincibleCounter);
+				if(invincibleCounter>30) {
+					invincible=false;
+					invincibleCounter = 0;
+				}
+			}
 			
 				spriteCounter++;
 			if(spriteCounter>10) {
@@ -62,10 +75,7 @@ public class Asteroid extends Entity{
 				spriteCounter=0;
 			}
 		}
-		else if(collisionOn==true) {
-			gp.player.interactAsteroid(1);
-			collisionOn=false;
-		}
+		
 	}
 //	public void interactAsteroid() {
 //		// TODO Auto-generated method stub

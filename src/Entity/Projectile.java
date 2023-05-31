@@ -1,44 +1,49 @@
 package Entity;
 
 
+import java.awt.geom.AffineTransform;
+
 import Game.GamePanel;
 
 public class Projectile extends Entity{
-	//protected GamePanel gp;
 	Entity user;
 	
 	public Projectile(GamePanel gp) {
 		super(gp);
 		
 	}
-	public void set(int Worldx, int Worldy, String direction, boolean alive, Entity user) {
+	public void set(int Worldx, int Worldy, String direction, boolean alive, Entity user, double angle) {
 		this.worldx = Worldx;
 		this.worldy = Worldy;
 		this.direction = direction;
 		this.IsAlive=alive;
 		this.life = this.maxLife;
 		this.user = user;
+		this.angle = angle;
 	}
+	
 	public void update() {
-		switch(direction) {
-		case "up":worldy-=speed;break;
-		case "down":worldy+=speed;break;
-		case "left":worldx-=speed;break;
-		case "right":worldx+=speed;break;
-		case "upright":worldy-=speed; worldx+=speed;break;
-		case "upleft": worldy-=speed; worldx-=speed;break;
-		case "downright":worldy+=speed; worldx+=speed; break;
-		case "downleft":worldy+=speed; worldx-=speed;break;
-		case "fastup":worldy-=speed;break;
-		case "fastdown":worldy+=speed;break;
-		case "fastleft":worldx-=speed;break;
-		case "fastright":worldx+=speed;break;
-		case "fastupleft":worldy-=speed; worldx-=speed; break;
-		case "fastdownleft":worldy+=speed; worldx-=speed;break;
-		case "fastdownright":worldy+=speed; worldx+=speed;break;
-		case "fastupright":worldy-=speed; worldx+=speed;break;
-		
+		if(user==gp.player) {
+			int Asteroidindex = gp.CollisionCheck.checkEntity(this, gp.asteroids);
+			if(Asteroidindex!=999) {
+				gp.player.damageAsteroid(Asteroidindex);
+				IsAlive = false;
+			}
 		}
+		
+		
+		
+		
+			int newy= (int) (velocity * Math.cos(Math.toRadians(angle)));
+			int newx= (int) (velocity * Math.sin(Math.toRadians(angle)));
+			if(direction.equals("bullet1")) {
+				worldy-=newy;worldx+=newx;}
+			if(direction.equals("pellet")) {
+				worldy-=newy;worldx+=newx;
+			//case "player2":worldy-=newy;worldx+=newx; break;
+		}
+		
+		
 		life--;
 		if(life <=0) {
 			IsAlive = false;
@@ -57,5 +62,12 @@ public class Projectile extends Entity{
 			spriteCounter=0;
 		}
 	}
-	
+	 public AffineTransform rotatedImage(int i) {
+		 int screenX = worldx - gp.player.worldx + gp.player.screenx;
+	     int screenY = worldy - gp.player.worldy + gp.player.screeny;
+	     AffineTransform tr = new AffineTransform();
+	        tr.translate(screenX, screenY);
+	        tr.rotate(Math.toRadians(angle),gp.Tilesize/2,gp.Tilesize/2);
+ 	return tr;
+ }
 }

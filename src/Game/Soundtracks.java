@@ -6,13 +6,18 @@ public class Soundtracks {
 	SongArray songQueue = new SongArray();
 	Clip clip;
 	final boolean[] isMusicPlaying = {true};
+	FloatControl fc;
+	int volumeScale=3;
+	float volume;
+	
 	public Soundtracks(){
 	
 	}
 	public void PlayMusic() throws LineUnavailableException, IOException, UnsupportedAudioFileException {
 		clip = AudioSystem.getClip();
         clip.open(AudioSystem.getAudioInputStream(songQueue.getNextFile()));
-
+        fc = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+        //checkVolume();
         clip.addLineListener(e -> {
             if (e.getType() == LineEvent.Type.STOP && isMusicPlaying[0]){
                 try {
@@ -41,6 +46,18 @@ public class Soundtracks {
          System.out.println("PAUSE");
          clip.close();
 	}
+	public void checkVolume() {
+    	switch(volumeScale) {
+    	case 0: volume = -80f;	break;
+    	case 1: volume = -19f;	break;
+    	case 2: volume = -14f;	break;
+    	case 3: volume = -9f;	break;
+    	case 4:	volume = -4f; 	break;
+    	case 5: volume = 1f; 	break;
+    	case 6: volume = 6f; 	break;
+    	}
+    	fc.setValue(volume);
+    }
 }
 		class SongArray{
 			URL musicOne = getClass().getResource("/sound/GameSong(3).wav");
@@ -59,5 +76,7 @@ public class Soundtracks {
 		    public URL getCurrentFile(){
 		        return musicList[songIndex];
 		    }
+		    
 	}
+		
 

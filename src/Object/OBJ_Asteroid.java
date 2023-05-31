@@ -10,18 +10,17 @@ public class OBJ_Asteroid extends Asteroid {
     public OBJ_Asteroid(GamePanel gp) {
         super(gp);
         this.gp = gp;
+        type = 2;
         name = "Asteroid";
         speed=3;
-        maxLife = 2000;
+        maxLife = 10;
         life = maxLife;
         solidArea = new Rectangle();
 		solidArea.x = 4;
 		solidArea.y = 4;
 		solidArea.width = 40;
 		solidArea.height = 40;
-        
         IsAlive = false;
-        
         getImage();
     }
 
@@ -53,7 +52,9 @@ public class OBJ_Asteroid extends Asteroid {
         right3 = (setup("/asteroids/Asteroidright3", gp.Tilesize, gp.Tilesize));
         left3 = (setup("/asteroids/Asteroidleft3", gp.Tilesize, gp.Tilesize));
         
-        
+        DeathImage1 = (setup("/asteroids/death1", gp.Tilesize, gp.Tilesize));
+        DeathImage2 = (setup("/asteroids/death2", gp.Tilesize, gp.Tilesize));
+        DeathImage3 = (setup("/asteroids/death3", gp.Tilesize, gp.Tilesize));
        
     }
     	public void SetAction() {

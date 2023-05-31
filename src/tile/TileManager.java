@@ -18,8 +18,6 @@ public class TileManager {
 	public TileManager(GamePanel gp) {
 		this.gp = gp;
 		tile = new Tile[50];
-		
-		
 		mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 		getTileImage();
 		LoadMap("/maps/map6.txt");
@@ -93,12 +91,12 @@ public class TileManager {
 			
 			int worldX = Worldcol*gp.Tilesize;
 			int worldY = Worldrow*gp.Tilesize;
-			int ScreenX = worldX - gp.player.worldx + gp.player.screenx;
+			int ScreenX =  worldX - gp.player.worldx + gp.player.screenx;
 			int ScreenY = worldY - gp.player.worldy + gp.player.screeny;
-			if(worldX + gp.Tilesize > gp.player.worldx - gp.player.screenx && 
-					worldX - gp.Tilesize < gp.player.worldx + gp.player.screenx && 
-					worldY + gp.Tilesize> gp.player.worldy - gp.player.screeny &&
-					worldY - gp.Tilesize< gp.player.worldy + gp.player.screeny) {
+			if(worldX + 2*gp.Tilesize > gp.player.worldx - gp.player.screenx && 
+					worldX - 2*gp.Tilesize < gp.player.worldx + gp.player.screenx && 
+					worldY + 5*gp.Tilesize> gp.player.worldy - gp.player.screeny &&
+					worldY - 5*gp.Tilesize< gp.player.worldy + gp.player.screeny) {
 				
 				g2d.drawImage(tile[tileNum].image, ScreenX, ScreenY,null);
 			}

@@ -23,8 +23,8 @@ public class GameEventHandler {
 	}
 	public boolean hit(int eventCol, int eventRow, String reqDirection) {
 		boolean hit = false;
-		gp.player.solidArea.x = gp.player.worldx + gp.player.solidArea.x;
-		gp.player.solidArea.y = gp.player.worldy + gp.player.solidArea.y;
+		gp.player.solidArea.x = (int) gp.player.worldx + gp.player.solidArea.x;
+		gp.player.solidArea.y = (int) gp.player.worldy + gp.player.solidArea.y;
 		
 		EventRect.x = eventCol*gp.Tilesize + EventRect.x;
 		EventRect.y = eventCol*gp.Tilesize + EventRect.y;

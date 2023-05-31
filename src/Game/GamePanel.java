@@ -1,3 +1,4 @@
+
 package Game;
 
 import java.awt.Color;
@@ -5,15 +6,14 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JPanel;
-
 import Entity.Entity;
 import Entity.Player;
 import Entity.Asteroid;
@@ -45,6 +45,14 @@ public class GamePanel extends JPanel implements Runnable{
 	public final int maxWorldRow = 500;
 	public final int WorldWidth = Tilesize*maxWorldCol;
 	public final int WorldHeight = Tilesize*maxWorldRow;
+	//FULL SCREEN
+	int screenWidth2 = screenWidth;
+	int screenHeight2 = screenHeight;
+	BufferedImage tempScreen;
+	Graphics2D g2d;
+	
+	
+	
 	Thread gamethread;
 	int drawcount = 0;
 	int FPS = 60;
@@ -59,6 +67,8 @@ public class GamePanel extends JPanel implements Runnable{
 	Soundtracks songs = new Soundtracks();
 	TileManager tileM = new TileManager(this);
 	boolean musicOn = true;
+	public boolean fullscreenOn = false;
+	
 	public Graphics2D g2;
 	public ArrayList<Entity> entityList = new ArrayList<>();
 	public ArrayList<Entity> projectileList = new ArrayList<>();
@@ -76,7 +86,10 @@ public class GamePanel extends JPanel implements Runnable{
 	public final int pauseState = 2;
 	public final int exitpauseState = 3;
 	public final int GameOverState = 4;
-	public GamePanel() {
+	public final int OptionState = 5;
+	private Mainframe frame;
+	public GamePanel(Mainframe frame) {
+		this.frame = frame;
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		this.setBackground(Color.black);
 		this.setDoubleBuffered(true);
@@ -91,6 +104,8 @@ public class GamePanel extends JPanel implements Runnable{
 	public void startGameThread() {
 		gamethread = new Thread(this);
 		gamethread.start();
+//		tempScreen = new BufferedImage(screenWidth,screenHeight,BufferedImage.TYPE_INT_ARGB);
+//		g2 = (Graphics2D) tempScreen.getGraphics();
 		try {
 			songs.PlayMusic();
 		} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
@@ -99,12 +114,10 @@ public class GamePanel extends JPanel implements Runnable{
 		}
 		aSetter.setAsteroid();
 		aSetter.SetSpaceStation();
-		aSetter.SetPluto();
-		aSetter.SetNeptune();
-		aSetter.SetUranus();
-		aSetter.SetSaturn();
 		gameState = titleState;
 		songs.Play();
+		
+		
 	}
 	
 	
@@ -124,6 +137,7 @@ public class GamePanel extends JPanel implements Runnable{
 				if(delta>=1) {
 					update();
 					repaint();
+
 					delta--;
 					drawcount++;
 				}
@@ -146,7 +160,6 @@ public class GamePanel extends JPanel implements Runnable{
 			uranus.SetAction();
 			saturn.update();
 			saturn.SetAction();
-			ui.GameTimer();
 			for(int i=0; i<projectileList.size(); i++) {
 				if(projectileList.get(i)!=null) {
 					if(projectileList.get(i).IsAlive==true) {
@@ -161,8 +174,13 @@ public class GamePanel extends JPanel implements Runnable{
 			
 			for(int i=0; i<asteroids.length;i++) {
 				if(asteroids[i]!=null) {
-				asteroids[i].update();
-				asteroids[i].SetAction();
+					if(asteroids[i].IsAlive==true && asteroids[i].dying ==false) {
+					asteroids[i].update();
+					asteroids[i].SetAction();
+					}
+					if(asteroids[i].IsAlive==false) {
+						asteroids[i] = null;
+					}
 				}
 			}
 		}
@@ -175,8 +193,93 @@ public class GamePanel extends JPanel implements Runnable{
 
 		
 	}
+//	public void drawToTempScreen() {
+//		long LoadStart = 0;
+//		if(keyH.DebugMode==true) {
+//			LoadStart = System.nanoTime();
+//		}
+//		if(gameState == titleState) {
+//			ui.draw(g2);
+//		}
+//		else {
+//			
+//			tileM.draw(g2);
+//			entityList.add(player);
+//			entityList.add(spacestation);
+//			entityList.add(pluto);
+//			entityList.add(neptune);
+//			entityList.add(uranus);
+//			entityList.add(saturn);
+//			
+//			
+//			for(int i=0; i < projectileList.size(); i++) {
+//				if(projectileList.get(i)!=null) {
+//					entityList.add(projectileList.get(i));
+//				}
+//			}
+//			for(int i=0; i<asteroids.length; i++) {
+//				if(asteroids[i]!=null) {
+//					entityList.add(asteroids[i]);
+//				}
+//			}
+//			Collections.sort(entityList, new Comparator<Entity>() {
+//				
+//				@Override
+//				public int compare(Entity o1, Entity o2) {
+//					// TODO Auto-generated method stub
+//					int result = Integer.compare(o1.worldy, o2.worldy);
+//					return result;
+//				}
+//				
+//			});
+//			
+//			
+//			for(int i = 0; i< entityList.size();i++) {
+//				entityList.get(i).draw(g2);
+//			}
+//			
+//			entityList.clear();
+//			ui.draw(g2);
+//			if(keyH.DebugMode==true) {
+//				long LoadEnd = System.nanoTime();
+//				long passed = LoadEnd-LoadStart;
+//				g2.setColor(Color.white);
+//				g2.setFont(font4);;
+//				g2.drawString("Draw time: " + passed,15 , Tilesize*15);
+//				System.out.println("Draw time: " + passed);
+//				g2.drawString("DEBUG MODE", 15, Tilesize*15-20);
+//			}
+//			
+//		}
+//		if(gameState==pauseState) {
+//			ui.draw(g2);
+//		}
+//		else if(gameState==exitpauseState) {
+//			ui.draw(g2);
+//		}
+//		else if(gameState==GameOverState) {
+//			ui.draw(g2);
+//		}
+//	}
+//	
+//	public void setFullScreen() {
+//		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+//		GraphicsDevice gd = ge.getDefaultScreenDevice();
+//		gd.setFullScreenWindow(frame);
+//		
+//		screenWidth2 = frame.GetWidth();
+//		screenHeight2 = frame.GetHeight();
+//	}
+//	public void drawToScreen() {
+//		Graphics g = getGraphics();
+//		if(g!=null) {
+//			g.drawImage(tempScreen, 0, 0, screenWidth2, screenHeight2, null);
+//			g.dispose();
+//		}
+//		
+//	}
 
-	public void paintComponent(Graphics g) {
+	public synchronized void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g2 = (Graphics2D) g;
 		long LoadStart = 0;
@@ -195,11 +298,16 @@ public class GamePanel extends JPanel implements Runnable{
 			entityList.add(neptune);
 			entityList.add(uranus);
 			entityList.add(saturn);
-			ui.draw(g2);
+			
 			
 			for(int i=0; i < projectileList.size(); i++) {
 				if(projectileList.get(i)!=null) {
 					entityList.add(projectileList.get(i));
+				}
+			}
+			for(int i=0; i<asteroids.length; i++) {
+				if(asteroids[i]!=null) {
+					entityList.add(asteroids[i]);
 				}
 			}
 			Collections.sort(entityList, new Comparator<Entity>() {
@@ -212,15 +320,14 @@ public class GamePanel extends JPanel implements Runnable{
 				}
 				
 			});
-			for(int i=0; i<asteroids.length; i++) {
-				asteroids[i].draw(g2);
-			}
+			
 			
 			for(int i = 0; i< entityList.size();i++) {
 				entityList.get(i).draw(g2);
 			}
 			
 			entityList.clear();
+			ui.draw(g2);
 			if(keyH.DebugMode==true) {
 				long LoadEnd = System.nanoTime();
 				long passed = LoadEnd-LoadStart;
@@ -238,14 +345,15 @@ public class GamePanel extends JPanel implements Runnable{
 		else if(gameState==exitpauseState) {
 			ui.draw(g2);
 		}
-		else if(gameState==GameOverState) {
+	else if(gameState==GameOverState) {
 			ui.draw(g2);
 		}
-		
-		g2.dispose();
+	        g2.dispose();
+	   
 	}
 	public void playSE(int i) {
 		sound.setFile(i);
 		sound.play();
 	}
+	
 }
