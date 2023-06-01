@@ -37,14 +37,8 @@ public class OBJ_SpaceStation extends SpaceStation{
 	public void getImage() {
         int i=5;
 				SpaceStation1 = setup("/space_station/spaceup1", gp.Tilesize*i, gp.Tilesize*i);
-				
 				SpaceStation2 = setup("/space_station/spaceup2", gp.Tilesize*i, gp.Tilesize*i);
-				
 				SpaceStation3 = setup("/space_station/spaceup3", gp.Tilesize*i, gp.Tilesize*i);
-				
-			
-		
-       
     }
 	public BufferedImage setup(String filename) {
 		BufferedImage image = null;

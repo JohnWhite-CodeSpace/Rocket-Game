@@ -82,32 +82,29 @@ public class TileManager {
 		}
 	}
 	public void draw(Graphics2D g2d) {
-		int Worldcol = 0;
-		int Worldrow = 0;
+	    int playerCol = gp.player.worldx / gp.Tilesize;
+	    int playerRow = gp.player.worldy / gp.Tilesize;
 
-		
-		while(Worldcol<gp.maxWorldCol && Worldrow<gp.maxWorldRow) {
-			int tileNum = mapTileNum[Worldcol][Worldrow];
-			
-			int worldX = Worldcol*gp.Tilesize;
-			int worldY = Worldrow*gp.Tilesize;
-			int ScreenX =  worldX - gp.player.worldx + gp.player.screenx;
-			int ScreenY = worldY - gp.player.worldy + gp.player.screeny;
-			if(worldX + 2*gp.Tilesize > gp.player.worldx - gp.player.screenx && 
-					worldX - 2*gp.Tilesize < gp.player.worldx + gp.player.screenx && 
-					worldY + 5*gp.Tilesize> gp.player.worldy - gp.player.screeny &&
-					worldY - 5*gp.Tilesize< gp.player.worldy + gp.player.screeny) {
-				
-				g2d.drawImage(tile[tileNum].image, ScreenX, ScreenY,null);
-			}
-			Worldcol++;
+	    int offsetX = gp.player.worldx % gp.Tilesize;
+	    int offsetY = gp.player.worldy % gp.Tilesize;
 
-			if(Worldcol==gp.maxWorldCol) {
-				Worldcol=0;
-				Worldrow++;
+	    int screenX = offsetX - gp.player.screenx;
+	    int screenY = offsetY - gp.player.screeny;
 
-			}
-		}
-		
+	    int startCol = Math.max(playerCol - (gp.screenWidth / (2 * gp.Tilesize)), 0);
+	    int endCol = Math.min(playerCol + (gp.screenWidth / (2 * gp.Tilesize)) + 1, gp.maxWorldCol - 1);
+	    int startRow = Math.max(playerRow - (gp.screenHeight / (2 * gp.Tilesize)), 0);
+	    int endRow = Math.min(playerRow + (gp.screenHeight / (2 * gp.Tilesize)) + 1, gp.maxWorldRow - 1);
+
+	    for (int row = startRow; row <= endRow; row++) {
+	        for (int col = startCol; col <= endCol; col++) {
+	            int tileNum = mapTileNum[col][row];
+
+	            screenX = (col * gp.Tilesize) - gp.player.worldx + gp.player.screenx;
+	            screenY = (row * gp.Tilesize) - gp.player.worldy + gp.player.screeny;
+
+	            g2d.drawImage(tile[tileNum].image, screenX, screenY, null);
+	        }
+	    }
 	}
 }
