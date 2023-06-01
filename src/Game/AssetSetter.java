@@ -31,8 +31,21 @@ public class AssetSetter {
 	}
 	public void SetSpaceStation() {
 		//gp.spacestation = new OBJ_SpaceStation(gp);
-		gp.spacestation.worldx = gp.Tilesize*94;
-		gp.spacestation.worldy = gp.Tilesize*75;
+		gp.spacestation.set(gp.Tilesize*94,gp.Tilesize*75,"space_station",true,null);
 	}
-
+	public void SetUranus() {
+		gp.uranus.set(gp.Tilesize*90,gp.Tilesize*70,"planet",true,null);
+	}
+	public void SetSaturn() {
+		gp.pluto.set(gp.Tilesize*120,gp.Tilesize*80,"planet",true,null);
+	}
+	public void SetPluto() {
+		gp.pluto.set(gp.Tilesize*150,gp.Tilesize*75,"planet",true,null);
+	}
+	public void SetNeptune() {
+		gp.neptune.set(gp.Tilesize*60,gp.Tilesize*70,"planet",true,null);
+	}
+	public void SetJupiter() {
+		gp.jupiter.set(gp.Tilesize*130,gp.Tilesize*60,"planet",true,null);
+	}
 }

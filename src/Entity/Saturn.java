@@ -38,22 +38,7 @@ public class Saturn extends Entity{
 				angle=0;
 			}
 			switch(direction) {
-				case "up":
-				worldx=newX;
-				worldy=newY;break;
-				case "down":worldx=newX;
-				worldy=newY;break;
-				case "left":worldx=newX;
-				worldy=newY;break;
-				case "right":worldx=newX;
-				worldy=newY;break;
-				case "upright":worldx=newX;
-				worldy=newY;break;
-				case "upleft": worldx=newX;
-				worldy=newY;break;
-				case "downright":worldx=newX;
-				worldy=newY;break;
-				case "downleft":worldx=newX;
+				case "planet":worldx=newX;
 				worldy=newY;break;
 				
 				}

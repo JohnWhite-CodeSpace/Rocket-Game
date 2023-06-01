@@ -76,7 +76,7 @@ public class Player extends Entity {
 		worldx=gp.Tilesize*96;
 		worldy=gp.Tilesize*72;
 		speed=5;
-		maxLife=1;
+		maxLife=10;
 		ammoType="bullet1";
 		direction = "player1";
 		life=maxLife;

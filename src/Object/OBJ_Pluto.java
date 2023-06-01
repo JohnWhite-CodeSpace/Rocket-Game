@@ -18,6 +18,7 @@ public class OBJ_Pluto extends Pluto{
         speed=1;
         maxLife = 2000;
         life = maxLife;
+        angle=2;
        // worldx=gp.Tilesize*96;
 		//worldy=gp.Tilesize*72;
         solidArea = new Rectangle();
@@ -34,71 +35,14 @@ public class OBJ_Pluto extends Pluto{
 	}
 	public void getImage() {
 		int i = 5;
-				up1 = setup("/planets/Pluto1", gp.Tilesize*i, gp.Tilesize*i);
-				down1=setup("/planets/Pluto1", gp.Tilesize*i, gp.Tilesize*i);
-				left1=setup("/planets/Pluto1", gp.Tilesize*i, gp.Tilesize*i);
-				right1=setup("/planets/Pluto1", gp.Tilesize*i, gp.Tilesize*i);
-				upleft1=setup("/planets/Pluto1", gp.Tilesize*i, gp.Tilesize*i);
-				upright1=setup("/planets/Pluto1", gp.Tilesize*i, gp.Tilesize*i);
-				downright1=setup("/planets/Pluto1", gp.Tilesize*i, gp.Tilesize*i);
-				downleft1=setup("/planets/Pluto1", gp.Tilesize*i, gp.Tilesize*i);
-				
-				up2 = setup("/planets/Pluto2", gp.Tilesize*i, gp.Tilesize*i);
-				down2= setup("/planets/Pluto2", gp.Tilesize*i, gp.Tilesize*i);
-				left2= setup("/planets/Pluto2", gp.Tilesize*i, gp.Tilesize*i);
-				right2= setup("/planets/Pluto2", gp.Tilesize*i, gp.Tilesize*i);
-				upleft2= setup("/planets/Pluto2", gp.Tilesize*i, gp.Tilesize*i);
-				upright2= setup("/planets/Pluto2", gp.Tilesize*i, gp.Tilesize*i);
-				downright2= setup("/planets/Pluto2", gp.Tilesize*i, gp.Tilesize*i);
-				downleft2= setup("/planets/Pluto2", gp.Tilesize*i, gp.Tilesize*i);
-				
-				up3 = setup("/planets/Pluto3", gp.Tilesize*i, gp.Tilesize*i);
-				down3=setup("/planets/Pluto3", gp.Tilesize*i, gp.Tilesize*i);
-				left3=setup("/planets/Pluto3", gp.Tilesize*i, gp.Tilesize*i);
-				right3=setup("/planets/Pluto3", gp.Tilesize*i, gp.Tilesize*i);
-				upleft3=setup("/planets/Pluto3", gp.Tilesize*i, gp.Tilesize*i);
-				upright3=setup("/planets/Pluto3", gp.Tilesize*i, gp.Tilesize*i);
-				downright3=setup("/planets/Pluto3", gp.Tilesize*i, gp.Tilesize*i);
-				downleft3=setup("/planets/Pluto3", gp.Tilesize*i, gp.Tilesize*i);
-				
-				up4 = setup("/planets/Pluto4", gp.Tilesize*i, gp.Tilesize*i);
-				down4= setup("/planets/Pluto4", gp.Tilesize*i, gp.Tilesize*i);
-				left4=setup("/planets/Pluto4", gp.Tilesize*i, gp.Tilesize*i);
-				right4=setup("/planets/Pluto4", gp.Tilesize*i, gp.Tilesize*i);
-				upleft4=setup("/planets/Pluto4", gp.Tilesize*i, gp.Tilesize*i);
-				upright4=setup("/planets/Pluto4", gp.Tilesize*i, gp.Tilesize*i);
-				downright4=setup("/planets/Pluto4", gp.Tilesize*i, gp.Tilesize*i);
-				downleft4=setup("/planets/Pluto4", gp.Tilesize*i, gp.Tilesize*i);
+			Planet1 = setup("/planets/Pluto1", gp.Tilesize*i, gp.Tilesize*i);
+			Planet2 = setup("/planets/Pluto2", gp.Tilesize*i, gp.Tilesize*i);
+			Planet3 = setup("/planets/Pluto3", gp.Tilesize*i, gp.Tilesize*i);
+			Planet4 = setup("/planets/Pluto4", gp.Tilesize*i, gp.Tilesize*i);
 		
        
     }
     	public void SetAction() {
-    		
-    			if(angle>=11*Math.PI/8 && angle<=13*Math.PI/8) {
-    				direction = "right";
-    			}
-    			if(angle>3*Math.PI/8 && angle<5*Math.PI/8) {
-    				direction = "left";
-    			}
-    			if(angle>=7*Math.PI/8 && angle<9*Math.PI/8) {
-    				direction = "up";
-    			}
-    			if(angle>=15*Math.PI/8 && angle<2*Math.PI || angle>=0&&angle<Math.PI/8) {
-    				direction = "down";
-    			}
-    			if(angle>13*Math.PI/8&&angle<15*Math.PI/8) {
-    				direction = "downright";
-    			}
-    			if(angle>9*Math.PI/8 && angle<11*Math.PI/8) {
-    				direction = "upright";
-    			}
-    			if(angle>5*Math.PI/8 && angle<7*Math.PI/8) {
-    				direction = "upleft";
-    			}
-    			if(angle>Math.PI/8 && angle<3*Math.PI/8) {
-    				direction = "downleft";
-    			}
-    			
-    			
-    		}
+    		direction = "planet";
+    	}
 }

@@ -21,38 +21,16 @@ public class Neptune extends Entity {
 	public void update() {
 		collisionOn=false;
 		gp.CollisionCheck.CheckTile(this);
-		gp.CollisionCheck.playerCheck(this);
-		
-			
-			
-	        	 
+		gp.CollisionCheck.playerCheck(this);  	 
 		int newX = (int) ((radius * Math.cos(angle)) + radius + centerx);
         int newY = (int) ((radius * Math.sin(angle)) + radius + centery);
-       
-       
-		//gp.CollisionCheck.checkEntity(this, gp.player);
 		if(collisionOn==false) {
 			angle+=0.00025;
 			if(angle>=2*Math.PI) {
 				angle=0;
 			}
 			switch(direction) {
-				case "up":
-				worldx=newX;
-				worldy=newY;break;
-				case "down":worldx=newX;
-				worldy=newY;break;
-				case "left":worldx=newX;
-				worldy=newY;break;
-				case "right":worldx=newX;
-				worldy=newY;break;
-				case "upright":worldx=newX;
-				worldy=newY;break;
-				case "upleft": worldx=newX;
-				worldy=newY;break;
-				case "downright":worldx=newX;
-				worldy=newY;break;
-				case "downleft":worldx=newX;
+				case "planet":worldx=newX;
 				worldy=newY;break;
 				
 				}

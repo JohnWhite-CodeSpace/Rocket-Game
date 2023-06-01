@@ -2,11 +2,14 @@ package Entity;
 
 
 
+import java.awt.geom.AffineTransform;
+
 import Game.GamePanel;
 
 public class SpaceStation extends Entity{
 	Entity user;
 	int counter=0;
+	int SpSangle;
 	public SpaceStation(GamePanel gp) {
 		super(gp);
 		// TODO Auto-generated constructor stub
@@ -27,33 +30,17 @@ public class SpaceStation extends Entity{
 			
 			
 	        	 
-		int newX = (int) ((radius * Math.cos(angle)) + radius + centerx);
-        int newY = (int) ((radius * Math.sin(angle)) + radius + centery);
+		int newX = (int) ((radius * Math.cos(SpsAngle)) + radius + centerx);
+        int newY = (int) ((radius * Math.sin(SpsAngle)) + radius + centery);
        
        
 		//gp.CollisionCheck.checkEntity(this, gp.player);
 		if(collisionOn==false) {
-			angle+=0.001;
-			if(angle>=2*Math.PI) {
-				angle=0;
+			if(SpsAngle>=2*Math.PI) {
+				SpsAngle=0;
 			}
 			switch(direction) {
-				case "up":
-				worldx=newX;
-				worldy=newY;break;
-				case "down":worldx=newX;
-				worldy=newY;break;
-				case "left":worldx=newX;
-				worldy=newY;break;
-				case "right":worldx=newX;
-				worldy=newY;break;
-				case "upright":worldx=newX;
-				worldy=newY;break;
-				case "upleft": worldx=newX;
-				worldy=newY;break;
-				case "downright":worldx=newX;
-				worldy=newY;break;
-				case "downleft":worldx=newX;
+				case "space_station":worldx=newX;
 				worldy=newY;break;
 				
 				
@@ -73,6 +60,16 @@ public class SpaceStation extends Entity{
 				spriteCounter=0;
 			}
 		}
+	}
+		public AffineTransform rotatedImage() {
+		    int screenX = worldx - gp.player.worldx + gp.player.screenx;
+		    int screenY = worldy - gp.player.worldy + gp.player.screeny;
+
+		    AffineTransform transform = new AffineTransform();
+		    transform.translate(screenX, screenY);
+		    transform.rotate(Math.toRadians(SpsAngle*59), gp.Tilesize*5/2, gp.Tilesize*5/2);
+
+		    return transform;
 	}
 
 }

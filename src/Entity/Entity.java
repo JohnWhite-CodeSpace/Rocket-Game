@@ -20,6 +20,7 @@ public class Entity {
 	public int HyperSpeed;
 	public double velocity;
 	public double PlayerAngle;
+	public double SpsAngle;
 	public double Acceleration, HyperAcceleration;
 	public double AngularVelocity;
 	public double newx, newy;
@@ -29,7 +30,8 @@ public class Entity {
 	public BufferedImage up1, down1, left1, right1, upleft1, upright1, downleft1, downright1, up2, down2, left2, right2, upleft2, upright2, downleft2, downright2,
 	up3, down3,right3,left3,upleft3,upright3,downright3,downleft3, up4, down4, left4, right4, upright4, upleft4, downright4, downleft4;
 	public BufferedImage lifeimage1,lifeimage2,recharge1,recharge2;
-	public BufferedImage Player1,Player2,Player3, Bullet1, Bullet2, Bullet3,Bullet4, DeathImage1, DeathImage2, DeathImage3;
+	public BufferedImage Player1,Player2,Player3, Bullet1, Bullet2, Bullet3,Bullet4, DeathImage1, DeathImage2, DeathImage3,
+	Planet1, Planet2, Planet3, Planet4,SpaceStation1,SpaceStation2,SpaceStation3;
 	public String name;
 	public String Life;
 	public int type;
@@ -58,6 +60,7 @@ public class Entity {
 	public Neptune neptune;
 	public Uranus uranus;
 	public Saturn saturn;
+	public Jupiter jupiter;
 	public OBJ_PlayerLife lifebar;
 	public int ActionLockCounter = 0;
 	public double angle =0;
@@ -251,6 +254,31 @@ public class Entity {
 					image=Bullet4;
 				}
 				break;
+			case "planet":
+				if(spriteNum==1) {
+					image = Planet1;
+				}
+				if(spriteNum==2) {
+					image = Planet2;
+				}
+				if(spriteNum==3) {
+					image=Planet3;
+				}
+				if(spriteNum==4) {
+					image=Planet4;
+				}
+				break;
+			case "space_station":
+				if(spriteNum==1) {
+					image = SpaceStation1;
+				}
+				if(spriteNum==2) {
+					image = SpaceStation2;
+				}
+				if(spriteNum==3) {
+					image=SpaceStation3;
+				}
+				break;
 			}
 			
 			
@@ -266,6 +294,9 @@ public class Entity {
 				for(int i=0; i<gp.projectileList.size(); i++)
 		        g2.drawImage(image, ((Projectile) gp.projectileList.get(i)).rotatedImage(i), null);
 			
+			}
+			else if(image.equals(SpaceStation1)||image.equals(SpaceStation2)||image.equals(SpaceStation3)) {
+		        g2.drawImage(image, gp.spacestation.rotatedImage(), null);
 			}
 			else {
 				g2.drawImage(image, screenX, screenY, null);

@@ -20,11 +20,13 @@ import Entity.Asteroid;
 import Entity.SpaceStation;
 import Entity.Pluto;
 import Entity.Neptune;
+import Entity.Jupiter;
 import Entity.Uranus;
 import Entity.Saturn;
 import Object.OBJ_Pluto;
 import Object.OBJ_SpaceStation;
 import Object.OBJ_Neptune;
+import Object.OBJ_Jupiter;
 import Object.OBJ_Uranus;
 import Object.OBJ_Saturn;
 import tile.TileManager;
@@ -77,6 +79,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public Neptune neptune = new OBJ_Neptune(this);
 	public Uranus uranus = new OBJ_Uranus(this);
 	public Saturn saturn = new OBJ_Saturn(this);
+	public Jupiter jupiter = new OBJ_Jupiter(this);
 	public UI ui = new UI(this);
 	public Asteroid asteroids[] = new Asteroid[100];
 	Font font4;
@@ -114,6 +117,11 @@ public class GamePanel extends JPanel implements Runnable{
 		}
 		aSetter.setAsteroid();
 		aSetter.SetSpaceStation();
+		aSetter.SetUranus();
+		aSetter.SetNeptune();
+		aSetter.SetSaturn();
+		aSetter.SetPluto();
+		aSetter.SetJupiter();
 		gameState = titleState;
 		songs.Play();
 		
@@ -160,6 +168,8 @@ public class GamePanel extends JPanel implements Runnable{
 			uranus.SetAction();
 			saturn.update();
 			saturn.SetAction();
+			jupiter.update();
+			jupiter.SetAction();
 			for(int i=0; i<projectileList.size(); i++) {
 				if(projectileList.get(i)!=null) {
 					if(projectileList.get(i).IsAlive==true) {
@@ -298,6 +308,7 @@ public class GamePanel extends JPanel implements Runnable{
 			entityList.add(neptune);
 			entityList.add(uranus);
 			entityList.add(saturn);
+			entityList.add(jupiter);
 			
 			
 			for(int i=0; i < projectileList.size(); i++) {

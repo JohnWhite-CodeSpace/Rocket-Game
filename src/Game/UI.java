@@ -88,7 +88,7 @@ public class UI {
 		if(gp.gameState==gp.OptionState) {
 			
 		}
-
+			
 		}
 		
 		if(gp.gameState==gp.GameOverState) {

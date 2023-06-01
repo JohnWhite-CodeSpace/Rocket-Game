@@ -37,23 +37,9 @@ public class Uranus extends Entity{
 				angle=0;
 			}
 			switch(direction) {
-				case "up":
-				worldx=newX;
-				worldy=newY;break;
-				case "down":worldx=newX;
-				worldy=newY;break;
-				case "left":worldx=newX;
-				worldy=newY;break;
-				case "right":worldx=newX;
-				worldy=newY;
-				case "upright":worldx=newX;
-				worldy=newY;break;
-				case "upleft": worldx=newX;
-				worldy=newY;break;
-				case "downright":worldx=newX;
-				worldy=newY;break;
-				case "downleft":worldx=newX;
-				worldy=newY;break;
+				case "planet":worldx=newX;
+				worldy=newY; break;
+					
 				
 				}
         
