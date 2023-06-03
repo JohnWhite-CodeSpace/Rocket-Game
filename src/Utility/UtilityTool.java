@@ -13,13 +13,12 @@ public class UtilityTool {
 	        Graphics2D graphics2D = scaledImage.createGraphics();
 	        graphics2D.drawImage(original, 0, 0, width, height, null);
 	        graphics2D.dispose();
-
 	        return scaledImage;
 	    }
 	    public static void changeAlpha(Graphics2D graphics2D, float alphaValue) {
 	        graphics2D.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alphaValue));
 	    }
-	    public boolean isInsidePlayerView(int worldX, int worldY, GamePanel gamePanel) {
+	    public static boolean isInsidePlayerView(int worldX, int worldY, GamePanel gamePanel) {
 	        return worldX + 12*gamePanel.Tilesize > gamePanel.player.worldx - gamePanel.player.screenx
 	                && worldX - 12*gamePanel.Tilesize < gamePanel.player.worldy + gamePanel.player.screeny
 	                && worldY + 12*gamePanel.Tilesize > gamePanel.player.worldx - gamePanel.player.screenx

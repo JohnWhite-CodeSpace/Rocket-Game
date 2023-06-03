@@ -1,11 +1,6 @@
-/sound/
-/space_station/
+/tile/
 /Entity/
+/Utility/
 /Game/
 /Object/
-/Utility/
-/module-info.class
-/tile/
 /tiles/
-/player/
-/objects/

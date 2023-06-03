@@ -7,7 +7,6 @@ import Game.GamePanel;
 
 public class Projectile extends Entity{
 	Entity user;
-	
 	public Projectile(GamePanel gp) {
 		super(gp);
 		
