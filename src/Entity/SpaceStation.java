@@ -30,8 +30,8 @@ public class SpaceStation extends Entity{
 			
 			
 	        	 
-		int newX = (int) ((radius * Math.cos(SpsAngle)) + radius + centerx);
-        int newY = (int) ((radius * Math.sin(SpsAngle)) + radius + centery);
+		int newX = (int) ((radius * Math.cos(SpsAngle))  + centerx);
+        int newY = (int) ((radius * Math.sin(SpsAngle))  + centery);
        
        
 		//gp.CollisionCheck.checkEntity(this, gp.player);
@@ -67,7 +67,7 @@ public class SpaceStation extends Entity{
 
 		    AffineTransform transform = new AffineTransform();
 		    transform.translate(screenX, screenY);
-		    transform.rotate(Math.toRadians(SpsAngle*59), gp.Tilesize*5/2, gp.Tilesize*5/2);
+		    transform.rotate(Math.toRadians(SpsAngle*58), gp.Tilesize*5/2, gp.Tilesize*5/2);
 
 		    return transform;
 	}

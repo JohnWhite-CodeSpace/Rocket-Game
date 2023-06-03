@@ -11,14 +11,14 @@ public class OBJ_Pluto extends Pluto{
 	public OBJ_Pluto(GamePanel gp) {
 		super(gp);
 		this.gp = gp;
-		radius = 140*gp.Tilesize;
-		centerx=gp.Tilesize*75;
-		centery=gp.Tilesize*30;
+		radius = 240*gp.Tilesize;
+		centerx=gp.Tilesize*250;
+		centery=gp.Tilesize*250;
         name = "Pluto";
         speed=1;
         maxLife = 2000;
         life = maxLife;
-        angle=2;
+        angle=0;
        // worldx=gp.Tilesize*96;
 		//worldy=gp.Tilesize*72;
         solidArea = new Rectangle();
@@ -34,7 +34,7 @@ public class OBJ_Pluto extends Pluto{
 		// TODO Auto-generated constructor stub
 	}
 	public void getImage() {
-		int i = 5;
+		int i = 4;
 			Planet1 = setup("/planets/Pluto1", gp.Tilesize*i, gp.Tilesize*i);
 			Planet2 = setup("/planets/Pluto2", gp.Tilesize*i, gp.Tilesize*i);
 			Planet3 = setup("/planets/Pluto3", gp.Tilesize*i, gp.Tilesize*i);

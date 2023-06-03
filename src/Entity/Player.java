@@ -74,8 +74,8 @@ public class Player extends Entity {
 			
 		}
 	public void setDefaultValues() {
-		worldx=gp.Tilesize*96;
-		worldy=gp.Tilesize*72;
+		worldx=gp.Tilesize*250;
+		worldy=gp.Tilesize*250;
 		speed=5;
 		maxLife=10;
 		ammoType="bullet1";
@@ -114,7 +114,7 @@ public class Player extends Entity {
 		gp.CollisionCheck.CheckTile(this);
 		gp.CollisionCheck.checkEntity(this, gp.spacestation);
 		gp.CollisionCheck.checkEntity(this, gp.saturn);
-		gp.CollisionCheck.checkEntity(this, gp.neptune);
+		gp.CollisionCheck.PlanetCheck(this, gp.neptune);
 		gp.CollisionCheck.checkEntity(this, gp.pluto);
 		gp.CollisionCheck.checkEntity(this, gp.uranus);
 		int asteroidindex = gp.CollisionCheck.checkEntity(this, gp.asteroids);
@@ -260,6 +260,23 @@ public class Player extends Entity {
 		}
 		System.out.println(fuel);
 		System.out.println(fuelconsumption);
+	}
+	public void setDefaultPositions() {
+		worldx=gp.Tilesize*250;
+		worldy=gp.Tilesize*250;
+		direction = "player1";
+	}
+	public void restoreDefaultValues() {
+		velocity =0;
+		PlayerAngle = 0;
+		life=maxLife;
+		maxLife=10;
+		maxfuel=100;
+		Weapon = "Rocket";
+		fuel=maxfuel;
+		fuelconsumption=0;
+		invincible=false;
+		ammoType="bullet1";
 	}
 	
 }

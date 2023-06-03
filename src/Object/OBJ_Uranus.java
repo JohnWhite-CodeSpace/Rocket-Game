@@ -12,9 +12,9 @@ public class OBJ_Uranus extends Uranus{
 	public OBJ_Uranus(GamePanel gp) {
 		super(gp);
 		this.gp = gp;
-		radius = 90*gp.Tilesize;
-		centerx=gp.Tilesize*75;
-		centery=gp.Tilesize*30;
+		radius = 185*gp.Tilesize;
+		centerx=gp.Tilesize*250;
+		centery=gp.Tilesize*250;
         name = "Uranus";
         speed=1;
         maxLife = 2000;
@@ -27,12 +27,12 @@ public class OBJ_Uranus extends Uranus{
 		solidAreaDefaultX = solidArea.x;
 		solidAreaDefaultY = solidArea.y;
         IsAlive = false;
-        
+        angle=0;
         getImage();
 		// TODO Auto-generated constructor stub
 	}
 	public void getImage() {
-		 	int i =10;
+		 	int i =9;
 				Planet1 = setup("/planets/Uranus1", gp.Tilesize*i, gp.Tilesize*i);
 				Planet2 = setup("/planets/Uranus2", gp.Tilesize*i, gp.Tilesize*i);
 				Planet3 = setup("/planets/Uranus3", gp.Tilesize*i, gp.Tilesize*i);

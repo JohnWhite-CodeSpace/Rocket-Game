@@ -23,8 +23,8 @@ public class Jupiter extends Entity {
 		gp.CollisionCheck.CheckTile(this);
 		gp.CollisionCheck.playerCheck(this);
 	        	 
-		int newX = (int) ((radius * Math.cos(angle)) + radius + centerx);
-        int newY = (int) ((radius * Math.sin(angle)) + radius + centery);
+		int newX = (int) ((radius * Math.cos(angle)) + centerx);
+        int newY = (int) ((radius * Math.sin(angle)) + centery);
        
        
 		//gp.CollisionCheck.checkEntity(this, gp.player);

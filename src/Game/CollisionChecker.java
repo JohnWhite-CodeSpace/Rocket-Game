@@ -261,7 +261,6 @@ public class CollisionChecker {
 		public int checkEntity(Entity entity, Entity[] target) {
 			
 			int index =999;
-			boolean contactEntity = false;
 			for(int i=0; i<target.length; i++) {
 				if(target[i]!=null) {
 					entity.solidArea.x = entity.worldx + entity.solidArea.x;
@@ -338,7 +337,6 @@ public class CollisionChecker {
 					if(entity.solidArea.intersects(target[i].solidArea)) {
 						if(target[i]!=entity) {
 							entity.collisionOn = true;
-							contactEntity = true;
 							index  = i;
 						}
 					}
@@ -572,6 +570,56 @@ public class CollisionChecker {
 				target.solidArea.x = target.solidAreaDefaultX;
 				target.solidArea.y = target.solidAreaDefaultY;
 			
+		}
+		public boolean playerPlanetCheck(Entity entity) {
+		    boolean contactPlayer = false;
+		    if (gp.player != null) {
+		        double playerCenterX = gp.player.worldx + (gp.player.solidArea.width / 2.0);
+		        double playerCenterY = gp.player.worldy + (gp.player.solidArea.height / 2.0);
+
+		        double planetCenterX = entity.worldx + (entity.solidArea.width / 2.0);
+		        double planetCenterY = entity.worldy + (entity.solidArea.height / 2.0);
+
+		        double playerRadius = Math.max(gp.player.solidArea.width, gp.player.solidArea.height) / 2.0;
+		        double planetRadius = Math.max(entity.solidArea.width, entity.solidArea.height) / 2.0;
+
+		        double distance = Math.sqrt(Math.pow(planetCenterX - playerCenterX, 2) + Math.pow(planetCenterY - playerCenterY, 2));
+		        switch(entity.direction) {
+		        case "player1":
+		        	if (distance < playerRadius + planetRadius+gp.Tilesize) {
+			            entity.collisionOn = true;
+			            contactPlayer = true;
+			        }
+		        break;
+			        }
+		        
+		    }
+		    return contactPlayer;
+		}
+		public boolean PlanetCheck(Entity entity, Entity target) {
+			boolean contactPlayer = false;
+		    if (gp.player != null) {
+		    	double playerCenterX = entity.worldx + (entity.solidArea.width / 2.0);
+		        double playerCenterY = entity.worldy + (entity.solidArea.height / 2.0);
+
+		        double planetCenterX = target.worldx + (target.solidArea.width / 2.0);
+		        double planetCenterY = target.worldy + (target.solidArea.height / 2.0);
+
+		        double playerRadius = Math.max(entity.solidArea.width, entity.solidArea.height) / 2.0;
+		        double planetRadius = Math.max(target.solidArea.width, target.solidArea.height) / 2.0;
+
+		        double distance = Math.sqrt(Math.pow(planetCenterX - playerCenterX, 2) + Math.pow(planetCenterY - playerCenterY, 2));
+		        switch(entity.direction) {
+		    	case "player1":
+	        	if (distance < playerRadius + planetRadius) {
+		            entity.collisionOn = true;
+		            contactPlayer = true;
+		        }
+	        	break;
+		    }
+		    }
+			
+			return contactPlayer;
 		}
 
 }

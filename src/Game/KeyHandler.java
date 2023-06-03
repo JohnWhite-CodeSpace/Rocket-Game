@@ -15,6 +15,7 @@ public class KeyHandler implements KeyListener{
 	public boolean shotsFired2;
 	public boolean enterPressed;
 	public int changeFireMode=0;
+	public boolean IsFirstGame=true;
 	GamePanel gp;
 	//DEBUG
 	
@@ -83,11 +84,23 @@ public class KeyHandler implements KeyListener{
 				if(code==KeyEvent.VK_ENTER) {
 					gp.playSE(3);
 					if(gp.ui.commandNum==0) {
-						gp.gameState=gp.playState;
+						if(IsFirstGame==true) {
+							gp.gameState=gp.playState;
+						}
+						if(IsFirstGame==false) {
+							gp.restart();
+							gp.gameState=gp.playState;
+						}
 						gp.player.ChooseRocket(1);
 					}
 					if(gp.ui.commandNum==1) {
-						gp.gameState=gp.playState;
+						if(IsFirstGame==true) {
+							gp.gameState=gp.playState;
+						}
+						if(IsFirstGame==false) {
+							gp.restart();
+							gp.gameState=gp.playState;
+						}
 						gp.player.ChooseRocket(2);
 					}
 					if(gp.ui.commandNum==2) {
@@ -220,6 +233,7 @@ public class KeyHandler implements KeyListener{
 					gp.ui.titleScreenState=0;
 					gp.gameState=gp.titleState;
 					gp.player.AsteroidCollision=0;
+					IsFirstGame=false;
 				}
 				
 				//gp.ui.lifeOn=true;

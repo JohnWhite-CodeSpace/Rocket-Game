@@ -9,9 +9,9 @@ public class OBJ_Saturn extends Saturn{
 	public OBJ_Saturn(GamePanel gp) {
 		super(gp);
 		this.gp = gp;
-		radius = 58*gp.Tilesize;
-		centerx=gp.Tilesize*75;
-		centery=gp.Tilesize*30;
+		radius = 145*gp.Tilesize;
+		centerx=gp.Tilesize*250;
+		centery=gp.Tilesize*250;
         name = "Saturn";
         speed=1;
         maxLife = 2000;
@@ -24,13 +24,13 @@ public class OBJ_Saturn extends Saturn{
 		solidAreaDefaultX = solidArea.x;
 		solidAreaDefaultY = solidArea.y;
         IsAlive = false;
-        
+        angle=0;
         getImage();
 		// TODO Auto-generated constructor stub
 	}
 	public void getImage() {
-		 	int i=15;
-		 	int j=10;
+		 	int i=14;
+		 	int j=9;
 				Planet1 = setup("/planets/Saturn1", gp.Tilesize*i, gp.Tilesize*j);
 				Planet2 = setup("/planets/Saturn2", gp.Tilesize*i, gp.Tilesize*j);
 				Planet3 = setup("/planets/Saturn3", gp.Tilesize*i, gp.Tilesize*j);

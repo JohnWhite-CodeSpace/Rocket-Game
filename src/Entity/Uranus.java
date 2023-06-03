@@ -26,13 +26,13 @@ public class Uranus extends Entity{
 			
 			
 	        	 
-		int newX = (int) ((radius * Math.cos(angle)) + radius + centerx);
-        int newY = (int) ((radius * Math.sin(angle)) + radius + centery);
+		int newX = (int) ((radius * Math.cos(angle)) + centerx);
+        int newY = (int) ((radius * Math.sin(angle)) + centery);
        
        
 		//gp.CollisionCheck.checkEntity(this, gp.player);
 		if(collisionOn==false) {
-			angle+=0.00025;
+			angle+=0.0001;
 			if(angle>=2*Math.PI) {
 				angle=0;
 			}

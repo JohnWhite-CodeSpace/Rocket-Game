@@ -15,8 +15,8 @@ public class OBJ_SpaceStation extends SpaceStation{
 		super(gp);
 		this.gp = gp;
 		radius = 28*gp.Tilesize;
-		centerx=gp.Tilesize*76;
-		centery=gp.Tilesize*56;
+		centerx=gp.Tilesize*250;
+		centery=gp.Tilesize*250;
         name = "SpaceStation";
         speed=1;
         maxLife = 2000;

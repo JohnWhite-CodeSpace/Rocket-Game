@@ -21,11 +21,13 @@ public class Neptune extends Entity {
 	public void update() {
 		collisionOn=false;
 		gp.CollisionCheck.CheckTile(this);
-		gp.CollisionCheck.playerCheck(this);  	 
-		int newX = (int) ((radius * Math.cos(angle)) + radius + centerx);
-        int newY = (int) ((radius * Math.sin(angle)) + radius + centery);
+		//gp.CollisionCheck.playerCheck(this); 
+		gp.CollisionCheck.playerPlanetCheck(this);
+		int newX = (int) ((radius * Math.cos(angle))  + centerx);
+        int newY = (int) ((radius * Math.sin(angle))  + centery);
+        System.out.println(worldx/gp.Tilesize+", "+worldy/gp.Tilesize);
 		if(collisionOn==false) {
-			angle+=0.00025;
+			angle+=0.0001;
 			if(angle>=2*Math.PI) {
 				angle=0;
 			}

@@ -203,6 +203,17 @@ public class GamePanel extends JPanel implements Runnable{
 
 		
 	}
+	public void restart() {
+		player.restoreDefaultValues();
+		player.setDefaultPositions();
+		aSetter.setAsteroid();
+		aSetter.SetSpaceStation();
+		aSetter.SetUranus();
+		aSetter.SetNeptune();
+		aSetter.SetSaturn();
+		aSetter.SetPluto();
+		aSetter.SetJupiter();
+	}
 //	public void drawToTempScreen() {
 //		long LoadStart = 0;
 //		if(keyH.DebugMode==true) {

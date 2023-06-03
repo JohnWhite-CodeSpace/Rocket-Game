@@ -10,9 +10,9 @@ public class OBJ_Jupiter extends Jupiter{
 	public OBJ_Jupiter(GamePanel gp) {
 		super(gp);
 		this.gp = gp;
-		radius = 50*gp.Tilesize;
-		centerx=gp.Tilesize*75;
-		centery=gp.Tilesize*30;
+		radius = 110*gp.Tilesize;
+		centerx=gp.Tilesize*250;
+		centery=gp.Tilesize*250;
         name = "Jupiter";
         speed=1;
         maxLife = 2000;
@@ -25,12 +25,12 @@ public class OBJ_Jupiter extends Jupiter{
 		solidAreaDefaultX = solidArea.x;
 		solidAreaDefaultY = solidArea.y;
         IsAlive = false;
-        
+        angle=0;
         getImage();
 		// TODO Auto-generated constructor stub
 	}
 	public void getImage() {
-		int i = 15;	
+		int i = 10;	
 		Planet1 = setup("/planets/Jupiter1", gp.Tilesize*i, gp.Tilesize*i);	
 		Planet2 = setup("/planets/Jupiter1", gp.Tilesize*i, gp.Tilesize*i);	
 		Planet3 = setup("/planets/Jupiter1", gp.Tilesize*i, gp.Tilesize*i);	

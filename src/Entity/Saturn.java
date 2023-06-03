@@ -17,8 +17,8 @@ public class Saturn extends Entity{
 		this.life = this.maxLife;
 		this.user = user;
 		angle = 2.5;
-		this.worldx = (int) ((radius * Math.cos(angle)) + radius + centerx);
-		this.worldy = (int) ((radius * Math.sin(angle)) + radius + centery);
+		this.worldx = (int) ((radius * Math.cos(angle))  + centerx);
+		this.worldy = (int) ((radius * Math.sin(angle))  + centery);
 	}
 	public void update() {
 		collisionOn=false;
@@ -27,13 +27,13 @@ public class Saturn extends Entity{
 			
 			
 	        	 
-		int newX = (int) ((radius * Math.cos(angle)) + radius + centerx);
-        int newY = (int) ((radius * Math.sin(angle)) + radius + centery);
+		int newX = (int) ((radius * Math.cos(angle))  + centerx);
+        int newY = (int) ((radius * Math.sin(angle))  + centery);
        
        
 		//gp.CollisionCheck.checkEntity(this, gp.player);
 		if(collisionOn==false) {
-			angle+=0.0003;
+			angle+=0.0001;
 			if(angle>=2*Math.PI) {
 				angle=0;
 			}

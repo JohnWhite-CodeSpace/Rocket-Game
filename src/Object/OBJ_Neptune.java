@@ -11,9 +11,9 @@ public class OBJ_Neptune extends Neptune{
 	public OBJ_Neptune(GamePanel gp) {
 		super(gp);
 		this.gp = gp;
-		radius = 115*gp.Tilesize;
-		centerx=gp.Tilesize*75;
-		centery=gp.Tilesize*30;
+		radius = 210*gp.Tilesize;
+		centerx=gp.Tilesize*250;
+		centery=gp.Tilesize*250;
         name = "Neptune";
         speed=1;
         maxLife = 2000;
@@ -26,12 +26,13 @@ public class OBJ_Neptune extends Neptune{
 		solidAreaDefaultX = solidArea.x;
 		solidAreaDefaultY = solidArea.y;
         IsAlive = false;
+        angle=0;
         
         getImage();
 		// TODO Auto-generated constructor stub
 	}
 	public void getImage() {
-		 	int i = 10;
+		 	int i = 8;
 			Planet1 = setup("/planets/Neptune1", gp.Tilesize*i, gp.Tilesize*i);
 			Planet2 = setup("/planets/Neptune2", gp.Tilesize*i, gp.Tilesize*i);
 			Planet3 = setup("/planets/Neptune3", gp.Tilesize*i, gp.Tilesize*i);
