@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import Object.OBJ_PlayerLife;
 import Object.OBJ_PlayerFireRecharge;
+import Object.OBJ_PlayerFuel;
 import javax.imageio.ImageIO;
 import javax.swing.Timer;
 
@@ -27,6 +28,7 @@ public class UI {
 	double playTime =0;
 	public BufferedImage lifefull,lifeempty;
 	public BufferedImage recharge1, recharge2;
+	public BufferedImage Fuel100,Fuel75,Fuel50, Fuel25, Fuel0;
 	Timer timer;
 	OBJ_PlayerLife lifebar;
 	
@@ -39,10 +41,16 @@ public class UI {
 		lifeOn=true;
 		OBJ_PlayerLife life1 = new OBJ_PlayerLife(gp);
 		OBJ_PlayerFireRecharge rechargebar = new OBJ_PlayerFireRecharge(gp);
+		OBJ_PlayerFuel PFuel = new OBJ_PlayerFuel(gp);
 		lifefull = life1.lifeimage1;
 		lifeempty = life1.lifeimage2;
 		recharge1 = rechargebar.recharge1;
 		recharge2 = rechargebar.recharge2;
+		Fuel100 = PFuel.fuel100;
+		Fuel75 = PFuel.fuel75;
+		Fuel50 = PFuel.fuel50;
+		Fuel25 = PFuel.fuel25;
+		Fuel0 = PFuel.fuel0;
 	}
 	public void showMessage(String text) {
 		
@@ -65,9 +73,20 @@ public class UI {
 		}
 		if(gp.gameState == gp.playState) {
 			GameTimer(g2);
-			DrawLife();
+			try {
+				DrawLife();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			try {
 				DrawFireRecharge();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				DrawFuelBar();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -76,7 +95,18 @@ public class UI {
 		
 		if(gp.gameState == gp.pauseState) {
 			PauseScreen();
-			DrawLife();
+			try {
+				DrawLife();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				DrawFireRecharge();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		if(gp.gameState == gp.exitpauseState) {
 			try {
@@ -403,8 +433,10 @@ public class UI {
 	            }
 	        
 	}
-	public void DrawLife() {
+	public void DrawLife() throws IOException {
 		if(lifeOn==true) {
+			BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/Heart.png"));
+			g2.drawImage(image, gp.Tilesize*4,0,gp.Tilesize+gp.Tilesize/2,gp.Tilesize+gp.Tilesize/2,null);
 			g2.setFont(font);
 			g2.setColor(Color.white);
 			g2.drawString("Health", gp.Tilesize-10, gp.Tilesize);
@@ -458,6 +490,8 @@ public class UI {
 		g2.setFont(font);
 		g2.setColor(Color.white);
 		g2.drawString("Fire recharge", gp.Tilesize-10, gp.Tilesize*14+20);
+		BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/"+gp.player.Weapon+".png"));
+		g2.drawImage(image, gp.Tilesize*5,gp.Tilesize*15,gp.Tilesize+gp.Tilesize/2,gp.Tilesize+gp.Tilesize/2,null);
 		int x = gp.Tilesize/2;
 		int y = gp.Tilesize*15;
 		int i=0;
@@ -475,7 +509,42 @@ public class UI {
 			x+=gp.Tilesize/3;
 		}
 	}
-	
+	public void DrawFuelBar() throws IOException {
+		BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/Canister.png"));
+		g2.drawImage(image, gp.Tilesize*28,gp.Tilesize*14+10,gp.Tilesize*2,gp.Tilesize*2,null);
+		g2.setFont(font);
+		g2.setColor(Color.white);
+		g2.drawString("Fuel", gp.Tilesize*28, gp.Tilesize*13+20);
+		g2.setFont(font);
+		int x = gp.Tilesize*30 + gp.Tilesize/2;
+		int y = gp.Tilesize*15 + gp.Tilesize/2;
+		int i=0;
+		while(i<gp.player.maxfuel/10) {
+				g2.drawImage(Fuel0, x, y,gp.Tilesize,gp.Tilesize, null);
+			i++;
+			y-=gp.Tilesize/3;
+		}
+		x = gp.Tilesize*30 + gp.Tilesize/2;
+		y = gp.Tilesize*15 + gp.Tilesize/2;
+		i=0;
+		while(i<gp.player.fuel/10) {
+			if(i>=0&&i<3) {
+				g2.drawImage(Fuel25, x, y,gp.Tilesize,gp.Tilesize, null);
+			}
+			else if(i>=3&&i<5) {
+				g2.drawImage(Fuel50, x, y,gp.Tilesize,gp.Tilesize, null);
+			}
+			else if(i>=5 && i<7) {
+				g2.drawImage(Fuel75, x, y,gp.Tilesize,gp.Tilesize, null);
+				
+			}
+			else if(i>=7 && i<=10) {
+				g2.drawImage(Fuel100, x, y,gp.Tilesize,gp.Tilesize, null);
+			}
+			i++;
+			y-=gp.Tilesize/3;
+		}
+	}
 }
 
 	

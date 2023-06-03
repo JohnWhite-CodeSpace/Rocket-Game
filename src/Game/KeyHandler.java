@@ -234,6 +234,8 @@ public class KeyHandler implements KeyListener{
             if (gp.player.velocity > gp.player.MaxSpeed) {
             	gp.player.velocity = gp.player.MaxSpeed;
             }
+            gp.player.fuelconsumption+=10;
+            gp.player.FuelUsage();
 		}
 		if(code == KeyEvent.VK_S) {
 			downPressed = true;
@@ -242,6 +244,8 @@ public class KeyHandler implements KeyListener{
             if (gp.player.velocity < -gp.player.MaxSpeed) {
             	gp.player.velocity = -gp.player.MaxSpeed;
             }
+            gp.player.fuelconsumption+=10;
+            gp.player.FuelUsage();
             
 		}
 		if(code == KeyEvent.VK_A || code2==KeyEvent.VK_A) {
@@ -249,16 +253,22 @@ public class KeyHandler implements KeyListener{
 			gp.player.direction = "player1";
 			gp.player.PlayerAngle -= gp.player.AngularVelocity;
 			//System.out.println(gp.player.PlayerAngle);
+			gp.player.fuelconsumption+=10;
+			gp.player.FuelUsage();
 		}
 		if(code == KeyEvent.VK_D) {
 			rightPressed = true;
 			gp.player.direction = "player1";
 			gp.player.PlayerAngle += gp.player.AngularVelocity;
 			//System.out.println(gp.player.PlayerAngle);
+			gp.player.fuelconsumption+=10;
+			gp.player.FuelUsage();
 		}
 		
 		if(code==KeyEvent.VK_SHIFT ) {
 			speedPressed = true;
+			gp.player.fuelconsumption+=50;
+			gp.player.FuelUsage();
 		}
 		if(code == KeyEvent.VK_SPACE) {
 			shotsFired = true;

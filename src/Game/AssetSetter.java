@@ -30,7 +30,6 @@ public class AssetSetter {
 		
 	}
 	public void SetSpaceStation() {
-		//gp.spacestation = new OBJ_SpaceStation(gp);
 		gp.spacestation.set(gp.Tilesize*94,gp.Tilesize*75,"space_station",true,null);
 	}
 	public void SetUranus() {

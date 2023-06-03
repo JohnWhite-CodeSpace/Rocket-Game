@@ -88,20 +88,18 @@ public class TileManager {
 	    int offsetX = gp.player.worldx % gp.Tilesize;
 	    int offsetY = gp.player.worldy % gp.Tilesize;
 
-	    int screenX = offsetX - gp.player.screenx;
-	    int screenY = offsetY - gp.player.screeny;
-
 	    int startCol = Math.max(playerCol - (gp.screenWidth / (2 * gp.Tilesize)), 0);
 	    int endCol = Math.min(playerCol + (gp.screenWidth / (2 * gp.Tilesize)) + 1, gp.maxWorldCol - 1);
+
 	    int startRow = Math.max(playerRow - (gp.screenHeight / (2 * gp.Tilesize)), 0);
 	    int endRow = Math.min(playerRow + (gp.screenHeight / (2 * gp.Tilesize)) + 1, gp.maxWorldRow - 1);
 
 	    for (int row = startRow; row <= endRow; row++) {
+	        int screenY = (row * gp.Tilesize) - gp.player.worldy + gp.player.screeny;
 	        for (int col = startCol; col <= endCol; col++) {
 	            int tileNum = mapTileNum[col][row];
 
-	            screenX = (col * gp.Tilesize) - gp.player.worldx + gp.player.screenx;
-	            screenY = (row * gp.Tilesize) - gp.player.worldy + gp.player.screeny;
+	            int screenX = (col * gp.Tilesize) - gp.player.worldx + gp.player.screenx;
 
 	            g2d.drawImage(tile[tileNum].image, screenX, screenY, null);
 	        }

@@ -10,6 +10,7 @@ import java.util.Objects;
 import javax.imageio.ImageIO;
 
 import Game.GamePanel;
+import Object.OBJ_PlayerFuel;
 import Object.OBJ_PlayerLife;
 import Utility.UtilityTool;
 
@@ -18,6 +19,7 @@ public class Entity {
 	public int worldx, worldy;
 	public int speed;
 	public int HyperSpeed;
+	public int fuel, fuelconsumption,maxfuel;
 	public double velocity;
 	public double PlayerAngle;
 	public double SpsAngle;
@@ -29,11 +31,12 @@ public class Entity {
 	GamePanel gp;
 	public BufferedImage up1, down1, left1, right1, upleft1, upright1, downleft1, downright1, up2, down2, left2, right2, upleft2, upright2, downleft2, downright2,
 	up3, down3,right3,left3,upleft3,upright3,downright3,downleft3, up4, down4, left4, right4, upright4, upleft4, downright4, downleft4;
-	public BufferedImage lifeimage1,lifeimage2,recharge1,recharge2;
+	public BufferedImage lifeimage1,lifeimage2,recharge1,recharge2, fuel100, fuel75,fuel50, fuel25, fuel0;
 	public BufferedImage Player1,Player2,Player3, Bullet1, Bullet2, Bullet3,Bullet4, DeathImage1, DeathImage2, DeathImage3,
 	Planet1, Planet2, Planet3, Planet4,SpaceStation1,SpaceStation2,SpaceStation3;
 	public String name;
 	public String Life;
+	public String Weapon;
 	public int type;
 	public int AsteroidCollision;
 	public String direction = "up";
@@ -62,6 +65,7 @@ public class Entity {
 	public Saturn saturn;
 	public Jupiter jupiter;
 	public OBJ_PlayerLife lifebar;
+	public OBJ_PlayerFuel PFuel;
 	public int ActionLockCounter = 0;
 	public double angle =0;
 	public int radius;

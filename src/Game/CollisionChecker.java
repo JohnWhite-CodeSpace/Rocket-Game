@@ -197,8 +197,6 @@ public class CollisionChecker {
 		    
 		    
 
-		    System.out.println(tileNum1 + "," + tileNum2 + "," +tileNum3 + "," + tileNum4);
-		    System.out.println("PlayerAngle: " + gp.player.PlayerAngle + ", collisionOn: " + entity.collisionOn);
 		    break;
 		}
 	}

@@ -20,6 +20,7 @@ public class Player extends Entity {
 	int timespan;
 	public int recharge;
 	public int maxrecharge;
+	public int rechargeCounter;
 	public Player(GamePanel gp, KeyHandler keyH) {
 		super(gp);
 		screenx = gp.screenWidth/2 - (gp.Tilesize/2);
@@ -87,6 +88,11 @@ public class Player extends Entity {
 		timespan=20;
 		maxrecharge=120;
 		recharge=maxrecharge;
+		rechargeCounter=0;
+		maxfuel=100;
+		fuel=maxfuel;
+		fuelconsumption=0;
+		Weapon = "Rocket";
 		//asteroid = new OBJ_Asteroid(gp);
 	}
 	public void update() {
@@ -170,12 +176,17 @@ public class Player extends Entity {
 		}
 		if(rein==true) {
 			rechargeLoading();
-			invincibleCounter++;
-			if(invincibleCounter>120) {
+			rechargeCounter++;
+			if(rechargeCounter>=120) {
 				rein=false;
-				invincibleCounter = 0;
+				rechargeCounter = 0;
 				recharge=120;
 				gp.ui.showMessage("Ready to fire!");
+				if(Weapon.equals("Bullets")) {
+					Weapon="Rocket";
+				}else if(Weapon.equals("Rocket")) {
+					Weapon="Bullets";
+				}
 			}
 		}
 		
@@ -228,6 +239,7 @@ public class Player extends Entity {
 				recharge--;
 				if(recharge<0) {
 					recharge=0;
+					
 				}
 			}
 			if(ammoType.equals("bullet1")) {
@@ -235,9 +247,19 @@ public class Player extends Entity {
 				recharge--;
 				if(recharge<0) {
 					recharge=0;
+					
 				}
 			}
 		}
+	}
+	public void FuelUsage() {
+		if(fuelconsumption==300) {
+			fuel-=1;
+			fuelconsumption=0;
+			
+		}
+		System.out.println(fuel);
+		System.out.println(fuelconsumption);
 	}
 	
 }
