@@ -30,7 +30,7 @@ public class OBJ_Saturn extends Saturn{
 	    Ycircle=gp.Tilesize*2+gp.Tilesize/2;
 		planetSolidArea = new Ellipse2D.Double(Xcircle,Ycircle,Radcircle,Radcircle);
         IsAlive = false;
-        angle=0;
+        angle=2;
         getImage();
 		// TODO Auto-generated constructor stub
 	}

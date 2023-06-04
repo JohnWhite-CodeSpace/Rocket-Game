@@ -61,6 +61,7 @@ public class Entity {
 	public int solidAreaDefaultX, solidAreaDefaultY;
 	public Projectile projectile, projectile2;
 	public Asteroid asteroid;
+	public Comet comet;
 	public SpaceStation spacestation;
 	public Pluto pluto;
 	public Neptune neptune;

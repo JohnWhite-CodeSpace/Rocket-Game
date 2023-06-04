@@ -18,9 +18,7 @@ public class OBJ_Pluto extends Pluto{
         speed=1;
         maxLife = 2000;
         life = maxLife;
-        angle=0;
-       // worldx=gp.Tilesize*96;
-		//worldy=gp.Tilesize*72;
+        angle=0.1;
         solidArea = new Rectangle();
 		solidArea.x = 40;
 		solidArea.y = 40;

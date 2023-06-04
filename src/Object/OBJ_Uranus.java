@@ -26,12 +26,12 @@ public class OBJ_Uranus extends Uranus{
 		solidArea.height = 200;
 		solidAreaDefaultX = solidArea.x;
 		solidAreaDefaultY = solidArea.y;
-		Radcircle=gp.Tilesize*8;
-		Xcircle=0;
-	    Ycircle=0;
+		Radcircle=gp.Tilesize*5;
+		Xcircle=gp.Tilesize*2;
+	    Ycircle=gp.Tilesize*2;
 		planetSolidArea = new Ellipse2D.Double(Xcircle,Ycircle,Radcircle,Radcircle);
         IsAlive = false;
-        angle=0;
+        angle=0.4;
         getImage();
 		// TODO Auto-generated constructor stub
 	}

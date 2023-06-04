@@ -23,12 +23,14 @@ import Entity.Neptune;
 import Entity.Jupiter;
 import Entity.Uranus;
 import Entity.Saturn;
+import Entity.Comet;
 import Object.OBJ_Pluto;
 import Object.OBJ_SpaceStation;
 import Object.OBJ_Neptune;
 import Object.OBJ_Jupiter;
 import Object.OBJ_Uranus;
 import Object.OBJ_Saturn;
+import Object.OBJ_Comet;
 import tile.TileManager;
 public class GamePanel extends JPanel implements Runnable{
 
@@ -82,6 +84,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public Jupiter jupiter = new OBJ_Jupiter(this);
 	public UI ui = new UI(this);
 	public Asteroid asteroids[] = new Asteroid[100];
+	public Comet comets[] = new Comet[15];
 	Font font4;
 	public int gameState;
 	public final int titleState = 0;
@@ -116,6 +119,7 @@ public class GamePanel extends JPanel implements Runnable{
 			e.printStackTrace();
 		}
 		aSetter.setAsteroid();
+		aSetter.setComet();
 		aSetter.SetSpaceStation();
 		aSetter.SetUranus();
 		aSetter.SetNeptune();
@@ -193,6 +197,17 @@ public class GamePanel extends JPanel implements Runnable{
 					}
 				}
 			}
+			for(int i=0; i<comets.length;i++) {
+				if(comets[i]!=null) {
+					if(comets[i].IsAlive==true && comets[i].dying ==false) {
+					comets[i].update();
+					comets[i].SetAction();
+					}
+					if(comets[i].IsAlive==false) {
+						comets[i] = null;
+					}
+				}
+			}
 		}
 		if(gameState==pauseState) {
 			
@@ -207,6 +222,7 @@ public class GamePanel extends JPanel implements Runnable{
 		player.restoreDefaultValues();
 		player.setDefaultPositions();
 		aSetter.setAsteroid();
+		aSetter.setComet();
 		aSetter.SetSpaceStation();
 		aSetter.SetUranus();
 		aSetter.SetNeptune();
@@ -333,6 +349,11 @@ public class GamePanel extends JPanel implements Runnable{
 					entityList.add(asteroids[i]);
 				}
 			}
+			for(int i=0; i<comets.length; i++) {
+				if(comets[i]!=null) {
+					entityList.add(comets[i]);
+				}
+			}
 			Collections.sort(entityList, new Comparator<Entity>() {
 				
 				@Override
@@ -356,9 +377,9 @@ public class GamePanel extends JPanel implements Runnable{
 				long passed = LoadEnd-LoadStart;
 				g2.setColor(Color.white);
 				g2.setFont(font4);;
-				g2.drawString("Draw time: " + passed,15 , Tilesize*15);
+				g2.drawString("Draw time: " + passed,15 , Tilesize*13);
 				System.out.println("Draw time: " + passed);
-				g2.drawString("DEBUG MODE", 15, Tilesize*15-20);
+				g2.drawString("DEBUG MODE", 15, Tilesize*13-20);
 			}
 			
 		}
