@@ -29,7 +29,7 @@ public class Player extends Entity {
 		this.keyH =keyH;
 		solidArea = new Rectangle();
 		solidArea.x = 8;
-		solidArea.y = 8;
+		solidArea.y = 10;
 		solidArea.width = 40;
 		solidArea.height = 40;
 		solidAreaDefaultX = solidArea.x;
@@ -113,10 +113,11 @@ public class Player extends Entity {
 		collisionOn=false;
 		gp.CollisionCheck.CheckTile(this);
 		gp.CollisionCheck.checkEntity(this, gp.spacestation);
-		gp.CollisionCheck.checkEntity(this, gp.saturn);
-		gp.CollisionCheck.PlanetCheck(this, gp.neptune);
-		gp.CollisionCheck.checkEntity(this, gp.pluto);
-		gp.CollisionCheck.checkEntity(this, gp.uranus);
+		gp.CollisionCheck.PlanetPlayerCheck(this, gp.saturn);
+		gp.CollisionCheck.PlanetPlayerCheck(this, gp.neptune);
+		gp.CollisionCheck.PlanetPlayerCheck(this, gp.pluto);
+		gp.CollisionCheck.PlanetPlayerCheck(this, gp.uranus);
+		gp.CollisionCheck.PlanetPlayerCheck(this, gp.jupiter);
 		int asteroidindex = gp.CollisionCheck.checkEntity(this, gp.asteroids);
 		interactAsteroid(asteroidindex);
 		if(PlayerAngle>=360||PlayerAngle<=-360) {
@@ -188,6 +189,9 @@ public class Player extends Entity {
 					Weapon="Bullets";
 				}
 			}
+		}
+		if(life==0) {
+			gp.gameState=gp.GameOverState;
 		}
 		
 	}

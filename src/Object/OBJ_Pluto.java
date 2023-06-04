@@ -1,7 +1,7 @@
 package Object;
 
 import java.awt.Rectangle;
-
+import java.awt.geom.Ellipse2D;
 
 import Entity.Pluto;
 import Game.GamePanel;
@@ -28,6 +28,10 @@ public class OBJ_Pluto extends Pluto{
 		solidArea.height = 164;
 		solidAreaDefaultX = solidArea.x;
 		solidAreaDefaultY = solidArea.y;
+		Xcircle=0;
+	    Ycircle=0;
+	    Radcircle=gp.Tilesize*4;
+	    planetSolidArea = new Ellipse2D.Double(Xcircle,Ycircle,Radcircle,Radcircle);
         IsAlive = false;
         
         getImage();

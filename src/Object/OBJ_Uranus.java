@@ -1,7 +1,7 @@
 package Object;
 
 import java.awt.Rectangle;
-
+import java.awt.geom.Ellipse2D;
 
 import Entity.Uranus;
 import Game.GamePanel;
@@ -26,6 +26,10 @@ public class OBJ_Uranus extends Uranus{
 		solidArea.height = 200;
 		solidAreaDefaultX = solidArea.x;
 		solidAreaDefaultY = solidArea.y;
+		Radcircle=gp.Tilesize*8;
+		Xcircle=0;
+	    Ycircle=0;
+		planetSolidArea = new Ellipse2D.Double(Xcircle,Ycircle,Radcircle,Radcircle);
         IsAlive = false;
         angle=0;
         getImage();

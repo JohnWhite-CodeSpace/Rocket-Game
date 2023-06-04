@@ -1,6 +1,8 @@
 package Object;
 
 import java.awt.Rectangle;
+import java.awt.geom.Ellipse2D;
+
 import Entity.Saturn;
 import Game.GamePanel;
 
@@ -23,6 +25,10 @@ public class OBJ_Saturn extends Saturn{
 		solidArea.height =192;
 		solidAreaDefaultX = solidArea.x;
 		solidAreaDefaultY = solidArea.y;
+		Radcircle=gp.Tilesize*4;
+		Xcircle=gp.Tilesize*5;
+	    Ycircle=gp.Tilesize*2+gp.Tilesize/2;
+		planetSolidArea = new Ellipse2D.Double(Xcircle,Ycircle,Radcircle,Radcircle);
         IsAlive = false;
         angle=0;
         getImage();

@@ -213,6 +213,7 @@ public class GamePanel extends JPanel implements Runnable{
 		aSetter.SetSaturn();
 		aSetter.SetPluto();
 		aSetter.SetJupiter();
+		ui.playTime=0;
 	}
 //	public void drawToTempScreen() {
 //		long LoadStart = 0;

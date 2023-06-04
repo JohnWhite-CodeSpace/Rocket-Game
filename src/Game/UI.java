@@ -25,7 +25,7 @@ public class UI {
 	Font font, font2, font3;
 	public int commandNum = 0;
 	public int titleScreenState =0;
-	double playTime =0;
+	public double playTime =0;
 	public BufferedImage lifefull,lifeempty;
 	public BufferedImage recharge1, recharge2;
 	public BufferedImage Fuel100,Fuel75,Fuel50, Fuel25, Fuel0;

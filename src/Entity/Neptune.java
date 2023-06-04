@@ -21,8 +21,6 @@ public class Neptune extends Entity {
 	public void update() {
 		collisionOn=false;
 		gp.CollisionCheck.CheckTile(this);
-		//gp.CollisionCheck.playerCheck(this); 
-		gp.CollisionCheck.playerPlanetCheck(this);
 		int newX = (int) ((radius * Math.cos(angle))  + centerx);
         int newY = (int) ((radius * Math.sin(angle))  + centery);
         System.out.println(worldx/gp.Tilesize+", "+worldy/gp.Tilesize);

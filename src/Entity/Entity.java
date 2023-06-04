@@ -3,6 +3,7 @@ package Entity;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.AffineTransform;
+import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
@@ -52,6 +53,8 @@ public class Entity {
 	public boolean IsAlive = true;
 	public boolean dying = false;
 	public Rectangle solidArea;
+	public Ellipse2D planetSolidArea;
+	public double Xcircle, Ycircle,Radcircle;
 	public boolean collisionOn = false;
 	public int DyingCounter;
 	public int ShotAveilableCounter = 0;

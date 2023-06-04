@@ -21,7 +21,6 @@ public class Uranus extends Entity{
 	public void update() {
 		collisionOn=false;
 		gp.CollisionCheck.CheckTile(this);
-		gp.CollisionCheck.playerCheck(this);
 		
 			
 			

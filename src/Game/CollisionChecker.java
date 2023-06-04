@@ -1,6 +1,6 @@
 package Game;
 import Entity.Entity;
-
+import java.awt.geom.Ellipse2D;
 public class CollisionChecker {
 	GamePanel gp;
 	public CollisionChecker(GamePanel gp) {
@@ -571,55 +571,40 @@ public class CollisionChecker {
 				target.solidArea.y = target.solidAreaDefaultY;
 			
 		}
-		public boolean playerPlanetCheck(Entity entity) {
-		    boolean contactPlayer = false;
-		    if (gp.player != null) {
-		        double playerCenterX = gp.player.worldx + (gp.player.solidArea.width / 2.0);
-		        double playerCenterY = gp.player.worldy + (gp.player.solidArea.height / 2.0);
 
-		        double planetCenterX = entity.worldx + (entity.solidArea.width / 2.0);
-		        double planetCenterY = entity.worldy + (entity.solidArea.height / 2.0);
-
-		        double playerRadius = Math.max(gp.player.solidArea.width, gp.player.solidArea.height) / 2.0;
-		        double planetRadius = Math.max(entity.solidArea.width, entity.solidArea.height) / 2.0;
-
-		        double distance = Math.sqrt(Math.pow(planetCenterX - playerCenterX, 2) + Math.pow(planetCenterY - playerCenterY, 2));
-		        switch(entity.direction) {
-		        case "player1":
-		        	if (distance < playerRadius + planetRadius+gp.Tilesize) {
-			            entity.collisionOn = true;
-			            contactPlayer = true;
-			        }
-		        break;
-			        }
-		        
-		    }
-		    return contactPlayer;
-		}
-		public boolean PlanetCheck(Entity entity, Entity target) {
+		public boolean PlanetPlayerCheck(Entity entity,Entity target) {
+			double planetSAX= (int) (target.worldx + target.Xcircle);
+			double planetSAY = (int) (target.worldy + target.Ycircle);
 			boolean contactPlayer = false;
-		    if (gp.player != null) {
-		    	double playerCenterX = entity.worldx + (entity.solidArea.width / 2.0);
-		        double playerCenterY = entity.worldy + (entity.solidArea.height / 2.0);
-
-		        double planetCenterX = target.worldx + (target.solidArea.width / 2.0);
-		        double planetCenterY = target.worldy + (target.solidArea.height / 2.0);
-
-		        double playerRadius = Math.max(entity.solidArea.width, entity.solidArea.height) / 2.0;
-		        double planetRadius = Math.max(target.solidArea.width, target.solidArea.height) / 2.0;
-
-		        double distance = Math.sqrt(Math.pow(planetCenterX - playerCenterX, 2) + Math.pow(planetCenterY - playerCenterY, 2));
-		        switch(entity.direction) {
-		    	case "player1":
-	        	if (distance < playerRadius + planetRadius) {
-		            entity.collisionOn = true;
-		            contactPlayer = true;
-		        }
-	        	break;
-		    }
-		    }
-			
+			Ellipse2D solidarea = null;
+			if(entity!=null) {
+				
+				
+				entity.solidArea.x = entity.worldx + entity.solidArea.x;
+				entity.solidArea.y = entity.worldy + entity.solidArea.y;
+				switch(entity.direction) {
+				
+				case "player1":
+					planetSAY-=gp.player.velocity * Math.cos(Math.toRadians(gp.player.PlayerAngle));
+					planetSAX+=gp.player.velocity * Math.sin(Math.toRadians(gp.player.PlayerAngle));
+					solidarea = new Ellipse2D.Double(planetSAX, planetSAY,target.Radcircle,target.Radcircle);
+					break;
+					
+				}
+				if(solidarea!=null)
+				if(solidarea.intersects(entity.solidArea)) {
+					entity.collisionOn = true;
+					entity.life=0;
+					contactPlayer = true;
+				}
+				
+			}
+			entity.solidArea.x = entity.solidAreaDefaultX;
+			entity.solidArea.y = entity.solidAreaDefaultY;
+			planetSAX = target.solidAreaDefaultX;
+			planetSAY = target.solidAreaDefaultY;
 			return contactPlayer;
+		
 		}
 
 }
