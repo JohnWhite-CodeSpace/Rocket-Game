@@ -296,6 +296,9 @@ public class KeyHandler implements KeyListener{
 				DebugMode=false;
 			}
 		}
+		if(code == KeyEvent.VK_M) {
+			
+		}
 		if(code==KeyEvent.VK_F) {
 			if(gp.player.ammoType.equals("bullet1")) {
 				changeFireMode=0;

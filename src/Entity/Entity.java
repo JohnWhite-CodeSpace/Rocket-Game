@@ -36,7 +36,6 @@ public class Entity {
 	public BufferedImage Player1,Player2,Player3, Bullet1, Bullet2, Bullet3,Bullet4, DeathImage1, DeathImage2, DeathImage3,
 	Planet1, Planet2, Planet3, Planet4,SpaceStation1,SpaceStation2,SpaceStation3;
 	public String name;
-	public String Life;
 	public String Weapon;
 	public int type;
 	public int AsteroidCollision;

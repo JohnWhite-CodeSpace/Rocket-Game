@@ -30,8 +30,8 @@ import Object.OBJ_Neptune;
 import Object.OBJ_Jupiter;
 import Object.OBJ_Uranus;
 import Object.OBJ_Saturn;
-import Object.OBJ_Comet;
 import tile.TileManager;
+import tile.Minimap;
 public class GamePanel extends JPanel implements Runnable{
 
 	/**
@@ -49,6 +49,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public final int maxWorldRow = 500;
 	public final int WorldWidth = Tilesize*maxWorldCol;
 	public final int WorldHeight = Tilesize*maxWorldRow;
+	public final int maxMap = 1;
 	//FULL SCREEN
 	int screenWidth2 = screenWidth;
 	int screenHeight2 = screenHeight;
@@ -85,6 +86,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public UI ui = new UI(this);
 	public Asteroid asteroids[] = new Asteroid[100];
 	public Comet comets[] = new Comet[15];
+	Minimap map = new Minimap(this);
 	Font font4;
 	public int gameState;
 	public final int titleState = 0;
@@ -93,6 +95,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public final int exitpauseState = 3;
 	public final int GameOverState = 4;
 	public final int OptionState = 5;
+	public final int MapState=10;
 	private Mainframe frame;
 	public GamePanel(Mainframe frame) {
 		this.frame = frame;

@@ -50,7 +50,6 @@ public class Comet extends Entity{
 				case "fastdownleft":worldy+=HyperSpeed; worldx-=HyperSpeed;break;
 				case "fastdownright":worldy+=HyperSpeed; worldx+=HyperSpeed;break;
 				case "fastupright":worldy-=HyperSpeed; worldx+=HyperSpeed;break;
-				
 				}
 			if(invincible==true) {
 				invincibleCounter++;
@@ -77,13 +76,6 @@ public class Comet extends Entity{
 		}
 		
 	}
-//	public void interactAsteroid() {
-//		// TODO Auto-generated method stub
-//		
-//			gp.ui.showMessage("Asteroid collision detected");
-//		
-//	}
-		
 }
 
 
