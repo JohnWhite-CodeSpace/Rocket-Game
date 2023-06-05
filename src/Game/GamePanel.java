@@ -218,6 +218,9 @@ public class GamePanel extends JPanel implements Runnable{
 		if(gameState==GameOverState) {
 			
 		}
+		if(gameState==MapState) {
+			
+		}
 
 		
 	}
@@ -392,9 +395,13 @@ public class GamePanel extends JPanel implements Runnable{
 		else if(gameState==exitpauseState) {
 			ui.draw(g2);
 		}
-	else if(gameState==GameOverState) {
+		if(gameState==MapState) {
+			map.drawFullMapScreen(g2);
+		}
+		if(gameState==GameOverState) {
 			ui.draw(g2);
 		}
+		
 	        g2.dispose();
 	   
 	}

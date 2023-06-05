@@ -16,6 +16,7 @@ public class KeyHandler implements KeyListener{
 	public boolean enterPressed;
 	public int changeFireMode=0;
 	public boolean IsFirstGame=true;
+	public boolean MapOn=false;
 	GamePanel gp;
 	//DEBUG
 	
@@ -240,6 +241,11 @@ public class KeyHandler implements KeyListener{
 				
 			}
 		}
+		if(code==KeyEvent.VK_M) {
+			MapOn=!MapOn;
+			SetMap(MapOn);
+		}
+				
 		if(code == KeyEvent.VK_W) {
 			upPressed = true;
 			gp.player.direction = "player1";
@@ -296,9 +302,8 @@ public class KeyHandler implements KeyListener{
 				DebugMode=false;
 			}
 		}
-		if(code == KeyEvent.VK_M) {
-			
-		}
+		
+		
 		if(code==KeyEvent.VK_F) {
 			if(gp.player.ammoType.equals("bullet1")) {
 				changeFireMode=0;
@@ -336,7 +341,6 @@ public class KeyHandler implements KeyListener{
 			}
 		}
 	}
-	
 
 	@Override
 	public void keyReleased(KeyEvent e) {
@@ -349,5 +353,12 @@ public class KeyHandler implements KeyListener{
 			shotsFired = false;
 		}
 	}
-
+	public void SetMap(boolean mapOn) {
+		if(mapOn==true) {
+			gp.gameState=gp.MapState;
+		}
+		else if(mapOn==false) {
+			gp.gameState=gp.playState;
+		}
+	}
 }

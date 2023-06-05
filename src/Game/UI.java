@@ -417,7 +417,7 @@ public class UI {
 	public synchronized void GameTimer(Graphics2D g2) {
 	        g2.setFont(font);
 	        g2.setColor(Color.white);
-	        playTime += (double) 1 / 100;
+	        playTime += (double) 1 / 60;
 	        String text = String.format("%.2f", playTime);
 	        g2.drawString("Time: " + text, gp.screenWidth - gp.Tilesize * 7, 50);
 
@@ -459,7 +459,7 @@ public class UI {
 		}
 	}
 	public void GameOverScreen() throws IOException {
-				g2.setColor(new Color(0,0,0,120));
+				g2.setColor(new Color(0,0,0,100));
 				g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
 				
 				
