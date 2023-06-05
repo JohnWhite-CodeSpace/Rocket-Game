@@ -107,6 +107,12 @@ public class UI {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			try {
+				DrawFuelBar();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		if(gp.gameState == gp.exitpauseState) {
 			try {

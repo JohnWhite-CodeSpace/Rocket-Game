@@ -377,7 +377,10 @@ public class GamePanel extends JPanel implements Runnable{
 			}
 			
 			entityList.clear();
+			
 			ui.draw(g2);
+			map.drawMiniMap(g2);
+			
 			if(keyH.DebugMode==true) {
 				long LoadEnd = System.nanoTime();
 				long passed = LoadEnd-LoadStart;

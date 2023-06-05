@@ -1,5 +1,6 @@
 package tile;
 
+import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -82,5 +83,41 @@ public class Minimap extends TileManager{
 		g2.setColor(Color.white);
 		g2.setFont(new Font("Arial",Font.BOLD,30));
 		g2.drawString("World Map", gp.Tilesize, gp.Tilesize);
+	}
+	public void drawMiniMap(Graphics2D g2) {
+		if(gp.keyH.MinimapOn==true) {
+			int width=350;
+			int height=350;
+			int x = gp.screenWidth-width-20;
+			int y = gp.Tilesize*2;
+			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.8f));
+			g2.drawImage(worldMap,x,y,width,height,null);
+			double scale = (double)(gp.Tilesize*gp.maxWorldCol)/width;
+			int playerX = (int)(x+gp.player.worldx/scale);
+			int playerY = (int)(y+gp.player.worldy/scale);
+			int playerSize = (int)(gp.Tilesize/2);
+			g2.drawImage(gp.player.Player1,playerX,playerY,playerSize,playerSize,null);
+			int planetX = (int)(x+gp.pluto.worldx/scale);
+			int planetY = (int)(y+gp.pluto.worldy/scale);
+			int planetSize = (int)(gp.Tilesize/3);
+			g2.drawImage(gp.pluto.Planet1,planetX,planetY, planetSize, planetSize, null);
+			planetX = (int)(x+gp.neptune.worldx/scale);
+			planetY = (int)(y+gp.neptune.worldy/scale);
+			g2.drawImage(gp.neptune.Planet1,planetX,planetY,planetSize,planetSize,null );
+			planetX = (int)(x+gp.uranus.worldx/scale);
+			planetY = (int)(y+gp.uranus.worldy/scale);
+			g2.drawImage(gp.uranus.Planet1,planetX,planetY,planetSize,planetSize,null );
+			planetX = (int)(x+gp.saturn.worldx/scale);
+			planetY = (int)(y+gp.saturn.worldy/scale);
+			g2.drawImage(gp.saturn.Planet1,planetX,planetY,planetSize,planetSize,null );
+			planetX = (int)(x+gp.jupiter.worldx/scale);
+			planetY = (int)(y+gp.jupiter.worldy/scale);
+			g2.drawImage(gp.jupiter.Planet1,planetX,planetY,planetSize,planetSize,null );
+			int SpaceStationX = (int)(x+gp.spacestation.worldx/scale);
+			int SpaceStationY = (int)(y+gp.spacestation.worldy/scale);
+			int SpaceStationSize = (int)(gp.Tilesize/3);
+			g2.drawImage(gp.spacestation.SpaceStation1,SpaceStationX,SpaceStationY,SpaceStationSize,SpaceStationSize,null );
+			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,1f));
+		}
 	}
 }

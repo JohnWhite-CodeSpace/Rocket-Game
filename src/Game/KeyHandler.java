@@ -17,6 +17,7 @@ public class KeyHandler implements KeyListener{
 	public int changeFireMode=0;
 	public boolean IsFirstGame=true;
 	public boolean MapOn=false;
+	public boolean MinimapOn=false;
 	GamePanel gp;
 	//DEBUG
 	
@@ -244,6 +245,9 @@ public class KeyHandler implements KeyListener{
 		if(code==KeyEvent.VK_M) {
 			MapOn=!MapOn;
 			SetMap(MapOn);
+		}
+		if(code==KeyEvent.VK_N) {
+			MinimapOn=!MinimapOn;
 		}
 				
 		if(code == KeyEvent.VK_W) {
