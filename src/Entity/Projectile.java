@@ -25,12 +25,17 @@ public class Projectile extends Entity{
 		if(user==gp.player) {
 			int Asteroidindex = gp.CollisionCheck.checkEntity(this, gp.asteroids);
 			int Cometindex = gp.CollisionCheck.checkEntity(this, gp.comets);
+			int AsteroidBeltindex = gp.CollisionCheck.checkEntity(this, gp.asteroidBelt);
 			if(Asteroidindex!=999) {
 				gp.player.damageAsteroid(Asteroidindex);
 				IsAlive = false;
 			}
 			if(Cometindex!=999) {
 				gp.player.damageComet(Cometindex);
+				IsAlive = false;
+			}
+			if(AsteroidBeltindex!=999) {
+				gp.player.damageAstroidBelt(AsteroidBeltindex);
 				IsAlive = false;
 			}
 		}

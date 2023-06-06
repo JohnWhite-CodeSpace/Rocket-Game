@@ -59,7 +59,6 @@ public class UI {
 	}
 	public void draw(Graphics2D g2) {
 	    this.g2 = g2;
-	    
 		g2.setFont(font);
 		//g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		g2.setColor(Color.white);
@@ -525,7 +524,7 @@ public class UI {
 		int x = gp.Tilesize*30 + gp.Tilesize/2;
 		int y = gp.Tilesize*15 + gp.Tilesize/2;
 		int i=0;
-		while(i<gp.player.maxfuel/10) {
+		while(i<gp.player.maxfuel/20) {
 				g2.drawImage(Fuel0, x, y,gp.Tilesize,gp.Tilesize, null);
 			i++;
 			y-=gp.Tilesize/3;
@@ -533,7 +532,7 @@ public class UI {
 		x = gp.Tilesize*30 + gp.Tilesize/2;
 		y = gp.Tilesize*15 + gp.Tilesize/2;
 		i=0;
-		while(i<gp.player.fuel/10) {
+		while(i<gp.player.fuel/20) {
 			if(i>=0&&i<3) {
 				g2.drawImage(Fuel25, x, y,gp.Tilesize,gp.Tilesize, null);
 			}

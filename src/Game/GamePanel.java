@@ -30,6 +30,7 @@ import Object.OBJ_Neptune;
 import Object.OBJ_Jupiter;
 import Object.OBJ_Uranus;
 import Object.OBJ_Saturn;
+import Entity.Asteroid_Belt;
 import tile.TileManager;
 import tile.Minimap;
 public class GamePanel extends JPanel implements Runnable{
@@ -85,6 +86,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public Jupiter jupiter = new OBJ_Jupiter(this);
 	public UI ui = new UI(this);
 	public Asteroid asteroids[] = new Asteroid[100];
+	public Asteroid_Belt asteroidBelt[] = new Asteroid_Belt[300];
 	public Comet comets[] = new Comet[15];
 	Minimap map = new Minimap(this);
 	Font font4;
@@ -96,9 +98,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public final int GameOverState = 4;
 	public final int OptionState = 5;
 	public final int MapState=10;
-	private Mainframe frame;
-	public GamePanel(Mainframe frame) {
-		this.frame = frame;
+	public GamePanel() {
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		this.setBackground(Color.black);
 		this.setDoubleBuffered(true);
@@ -122,6 +122,7 @@ public class GamePanel extends JPanel implements Runnable{
 			e.printStackTrace();
 		}
 		aSetter.setAsteroid();
+		aSetter.setAsteroidBelt();
 		aSetter.setComet();
 		aSetter.SetSpaceStation();
 		aSetter.SetUranus();
@@ -200,6 +201,18 @@ public class GamePanel extends JPanel implements Runnable{
 					}
 				}
 			}
+			for(int i=0; i<asteroidBelt.length;i++) {
+				if(asteroidBelt[i]!=null) {
+					if(asteroidBelt[i].IsAlive==true && asteroidBelt[i].dying ==false) {
+					asteroidBelt[i].update();
+					asteroidBelt[i].SetAction();
+					}
+					if(asteroidBelt[i].IsAlive==false) {
+						asteroidBelt[i] = null;
+						
+					}
+				}
+			}
 			for(int i=0; i<comets.length;i++) {
 				if(comets[i]!=null) {
 					if(comets[i].IsAlive==true && comets[i].dying ==false) {
@@ -229,6 +242,7 @@ public class GamePanel extends JPanel implements Runnable{
 		player.setDefaultPositions();
 		aSetter.setAsteroid();
 		aSetter.setComet();
+		aSetter.setAsteroidBelt();
 		aSetter.SetSpaceStation();
 		aSetter.SetUranus();
 		aSetter.SetNeptune();
@@ -237,91 +251,7 @@ public class GamePanel extends JPanel implements Runnable{
 		aSetter.SetJupiter();
 		ui.playTime=0;
 	}
-//	public void drawToTempScreen() {
-//		long LoadStart = 0;
-//		if(keyH.DebugMode==true) {
-//			LoadStart = System.nanoTime();
-//		}
-//		if(gameState == titleState) {
-//			ui.draw(g2);
-//		}
-//		else {
-//			
-//			tileM.draw(g2);
-//			entityList.add(player);
-//			entityList.add(spacestation);
-//			entityList.add(pluto);
-//			entityList.add(neptune);
-//			entityList.add(uranus);
-//			entityList.add(saturn);
-//			
-//			
-//			for(int i=0; i < projectileList.size(); i++) {
-//				if(projectileList.get(i)!=null) {
-//					entityList.add(projectileList.get(i));
-//				}
-//			}
-//			for(int i=0; i<asteroids.length; i++) {
-//				if(asteroids[i]!=null) {
-//					entityList.add(asteroids[i]);
-//				}
-//			}
-//			Collections.sort(entityList, new Comparator<Entity>() {
-//				
-//				@Override
-//				public int compare(Entity o1, Entity o2) {
-//					// TODO Auto-generated method stub
-//					int result = Integer.compare(o1.worldy, o2.worldy);
-//					return result;
-//				}
-//				
-//			});
-//			
-//			
-//			for(int i = 0; i< entityList.size();i++) {
-//				entityList.get(i).draw(g2);
-//			}
-//			
-//			entityList.clear();
-//			ui.draw(g2);
-//			if(keyH.DebugMode==true) {
-//				long LoadEnd = System.nanoTime();
-//				long passed = LoadEnd-LoadStart;
-//				g2.setColor(Color.white);
-//				g2.setFont(font4);;
-//				g2.drawString("Draw time: " + passed,15 , Tilesize*15);
-//				System.out.println("Draw time: " + passed);
-//				g2.drawString("DEBUG MODE", 15, Tilesize*15-20);
-//			}
-//			
-//		}
-//		if(gameState==pauseState) {
-//			ui.draw(g2);
-//		}
-//		else if(gameState==exitpauseState) {
-//			ui.draw(g2);
-//		}
-//		else if(gameState==GameOverState) {
-//			ui.draw(g2);
-//		}
-//	}
-//	
-//	public void setFullScreen() {
-//		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-//		GraphicsDevice gd = ge.getDefaultScreenDevice();
-//		gd.setFullScreenWindow(frame);
-//		
-//		screenWidth2 = frame.GetWidth();
-//		screenHeight2 = frame.GetHeight();
-//	}
-//	public void drawToScreen() {
-//		Graphics g = getGraphics();
-//		if(g!=null) {
-//			g.drawImage(tempScreen, 0, 0, screenWidth2, screenHeight2, null);
-//			g.dispose();
-//		}
-//		
-//	}
+
 
 	public synchronized void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -353,6 +283,11 @@ public class GamePanel extends JPanel implements Runnable{
 			for(int i=0; i<asteroids.length; i++) {
 				if(asteroids[i]!=null) {
 					entityList.add(asteroids[i]);
+				}
+			}
+			for(int i=0; i<asteroidBelt.length; i++) {
+				if(asteroidBelt[i]!=null) {
+					entityList.add(asteroidBelt[i]);
 				}
 			}
 			for(int i=0; i<comets.length; i++) {

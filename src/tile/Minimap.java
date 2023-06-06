@@ -3,7 +3,6 @@ package tile;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
@@ -80,6 +79,15 @@ public class Minimap extends TileManager{
 		int SpaceStationY = (int)(y+gp.spacestation.worldy/scale);
 		int SpaceStationSize = (int)(gp.Tilesize/2);
 		g2.drawImage(gp.spacestation.SpaceStation1,SpaceStationX,SpaceStationY,SpaceStationSize,SpaceStationSize,null );
+		
+		for(int i=0; i<gp.asteroidBelt.length;i++) {
+			int asteroidSize = (int)(gp.Tilesize/3);
+			planetX = (int)(x+gp.asteroidBelt[i].worldx/scale);
+			planetY = (int)(y+gp.asteroidBelt[i].worldy/scale);
+			g2.drawImage(gp.asteroidBelt[i].AsteroidBelt,planetX,planetY,asteroidSize,asteroidSize,null );
+		}
+		
+		
 		g2.setColor(Color.white);
 		g2.setFont(new Font("Arial",Font.BOLD,30));
 		g2.drawString("World Map", gp.Tilesize, gp.Tilesize);
@@ -117,6 +125,14 @@ public class Minimap extends TileManager{
 			int SpaceStationY = (int)(y+gp.spacestation.worldy/scale);
 			int SpaceStationSize = (int)(gp.Tilesize/3);
 			g2.drawImage(gp.spacestation.SpaceStation1,SpaceStationX,SpaceStationY,SpaceStationSize,SpaceStationSize,null );
+			for(int i=0; i<gp.asteroidBelt.length;i++) {
+				if(gp.asteroidBelt[i]!=null) {
+				int asteroidSize = (int)(gp.Tilesize/4);
+					planetX = (int)(x+gp.asteroidBelt[i].worldx/scale);
+					planetY = (int)(y+gp.asteroidBelt[i].worldy/scale);
+					g2.drawImage(gp.asteroidBelt[i].AsteroidBelt,planetX,planetY,asteroidSize,asteroidSize,null );
+				}
+			}
 			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,1f));
 		}
 	}

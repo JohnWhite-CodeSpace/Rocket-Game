@@ -34,7 +34,7 @@ public class Entity {
 	up3, down3,right3,left3,upleft3,upright3,downright3,downleft3, up4, down4, left4, right4, upright4, upleft4, downright4, downleft4;
 	public BufferedImage lifeimage1,lifeimage2,recharge1,recharge2, fuel100, fuel75,fuel50, fuel25, fuel0;
 	public BufferedImage Player1,Player2,Player3, Bullet1, Bullet2, Bullet3,Bullet4, DeathImage1, DeathImage2, DeathImage3,
-	Planet1, Planet2, Planet3, Planet4,SpaceStation1,SpaceStation2,SpaceStation3;
+	Planet1, Planet2, Planet3, Planet4,SpaceStation1,SpaceStation2,SpaceStation3,AsteroidBelt;
 	public String name;
 	public String Weapon;
 	public int type;
@@ -60,6 +60,7 @@ public class Entity {
 	public int solidAreaDefaultX, solidAreaDefaultY;
 	public Projectile projectile, projectile2;
 	public Asteroid asteroid;
+	public Asteroid_Belt asteroidBelt;
 	public Comet comet;
 	public SpaceStation spacestation;
 	public Pluto pluto;
@@ -78,18 +79,13 @@ public class Entity {
 	}
 	 
 	public void set() {}
-	    /*private void resetAlphaTo100(Graphics2D graphics2D) {
-	        UtilityTool.changeAlpha(graphics2D, 1);
-	    }*/
-		public void SetAction(){};
-	    public void update(){
-	    	
-	    	collisionOn=false;
-	    	gp.CollisionCheck.CheckTile(this);
-	    	gp.CollisionCheck.checkObject(this, false);
-	    	
-	    	
-	    };
+	public void SetAction(){};
+	public void update(){
+		
+	    collisionOn=false;
+	    gp.CollisionCheck.CheckTile(this);
+	    gp.CollisionCheck.checkObject(this, false);	
+	};
 	    
 	    public BufferedImage setup(String imagePath, int width, int height) {
 	        BufferedImage image = null;
@@ -286,6 +282,17 @@ public class Entity {
 					image=SpaceStation3;
 				}
 				break;
+			case "ABelt":
+				if(spriteNum==1) {
+					image = AsteroidBelt;
+				}
+				if(spriteNum==2) {
+					image = AsteroidBelt;
+				}
+				if(spriteNum==3) {
+					image = AsteroidBelt;
+				}
+			break;
 			}
 			
 			

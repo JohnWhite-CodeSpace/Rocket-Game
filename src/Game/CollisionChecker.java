@@ -422,6 +422,11 @@ public class CollisionChecker {
 					entity.solidArea.y-=gp.player.velocity * Math.cos(Math.toRadians(gp.player.PlayerAngle));
 					entity.solidArea.x+=gp.player.velocity * Math.sin(Math.toRadians(gp.player.PlayerAngle));
 					break;
+				
+				case "ABelt":
+					entity.solidArea.y-=gp.player.velocity * Math.cos(Math.toRadians(gp.player.PlayerAngle));
+					entity.solidArea.x+=gp.player.velocity * Math.sin(Math.toRadians(gp.player.PlayerAngle));
+					break;
 				}
 				if(entity.solidArea.intersects(gp.player.solidArea)) {
 					entity.collisionOn = true;
@@ -436,9 +441,9 @@ public class CollisionChecker {
 			
 			return contactPlayer;
 		}
-		public void checkEntity(Entity entity, Entity target) {
+		public boolean checkEntity(Entity entity, Entity target) {
 			// TODO Auto-generated method stub
-			
+			boolean contactPlayer = false;
 			
 				if(target!=null) {
 					entity.solidArea.x = entity.worldx + entity.solidArea.x;
@@ -559,9 +564,18 @@ public class CollisionChecker {
 						entity.solidArea.x+=gp.player.velocity * Math.sin(Math.toRadians(gp.player.PlayerAngle));
 						if(entity.solidArea.intersects(target.solidArea)) {
 							entity.collisionOn = true;
+							contactPlayer = true;
 						}
 					break;
+				case "ABelt":
+					entity.solidArea.y-=gp.player.velocity * Math.cos(Math.toRadians(gp.player.PlayerAngle));
+					entity.solidArea.x+=gp.player.velocity * Math.sin(Math.toRadians(gp.player.PlayerAngle));
+					if(entity.solidArea.intersects(target.solidArea)) {
+						entity.collisionOn = true;
+						contactPlayer = true;
 					}
+					break;
+				}
 					
 					
 				}
@@ -569,7 +583,7 @@ public class CollisionChecker {
 				entity.solidArea.y = entity.solidAreaDefaultY;
 				target.solidArea.x = target.solidAreaDefaultX;
 				target.solidArea.y = target.solidAreaDefaultY;
-			
+				return contactPlayer;
 		}
 
 		public boolean PlanetPlayerCheck(Entity entity,Entity target) {

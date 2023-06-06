@@ -85,9 +85,6 @@ public class TileManager {
 	    int playerCol = gp.player.worldx / gp.Tilesize;
 	    int playerRow = gp.player.worldy / gp.Tilesize;
 
-	    int offsetX = gp.player.worldx % gp.Tilesize;
-	    int offsetY = gp.player.worldy % gp.Tilesize;
-
 	    int startCol = Math.max(playerCol - (gp.screenWidth / (2 * gp.Tilesize)), 0);
 	    int endCol = Math.min(playerCol + (gp.screenWidth / (2 * gp.Tilesize)) + 1, gp.maxWorldCol - 1);
 

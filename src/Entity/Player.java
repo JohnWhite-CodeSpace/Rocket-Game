@@ -11,10 +11,7 @@ public class Player extends Entity {
 	public final int screenx;
 	public final int screeny;
 	public boolean speedy, chonker;
-	public int rocketnum;
 	public String ammoType;
-	int lifecounter = 0;
-	int counter;
 	String info = null;
 	int Choice = 0;
 	int timespan;
@@ -35,27 +32,31 @@ public class Player extends Entity {
 		solidAreaDefaultX = solidArea.x;
 		solidAreaDefaultY = solidArea.y;
 		AsteroidCollision=0;
-		counter=0;
-		setDefaultValues();
+		
+		
+
 		
 	}
-	public void ChooseRocket(int choice) {
-		if(choice ==1) {
+	public void ChooseRocket() {
+		if(keyH.choice ==1) {
 			getPlayer1Image();
 			HyperAcceleration = 0.15;
-			HyperSpeed=6;
 			Choice = 1;
 			MaxSpeed=10;
 			maxLife = 14;
+			maxfuel=400;
+			
 		}
-		else if(choice==2) {
+		else if(keyH.choice==2) {
 			getPlayer2Image();
-			HyperSpeed=16;
 			HyperAcceleration = 0.25;
 			MaxSpeed=14;
 			Choice=2;
 			maxLife = 10;
+			maxfuel = 200;
+			
 		}
+		
 	}
 	public void getPlayer1Image() {
 
@@ -74,10 +75,10 @@ public class Player extends Entity {
 			
 		}
 	public void setDefaultValues() {
+		ChooseRocket();
 		worldx=gp.Tilesize*250;
 		worldy=gp.Tilesize*250;
 		speed=5;
-		maxLife=10;
 		ammoType="bullet1";
 		direction = "player1";
 		life=maxLife;
@@ -89,11 +90,9 @@ public class Player extends Entity {
 		maxrecharge=120;
 		recharge=maxrecharge;
 		rechargeCounter=0;
-		maxfuel=100;
 		fuel=maxfuel;
 		fuelconsumption=0;
 		Weapon = "Rocket";
-		//asteroid = new OBJ_Asteroid(gp);
 	}
 	public void update() {
 		if(Choice!=0) {
@@ -109,10 +108,10 @@ public class Player extends Entity {
 		previousX = worldx;
 		previousY = worldy;
 		spriteCounter++;
-		lifecounter++;
 		collisionOn=false;
 		gp.CollisionCheck.CheckTile(this);
-		gp.CollisionCheck.checkEntity(this, gp.spacestation);
+		boolean IsRefueling = gp.CollisionCheck.checkEntity(this, gp.spacestation);
+		FuelRefill(IsRefueling);
 		gp.CollisionCheck.PlanetPlayerCheck(this, gp.saturn);
 		gp.CollisionCheck.PlanetPlayerCheck(this, gp.neptune);
 		gp.CollisionCheck.PlanetPlayerCheck(this, gp.pluto);
@@ -122,6 +121,8 @@ public class Player extends Entity {
 		interactAsteroid(asteroidindex);
 		int cometindex = gp.CollisionCheck.checkEntity(this, gp.comets);
 		interactComet(cometindex);
+		int asteroidbelt = gp.CollisionCheck.checkEntity(this, gp.asteroidBelt);
+		interactAsteroidBelt(asteroidbelt);
 		if(PlayerAngle>=360||PlayerAngle<=-360) {
 			PlayerAngle=0;
 		}
@@ -224,6 +225,23 @@ public class Player extends Entity {
 			}
 		}
 	}
+	public void interactAsteroidBelt(int i) {
+		// TODO Auto-generated method stub
+		if(i!=999) {
+			if(gp.player.invincible==false) {
+			gp.ui.showMessage("Asteroid collision detected!");
+			life-=1;
+			gp.asteroidBelt[i].life=0;
+			gp.asteroidBelt[i].dying = true;
+			gp.playSE(2);
+			gp.player.invincible = true;
+			}
+			if(life==0) {
+				gp.gameState=gp.GameOverState;
+			}
+		}
+	}
+	
 	public void damageAsteroid(int i) {
 		if(i!=999) {
 			if(gp.asteroids[i].invincible==false) {
@@ -278,6 +296,33 @@ public class Player extends Entity {
 			}
 		}
 	}
+	public void damageAstroidBelt(int i) {
+		if(i!=999) {
+			if(gp.asteroidBelt[i].invincible==false) {
+				gp.ui.showMessage("Asteroid destroyed!");
+				if(ammoType.equals("bullet1")) {
+					gp.asteroidBelt[i].invincible=true;
+					gp.asteroidBelt[i].life =-10;
+					
+					if(gp.asteroidBelt[i].life<=0) {
+						gp.asteroidBelt[i].dying = true;
+						gp.playSE(2);
+					}
+				}
+				if(ammoType.equals("pellet")) {
+					gp.asteroidBelt[i].life =-1;
+					gp.asteroidBelt[i].invincible=true;
+					if(gp.asteroidBelt[i].life<=0) {
+						gp.asteroidBelt[i].dying = true;
+						gp.playSE(2);
+					}
+				}
+				
+				
+				
+			}
+		}
+	}
 	public void rechargeLoading() {
 		if(rein==true) {
 			if(ammoType.equals("pellet")) {
@@ -306,6 +351,11 @@ public class Player extends Entity {
 		}
 		System.out.println(fuel);
 		System.out.println(fuelconsumption);
+	}
+	public void FuelRefill(boolean IsRefueling) {
+		if(IsRefueling==true) {
+			fuel+=1;
+		}
 	}
 	public void setDefaultPositions() {
 		worldx=gp.Tilesize*250;

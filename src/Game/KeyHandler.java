@@ -15,9 +15,11 @@ public class KeyHandler implements KeyListener{
 	public boolean shotsFired2;
 	public boolean enterPressed;
 	public int changeFireMode=0;
+	public int choice=0;
 	public boolean IsFirstGame=true;
 	public boolean MapOn=false;
 	public boolean MinimapOn=false;
+	public boolean IsFullSCOn=false;
 	GamePanel gp;
 	//DEBUG
 	
@@ -87,23 +89,31 @@ public class KeyHandler implements KeyListener{
 					gp.playSE(3);
 					if(gp.ui.commandNum==0) {
 						if(IsFirstGame==true) {
+							choice=1;
+							gp.player.setDefaultValues();
 							gp.gameState=gp.playState;
 						}
 						if(IsFirstGame==false) {
+							choice=1;
+							gp.player.setDefaultValues();
 							gp.restart();
 							gp.gameState=gp.playState;
 						}
-						gp.player.ChooseRocket(1);
+						
 					}
 					if(gp.ui.commandNum==1) {
 						if(IsFirstGame==true) {
+							choice=2;
+							gp.player.setDefaultValues();
 							gp.gameState=gp.playState;
 						}
 						if(IsFirstGame==false) {
+							choice=2;
+							gp.player.setDefaultValues();
 							gp.restart();
 							gp.gameState=gp.playState;
 						}
-						gp.player.ChooseRocket(2);
+						
 					}
 					if(gp.ui.commandNum==2) {
 						gp.ui.titleScreenState=0;
@@ -152,8 +162,8 @@ public class KeyHandler implements KeyListener{
 				if(code==KeyEvent.VK_ENTER) {
 					gp.playSE(3);
 					if(gp.ui.commandNum==0) {
-						enterPressed=true;
-						gp.ui.titleScreenState=2;
+						IsFullSCOn=!IsFullSCOn;
+						gp.fullscreenOn=!gp.fullscreenOn;
 					}
 					if(gp.ui.commandNum==1) {
 						
@@ -365,4 +375,5 @@ public class KeyHandler implements KeyListener{
 			gp.gameState=gp.playState;
 		}
 	}
+	
 }

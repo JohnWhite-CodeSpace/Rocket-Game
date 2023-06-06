@@ -1,6 +1,7 @@
 package Game;
 
 import Object.OBJ_Asteroid;
+import Object.OBJ_AsteroidBelt;
 import Object.OBJ_Comet;
 import java.util.Random;
 public class AssetSetter {
@@ -10,6 +11,8 @@ public class AssetSetter {
 	int[] k = new int [100];
 	int[] l = new int[15];
 	int[] m = new int[15];
+	int[] o = new int[300];
+	int[] p = new int[300];
 	int max = 15;
 	int min = -15;
 	int max2 = 8;
@@ -31,6 +34,19 @@ public class AssetSetter {
 			}
 		
 	}
+	public void setAsteroidBelt() {
+		for(int i=0; i<o.length; i++) {
+			o[i] = (random2.nextInt(5)*(max-min)+min);
+			p[i] = (random2.nextInt(5)*(max2-min2)+min2);
+			gp.asteroidBelt[i] = new OBJ_AsteroidBelt(gp);
+			int worldx = gp.Tilesize*250+ gp.Tilesize*o[i]-gp.Tilesize*p[i]
+					+10*p[i]-5*o[i];
+			int worldy = gp.Tilesize*250+ gp.Tilesize*o[i]-gp.Tilesize*p[i]
+					+10*p[i]-5*o[i];
+			gp.asteroidBelt[i].set(worldx,worldy,"ABelt",true,null);
+		}
+	
+}
 	public void setComet() {
 		for(int i=0; i<l.length; i++) {
 			l[i] = (random2.nextInt(5)*(max-min)+min);
