@@ -20,16 +20,10 @@ public class Uranus extends Entity{
 	}
 	public void update() {
 		collisionOn=false;
-		gp.CollisionCheck.CheckTile(this);
-		
-			
-			
-	        	 
+			 
 		int newX = (int) ((radius * Math.cos(angle)) + centerx);
         int newY = (int) ((radius * Math.sin(angle)) + centery);
        
-       
-		//gp.CollisionCheck.checkEntity(this, gp.player);
 		if(collisionOn==false) {
 			angle+=0.0001;
 			if(angle>=2*Math.PI) {
@@ -38,8 +32,6 @@ public class Uranus extends Entity{
 			switch(direction) {
 				case "planet":worldx=newX;
 				worldy=newY; break;
-					
-				
 				}
         
 				spriteCounter++;

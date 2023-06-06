@@ -17,7 +17,6 @@ public class OBJ_Projectile extends Projectile {
         IsAlive = false;
         speed=10;
         velocity = 20;
-        HyperSpeed=15;
         solidArea = new Rectangle();
 		solidArea.x = 15;
 		solidArea.y = 15;

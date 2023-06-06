@@ -60,36 +60,6 @@ public class AssetSetter {
 		}
 	
 }
-	public void SetSpaceStation() {
-		gp.spacestation.set(gp.Tilesize*94,gp.Tilesize*75,"space_station",true,null);
-	}
-	public void SetUranus() {
-		gp.uranus.set(gp.Tilesize*90,gp.Tilesize*70,"planet",true,null);
-	}
-	public void SetSaturn() {
-		gp.pluto.set(gp.Tilesize*120,gp.Tilesize*80,"planet",true,null);
-	}
-	public void SetPluto() {
-		gp.pluto.set(gp.Tilesize*150,gp.Tilesize*75,"planet",true,null);
-	}
-	public void SetNeptune() {
-		gp.neptune.set(gp.Tilesize*60,gp.Tilesize*70,"planet",true,null);
-	}
-	public void SetJupiter() {
-		gp.jupiter.set(gp.Tilesize*130,gp.Tilesize*60,"planet",true,null);
-	}
-	public void SetMars() {
-		gp.mars.set(gp.Tilesize*100,gp.Tilesize*60,"planet",true,null);
-	}
-	public void SetEarth() {
-		gp.earth.set(gp.Tilesize*90,gp.Tilesize*50,"planet",true,null);
-	}
-	public void SetVenus() {
-		gp.venus.set(gp.Tilesize*80,gp.Tilesize*40,"planet",true,null);
-	}
-	public void SetMercury() {
-		gp.mercury.set(gp.Tilesize*80,gp.Tilesize*40,"planet",true,null);
-	}
 	public void SetSol() {
 		gp.sol.set(gp.Tilesize*250,gp.Tilesize*250,"planet",true,null);
 	}

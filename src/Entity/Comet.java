@@ -42,14 +42,6 @@ public class Comet extends Entity{
 				case "upleft": worldy-=speed; worldx-=speed;break;
 				case "downright":worldy+=speed; worldx+=speed; break;
 				case "downleft":worldy+=speed; worldx-=speed;break;
-				case "fastup":worldy-=HyperSpeed;break;
-				case "fastdown":worldy+=HyperSpeed;break;
-				case "fastleft":worldx-=HyperSpeed;break;
-				case "fastright":worldx+=HyperSpeed;break;
-				case "fastupleft":worldy-=HyperSpeed; worldx-=HyperSpeed; break;
-				case "fastdownleft":worldy+=HyperSpeed; worldx-=HyperSpeed;break;
-				case "fastdownright":worldy+=HyperSpeed; worldx+=HyperSpeed;break;
-				case "fastupright":worldy-=HyperSpeed; worldx+=HyperSpeed;break;
 				}
 			if(invincible==true) {
 				invincibleCounter++;

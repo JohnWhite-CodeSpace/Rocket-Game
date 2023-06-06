@@ -1,9 +1,6 @@
 package Object;
 
-
-import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
-
 import Entity.Earth;
 import Game.GamePanel;
 
@@ -16,18 +13,6 @@ public class OBJ_Earth extends Earth{
 		centerx=gp.Tilesize*250;
 		centery=gp.Tilesize*250;
         name = "Earth";
-        speed=1;
-        maxLife = 2000;
-        life = maxLife;
-        solidArea = new Rectangle();
-		solidArea.x = 76;
-		solidArea.y = 76;
-		solidArea.width = 350;
-		solidArea.height = 350;
-		solidAreaDefaultX = solidArea.x;
-		solidAreaDefaultY = solidArea.y;
-		Xcircle=0;
-        Ycircle=0;
         Radcircle=gp.Tilesize*5+gp.Tilesize/2;
         Xcircle=0;
 	    Ycircle=0;
@@ -45,9 +30,9 @@ public class OBJ_Earth extends Earth{
 		Planet4 = setup("/planets/Earth1", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
     }
 		
-    	public void SetAction() {
-    			direction = "planet";
-    		}
+    public void SetAction() {
+    	direction = "planet";
+    }
 }
 
 

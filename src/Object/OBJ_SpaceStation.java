@@ -18,15 +18,11 @@ public class OBJ_SpaceStation extends SpaceStation{
 		centerx=gp.Tilesize*250;
 		centery=gp.Tilesize*250;
         name = "SpaceStation";
-        speed=1;
-        maxLife = 2000;
-        life = maxLife;
         solidArea = new Rectangle();
 		solidArea.x = 44;
 		solidArea.y = 44;
 		solidArea.width = 120;
 		solidArea.height = 120;
-		System.out.println(solidArea.getBounds());
 		solidAreaDefaultX = solidArea.x;
 		solidAreaDefaultY = solidArea.y;
 		SpsAngle=0;

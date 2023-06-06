@@ -26,15 +26,12 @@ public class SpaceStation extends Entity{
 		collisionOn=false;
 		gp.CollisionCheck.CheckTile(this);
 		gp.CollisionCheck.playerCheck(this);
-		
-			
-			
-	        	 
+		centerx=gp.saturn.worldx;
+		centery=gp.saturn.worldy;
+			 
 		int newX = (int) ((radius * Math.cos(SpsAngle))  + centerx);
         int newY = (int) ((radius * Math.sin(SpsAngle))  + centery);
-       
-       
-		//gp.CollisionCheck.checkEntity(this, gp.player);
+
 		if(collisionOn==false) {
 			if(SpsAngle>=2*Math.PI) {
 				SpsAngle=0;

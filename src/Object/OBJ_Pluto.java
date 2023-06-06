@@ -1,6 +1,6 @@
 package Object;
 
-import java.awt.Rectangle;
+
 import java.awt.geom.Ellipse2D;
 
 import Entity.Pluto;
@@ -15,23 +15,12 @@ public class OBJ_Pluto extends Pluto{
 		centerx=gp.Tilesize*250;
 		centery=gp.Tilesize*250;
         name = "Pluto";
-        speed=1;
-        maxLife = 2000;
-        life = maxLife;
-        angle=0.1;
-        solidArea = new Rectangle();
-		solidArea.x = 40;
-		solidArea.y = 40;
-		solidArea.width = 164;
-		solidArea.height = 164;
-		solidAreaDefaultX = solidArea.x;
-		solidAreaDefaultY = solidArea.y;
 		Xcircle=0;
 	    Ycircle=0;
 	    Radcircle=gp.Tilesize*3;
 	    planetSolidArea = new Ellipse2D.Double(Xcircle,Ycircle,Radcircle,Radcircle);
         IsAlive = false;
-        
+        angle=0.1;
         getImage();
 		// TODO Auto-generated constructor stub
 	}
@@ -41,10 +30,8 @@ public class OBJ_Pluto extends Pluto{
 			Planet2 = setup("/planets/Pluto2", gp.Tilesize*i, gp.Tilesize*i);
 			Planet3 = setup("/planets/Pluto3", gp.Tilesize*i, gp.Tilesize*i);
 			Planet4 = setup("/planets/Pluto4", gp.Tilesize*i, gp.Tilesize*i);
-		
-       
     }
-    	public void SetAction() {
-    		direction = "planet";
-    	}
+    public void SetAction() {
+    	direction = "planet";
+    }
 }

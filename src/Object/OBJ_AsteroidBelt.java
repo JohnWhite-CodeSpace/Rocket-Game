@@ -1,9 +1,7 @@
 package Object;
 
 import java.awt.Rectangle;
-import java.awt.geom.Ellipse2D;
 import java.util.Random;
-
 import Entity.Asteroid_Belt;
 import Game.GamePanel;
 

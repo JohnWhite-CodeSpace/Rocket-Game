@@ -32,10 +32,7 @@ public class Player extends Entity {
 		solidAreaDefaultX = solidArea.x;
 		solidAreaDefaultY = solidArea.y;
 		AsteroidCollision=0;
-		
-		
 
-		
 	}
 	public void ChooseRocket() {
 		if(keyH.choice ==1) {
@@ -54,17 +51,13 @@ public class Player extends Entity {
 			Choice=2;
 			maxLife = 10;
 			maxfuel = 200;
-			
 		}
-		
 	}
 	public void getPlayer1Image() {
 
 			Player1 = setup("/player/chonker", gp.Tilesize, gp.Tilesize);			
 			Player2 = setup("/player/chonker2", gp.Tilesize, gp.Tilesize);
 			Player3 = setup("/player/chonker3", gp.Tilesize, gp.Tilesize);
-
-			
 		
 	}
 	public void getPlayer2Image() {
@@ -72,7 +65,6 @@ public class Player extends Entity {
 			Player2 = setup("/player/speedy2", gp.Tilesize, gp.Tilesize);
 			Player3 = setup("/player/speedy3", gp.Tilesize, gp.Tilesize);
 
-			
 		}
 	public void setDefaultValues() {
 		ChooseRocket();
@@ -105,8 +97,6 @@ public class Player extends Entity {
 				Acceleration=0.1;
 			}
 			
-		previousX = worldx;
-		previousY = worldy;
 		spriteCounter++;
 		collisionOn=false;
 		gp.CollisionCheck.CheckTile(this);
@@ -143,16 +133,14 @@ public class Player extends Entity {
 			}
 		}
 	}
-		
-			if(gp.keyH.shotsFired==true && ShotAveilableCounter==timespan && recharge==120) {
-				projectile = new OBJ_Projectile(gp);
-				projectile.set(worldx, worldy, ammoType, true, this, PlayerAngle);
+		if(gp.keyH.shotsFired==true && ShotAveilableCounter==timespan && recharge==120) {
+			projectile = new OBJ_Projectile(gp);
+			projectile.set(worldx, worldy, ammoType, true, this, PlayerAngle);
+
+			gp.projectileList.add(projectile);
 				
-				
-				gp.projectileList.add(projectile);
-				
-				gp.playSE(1);
-				ShotAveilableCounter = 0;
+			gp.playSE(1);
+			ShotAveilableCounter = 0;
 			}
 			if(ShotAveilableCounter<timespan) {
 				ShotAveilableCounter++;
@@ -274,9 +262,6 @@ public class Player extends Entity {
 						gp.playSE(2);
 					}
 				}
-				
-				
-				
 			}
 		}
 	}
@@ -301,9 +286,6 @@ public class Player extends Entity {
 						gp.playSE(2);
 					}
 				}
-				
-				
-				
 			}
 		}
 	}
@@ -327,10 +309,7 @@ public class Player extends Entity {
 						gp.asteroidBelt[i].dying = true;
 						gp.playSE(2);
 					}
-				}
-				
-				
-				
+				}	
 			}
 		}
 	}
@@ -360,8 +339,6 @@ public class Player extends Entity {
 			fuelconsumption=0;
 			
 		}
-		System.out.println(fuel);
-		System.out.println(fuelconsumption);
 	}
 	public void FuelRefill(boolean IsRefueling) {
 		if(IsRefueling==true) {

@@ -19,7 +19,6 @@ public class Entity {
 
 	public int worldx, worldy;
 	public int speed;
-	public int HyperSpeed;
 	public int fuel, fuelconsumption,maxfuel;
 	public double velocity;
 	public double PlayerAngle;

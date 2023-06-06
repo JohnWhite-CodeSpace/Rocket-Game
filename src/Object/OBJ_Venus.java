@@ -1,7 +1,5 @@
 package Object;
 
-
-import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
 import Entity.Venus;
 import Game.GamePanel;
@@ -14,19 +12,7 @@ public class OBJ_Venus extends Venus{
 		radius = 60*gp.Tilesize;
 		centerx=gp.Tilesize*250;
 		centery=gp.Tilesize*250;
-        name = "Earth";
-        speed=1;
-        maxLife = 2000;
-        life = maxLife;
-        solidArea = new Rectangle();
-		solidArea.x = 76;
-		solidArea.y = 76;
-		solidArea.width = 350;
-		solidArea.height = 350;
-		solidAreaDefaultX = solidArea.x;
-		solidAreaDefaultY = solidArea.y;
-		Xcircle=0;
-        Ycircle=0;
+        name = "Venus";
         Radcircle=gp.Tilesize*4+gp.Tilesize/2;
         Xcircle=0;
 	    Ycircle=0;

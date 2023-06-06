@@ -136,18 +136,9 @@ public class GamePanel extends JPanel implements Runnable{
 		aSetter.setAsteroid();
 		aSetter.setAsteroidBelt();
 		aSetter.setComet();
-		aSetter.SetSpaceStation();
-		aSetter.SetUranus();
-		aSetter.SetNeptune();
-		aSetter.SetSaturn();
-		aSetter.SetPluto();
-		aSetter.SetJupiter();
-		aSetter.SetMars();
-		aSetter.SetEarth();
-		aSetter.SetVenus();
-		aSetter.SetMercury();
 		aSetter.SetSol();
 		gameState = titleState;
+		
 		songs.Play();
 		
 		
@@ -270,16 +261,6 @@ public class GamePanel extends JPanel implements Runnable{
 		aSetter.setAsteroid();
 		aSetter.setComet();
 		aSetter.setAsteroidBelt();
-		aSetter.SetSpaceStation();
-		aSetter.SetUranus();
-		aSetter.SetNeptune();
-		aSetter.SetSaturn();
-		aSetter.SetPluto();
-		aSetter.SetJupiter();
-		aSetter.SetMars();
-		aSetter.SetEarth();
-		aSetter.SetVenus();
-		aSetter.SetMercury();
 		aSetter.SetSol();
 		ui.playTime=0;
 	}

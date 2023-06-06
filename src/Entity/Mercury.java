@@ -21,13 +21,10 @@ public class Mercury extends Entity {
 	}
 	public void update() {
 		collisionOn=false;
-		gp.CollisionCheck.CheckTile(this);
 	        	 
 		int newX = (int) ((radius * Math.cos(angle)) + centerx);
         int newY = (int) ((radius * Math.sin(angle)) + centery);
        
-       
-		//gp.CollisionCheck.checkEntity(this, gp.player);
 		if(collisionOn==false) {
 			angle+=0.00025;
 			if(angle>=2*Math.PI) {
@@ -37,9 +34,7 @@ public class Mercury extends Entity {
 				case "planet":worldx=newX;
 				worldy=newY;break;
 				
-				}
-			//System.out.println(angle);
-        
+				}       
 				spriteCounter++;
 			if(spriteCounter>30) {
 				if(spriteNum==1) {

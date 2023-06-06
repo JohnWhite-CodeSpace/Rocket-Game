@@ -1,6 +1,5 @@
 package Object;
 
-import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
 
 import Entity.Jupiter;
@@ -15,18 +14,6 @@ public class OBJ_Jupiter extends Jupiter{
 		centerx=gp.Tilesize*250;
 		centery=gp.Tilesize*250;
         name = "Jupiter";
-        speed=1;
-        maxLife = 2000;
-        life = maxLife;
-        solidArea = new Rectangle();
-		solidArea.x = 76;
-		solidArea.y = 76;
-		solidArea.width = 350;
-		solidArea.height = 350;
-		solidAreaDefaultX = solidArea.x;
-		solidAreaDefaultY = solidArea.y;
-		Xcircle=0;
-        Ycircle=0;
         Radcircle=gp.Tilesize*10;
         Xcircle=0;
 	    Ycircle=0;
@@ -44,7 +31,7 @@ public class OBJ_Jupiter extends Jupiter{
 		Planet4 = setup("/planets/Jupiter4", gp.Tilesize*i, gp.Tilesize*i);	
     }
 		
-    	public void SetAction() {
-    			direction = "planet";
-    		}
+    public void SetAction() {
+    	direction = "planet";
+    }
 }

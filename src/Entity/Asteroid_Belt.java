@@ -21,7 +21,6 @@ public class Asteroid_Belt extends Entity{
 	}
 	public void update() {
 		collisionOn=false;
-		gp.CollisionCheck.CheckTile(this);
 		boolean contactPlayer = gp.CollisionCheck.playerCheck(this);
 		if(this.type ==2 && contactPlayer==true) {
 			if(gp.player.invincible==false) {
@@ -33,9 +32,7 @@ public class Asteroid_Belt extends Entity{
 	        	 
 		int newX = (int) ((radius * Math.cos(angle)) + centerx);
         int newY = (int) ((radius * Math.sin(angle)) + centery);
-       
-       
-		//gp.CollisionCheck.checkEntity(this, gp.player);
+
 		if(collisionOn==false) {
 			angle+=0.0002;
 			if(angle>=2*Math.PI) {
@@ -46,8 +43,6 @@ public class Asteroid_Belt extends Entity{
 				worldy=newY;break;
 				
 				}
-			//System.out.println(angle);
-        
 				spriteCounter++;
 			if(spriteCounter>30) {
 				if(spriteNum==1) {

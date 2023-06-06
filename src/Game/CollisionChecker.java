@@ -88,77 +88,6 @@ public class CollisionChecker {
 				entity.collisionOn=true;
 				}
 		break;
-		case "fastup"://ok
-			
-			entityTopRow = (entityTopWorldy-entity.HyperSpeed)/gp.Tilesize;
-			tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityTopRow];
-			tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
-			if(gp.tileM.tile[tileNum1].collision==true|| gp.tileM.tile[tileNum2].collision==true) {
-				entity.collisionOn=true;
-			}
-		break;
-		case "fastdown"://ok
-			entityBottomRow = (entityBottomWorldy+entity.HyperSpeed)/gp.Tilesize;
-			tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityBottomRow];
-			tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityBottomRow];
-			if(gp.tileM.tile[tileNum1].collision==true|| gp.tileM.tile[tileNum2].collision==true) {
-				entity.collisionOn=true;
-			}
-		break;
-		case "fastleft"://ok
-			entityLeftCol = (entityLeftWorldx-entity.HyperSpeed)/gp.Tilesize;
-			tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityTopRow];
-			tileNum2 = gp.tileM.mapTileNum[entityLeftCol][entityBottomRow];
-			if(gp.tileM.tile[tileNum1].collision==true|| gp.tileM.tile[tileNum2].collision==true) {
-				entity.collisionOn=true;
-			}
-		break;
-		case "fastright": //ok
-			entityRightCol = (entityRightWorldx+entity.HyperSpeed)/gp.Tilesize;
-			tileNum1 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
-			tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityBottomRow];
-			if(gp.tileM.tile[tileNum1].collision==true|| gp.tileM.tile[tileNum2].collision==true) {
-				entity.collisionOn=true;
-			}
-		break;
-		
-		
-		case "fastupright": //ok
-			entityTopRow = (entityTopWorldy-entity.HyperSpeed)/gp.Tilesize;
-			entityRightCol = (entityRightWorldx+entity.HyperSpeed)/gp.Tilesize;
-			tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityTopRow];
-			tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
-			if(gp.tileM.tile[tileNum1].collision==true|| gp.tileM.tile[tileNum2].collision==true) {
-				entity.collisionOn=true;
-				}
-		break;
-		case "fastupleft":
-			entityTopRow = (entityTopWorldy-entity.HyperSpeed)/gp.Tilesize;
-			entityLeftCol = (entityRightWorldx-entity.HyperSpeed)/gp.Tilesize;
-			tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityTopRow];
-			tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
-			if(gp.tileM.tile[tileNum1].collision==true|| gp.tileM.tile[tileNum2].collision==true) {
-				entity.collisionOn=true;
-				}
-		break;
-		case "fastdownright"://ok
-			entityBottomRow = (entityTopWorldy+entity.HyperSpeed)/gp.Tilesize;
-			entityRightCol = (entityRightWorldx+entity.HyperSpeed)/gp.Tilesize;
-			tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityTopRow];
-			tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
-			if(gp.tileM.tile[tileNum1].collision==true|| gp.tileM.tile[tileNum2].collision==true) {
-				entity.collisionOn=true;
-				}
-		break;
-		case "fastdownleft":
-			entityBottomRow = (entityTopWorldy+entity.HyperSpeed)/gp.Tilesize;
-			entityLeftCol = (entityRightWorldx-entity.HyperSpeed)/gp.Tilesize;
-			tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityTopRow];
-			tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
-			if(gp.tileM.tile[tileNum1].collision==true|| gp.tileM.tile[tileNum2].collision==true) {
-				entity.collisionOn=true;
-				}
-		break;
 		case "player1":
 			tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityTopRow];
 		    tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
@@ -296,34 +225,6 @@ public class CollisionChecker {
 						entity.solidArea.y+=entity.speed;
 						entity.solidArea.x+=entity.speed;
 						break;
-					case "fastup":
-						entity.solidArea.y-=gp.player.HyperSpeed;
-						break;
-					case "fastdown":
-						entity.solidArea.y+=gp.player.HyperSpeed;
-						break;
-					case "fastleft":
-						entity.solidArea.x-=gp.player.HyperSpeed;
-						break;
-					case "fastright":
-						entity.solidArea.x+=gp.player.HyperSpeed;
-						break;
-					case "fastupleft":
-						entity.solidArea.y-=gp.player.HyperSpeed;
-						entity.solidArea.x-=gp.player.HyperSpeed;
-						break;
-					case "fastupright":
-						entity.solidArea.y-=gp.player.HyperSpeed;
-						entity.solidArea.x+=gp.player.HyperSpeed;
-						break;
-					case "fastdownleft":
-						entity.solidArea.y+=gp.player.HyperSpeed;
-						entity.solidArea.x-=gp.player.HyperSpeed;
-						break;
-					case "fastdownright":
-						entity.solidArea.y+=gp.player.HyperSpeed;
-						entity.solidArea.x+=gp.player.HyperSpeed;
-						break;
 					case "player1":
 						entity.solidArea.y-=gp.player.velocity * Math.cos(Math.toRadians(gp.player.PlayerAngle));
 						entity.solidArea.x+=gp.player.velocity * Math.sin(Math.toRadians(gp.player.PlayerAngle));
@@ -389,34 +290,6 @@ public class CollisionChecker {
 				case "downright":
 					entity.solidArea.y+=entity.speed;
 					entity.solidArea.x+=entity.speed;
-					break;
-				case "fastup":
-					entity.solidArea.y-=gp.player.HyperSpeed;
-					break;
-				case "fastdown":
-					entity.solidArea.y+=gp.player.HyperSpeed;
-					break;
-				case "fastleft":
-					entity.solidArea.x-=gp.player.HyperSpeed;
-					break;
-				case "fastright":
-					entity.solidArea.x+=gp.player.HyperSpeed;
-					break;
-				case "fastupleft":
-					entity.solidArea.y-=gp.player.HyperSpeed;
-					entity.solidArea.x-=gp.player.HyperSpeed;
-					break;
-				case "fastupright":
-					entity.solidArea.y-=gp.player.HyperSpeed;
-					entity.solidArea.x+=gp.player.HyperSpeed;
-					break;
-				case "fastdownleft":
-					entity.solidArea.y+=gp.player.HyperSpeed;
-					entity.solidArea.x-=gp.player.HyperSpeed;
-					break;
-				case "fastdownright":
-					entity.solidArea.y+=gp.player.HyperSpeed;
-					entity.solidArea.x+=gp.player.HyperSpeed;
 					break;
 				case "player1":
 					entity.solidArea.y-=gp.player.velocity * Math.cos(Math.toRadians(gp.player.PlayerAngle));
@@ -500,60 +373,6 @@ public class CollisionChecker {
 					case "downright":
 						entity.solidArea.y+=entity.speed;
 						entity.solidArea.x+=entity.speed;
-						if(entity.solidArea.intersects(target.solidArea)) {
-								entity.collisionOn = true;
-							
-						}
-						break;
-					case "fastup":
-						entity.solidArea.y-=gp.player.HyperSpeed;
-						if(entity.solidArea.intersects(target.solidArea)) {
-							entity.collisionOn = true;
-						}
-						break;
-					case "fastdown":
-						entity.solidArea.y+=gp.player.HyperSpeed;
-						if(entity.solidArea.intersects(target.solidArea)) {
-							entity.collisionOn = true;
-						}
-						break;
-					case "fastleft":
-						entity.solidArea.x-=gp.player.HyperSpeed;
-						if(entity.solidArea.intersects(target.solidArea)) {
-							entity.collisionOn = true;
-						}
-						break;
-					case "fastright":
-						entity.solidArea.x+=gp.player.HyperSpeed;
-						if(entity.solidArea.intersects(target.solidArea)) {
-							entity.collisionOn = true;
-						}
-						break;
-					case "fastupleft":
-						entity.solidArea.y-=gp.player.HyperSpeed;
-						entity.solidArea.x-=gp.player.HyperSpeed;
-						if(entity.solidArea.intersects(target.solidArea)) {
-							entity.collisionOn = true;
-						}
-						break;
-					case "fastupright":
-						entity.solidArea.y-=gp.player.HyperSpeed;
-						entity.solidArea.x+=gp.player.HyperSpeed;
-						if(entity.solidArea.intersects(target.solidArea)) {
-							entity.collisionOn = true;
-						}
-						break;
-					case "fastdownleft":
-						entity.solidArea.y+=gp.player.HyperSpeed;
-						entity.solidArea.x-=gp.player.HyperSpeed;
-						if(entity.solidArea.intersects(target.solidArea)) {
-							entity.collisionOn = true;
-
-						}
-						break;
-					case "fastdownright":
-						entity.solidArea.y+=gp.player.HyperSpeed;
-						entity.solidArea.x+=gp.player.HyperSpeed;
 						if(entity.solidArea.intersects(target.solidArea)) {
 								entity.collisionOn = true;
 							

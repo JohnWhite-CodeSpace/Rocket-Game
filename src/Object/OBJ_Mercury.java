@@ -1,7 +1,6 @@
 package Object;
 
 
-import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
 import Entity.Mercury;
 import Game.GamePanel;
@@ -14,19 +13,7 @@ public class OBJ_Mercury extends Mercury{
 		radius = 48*gp.Tilesize;
 		centerx=gp.Tilesize*250;
 		centery=gp.Tilesize*250;
-        name = "Jupiter";
-        speed=1;
-        maxLife = 2000;
-        life = maxLife;
-        solidArea = new Rectangle();
-		solidArea.x = 76;
-		solidArea.y = 76;
-		solidArea.width = 350;
-		solidArea.height = 350;
-		solidAreaDefaultX = solidArea.x;
-		solidAreaDefaultY = solidArea.y;
-		Xcircle=0;
-        Ycircle=0;
+        name = "Mercury";
         Radcircle=gp.Tilesize*3+gp.Tilesize/2;
         Xcircle=0;
 	    Ycircle=0;

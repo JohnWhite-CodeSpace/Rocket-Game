@@ -21,13 +21,10 @@ public class Earth extends Entity {
 	}
 	public void update() {
 		collisionOn=false;
-		gp.CollisionCheck.CheckTile(this);
 	        	 
 		int newX = (int) ((radius * Math.cos(angle)) + centerx);
         int newY = (int) ((radius * Math.sin(angle)) + centery);
        
-       
-		//gp.CollisionCheck.checkEntity(this, gp.player);
 		if(collisionOn==false) {
 			angle+=0.0001;
 			if(angle>=2*Math.PI) {
@@ -37,9 +34,7 @@ public class Earth extends Entity {
 				case "planet":worldx=newX;
 				worldy=newY;break;
 				
-				}
-			//System.out.println(angle);
-        
+				}        
 				spriteCounter++;
 			if(spriteCounter>30) {
 				if(spriteNum==1) {

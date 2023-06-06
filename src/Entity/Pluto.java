@@ -20,9 +20,7 @@ public class Pluto extends Entity{
 		
 	}
 	public void update() {
-		collisionOn=false;
-		gp.CollisionCheck.CheckTile(this);
-	        	 
+		collisionOn=false;	        	 
 		int newX = (int) ((radius * Math.cos(angle)) + centerx);
         int newY = (int) ((radius * Math.sin(angle)) + centery);
        

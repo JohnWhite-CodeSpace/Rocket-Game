@@ -1,6 +1,5 @@
 package Object;
 
-import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
 
 import Entity.Neptune;
@@ -22,11 +21,6 @@ public class OBJ_Neptune extends Neptune{
         Xcircle=0;
         Ycircle=0;
         Radcircle=gp.Tilesize*8;
-        solidArea = new Rectangle();
-        solidArea.x = 76;
-		solidArea.y = 76;
-		solidArea.width = 350;
-		solidArea.height = 350;
         planetSolidArea = new Ellipse2D.Double(Xcircle,Ycircle,Radcircle,Radcircle);
 		solidAreaDefaultX = (int) planetSolidArea.getX();
 		solidAreaDefaultY = (int) planetSolidArea.getY();
