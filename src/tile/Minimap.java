@@ -81,10 +81,12 @@ public class Minimap extends TileManager{
 		g2.drawImage(gp.spacestation.SpaceStation1,SpaceStationX,SpaceStationY,SpaceStationSize,SpaceStationSize,null );
 		
 		for(int i=0; i<gp.asteroidBelt.length;i++) {
-			int asteroidSize = (int)(gp.Tilesize/3);
-			planetX = (int)(x+gp.asteroidBelt[i].worldx/scale);
-			planetY = (int)(y+gp.asteroidBelt[i].worldy/scale);
-			g2.drawImage(gp.asteroidBelt[i].AsteroidBelt,planetX,planetY,asteroidSize,asteroidSize,null );
+			if(gp.asteroidBelt[i]!=null) {
+				int asteroidSize = (int)(gp.Tilesize/3);
+				planetX = (int)(x+gp.asteroidBelt[i].worldx/scale);
+				planetY = (int)(y+gp.asteroidBelt[i].worldy/scale);
+				g2.drawImage(gp.asteroidBelt[i].AsteroidBelt,planetX,planetY,asteroidSize,asteroidSize,null );
+			}
 		}
 		
 		

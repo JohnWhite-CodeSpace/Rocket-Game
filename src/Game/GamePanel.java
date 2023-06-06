@@ -209,6 +209,7 @@ public class GamePanel extends JPanel implements Runnable{
 					}
 					if(asteroidBelt[i].IsAlive==false) {
 						asteroidBelt[i] = null;
+							
 						
 					}
 				}

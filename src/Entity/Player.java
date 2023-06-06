@@ -205,6 +205,9 @@ public class Player extends Entity {
 			if(gp.player.invincible==false) {
 			gp.ui.showMessage("Asteroid collision detected!");
 			life-=1;
+			gp.asteroids[i].life=0;
+			gp.asteroids[i].dying=true;
+			gp.playSE(2);
 			gp.player.invincible = true;
 			}
 			if(life==0) {
@@ -218,6 +221,9 @@ public class Player extends Entity {
 			if(gp.player.invincible==false) {
 			gp.ui.showMessage("Comet collision detected!");
 			life-=3;
+			gp.comets[i].life=0;
+			gp.comets[i].dying = true;
+			gp.playSE(2);
 			gp.player.invincible = true;
 			}
 			if(life==0) {
