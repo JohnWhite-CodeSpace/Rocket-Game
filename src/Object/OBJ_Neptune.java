@@ -12,7 +12,7 @@ public class OBJ_Neptune extends Neptune{
 	public OBJ_Neptune(GamePanel gp) {
 		super(gp);
 		this.gp = gp;
-		radius = 210*gp.Tilesize;
+		radius = 215*gp.Tilesize;
 		centerx=gp.Tilesize*250;
 		centery=gp.Tilesize*250;
         name = "Neptune";
@@ -31,7 +31,7 @@ public class OBJ_Neptune extends Neptune{
 		solidAreaDefaultX = (int) planetSolidArea.getX();
 		solidAreaDefaultY = (int) planetSolidArea.getY();
         IsAlive = false;
-        angle=0;
+        angle=5;
         
         getImage();
 		// TODO Auto-generated constructor stub

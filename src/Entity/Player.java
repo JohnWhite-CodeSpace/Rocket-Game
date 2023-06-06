@@ -76,8 +76,8 @@ public class Player extends Entity {
 		}
 	public void setDefaultValues() {
 		ChooseRocket();
-		worldx=gp.Tilesize*250;
-		worldy=gp.Tilesize*250;
+		worldx=gp.Tilesize*400;
+		worldy=gp.Tilesize*470;
 		speed=5;
 		ammoType="bullet1";
 		direction = "player1";
@@ -117,6 +117,11 @@ public class Player extends Entity {
 		gp.CollisionCheck.PlanetPlayerCheck(this, gp.pluto);
 		gp.CollisionCheck.PlanetPlayerCheck(this, gp.uranus);
 		gp.CollisionCheck.PlanetPlayerCheck(this, gp.jupiter);
+		gp.CollisionCheck.PlanetPlayerCheck(this, gp.mars);
+		gp.CollisionCheck.PlanetPlayerCheck(this, gp.earth);
+		gp.CollisionCheck.PlanetPlayerCheck(this, gp.venus);
+		gp.CollisionCheck.PlanetPlayerCheck(this, gp.mercury);
+		gp.CollisionCheck.PlanetPlayerCheck(this, gp.sol);
 		int asteroidindex = gp.CollisionCheck.checkEntity(this, gp.asteroids);
 		interactAsteroid(asteroidindex);
 		int cometindex = gp.CollisionCheck.checkEntity(this, gp.comets);

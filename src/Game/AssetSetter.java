@@ -11,8 +11,8 @@ public class AssetSetter {
 	int[] k = new int [100];
 	int[] l = new int[15];
 	int[] m = new int[15];
-	int[] o = new int[300];
-	int[] p = new int[300];
+	int[] o = new int[350];
+	int[] p = new int[350];
 	int max = 15;
 	int min = -15;
 	int max2 = 8;
@@ -77,5 +77,20 @@ public class AssetSetter {
 	}
 	public void SetJupiter() {
 		gp.jupiter.set(gp.Tilesize*130,gp.Tilesize*60,"planet",true,null);
+	}
+	public void SetMars() {
+		gp.mars.set(gp.Tilesize*100,gp.Tilesize*60,"planet",true,null);
+	}
+	public void SetEarth() {
+		gp.earth.set(gp.Tilesize*90,gp.Tilesize*50,"planet",true,null);
+	}
+	public void SetVenus() {
+		gp.venus.set(gp.Tilesize*80,gp.Tilesize*40,"planet",true,null);
+	}
+	public void SetMercury() {
+		gp.mercury.set(gp.Tilesize*80,gp.Tilesize*40,"planet",true,null);
+	}
+	public void SetSol() {
+		gp.sol.set(gp.Tilesize*250,gp.Tilesize*250,"planet",true,null);
 	}
 }

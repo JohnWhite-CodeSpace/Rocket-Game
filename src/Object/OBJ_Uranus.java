@@ -12,7 +12,7 @@ public class OBJ_Uranus extends Uranus{
 	public OBJ_Uranus(GamePanel gp) {
 		super(gp);
 		this.gp = gp;
-		radius = 185*gp.Tilesize;
+		radius = 195*gp.Tilesize;
 		centerx=gp.Tilesize*250;
 		centery=gp.Tilesize*250;
         name = "Uranus";

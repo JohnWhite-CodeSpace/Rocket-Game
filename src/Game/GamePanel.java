@@ -24,12 +24,22 @@ import Entity.Jupiter;
 import Entity.Uranus;
 import Entity.Saturn;
 import Entity.Comet;
+import Entity.Mars;
+import Entity.Earth;
+import Entity.Venus;
+import Entity.Mercury;
+import Entity.Sol;
 import Object.OBJ_Pluto;
 import Object.OBJ_SpaceStation;
 import Object.OBJ_Neptune;
 import Object.OBJ_Jupiter;
 import Object.OBJ_Uranus;
 import Object.OBJ_Saturn;
+import Object.OBJ_Mars;
+import Object.OBJ_Earth;
+import Object.OBJ_Venus;
+import Object.OBJ_Mercury;
+import Object.OBJ_Sol;
 import Entity.Asteroid_Belt;
 import tile.TileManager;
 import tile.Minimap;
@@ -84,9 +94,14 @@ public class GamePanel extends JPanel implements Runnable{
 	public Uranus uranus = new OBJ_Uranus(this);
 	public Saturn saturn = new OBJ_Saturn(this);
 	public Jupiter jupiter = new OBJ_Jupiter(this);
+	public Mars mars = new OBJ_Mars(this);
+	public Earth earth = new OBJ_Earth(this);
+	public Venus venus = new OBJ_Venus(this);
+	public Mercury mercury = new OBJ_Mercury(this);
+	public Sol sol = new OBJ_Sol(this);
 	public UI ui = new UI(this);
 	public Asteroid asteroids[] = new Asteroid[100];
-	public Asteroid_Belt asteroidBelt[] = new Asteroid_Belt[300];
+	public Asteroid_Belt asteroidBelt[] = new Asteroid_Belt[350];
 	public Comet comets[] = new Comet[15];
 	Minimap map = new Minimap(this);
 	Font font4;
@@ -106,9 +121,6 @@ public class GamePanel extends JPanel implements Runnable{
 		this.setFocusable(true);
 		font4  = new Font("Arial",Font.BOLD,20);
 		startGameThread();	
-		if(gameState==GameOverState) {
-			
-		}
 	}
 	public void startGameThread() {
 		gamethread = new Thread(this);
@@ -130,6 +142,11 @@ public class GamePanel extends JPanel implements Runnable{
 		aSetter.SetSaturn();
 		aSetter.SetPluto();
 		aSetter.SetJupiter();
+		aSetter.SetMars();
+		aSetter.SetEarth();
+		aSetter.SetVenus();
+		aSetter.SetMercury();
+		aSetter.SetSol();
 		gameState = titleState;
 		songs.Play();
 		
@@ -178,6 +195,15 @@ public class GamePanel extends JPanel implements Runnable{
 			saturn.SetAction();
 			jupiter.update();
 			jupiter.SetAction();
+			mars.update();
+			mars.SetAction();
+			earth.update();
+			earth.SetAction();
+			venus.update();
+			venus.SetAction();
+			mercury.update();
+			mercury.SetAction();
+			sol.update();
 			for(int i=0; i<projectileList.size(); i++) {
 				if(projectileList.get(i)!=null) {
 					if(projectileList.get(i).IsAlive==true) {
@@ -250,6 +276,11 @@ public class GamePanel extends JPanel implements Runnable{
 		aSetter.SetSaturn();
 		aSetter.SetPluto();
 		aSetter.SetJupiter();
+		aSetter.SetMars();
+		aSetter.SetEarth();
+		aSetter.SetVenus();
+		aSetter.SetMercury();
+		aSetter.SetSol();
 		ui.playTime=0;
 	}
 
@@ -274,6 +305,11 @@ public class GamePanel extends JPanel implements Runnable{
 			entityList.add(uranus);
 			entityList.add(saturn);
 			entityList.add(jupiter);
+			entityList.add(mars);
+			entityList.add(earth);
+			entityList.add(venus);
+			entityList.add(mercury);
+			entityList.add(sol);
 			
 			
 			for(int i=0; i < projectileList.size(); i++) {

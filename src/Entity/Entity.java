@@ -68,6 +68,11 @@ public class Entity {
 	public Uranus uranus;
 	public Saturn saturn;
 	public Jupiter jupiter;
+	public Mars mars;
+	public Earth earth;
+	public Venus venus;
+	public Mercury mercury;
+	public Sol sol;
 	public OBJ_PlayerLife lifebar;
 	public OBJ_PlayerFuel PFuel;
 	public int ActionLockCounter = 0;

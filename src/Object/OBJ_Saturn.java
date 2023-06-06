@@ -11,7 +11,7 @@ public class OBJ_Saturn extends Saturn{
 	public OBJ_Saturn(GamePanel gp) {
 		super(gp);
 		this.gp = gp;
-		radius = 145*gp.Tilesize;
+		radius = 155*gp.Tilesize;
 		centerx=gp.Tilesize*250;
 		centery=gp.Tilesize*250;
         name = "Saturn";
