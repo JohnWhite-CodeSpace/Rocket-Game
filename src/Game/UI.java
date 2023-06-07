@@ -60,17 +60,17 @@ public class UI {
 	public void draw(Graphics2D g2) {
 	    this.g2 = g2;
 		g2.setFont(font);
-		//g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		g2.setColor(Color.white);
-		if(gp.gameState==gp.titleState) {
+		switch (gp.gameState) {
+		case 0:
 			try {
 				DrawTitleScreen("NEW GAME");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-		if(gp.gameState == gp.playState) {
+		break;
+		case 1:
 			GameTimer(g2);
 			try {
 				DrawLife();
@@ -90,9 +90,8 @@ public class UI {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-		
-		if(gp.gameState == gp.pauseState) {
+			break;
+		case 2:
 			PauseScreen();
 			try {
 				DrawLife();
@@ -112,32 +111,29 @@ public class UI {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			break;
+		case 3:
+			try {
+				DrawTitleScreen("RESUME GAME");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			if(gp.gameState == gp.exitpauseState) {
-				try {
-					DrawTitleScreen("RESUME GAME");
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			if(gp.gameState==gp.OptionState) {
-				
-			}
-				
-			}
+			break;
+		case 4:
+			try {
+				GameOverScreen();
 			
-			if(gp.gameState==gp.GameOverState) {
-				try {
-						GameOverScreen();
-					
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-			if(gp.gameState==gp.WinState) {
-				DrawWinScreen();
-			}
+			break;
+		case 6:
+			DrawWinScreen();
+			break;
+			
+		}
 
 	}
 	public void PauseScreen() {
