@@ -41,7 +41,9 @@ public class Player extends Entity {
 			Choice = 1;
 			MaxSpeed=10;
 			maxLife = 14;
-			maxfuel=400;
+			maxfuel=280;
+			life=maxLife;
+			fuel=maxfuel;
 			
 		}
 		else if(keyH.choice==2) {
@@ -51,6 +53,8 @@ public class Player extends Entity {
 			Choice=2;
 			maxLife = 10;
 			maxfuel = 200;
+			life=maxLife;
+			fuel=maxfuel;
 		}
 	}
 	public void getPlayer1Image() {
@@ -73,7 +77,6 @@ public class Player extends Entity {
 		speed=5;
 		ammoType="bullet1";
 		direction = "player1";
-		life=maxLife;
 		velocity =0;
 		PlayerAngle = 0;
 		Acceleration=0.1;
@@ -82,7 +85,6 @@ public class Player extends Entity {
 		maxrecharge=120;
 		recharge=maxrecharge;
 		rechargeCounter=0;
-		fuel=maxfuel;
 		fuelconsumption=0;
 		Weapon = "Rocket";
 	}
@@ -121,11 +123,8 @@ public class Player extends Entity {
 		if(PlayerAngle>=360||PlayerAngle<=-360) {
 			PlayerAngle=0;
 		}
-		//System.out.println(PlayerAngle);
 		double newy= velocity * Math.cos(Math.toRadians(PlayerAngle));
 		double newx= velocity * Math.sin(Math.toRadians(PlayerAngle));
-		//System.out.println(worldx + ", "+ worldy);
-		
 		
 		if(collisionOn==false) {
 			switch(direction) {
@@ -346,21 +345,25 @@ public class Player extends Entity {
 		}
 	}
 	public void setDefaultPositions() {
-		worldx=gp.Tilesize*250;
-		worldy=gp.Tilesize*250;
+		worldx=gp.Tilesize*400;
+		worldy=gp.Tilesize*470;
 		direction = "player1";
 	}
 	public void restoreDefaultValues() {
 		velocity =0;
 		PlayerAngle = 0;
-		life=maxLife;
-		maxLife=10;
-		maxfuel=100;
 		Weapon = "Rocket";
-		fuel=maxfuel;
 		fuelconsumption=0;
 		invincible=false;
 		ammoType="bullet1";
+	}
+	public void GameStatus() {
+			if(gp.player.fuel>50) {
+				gp.gameState=gp.WinState;
+			}
+			if(gp.player.fuel<=50){
+				gp.gameState=gp.GameOverState;
+			}
 	}
 	
 }

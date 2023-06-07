@@ -427,7 +427,12 @@ public class CollisionChecker {
 				if(solidarea!=null)
 				if(solidarea.intersects(entity.solidArea)) {
 					entity.collisionOn = true;
-					entity.life=0;
+					if(target!=gp.earth) {
+						entity.life=0;
+					}
+					if(target==gp.earth) {
+						gp.player.GameStatus();
+					}
 					contactPlayer = true;
 				}
 				

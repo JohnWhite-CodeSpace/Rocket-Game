@@ -47,6 +47,9 @@ public class KeyHandler implements KeyListener{
 		if(gp.gameState==gp.GameOverState) {
 			GameOverState(code);
 		}
+		if(gp.gameState==gp.WinState) {
+			WinState(code);
+		}
 	}
 	
 
@@ -361,6 +364,18 @@ public class KeyHandler implements KeyListener{
 		}
 	}
 	public void GameOverState(int code) {
+		gp.ui.commandNum=0;
+		if(code==KeyEvent.VK_ENTER) {
+			gp.playSE(4);
+			if(gp.ui.commandNum==0){
+				gp.ui.titleScreenState=0;
+				gp.gameState=gp.titleState;
+				gp.player.AsteroidCollision=0;
+				IsFirstGame=false;
+			}
+		}
+	}
+	public void WinState(int code) {
 		gp.ui.commandNum=0;
 		if(code==KeyEvent.VK_ENTER) {
 			gp.playSE(4);

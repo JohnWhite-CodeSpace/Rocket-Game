@@ -39,19 +39,14 @@ public class Projectile extends Entity{
 				IsAlive = false;
 			}
 		}
-		
-		
-		
-		
+
 			int newy= (int) (velocity * Math.cos(Math.toRadians(angle)));
 			int newx= (int) (velocity * Math.sin(Math.toRadians(angle)));
 			if(direction.equals("bullet1")) {
 				worldy-=newy;worldx+=newx;}
 			if(direction.equals("pellet")) {
 				worldy-=newy;worldx+=newx;
-			//case "player2":worldy-=newy;worldx+=newx; break;
 		}
-		
 		
 		life--;
 		if(life <=0) {

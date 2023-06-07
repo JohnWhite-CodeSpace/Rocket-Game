@@ -112,29 +112,32 @@ public class UI {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-		if(gp.gameState == gp.exitpauseState) {
-			try {
-				DrawTitleScreen("RESUME GAME");
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
-		if(gp.gameState==gp.OptionState) {
-			
-		}
-			
-		}
-		
-		if(gp.gameState==gp.GameOverState) {
-			try {
-					GameOverScreen();
+			if(gp.gameState == gp.exitpauseState) {
+				try {
+					DrawTitleScreen("RESUME GAME");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			if(gp.gameState==gp.OptionState) {
 				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
+				
+			}
+			
+			if(gp.gameState==gp.GameOverState) {
+				try {
+						GameOverScreen();
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
+			if(gp.gameState==gp.WinState) {
+				DrawWinScreen();
+			}
 
 	}
 	public void PauseScreen() {
@@ -446,7 +449,7 @@ public class UI {
 			g2.setColor(Color.white);
 			g2.drawString("Health", gp.Tilesize-10, gp.Tilesize);
 			int x = gp.Tilesize/2;
-			int y = gp.Tilesize;
+			int y = gp.Tilesize+gp.Tilesize/2;
 			int i=0;
 			while(i<gp.player.maxLife) {
 				g2.drawImage(lifeempty, x, y,gp.Tilesize,gp.Tilesize, null);
@@ -454,7 +457,7 @@ public class UI {
 				x+=gp.Tilesize/3;
 			}
 			x = gp.Tilesize/2;
-			y = gp.Tilesize;
+			y = gp.Tilesize+gp.Tilesize/2;
 			i=0;
 			while(i<gp.player.life) {
 				g2.drawImage(lifefull, x, y,gp.Tilesize,gp.Tilesize, null);
@@ -546,8 +549,59 @@ public class UI {
 			else if(i>=7 && i<=10) {
 				g2.drawImage(Fuel100, x, y,gp.Tilesize,gp.Tilesize, null);
 			}
+			else if(i>10) {
+				g2.drawImage(Fuel100, x, y,gp.Tilesize,gp.Tilesize, null);
+			}
 			i++;
 			y-=gp.Tilesize/3;
+		}
+	}
+	public void DrawWinScreen() {
+		g2.setColor(new Color(0,0,0,100));
+		g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
+		
+		
+		g2.setFont(font2);
+		String text = "YOU WON";
+		int x = getXForCenteredText(text);
+		int y = gp.screenHeight/6;
+		
+		g2.setColor(Color.black);
+		g2.drawString(text, x+5, y+5);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+		g2.setFont(font);
+		text = "Authors:";
+		x = getXForCenteredText(text);
+		y+=gp.Tilesize*2;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+5, y+5);
+		g2.setColor(Color.white);
+		g2.drawString(text, x,y);
+		text = "Jan Bialy - Author and project menager.";
+		x = getXForCenteredText(text);
+		y+=gp.Tilesize*2;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+5, y+5);
+		g2.setColor(Color.white);
+		g2.drawString(text, x,y);
+		text = "Jakub Wozniak - Co-author and planet graphic designer. ";
+		x = getXForCenteredText(text);
+		y+=gp.Tilesize*2;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+5, y+5);
+		g2.setColor(Color.white);
+		g2.drawString(text, x,y);
+		text = "EXIT TO MENU";
+		x = getXForCenteredText(text);
+		y+=gp.Tilesize*5;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+5, y+5);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+		if(commandNum==0) {
+			g2.setColor(Color.green);
+			g2.drawString(">", x-gp.Tilesize, y);
 		}
 	}
 }

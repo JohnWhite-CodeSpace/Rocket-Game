@@ -112,6 +112,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public final int exitpauseState = 3;
 	public final int GameOverState = 4;
 	public final int OptionState = 5;
+	public final int WinState=6;
 	public final int MapState=10;
 	public GamePanel() {
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -252,6 +253,9 @@ public class GamePanel extends JPanel implements Runnable{
 		if(gameState==MapState) {
 			
 		}
+		if(gameState==WinState) {
+			
+		}
 
 		
 	}
@@ -355,6 +359,9 @@ public class GamePanel extends JPanel implements Runnable{
 			map.drawFullMapScreen(g2);
 		}
 		if(gameState==GameOverState) {
+			ui.draw(g2);
+		}
+		if(gameState==WinState) {
 			ui.draw(g2);
 		}
 		
