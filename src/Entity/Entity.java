@@ -42,16 +42,18 @@ public class Entity {
 	public boolean collision = false;
 	public boolean invincible = false;
 	public boolean rein = false;
+	public boolean dialogOn=false;
 	public int reinCounter=0;
 	public int invincibleCounter = 0;
 	public int spriteCounter = 0;
 	public int spriteNum = 1;
 	public int maxLife;
 	public int life;
+	public int planettoken=0;
 	public boolean IsAlive = true;
 	public boolean dying = false;
 	public Rectangle solidArea;
-	public Ellipse2D planetSolidArea;
+	public Ellipse2D planetSolidArea, infoArea;
 	public double Xcircle, Ycircle,Radcircle;
 	public boolean collisionOn = false;
 	public int DyingCounter;
@@ -84,12 +86,11 @@ public class Entity {
 	 
 	public void set() {}
 	public void SetAction(){};
-	public void update(){
+	public void update(){collisionOn=false;
+    gp.CollisionCheck.CheckTile(this);
+    gp.CollisionCheck.checkObject(this, false);};
+	public void getPlanetInfo(Graphics2D g2){};
 		
-	    collisionOn=false;
-	    gp.CollisionCheck.CheckTile(this);
-	    gp.CollisionCheck.checkObject(this, false);	
-	};
 	    
 	    public BufferedImage setup(String imagePath, int width, int height) {
 	        BufferedImage image = null;

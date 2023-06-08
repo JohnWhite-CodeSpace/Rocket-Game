@@ -17,8 +17,10 @@ public class KeyHandler implements KeyListener{
 	public int choice=0;
 	public boolean IsFirstGame=true;
 	public boolean MapOn=false;
+	public boolean ObjectiveOn=true;
 	public boolean MinimapOn=false;
 	public boolean IsFullSCOn=false;
+	public boolean ReturnToGame=false;
 	GamePanel gp;
 	//DEBUG
 	boolean DebugMode = false;
@@ -39,7 +41,7 @@ public class KeyHandler implements KeyListener{
 			PlayerKeyBounds(code);
 		
 		if(gp.gameState==gp.titleState) {
-			TitleScreenHandler(code);
+			TitleScreenHandler(code,0);
 		}		
 		if(gp.gameState==gp.exitpauseState) {
 			ExitPauseHandler(code);
@@ -65,6 +67,8 @@ public class KeyHandler implements KeyListener{
 			shotsFired = false;
 		}
 	}
+	
+	
 	public void SetMap(boolean mapOn) {
 		if(mapOn==true) {
 			gp.gameState=gp.MapState;
@@ -78,6 +82,10 @@ public class KeyHandler implements KeyListener{
 		if(code==KeyEvent.VK_M) {
 			MapOn=!MapOn;
 			SetMap(MapOn);
+		}
+		//OBJECTIVES
+		if(code==KeyEvent.VK_TAB) {
+			ObjectiveOn=!ObjectiveOn;
 		}
 		//MINI MAP
 		if(code==KeyEvent.VK_N) {
@@ -182,9 +190,9 @@ public class KeyHandler implements KeyListener{
 			}
 		}
 	}
-	public void TitleScreenHandler(int code) {
-		if(gp.ui.titleScreenState==0) {
-			
+	public void TitleScreenHandler(int code, int titlestate) {
+		switch(gp.ui.titleScreenState) {
+		case 0:
 			if(code == KeyEvent.VK_W) {
 				gp.ui.commandNum-- ;
 				gp.playSE(4);
@@ -202,15 +210,24 @@ public class KeyHandler implements KeyListener{
 			if(code==KeyEvent.VK_ENTER) {
 				gp.playSE(3);
 				switch(gp.ui.commandNum) {
-				case 0: gp.ui.titleScreenState=1; break;
-				case 1: gp.ui.titleScreenState=2; break;
-				case 2: break;
+				case 0: 
+					if(ReturnToGame==false) {
+						gp.ui.titleScreenState=1; 
+					}
+					else if(ReturnToGame==true) {
+						gp.gameState=gp.playState;
+						ReturnToGame=false;
+					}
+					
+					break;
+				case 1:	break;
+				case 2: gp.ui.titleScreenState=2;break;
 				case 3: System.exit(0); break;
 					
 				}
 			}
-		}
-		else if(gp.ui.titleScreenState==1) {
+		break;
+		case 1:
 			if(code == KeyEvent.VK_W) {
 				gp.playSE(4);
 				gp.ui.commandNum-- ;
@@ -258,9 +275,8 @@ public class KeyHandler implements KeyListener{
 				}
 				
 			}
-			
-		}
-	 if(gp.ui.titleScreenState==2) {
+		break;
+		case 2:
 			if(code == KeyEvent.VK_W) {
 				gp.playSE(4);
 				gp.ui.commandNum-- ;
@@ -309,59 +325,37 @@ public class KeyHandler implements KeyListener{
 				case 3: gp.ui.titleScreenState=3; break;
 				case 4: gp.ui.titleScreenState=0; break;
 				}
-			}
-	 }
-			if(gp.ui.titleScreenState==3) {
-				if(code == KeyEvent.VK_W) {
-					gp.playSE(4);
-					gp.ui.commandNum-- ;
-					if(gp.ui.commandNum<0) {
-						gp.ui.commandNum=4 ;
-					}
-				}
-				if(code == KeyEvent.VK_S) {
-					gp.playSE(4);
-					gp.ui.commandNum++ ;
-					if(gp.ui.commandNum>4) {
-						gp.ui.commandNum=0 ;
-					}
-				}
-				if(code==KeyEvent.VK_ENTER) {
-					gp.playSE(3);
-					if(gp.ui.commandNum==0) {
-						enterPressed=true;
-						gp.ui.titleScreenState=2;
-					}
-				}
 			
 			}
-	}
-	public void ExitPauseHandler(int code) {
-		if(gp.ui.titleScreenState==0) {
+		break;
+		case 3:
 			if(code == KeyEvent.VK_W) {
 				gp.playSE(4);
 				gp.ui.commandNum-- ;
 				if(gp.ui.commandNum<0) {
-					gp.ui.commandNum=3 ;
+					gp.ui.commandNum=0 ;
 				}
 			}
 			if(code == KeyEvent.VK_S) {
 				gp.playSE(4);
 				gp.ui.commandNum++ ;
-				if(gp.ui.commandNum>3) {
+				if(gp.ui.commandNum>0) {
 					gp.ui.commandNum=0 ;
 				}
 			}
 			if(code==KeyEvent.VK_ENTER) {
 				gp.playSE(3);
-				switch(gp.ui.commandNum) {
-				case 0: gp.gameState=gp.playState; break;
-				case 1: break;
-				case 2: gp.ui.titleScreenState=2; break;
-				case 3: System.exit(0); break;
+				if(gp.ui.commandNum==0) {
+					enterPressed=true;
+					gp.ui.titleScreenState=2;
 				}
 			}
-		}
+		break;
+		}	
+	}
+	public void ExitPauseHandler(int code) {
+			ReturnToGame=true;
+			TitleScreenHandler(code,0);
 	}
 	public void GameOverState(int code) {
 		gp.ui.commandNum=0;

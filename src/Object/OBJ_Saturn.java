@@ -7,6 +7,7 @@ import Game.GamePanel;
 
 public class OBJ_Saturn extends Saturn{
 	GamePanel gp;
+	
 	public OBJ_Saturn(GamePanel gp) {
 		super(gp);
 		this.gp = gp;
@@ -18,8 +19,10 @@ public class OBJ_Saturn extends Saturn{
 		Xcircle=gp.Tilesize*5;
 	    Ycircle=gp.Tilesize*2+gp.Tilesize/2;
 		planetSolidArea = new Ellipse2D.Double(Xcircle,Ycircle,Radcircle,Radcircle);
+		infoArea = new Ellipse2D.Double(Xcircle-Radcircle,Ycircle-Radcircle,Radcircle*2,Radcircle*2);
         IsAlive = false;
         angle=2;
+        planettoken=2;
         getImage();
 		// TODO Auto-generated constructor stub
 	}

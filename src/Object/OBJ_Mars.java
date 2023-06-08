@@ -18,6 +18,7 @@ public class OBJ_Mars extends Mars{
         Xcircle=0;
 	    Ycircle=0;
 		planetSolidArea = new Ellipse2D.Double(Xcircle,Ycircle,Radcircle,Radcircle);
+		infoArea = new Ellipse2D.Double(Xcircle-Radcircle,Ycircle-Radcircle,Radcircle*2,Radcircle*2);
         IsAlive = false;
         angle=4.5;
         getImage();

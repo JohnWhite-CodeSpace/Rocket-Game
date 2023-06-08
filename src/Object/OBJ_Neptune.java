@@ -22,6 +22,7 @@ public class OBJ_Neptune extends Neptune{
         Ycircle=0;
         Radcircle=gp.Tilesize*8;
         planetSolidArea = new Ellipse2D.Double(Xcircle,Ycircle,Radcircle,Radcircle);
+        infoArea = new Ellipse2D.Double(Xcircle-Radcircle,Ycircle-Radcircle,Radcircle*2,Radcircle*2);
 		solidAreaDefaultX = (int) planetSolidArea.getX();
 		solidAreaDefaultY = (int) planetSolidArea.getY();
         IsAlive = false;

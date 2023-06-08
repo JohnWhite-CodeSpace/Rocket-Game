@@ -19,6 +19,7 @@ public class OBJ_Uranus extends Uranus{
 		Xcircle=gp.Tilesize*2;
 	    Ycircle=gp.Tilesize*2;
 		planetSolidArea = new Ellipse2D.Double(Xcircle,Ycircle,Radcircle,Radcircle);
+		infoArea = new Ellipse2D.Double(Xcircle-Radcircle,Ycircle-Radcircle,Radcircle*2,Radcircle*2);
         IsAlive = false;
         angle=0.4;
         getImage();

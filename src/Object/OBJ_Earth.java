@@ -17,6 +17,7 @@ public class OBJ_Earth extends Earth{
         Xcircle=0;
 	    Ycircle=0;
 		planetSolidArea = new Ellipse2D.Double(Xcircle,Ycircle,Radcircle,Radcircle);
+		infoArea = new Ellipse2D.Double(Xcircle-Radcircle,Ycircle-Radcircle,Radcircle*2,Radcircle*2);
         IsAlive = false;
         angle=5;
         getImage();

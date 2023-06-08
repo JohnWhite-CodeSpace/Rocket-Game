@@ -19,6 +19,7 @@ public class OBJ_Pluto extends Pluto{
 	    Ycircle=0;
 	    Radcircle=gp.Tilesize*3;
 	    planetSolidArea = new Ellipse2D.Double(Xcircle,Ycircle,Radcircle,Radcircle);
+	    infoArea = new Ellipse2D.Double(Xcircle-Radcircle,Ycircle-Radcircle,Radcircle*2,Radcircle*2);
         IsAlive = false;
         angle=0.1;
         getImage();

@@ -14,7 +14,7 @@ import javax.swing.Timer;
 
 public class UI {
 	GamePanel gp;
-	Graphics2D g2;
+	public Graphics2D g2;
 	public boolean messageOn = false;
 	public boolean lifeOn = false;
 	public String Message="";
@@ -22,8 +22,9 @@ public class UI {
 	int messageCounter = 0;
 	public boolean gameFinished = false;
 	public String CurrentDialogue = "";
-	Font font, font2, font3;
+	Font font, font2, font3, font4;
 	public int commandNum = 0;
+	public int info=999;
 	public int titleScreenState =0;
 	public double playTime =0;
 	public BufferedImage lifefull,lifeempty;
@@ -38,6 +39,7 @@ public class UI {
 		font = new Font("Arial",Font.BOLD,50);
 		font2 = new Font("Arial", Font.BOLD,90);
 		font3 = new Font("Arial",Font.BOLD,20);
+		font4 = new Font("Arial",Font.BOLD,15);
 		lifeOn=true;
 		OBJ_PlayerLife life1 = new OBJ_PlayerLife(gp);
 		OBJ_PlayerFireRecharge rechargebar = new OBJ_PlayerFireRecharge(gp);
@@ -90,6 +92,7 @@ public class UI {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			DrawDialogScreen(gp.player.infoplanets);
 			break;
 		case 2:
 			PauseScreen();
@@ -148,85 +151,77 @@ public class UI {
 		return x;
 	}
 	public void DrawTitleScreen(String State) throws IOException {
-		if(titleScreenState==0) {
 		BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/TitleScreen.png"));
 		g2.drawImage(image, 0,0,gp.screenWidth,gp.screenHeight-100,null);
-		
-		
-		g2.setFont(font2);
-		String text = "Rocket Adventure (BETA)";
-		int x = getXForCenteredText(text);
-		int y = gp.screenHeight/6;
-		g2.setColor(Color.black);
-		g2.drawString(text, x+5, y+5);
-		g2.setColor(Color.white);
-		g2.drawString(text, x, y);
-		BufferedImage image2 = ImageIO.read(getClass().getResourceAsStream("/player/chonker.png"));
-		x = gp.screenWidth/2 - gp.Tilesize;
-		y=gp.screenHeight/6 +35;
-		g2.drawImage(image2, x, y, gp.Tilesize*2, gp.Tilesize*2,null);
-		
-		
-		//MENU
-		
-		g2.setFont(font);
-		text = State;;
-		x = getXForCenteredText(text);
-		y+=gp.Tilesize*4;
-		g2.setColor(Color.black);
-		g2.drawString(text, x+5, y+5);
-		g2.setColor(Color.white);
-		g2.drawString(text, x, y);
-		if(commandNum==0) {
-			g2.setColor(Color.green);
-			g2.drawString(">", x-gp.Tilesize, y);
-		}
-		text = "LOAD GAME";
-		x = getXForCenteredText(text);
-		y+=gp.Tilesize*2;
-		g2.setColor(Color.black);
-		g2.drawString(text, x+5, y+5);
-		g2.setColor(Color.white);
-		g2.drawString(text, x, y);
-		if(commandNum==1) {
-			g2.setColor(Color.green);
-			g2.drawString(">", x-gp.Tilesize, y);
-		}
-		text = "OPTIONS";
-		x = getXForCenteredText(text);
-		y+=gp.Tilesize*2;
-		g2.setColor(Color.black);
-		g2.drawString(text, x+5, y+5);
-		g2.setColor(Color.white);
-		g2.drawString(text, x, y);
-		if(commandNum==2) {
-			g2.setColor(Color.green);
-			g2.drawString(">", x-gp.Tilesize, y);
-		}
-		text = "EXIT";
-		x = getXForCenteredText(text);
-		y+=gp.Tilesize*2;
-		g2.setColor(Color.black);
-		g2.drawString(text, x+5, y+5);
-		g2.setColor(Color.white);
-		g2.drawString(text, x, y);
-		if(commandNum==3) {
-			g2.setColor(Color.green);
-			g2.drawString(">", x-gp.Tilesize, y);
+		switch(titleScreenState) {
+		case 0:
+			g2.setFont(font2);
+			String text = "Rocket Adventure (BETA)";
+			int x = getXForCenteredText(text);
+			int y = gp.screenHeight/6;
+			g2.setColor(Color.black);
+			g2.drawString(text, x+5, y+5);
+			g2.setColor(Color.white);
+			g2.drawString(text, x, y);
+			BufferedImage image2 = ImageIO.read(getClass().getResourceAsStream("/player/chonker.png"));
+			x = gp.screenWidth/2 - gp.Tilesize;
+			y=gp.screenHeight/6 +35;
+			g2.drawImage(image2, x, y, gp.Tilesize*2, gp.Tilesize*2,null);
+			//MENU
 			
-		}
-		}
-		else if(titleScreenState==1) {
-			BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/TitleScreen.png"));
-			g2.drawImage(image, 0,0,gp.screenWidth,gp.screenHeight-100,null);
-			
-			
+			g2.setFont(font);
+			text = State;;
+			x = getXForCenteredText(text);
+			y+=gp.Tilesize*4;
+			g2.setColor(Color.black);
+			g2.drawString(text, x+5, y+5);
+			g2.setColor(Color.white);
+			g2.drawString(text, x, y);
+			if(commandNum==0) {
+				g2.setColor(Color.green);
+				g2.drawString(">", x-gp.Tilesize, y);
+			}
+			text = "LOAD GAME";
+			x = getXForCenteredText(text);
+			y+=gp.Tilesize*2;
+			g2.setColor(Color.black);
+			g2.drawString(text, x+5, y+5);
+			g2.setColor(Color.white);
+			g2.drawString(text, x, y);
+			if(commandNum==1) {
+				g2.setColor(Color.green);
+				g2.drawString(">", x-gp.Tilesize, y);
+			}
+			text = "OPTIONS";
+			x = getXForCenteredText(text);
+			y+=gp.Tilesize*2;
+			g2.setColor(Color.black);
+			g2.drawString(text, x+5, y+5);
+			g2.setColor(Color.white);
+			g2.drawString(text, x, y);
+			if(commandNum==2) {
+				g2.setColor(Color.green);
+				g2.drawString(">", x-gp.Tilesize, y);
+			}
+			text = "EXIT";
+			x = getXForCenteredText(text);
+			y+=gp.Tilesize*2;
+			g2.setColor(Color.black);
+			g2.drawString(text, x+5, y+5);
+			g2.setColor(Color.white);
+			g2.drawString(text, x, y);
+			if(commandNum==3) {
+				g2.setColor(Color.green);
+				g2.drawString(">", x-gp.Tilesize, y);
+			}
+			break;
+		case 1:
 			g2.setColor(Color.black);
 			g2.setFont(font2);
 			
-			String text = "Select your rocket class:";
-			int x = getXForCenteredText(text);
-			int y =gp.Tilesize*3;
+			text = "Select your rocket class:";
+			x = getXForCenteredText(text);
+			y =gp.Tilesize*3;
 			g2.drawString(text, x+5, y+5);
 			g2.setColor(Color.white);
 			g2.drawString(text, x, y);
@@ -268,7 +263,7 @@ public class UI {
 				g2.setColor(Color.green);
 				g2.drawString(">", x-gp.Tilesize, y);
 			}
-			BufferedImage image2 = ImageIO.read(getClass().getResourceAsStream("/player/chonker.png"));
+			image2 = ImageIO.read(getClass().getResourceAsStream("/player/chonker.png"));
 			x = gp.screenWidth/2 - gp.Tilesize;
 			y=gp.screenHeight/6 +3*gp.Tilesize+16;
 			g2.drawImage(image2, x, y, gp.Tilesize*2, gp.Tilesize*2,null);
@@ -277,16 +272,15 @@ public class UI {
 			x = gp.screenWidth/2 - gp.Tilesize;
 			y=gp.screenHeight/6 +7*gp.Tilesize+16;
 			g2.drawImage(image3, x, y,gp.Tilesize*2,gp.Tilesize*2,null);
-		}else if(titleScreenState==2) {
-			BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/TitleScreen.png"));
-			g2.drawImage(image, 0,0,gp.screenWidth,gp.screenHeight-100,null);
+			break;
 			
+		case 2:
 			g2.setColor(Color.black);
 			g2.setFont(font2);
 			
-			String text = "Options:";
-			int x = getXForCenteredText(text);
-			int y =gp.Tilesize*3;
+			text = "Options:";
+			x = getXForCenteredText(text);
+			y =gp.Tilesize*3;
 			g2.drawString(text, x+5, y+5);
 			g2.setColor(Color.white);
 			g2.drawString(text, x, y);
@@ -384,24 +378,20 @@ public class UI {
 				g2.setColor(Color.green);
 				g2.drawString(">", x-gp.Tilesize, y);
 			}
-			//full screen checkbox
+			break;
 			
-			
-		}else if(titleScreenState==3) {
-			BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/TitleScreen.png"));
-			g2.drawImage(image, 0,0,gp.screenWidth,gp.screenHeight-100,null);
-			
+		case 3:
 			g2.setColor(Color.black);
 			g2.setFont(font2);
 			
-			String text = "Game Controls:";
-			int x = getXForCenteredText(text);
-			int y =gp.Tilesize*2;
+			text = "Game Controls:";
+			x = getXForCenteredText(text);
+			y =gp.Tilesize*2;
 			g2.drawString(text, x+5, y+5);
 			g2.setColor(Color.white);
 			g2.drawString(text, x, y);
 			g2.setFont(font);
-			BufferedImage image2 = ImageIO.read(getClass().getResourceAsStream("/objects/KEYBOARD.png"));
+			image2 = ImageIO.read(getClass().getResourceAsStream("/objects/KEYBOARD.png"));
 			g2.drawImage(image2, gp.screenWidth/4-200,gp.screenHeight/11,gp.screenWidth/2+600,gp.screenHeight/2+150,null);
 			text = "Back";
 			x = getXForCenteredText(text);
@@ -415,9 +405,12 @@ public class UI {
 				g2.setColor(Color.green);
 				g2.drawString(">", x-gp.Tilesize, y);
 			}
+			break;
+		
+			
 		}
-
 }
+	
 	public synchronized void GameTimer(Graphics2D g2) {
 	        g2.setFont(font);
 	        g2.setColor(Color.white);
@@ -598,6 +591,12 @@ public class UI {
 		if(commandNum==0) {
 			g2.setColor(Color.green);
 			g2.drawString(">", x-gp.Tilesize, y);
+		}
+	}
+	public void DrawDialogScreen(int infoplanets) {
+		if(infoplanets!=999) {
+			gp.planets[infoplanets].getPlanetInfo(g2);
+			System.out.println(infoplanets);
 		}
 	}
 }

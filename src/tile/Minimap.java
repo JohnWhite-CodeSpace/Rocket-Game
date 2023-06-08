@@ -11,12 +11,13 @@ import Game.GamePanel;
 public class Minimap extends TileManager{
 	GamePanel gp;
 	BufferedImage worldMap;
-
+	Font font4;
 	public boolean MiniMapOn = false;
 	public Minimap(GamePanel gp) {
 		super(gp);
 		this.gp=gp;
 		CreateMiniMap();
+		font4 = new Font("Arial",Font.BOLD,15);
 	}
 	public void CreateMiniMap() {
 		
@@ -174,5 +175,18 @@ public class Minimap extends TileManager{
 			}
 			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,1f));
 		}
+	}
+	public void drawPlanetTokens(Graphics2D g2) {
+		if(gp.keyH.ObjectiveOn==true) {
+			int x = gp.Tilesize/2;
+			int y = gp.Tilesize*5+gp.Tilesize/2;
+			g2.setFont(font4);
+			g2.drawString("Objective: Study all planets in the solar system and return safely to Earth with gathered data.", x, y);
+			y+=gp.Tilesize/2;
+			g2.drawString("Planets Visited:" + gp.player.planettoken, x, y);
+			y+=gp.Tilesize/2;
+			g2.drawString("Press 'TAB' Key to hide the objective info.", x, y);
+		}
+		
 	}
 }

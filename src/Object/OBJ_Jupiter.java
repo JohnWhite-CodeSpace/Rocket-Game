@@ -7,6 +7,7 @@ import Game.GamePanel;
 
 public class OBJ_Jupiter extends Jupiter{
 	GamePanel gp;
+	public int researchCount=0;
 	public OBJ_Jupiter(GamePanel gp) {
 		super(gp);
 		this.gp = gp;
@@ -18,8 +19,11 @@ public class OBJ_Jupiter extends Jupiter{
         Xcircle=0;
 	    Ycircle=0;
 		planetSolidArea = new Ellipse2D.Double(Xcircle,Ycircle,Radcircle,Radcircle);
+		infoArea = new Ellipse2D.Double(Xcircle-Radcircle,Ycircle-Radcircle,Radcircle*2,Radcircle*2);
         IsAlive = false;
         angle=3;
+        planettoken=1;
+        
         getImage();
 		// TODO Auto-generated constructor stub
 	}

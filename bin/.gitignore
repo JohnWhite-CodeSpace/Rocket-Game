@@ -1,11 +1,8 @@
-/tile/
 /Entity/
-/Utility/
 /Game/
 /Object/
-/tiles/
-/objects/
-/player/
+/Utility/
+/module-info.class
 /space_station/
-/planets/
-/asteroids/
+/tile/
+/tiles/

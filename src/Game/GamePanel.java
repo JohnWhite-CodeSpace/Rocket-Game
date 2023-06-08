@@ -102,6 +102,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public UI ui = new UI(this);
 	public Asteroid asteroids[] = new Asteroid[100];
 	public Asteroid_Belt asteroidBelt[] = new Asteroid_Belt[350];
+	public Entity[] planets = new Entity[9];
 	public Comet comets[] = new Comet[15];
 	Minimap map = new Minimap(this);
 	Font font4;
@@ -114,6 +115,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public final int OptionState = 5;
 	public final int WinState=6;
 	public final int MapState=10;
+	public final int DialogState=7;
 	public GamePanel() {
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		this.setBackground(Color.black);
@@ -139,7 +141,15 @@ public class GamePanel extends JPanel implements Runnable{
 		aSetter.setComet();
 		aSetter.SetSol();
 		gameState = titleState;
-		
+		planets[0]=pluto;
+		planets[1]=neptune;
+		planets[2]=uranus;
+		planets[3]=saturn;
+		planets[4]=jupiter;
+		planets[5]=mars;
+		planets[6]=earth;
+		planets[7]=venus;
+		planets[8]=mercury;
 		songs.Play();
 		
 		
@@ -337,6 +347,7 @@ public class GamePanel extends JPanel implements Runnable{
 			
 			ui.draw(g2);
 			map.drawMiniMap(g2);
+			map.drawPlanetTokens(g2);
 			
 			if(keyH.DebugMode==true) {
 				long LoadEnd = System.nanoTime();
@@ -362,6 +373,9 @@ public class GamePanel extends JPanel implements Runnable{
 			ui.draw(g2);
 		}
 		if(gameState==WinState) {
+			ui.draw(g2);
+		}
+		if(gameState==DialogState) {
 			ui.draw(g2);
 		}
 		

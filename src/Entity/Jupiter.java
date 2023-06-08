@@ -1,10 +1,16 @@
 package Entity;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
+
 import Game.GamePanel;
 
 public class Jupiter extends Entity {
 	Entity user;
 	int counter=0;
+	int JupiterCount;
+	int JupiterIsDone=0;
 	public Jupiter(GamePanel gp) {
 		super(gp);
 		// TODO Auto-generated constructor stub
@@ -16,7 +22,7 @@ public class Jupiter extends Entity {
 		this.IsAlive=alive;
 		this.life = this.maxLife;
 		this.user = user;
-		
+		JupiterCount=0;
 	}
 	public void update() {
 		collisionOn=false;
@@ -35,6 +41,10 @@ public class Jupiter extends Entity {
 				
 				}
 				spriteCounter++;
+				if(JupiterIsDone==0&&gp.player.infoplanets==4) {
+					counter++;
+				}
+				
 			if(spriteCounter>30) {
 				if(spriteNum==1) {
 					spriteNum=2;
@@ -50,6 +60,40 @@ public class Jupiter extends Entity {
 				}
 				spriteCounter=0;
 			}
+			if(counter>5) {
+				counter=0;
+				JupiterCount++;
+			}
+		}
+	}
+	public void getPlanetInfo(Graphics2D g2) {
+		g2.setColor(new Color(0,0,0,140));
+		g2.setFont(new Font("Arial",Font.BOLD,15));
+		int x = gp.screenWidth/4;
+		int y = gp.Tilesize;
+		int width = gp.screenWidth/2;
+		int height = gp.screenHeight/6;
+		g2.fillRect(x, y, width, height);
+		g2.setColor(Color.white);
+		String text = "Collecting data..." + JupiterCount;
+		g2.drawString(text, x, y);
+		if(JupiterCount==100) {
+			text = "Jupiter: Planet type - Gas Giant";
+			g2.drawString(text, x, y+gp.Tilesize/2);
+			text = "Atmospheres composition: 76% Hydrogen, 24% Helium, ";
+			g2.drawString(text, x, y+gp.Tilesize);
+			text = "also trace ammounts of carbon, methane, water vapour and ammonia were found.";
+			g2.drawString(text, x, y+3*gp.Tilesize/2);
+			text = "Diameter: 142,984 km";
+			g2.drawString(text, x, y+2*gp.Tilesize);
+			text = "Mass: 1.8982×10^27 kg ";
+			g2.drawString(text, x, y+5*gp.Tilesize/2);
+			text = "Average orbital speed: 13.07 km/s";
+			g2.drawString(text, x, y+3*gp.Tilesize);
+			text = "Known satelites: 95";
+			g2.drawString(text, x, y+7*gp.Tilesize/2);
+			JupiterIsDone=1;
+			
 		}
 	}
 

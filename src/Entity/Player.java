@@ -18,6 +18,8 @@ public class Player extends Entity {
 	public int recharge;
 	public int maxrecharge;
 	public int rechargeCounter;
+	public int infoplanets;
+	
 	public Player(GamePanel gp, KeyHandler keyH) {
 		super(gp);
 		screenx = gp.screenWidth/2 - (gp.Tilesize/2);
@@ -98,7 +100,10 @@ public class Player extends Entity {
 			if(keyH.speedPressed==false) {
 				Acceleration=0.1;
 			}
-			
+			planettoken=gp.mercury.MercuryIsDone+gp.venus.VenusIsDone+gp.earth.EarthIsDone+
+			gp.mars.MarsIsDone+gp.jupiter.JupiterIsDone+gp.saturn.SaturnIsDone+gp.uranus.UranusIsDone+
+			gp.neptune.NeptuneIsDone+gp.pluto.PlutoIsDone;
+			System.out.println(planettoken);
 		spriteCounter++;
 		collisionOn=false;
 		gp.CollisionCheck.CheckTile(this);
@@ -114,6 +119,7 @@ public class Player extends Entity {
 		gp.CollisionCheck.PlanetPlayerCheck(this, gp.venus);
 		gp.CollisionCheck.PlanetPlayerCheck(this, gp.mercury);
 		gp.CollisionCheck.PlanetPlayerCheck(this, gp.sol);
+		infoplanets = gp.CollisionCheck.checkPlanetInfo(this, gp.planets);
 		int asteroidindex = gp.CollisionCheck.checkEntity(this, gp.asteroids);
 		interactAsteroid(asteroidindex);
 		int cometindex = gp.CollisionCheck.checkEntity(this, gp.comets);
@@ -341,7 +347,9 @@ public class Player extends Entity {
 	}
 	public void FuelRefill(boolean IsRefueling) {
 		if(IsRefueling==true) {
-			fuel+=1;
+			if(fuel!=maxfuel) {
+				fuel+=1;
+			}
 		}
 	}
 	public void setDefaultPositions() {
@@ -358,10 +366,10 @@ public class Player extends Entity {
 		ammoType="bullet1";
 	}
 	public void GameStatus() {
-			if(gp.player.fuel>50) {
+			if(gp.player.fuel>50&&planettoken==9) {
 				gp.gameState=gp.WinState;
 			}
-			if(gp.player.fuel<=50){
+			else {
 				gp.gameState=gp.GameOverState;
 			}
 	}
