@@ -1,7 +1,13 @@
 /maps/
-/tile/
+/objects/
+/planets/
+/player/
+/sound/
 /Entity/
-/Utility/
-/Object/
-/asteroids/
 /Game/
+/Object/
+/Utility/
+/module-info.class
+/space_station/
+/tile/
+/tiles/

@@ -20,7 +20,7 @@ public class OBJ_AsteroidBelt extends Asteroid_Belt{
 		
         IsAlive = false;
         Random random = new Random();
-        double RDangle = random.nextDouble(7);
+        double RDangle = random.nextDouble(6.28);
         int RDradius = random.nextInt(300);
         angle=RDangle;
         radius = 110*gp.Tilesize+RDradius;
@@ -37,10 +37,10 @@ public class OBJ_AsteroidBelt extends Asteroid_Belt{
     		solidArea.height = 30;
         }
         if(i==2) {
-        	solidArea.x = 16;
-        	solidArea.y = 16;
-        	solidArea.width = 60;
-        	solidArea.height = 60;
+        	solidArea.x = 4;
+        	solidArea.y = 4;
+        	solidArea.width = 45;
+        	solidArea.height = 45;
         }
 		Entity1 = setup("/asteroids/Asteroidbelt", gp.Tilesize*i, gp.Tilesize*i);	
 		DeathImage1 = setup("/asteroids/AsteroidBeltDying1", gp.Tilesize*i, gp.Tilesize*i);

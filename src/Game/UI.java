@@ -44,10 +44,10 @@ public class UI {
 		OBJ_PlayerLife life1 = new OBJ_PlayerLife(gp);
 		OBJ_PlayerFireRecharge rechargebar = new OBJ_PlayerFireRecharge(gp);
 		OBJ_PlayerFuel PFuel = new OBJ_PlayerFuel(gp);
-		lifefull = life1.lifeimage1;
-		lifeempty = life1.lifeimage2;
-		recharge1 = rechargebar.recharge1;
-		recharge2 = rechargebar.recharge2;
+		lifefull = life1.bar1;
+		lifeempty = life1.bar2;
+		recharge1 = rechargebar.bar1;
+		recharge2 = rechargebar.bar2;
 		Fuel100 = PFuel.fuel100;
 		Fuel75 = PFuel.fuel75;
 		Fuel50 = PFuel.fuel50;

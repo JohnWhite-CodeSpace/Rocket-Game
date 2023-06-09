@@ -41,7 +41,6 @@ public class Asteroid_Belt extends Entity{
 			switch(direction) {
 				case "ABelt":worldx=newX;
 				worldy=newY;break;
-				
 				}
 				spriteCounter++;
 			if(spriteCounter>30) {

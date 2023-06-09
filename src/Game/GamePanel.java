@@ -73,7 +73,6 @@ public class GamePanel extends JPanel implements Runnable{
 	int drawcount = 0;
 	int FPS = 60;
 	String IsOn;
-	public GameEventHandler EventHandler = new GameEventHandler(this);
 	public KeyHandler keyH = new KeyHandler(this);
 	public Player player = new Player(this, keyH);
 	public Entity obj[] = new Entity[10];

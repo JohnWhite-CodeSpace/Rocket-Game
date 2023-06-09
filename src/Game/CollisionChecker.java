@@ -101,36 +101,6 @@ public class CollisionChecker {
 		}
 	
 	}
-		public int checkObject(Entity entity, boolean player) {
-			int index =999;
-			
-			for(int i=0; i<gp.obj.length; i++) {
-				if(gp.obj[i]!=null) {
-					entity.solidArea.x = entity.worldx + entity.solidArea.x;
-					entity.solidArea.y = entity.worldy + entity.solidArea.y;
-					
-					gp.obj[i].solidArea.x = gp.obj[i].worldx + gp.obj[i].solidArea.x;
-					gp.obj[i].solidArea.y = gp.obj[i].worldy + gp.obj[i].solidArea.y;
-					switch(entity.direction) {
-					case "player1":
-						entity.solidArea.y-=entity.velocity * Math.cos(Math.toRadians(entity.PlayerAngle));
-						entity.solidArea.x+=entity.velocity * Math.sin(Math.toRadians(entity.PlayerAngle));
-					break;
-					}
-					if(entity.solidArea.intersects(gp.obj[i].solidArea)) {
-						if(gp.obj[i].collision==true) {
-							entity.collisionOn = true;
-						}
-						if(player = true) {
-							index  = i;
-						}
-					}
-					
-				}
-				
-			}
-			return index;
-		}
 		public int checkEntity(Entity entity, Entity[] target) {
 			
 			int index =999;

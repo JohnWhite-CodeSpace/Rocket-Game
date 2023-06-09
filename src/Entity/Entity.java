@@ -27,7 +27,7 @@ public class Entity {
 	public double AngularVelocity;
 	public int MaxSpeed;
 	GamePanel gp;
-	public BufferedImage lifeimage1,lifeimage2,recharge1,recharge2, fuel100, fuel75,fuel50, fuel25, fuel0;
+	public BufferedImage bar1,bar2, fuel100, fuel75,fuel50, fuel25, fuel0;
 	public BufferedImage Entity1, Entity2, Entity3, Entity4,DeathImage1, DeathImage2, DeathImage3;
 	public String name;
 	public String Weapon;
@@ -83,7 +83,7 @@ public class Entity {
 	public void SetAction(){};
 	public void update(){collisionOn=false;
     gp.CollisionCheck.CheckTile(this);
-    gp.CollisionCheck.checkObject(this, false);};
+	}
 	public void getPlanetInfo(Graphics2D g2){};
 		
 	    

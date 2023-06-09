@@ -11,8 +11,8 @@ public class AssetSetter {
 	int[] k = new int [100];
 	int[] l = new int[15];
 	int[] m = new int[15];
-	int[] o = new int[350];
-	int[] p = new int[350];
+	double[] o = new double[350];
+	double[] p = new double[350];
 	int max = 15;
 	int min = -15;
 	int max2 = 8;
@@ -36,13 +36,13 @@ public class AssetSetter {
 	}
 	public void setAsteroidBelt() {
 		for(int i=0; i<o.length; i++) {
-			o[i] = (random2.nextInt(5)*(max-min)+min);
-			p[i] = (random2.nextInt(5)*(max2-min2)+min2);
+			o[i] = (random2.nextDouble(100));
+			p[i] = (random2.nextDouble(100));
 			gp.asteroidBelt[i] = new OBJ_AsteroidBelt(gp);
-			int worldx = gp.Tilesize*250+ gp.Tilesize*o[i]-gp.Tilesize*p[i]
-					+10*p[i]-5*o[i];
-			int worldy = gp.Tilesize*250+ gp.Tilesize*o[i]-gp.Tilesize*p[i]
-					+10*p[i]-5*o[i];
+			int worldx = (int) (gp.Tilesize*250+ gp.Tilesize*o[i]-gp.Tilesize*p[i]
+					+10*p[i]-5*o[i]);
+			int worldy = (int) (gp.Tilesize*250+ gp.Tilesize*o[i]-gp.Tilesize*p[i]
+					+10*p[i]-5*o[i]);
 			gp.asteroidBelt[i].set(worldx,worldy,"ABelt",true,null);
 		}
 	

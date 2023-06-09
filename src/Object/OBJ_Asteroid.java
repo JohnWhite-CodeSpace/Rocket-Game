@@ -26,7 +26,6 @@ public class OBJ_Asteroid extends Asteroid {
         Random random = new Random();
         Aangle = 45*random.nextInt(8);
         velocity=3;
-        
         getImage();
     }
 
@@ -50,7 +49,7 @@ public class OBJ_Asteroid extends Asteroid {
     	ActionLockCounter++;
         
 
-        if (ActionLockCounter < 40+2*j) {
+        if (ActionLockCounter < 40+4*j) {
         	
     		if(j>0 && j<=5) {
     			Aangle+=i;

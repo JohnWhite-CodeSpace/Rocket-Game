@@ -370,9 +370,13 @@ public class Player extends Entity {
 			if(gp.player.fuel>50&&planettoken==9) {
 				gp.gameState=gp.WinState;
 			}
+			if(gp.player.life==0) {
+				gp.gameState=gp.GameOverState;
+			}
 			else {
 				gp.gameState=gp.GameOverState;
 			}
+			
 	}
 	
 }

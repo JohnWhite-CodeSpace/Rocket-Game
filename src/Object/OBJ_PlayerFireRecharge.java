@@ -18,8 +18,8 @@ public class OBJ_PlayerFireRecharge extends Entity{
 		// TODO Auto-generated constructor stub
 	}
 	public void getImage() {
-		recharge1 = setup("/player/rechargefull");
-		recharge2 = setup("/player/rechargeempty");
+		bar1 = setup("/player/rechargefull");
+		bar2 = setup("/player/rechargeempty");
 	}
 	public BufferedImage setup(String imagePath) {
         BufferedImage image = null;

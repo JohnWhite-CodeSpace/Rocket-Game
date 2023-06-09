@@ -21,8 +21,8 @@ public class OBJ_PlayerLife extends Entity{
 		// TODO Auto-generated constructor stub
 	}
 	public void getImage() {
-		lifeimage1=setup("/player/lifefull");
-		lifeimage2=setup("/player/lifeempty");
+		bar1=setup("/player/lifefull");
+		bar2=setup("/player/lifeempty");
     }
 
 	public BufferedImage setup(String imagePath) {
