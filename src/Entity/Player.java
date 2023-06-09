@@ -61,22 +61,21 @@ public class Player extends Entity {
 	}
 	public void getPlayer1Image() {
 
-			Player1 = setup("/player/chonker", gp.Tilesize, gp.Tilesize);			
-			Player2 = setup("/player/chonker2", gp.Tilesize, gp.Tilesize);
-			Player3 = setup("/player/chonker3", gp.Tilesize, gp.Tilesize);
+			Entity1 = setup("/player/chonker", gp.Tilesize, gp.Tilesize);			
+			Entity2 = setup("/player/chonker2", gp.Tilesize, gp.Tilesize);
+			Entity3 = setup("/player/chonker3", gp.Tilesize, gp.Tilesize);
 		
 	}
 	public void getPlayer2Image() {
-			Player1 = setup("/player/speedy1", gp.Tilesize, gp.Tilesize);
-			Player2 = setup("/player/speedy2", gp.Tilesize, gp.Tilesize);
-			Player3 = setup("/player/speedy3", gp.Tilesize, gp.Tilesize);
+			Entity1 = setup("/player/speedy1", gp.Tilesize, gp.Tilesize);
+			Entity2 = setup("/player/speedy2", gp.Tilesize, gp.Tilesize);
+			Entity3 = setup("/player/speedy3", gp.Tilesize, gp.Tilesize);
 
 		}
 	public void setDefaultValues() {
 		ChooseRocket();
 		worldx=gp.Tilesize*400;
 		worldy=gp.Tilesize*470;
-		speed=5;
 		ammoType="bullet1";
 		direction = "player1";
 		velocity =0;
@@ -103,7 +102,6 @@ public class Player extends Entity {
 			planettoken=gp.mercury.MercuryIsDone+gp.venus.VenusIsDone+gp.earth.EarthIsDone+
 			gp.mars.MarsIsDone+gp.jupiter.JupiterIsDone+gp.saturn.SaturnIsDone+gp.uranus.UranusIsDone+
 			gp.neptune.NeptuneIsDone+gp.pluto.PlutoIsDone;
-			System.out.println(planettoken);
 		spriteCounter++;
 		collisionOn=false;
 		gp.CollisionCheck.CheckTile(this);
@@ -211,6 +209,7 @@ public class Player extends Entity {
 			if(life==0) {
 				gp.gameState=gp.GameOverState;
 			}
+			
 		}
 	}
 	public void interactComet(int i) {
@@ -227,6 +226,7 @@ public class Player extends Entity {
 			if(life==0) {
 				gp.gameState=gp.GameOverState;
 			}
+
 		}
 	}
 	public void interactAsteroidBelt(int i) {
@@ -243,6 +243,7 @@ public class Player extends Entity {
 			if(life==0) {
 				gp.gameState=gp.GameOverState;
 			}
+			
 		}
 	}
 	

@@ -15,7 +15,6 @@ public class OBJ_Projectile extends Projectile {
         maxLife = 120;
         life = maxLife;
         IsAlive = false;
-        speed=10;
         velocity = 20;
         solidArea = new Rectangle();
 		solidArea.x = 15;
@@ -26,10 +25,10 @@ public class OBJ_Projectile extends Projectile {
     }
 
     public void getImage() {
-	    	Bullet1=(setup("/objects/upbul", gp.Tilesize, gp.Tilesize));
-	        Bullet2=(setup("/objects/upbul2", gp.Tilesize, gp.Tilesize));
-	        Bullet3=(setup("/objects/upbul3", gp.Tilesize, gp.Tilesize));
-    		Bullet4=(setup("/objects/pellet", gp.Tilesize, gp.Tilesize));
+	    	Entity1=(setup("/objects/upbul", gp.Tilesize, gp.Tilesize));
+	        Entity2=(setup("/objects/upbul2", gp.Tilesize, gp.Tilesize));
+	        Entity3=(setup("/objects/upbul3", gp.Tilesize, gp.Tilesize));
+    		Entity4=(setup("/objects/pellet", gp.Tilesize, gp.Tilesize));
         
        
     }

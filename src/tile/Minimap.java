@@ -5,12 +5,15 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import Game.GamePanel;
 
 public class Minimap extends TileManager{
 	GamePanel gp;
-	BufferedImage worldMap;
+	BufferedImage worldMap=null;
 	Font font4;
 	public boolean MiniMapOn = false;
 	public Minimap(GamePanel gp) {
@@ -19,27 +22,17 @@ public class Minimap extends TileManager{
 		CreateMiniMap();
 		font4 = new Font("Arial",Font.BOLD,15);
 	}
-	public void CreateMiniMap() {
-		
-		int WorldMapWidth = gp.Tilesize*gp.maxWorldCol;
-		int WorldMapHeight = gp.Tilesize*gp.maxWorldRow;
-		
-		worldMap=new BufferedImage(WorldMapWidth, WorldMapHeight,BufferedImage.TYPE_INT_ARGB);
-		Graphics2D g2 = (Graphics2D)worldMap.createGraphics();
-		
-		int col = 0;
-		int row = 0;
-		while(col<gp.maxWorldCol&&row<gp.maxWorldRow){
-			int tileNum = mapTileNum[col][row];
-			int x = gp.Tilesize*col;
-			int y = gp.Tilesize*row;
-			g2.drawImage(tile[tileNum].image, x, y,null);
-			col++;
-			if(col==gp.maxWorldCol) {
-				col=0;
-				row++;
+	public void CreateMiniMap() {	
+		if(worldMap==null) {
+			try {
+				worldMap = ImageIO.read(getClass().getResourceAsStream("/maps/Map2.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
+		
+		
 	}
 	public void drawFullMapScreen(Graphics2D g2) {
 		g2.setColor(new Color(0,0,0,100));
@@ -53,58 +46,58 @@ public class Minimap extends TileManager{
 		int y = gp.screenHeight/2-height/2-3*gp.Tilesize;
 		g2.fillRect(x-10, y-10, width+20, height+20);
 		g2.drawImage(worldMap,x,y,width,height,null);
-		
+
 		
 		double scale = (double)(gp.Tilesize*gp.maxWorldCol)/width;
 		int playerX = (int)(x+gp.player.worldx/scale);
 		int playerY = (int)(y+gp.player.worldy/scale);
 		int playerSize = (int)(gp.Tilesize/2);
-		g2.drawImage(gp.player.Player1,playerX,playerY,playerSize,playerSize,null);
+		g2.drawImage(gp.player.Entity1,playerX,playerY,playerSize,playerSize,null);
 		int planetX = (int)(x+gp.pluto.worldx/scale);
 		int planetY = (int)(y+gp.pluto.worldy/scale);
 		int planetSize = (int)(gp.Tilesize/3);
-		g2.drawImage(gp.pluto.Planet1,planetX,planetY, planetSize, planetSize, null);
+		g2.drawImage(gp.pluto.Entity1,planetX,planetY, planetSize, planetSize, null);
 		planetSize = (int)(gp.Tilesize/2);
 		planetX = (int)(x+gp.neptune.worldx/scale);
 		planetY = (int)(y+gp.neptune.worldy/scale);
-		g2.drawImage(gp.neptune.Planet1,planetX,planetY,planetSize,planetSize,null );
+		g2.drawImage(gp.neptune.Entity1,planetX,planetY,planetSize,planetSize,null );
 		planetX = (int)(x+gp.uranus.worldx/scale);
 		planetY = (int)(y+gp.uranus.worldy/scale);
-		g2.drawImage(gp.uranus.Planet1,planetX,planetY,planetSize,planetSize,null );
+		g2.drawImage(gp.uranus.Entity1,planetX,planetY,planetSize,planetSize,null );
 		planetX = (int)(x+gp.saturn.worldx/scale);
 		planetY = (int)(y+gp.saturn.worldy/scale);
-		g2.drawImage(gp.saturn.Planet1,planetX,planetY,planetSize,planetSize,null );
+		g2.drawImage(gp.saturn.Entity1,planetX,planetY,planetSize,planetSize,null );
 		planetX = (int)(x+gp.jupiter.worldx/scale);
 		planetY = (int)(y+gp.jupiter.worldy/scale);
-		g2.drawImage(gp.jupiter.Planet1,planetX,planetY,planetSize,planetSize,null );
+		g2.drawImage(gp.jupiter.Entity1,planetX,planetY,planetSize,planetSize,null );
 		planetSize = (int)(gp.Tilesize/3);
 		planetX = (int)(x+gp.mars.worldx/scale);
 		planetY = (int)(y+gp.mars.worldy/scale);
-		g2.drawImage(gp.mars.Planet1,planetX,planetY,planetSize,planetSize,null );
+		g2.drawImage(gp.mars.Entity1,planetX,planetY,planetSize,planetSize,null );
 		planetX = (int)(x+gp.earth.worldx/scale);
 		planetY = (int)(y+gp.earth.worldy/scale);
-		g2.drawImage(gp.earth.Planet1,planetX,planetY,planetSize,planetSize,null );
+		g2.drawImage(gp.earth.Entity1,planetX,planetY,planetSize,planetSize,null );
 		planetX = (int)(x+gp.venus.worldx/scale);
 		planetY = (int)(y+gp.venus.worldy/scale);
-		g2.drawImage(gp.venus.Planet1,planetX,planetY,planetSize,planetSize,null );
+		g2.drawImage(gp.venus.Entity1,planetX,planetY,planetSize,planetSize,null );
 		planetX = (int)(x+gp.mercury.worldx/scale);
 		planetY = (int)(y+gp.mercury.worldy/scale);
-		g2.drawImage(gp.mercury.Planet1,planetX,planetY,planetSize,planetSize,null );
+		g2.drawImage(gp.mercury.Entity1,planetX,planetY,planetSize,planetSize,null );
 		planetSize = (int)(gp.Tilesize);
 		planetX = (int)(x+gp.sol.worldx/scale);
 		planetY = (int)(y+gp.sol.worldy/scale);
-		g2.drawImage(gp.sol.Planet1,planetX,planetY,planetSize,planetSize,null );
+		g2.drawImage(gp.sol.Entity1,planetX,planetY,planetSize,planetSize,null );
 		int SpaceStationX = (int)(x+gp.spacestation.worldx/scale);
 		int SpaceStationY = (int)(y+gp.spacestation.worldy/scale);
 		int SpaceStationSize = (int)(gp.Tilesize/2);
-		g2.drawImage(gp.spacestation.SpaceStation1,SpaceStationX,SpaceStationY,SpaceStationSize,SpaceStationSize,null );
+		g2.drawImage(gp.spacestation.Entity1,SpaceStationX,SpaceStationY,SpaceStationSize,SpaceStationSize,null );
 		
 		for(int i=0; i<gp.asteroidBelt.length;i++) {
 			if(gp.asteroidBelt[i]!=null) {
 				int asteroidSize = (int)(gp.Tilesize/3);
 				planetX = (int)(x+gp.asteroidBelt[i].worldx/scale);
 				planetY = (int)(y+gp.asteroidBelt[i].worldy/scale);
-				g2.drawImage(gp.asteroidBelt[i].AsteroidBelt,planetX,planetY,asteroidSize,asteroidSize,null );
+				g2.drawImage(gp.asteroidBelt[i].Entity1,planetX,planetY,asteroidSize,asteroidSize,null );
 			}
 		}
 		
@@ -119,58 +112,58 @@ public class Minimap extends TileManager{
 			int height=350;
 			int x = gp.screenWidth-width-20;
 			int y = gp.Tilesize*2;
-			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.8f));
+			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.9f));
 			g2.drawImage(worldMap,x,y,width,height,null);
 			double scale = (double)(gp.Tilesize*gp.maxWorldCol)/width;
 			int playerX = (int)(x+gp.player.worldx/scale);
 			int playerY = (int)(y+gp.player.worldy/scale);
 			int playerSize = (int)(gp.Tilesize/2);
-			g2.drawImage(gp.player.Player1,playerX,playerY,playerSize,playerSize,null);
+			g2.drawImage(gp.player.Entity1,playerX,playerY,playerSize,playerSize,null);
 			int planetX = (int)(x+gp.pluto.worldx/scale);
 			int planetY = (int)(y+gp.pluto.worldy/scale);
 			int planetSize = (int)(gp.Tilesize/4);
-			g2.drawImage(gp.pluto.Planet1,planetX,planetY, planetSize, planetSize, null);
+			g2.drawImage(gp.pluto.Entity1,planetX,planetY, planetSize, planetSize, null);
 			planetSize=(int)(gp.Tilesize/3);
 			planetX = (int)(x+gp.neptune.worldx/scale);
 			planetY = (int)(y+gp.neptune.worldy/scale);
-			g2.drawImage(gp.neptune.Planet1,planetX,planetY,planetSize,planetSize,null );
+			g2.drawImage(gp.neptune.Entity1,planetX,planetY,planetSize,planetSize,null );
 			planetX = (int)(x+gp.uranus.worldx/scale);
 			planetY = (int)(y+gp.uranus.worldy/scale);
-			g2.drawImage(gp.uranus.Planet1,planetX,planetY,planetSize,planetSize,null );
+			g2.drawImage(gp.uranus.Entity1,planetX,planetY,planetSize,planetSize,null );
 			planetX = (int)(x+gp.saturn.worldx/scale);
 			planetY = (int)(y+gp.saturn.worldy/scale);
-			g2.drawImage(gp.saturn.Planet1,planetX,planetY,planetSize,planetSize,null );
+			g2.drawImage(gp.saturn.Entity1,planetX,planetY,planetSize,planetSize,null );
 			
 			planetX = (int)(x+gp.jupiter.worldx/scale);
 			planetY = (int)(y+gp.jupiter.worldy/scale);
-			g2.drawImage(gp.jupiter.Planet1,planetX,planetY,planetSize,planetSize,null );
+			g2.drawImage(gp.jupiter.Entity1,planetX,planetY,planetSize,planetSize,null );
 			planetSize=(int)(gp.Tilesize/4);
 			planetX = (int)(x+gp.mars.worldx/scale);
 			planetY = (int)(y+gp.mars.worldy/scale);
-			g2.drawImage(gp.mars.Planet1,planetX,planetY,planetSize,planetSize,null );
+			g2.drawImage(gp.mars.Entity1,planetX,planetY,planetSize,planetSize,null );
 			planetX = (int)(x+gp.earth.worldx/scale);
 			planetY = (int)(y+gp.earth.worldy/scale);
-			g2.drawImage(gp.earth.Planet1,planetX,planetY,planetSize,planetSize,null );
+			g2.drawImage(gp.earth.Entity1,planetX,planetY,planetSize,planetSize,null );
 			planetX = (int)(x+gp.venus.worldx/scale);
 			planetY = (int)(y+gp.venus.worldy/scale);
-			g2.drawImage(gp.venus.Planet1,planetX,planetY,planetSize,planetSize,null );
+			g2.drawImage(gp.venus.Entity1,planetX,planetY,planetSize,planetSize,null );
 			planetX = (int)(x+gp.mercury.worldx/scale);
 			planetY = (int)(y+gp.mercury.worldy/scale);
-			g2.drawImage(gp.mercury.Planet1,planetX,planetY,planetSize,planetSize,null );
+			g2.drawImage(gp.mercury.Entity1,planetX,planetY,planetSize,planetSize,null );
 			planetSize=(int)(gp.Tilesize/2);
 			planetX = (int)(x+gp.sol.worldx/scale);
 			planetY = (int)(y+gp.sol.worldy/scale);
-			g2.drawImage(gp.sol.Planet1,planetX,planetY,planetSize,planetSize,null );
+			g2.drawImage(gp.sol.Entity1,planetX,planetY,planetSize,planetSize,null );
 			int SpaceStationX = (int)(x+gp.spacestation.worldx/scale);
 			int SpaceStationY = (int)(y+gp.spacestation.worldy/scale);
 			int SpaceStationSize = (int)(gp.Tilesize/3);
-			g2.drawImage(gp.spacestation.SpaceStation1,SpaceStationX,SpaceStationY,SpaceStationSize,SpaceStationSize,null );
+			g2.drawImage(gp.spacestation.Entity1,SpaceStationX,SpaceStationY,SpaceStationSize,SpaceStationSize,null );
 			for(int i=0; i<gp.asteroidBelt.length;i++) {
 				if(gp.asteroidBelt[i]!=null) {
 				int asteroidSize = (int)(gp.Tilesize/4);
 					planetX = (int)(x+gp.asteroidBelt[i].worldx/scale);
 					planetY = (int)(y+gp.asteroidBelt[i].worldy/scale);
-					g2.drawImage(gp.asteroidBelt[i].AsteroidBelt,planetX,planetY,asteroidSize,asteroidSize,null );
+					g2.drawImage(gp.asteroidBelt[i].Entity1,planetX,planetY,asteroidSize,asteroidSize,null );
 				}
 			}
 			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,1f));

@@ -77,7 +77,7 @@ public class Neptune extends Entity {
 		if(NeptuneCount==100) {
 			text = "This is Neptune, the furthest known planet in our Solar System.";
 			g2.drawString(text, x, y+gp.Tilesize/2);
-			text = "Atmospheres composition: 80% Hydrogen, 19% Helium, ";
+			text = "Atmosphere composition: 80% Hydrogen, 19% Helium, ";
 			g2.drawString(text, x, y+gp.Tilesize);
 			text = "also trace ammounts methane, ammonia, nitrogen and other hydrocarbons were found";
 			g2.drawString(text, x, y+3*gp.Tilesize/2);

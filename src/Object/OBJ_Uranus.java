@@ -27,10 +27,10 @@ public class OBJ_Uranus extends Uranus{
 	}
 	public void getImage() {
 		 	int i =9;
-				Planet1 = setup("/planets/Uranus1", gp.Tilesize*i, gp.Tilesize*i);
-				Planet2 = setup("/planets/Uranus2", gp.Tilesize*i, gp.Tilesize*i);
-				Planet3 = setup("/planets/Uranus3", gp.Tilesize*i, gp.Tilesize*i);
-				Planet4 = setup("/planets/Uranus4", gp.Tilesize*i, gp.Tilesize*i);
+				Entity1 = setup("/planets/Uranus1", gp.Tilesize*i, gp.Tilesize*i);
+				Entity2 = setup("/planets/Uranus2", gp.Tilesize*i, gp.Tilesize*i);
+				Entity3 = setup("/planets/Uranus3", gp.Tilesize*i, gp.Tilesize*i);
+				Entity4 = setup("/planets/Uranus4", gp.Tilesize*i, gp.Tilesize*i);
        
     }
 		

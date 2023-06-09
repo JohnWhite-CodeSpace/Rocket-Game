@@ -79,7 +79,7 @@ public class Saturn extends Entity{
 		if(SaturnCount==100) {
 			text = "This is Saturn, the second largest planet in our Solar System";
 			g2.drawString(text, x, y+gp.Tilesize/2);
-			text = "Atmospheres composition: 96.3% Hydrogen, 3.25% Helium, ";
+			text = "Atmosphere composition: 96.3% Hydrogen, 3.25% Helium, ";
 			g2.drawString(text, x, y+gp.Tilesize);
 			text = "also trace ammounts of ammonia, acetylene, ethane, propane and phosphine were found.";
 			g2.drawString(text, x, y+3*gp.Tilesize/2);

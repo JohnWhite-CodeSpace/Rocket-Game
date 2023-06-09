@@ -12,7 +12,6 @@ public class OBJ_Asteroid extends Asteroid {
         this.gp = gp;
         type = 2;
         name = "Asteroid";
-        speed=3;
         maxLife = 10;
         life = maxLife;
         solidArea = new Rectangle();
@@ -21,36 +20,16 @@ public class OBJ_Asteroid extends Asteroid {
 		solidArea.width = 40;
 		solidArea.height = 40;
         IsAlive = false;
+        Random random = new Random();
+        Aangle = random.nextDouble(360);
+        velocity=3;
         getImage();
     }
 
     public void getImage() {
-        up1=(setup("/asteroids/Asteroidup", gp.Tilesize, gp.Tilesize));
-        upright1=(setup("/asteroids/uprightAsteroid", gp.Tilesize, gp.Tilesize));
-        upleft1 =(setup("/asteroids/upleftAsteroid", gp.Tilesize, gp.Tilesize));
-        down1 =(setup("/asteroids/Asteroiddown", gp.Tilesize, gp.Tilesize));
-        downright1=(setup("/asteroids/downrightAsteroid", gp.Tilesize, gp.Tilesize));
-        downleft1 = (setup("/asteroids/downleftAsteroid", gp.Tilesize, gp.Tilesize));
-        right1 = (setup("/asteroids/Asteroidright", gp.Tilesize, gp.Tilesize));
-        left1 = (setup("/asteroids/Asteroidleft", gp.Tilesize, gp.Tilesize));
-        
-        up2=(setup("/asteroids/Asteroidup2", gp.Tilesize, gp.Tilesize));
-        upright2=(setup("/asteroids/uprightAsteroid", gp.Tilesize, gp.Tilesize));
-        upleft2 =(setup("/asteroids/upleftAsteroid2", gp.Tilesize, gp.Tilesize));
-        down2 =(setup("/asteroids/Asteroiddown2", gp.Tilesize, gp.Tilesize));
-        downright2=(setup("/asteroids/downrightAsteroid2", gp.Tilesize, gp.Tilesize));
-        downleft2 = (setup("/asteroids/downleftAsteroid2", gp.Tilesize, gp.Tilesize));
-        right2 = (setup("/asteroids/Asteroidright2", gp.Tilesize, gp.Tilesize));
-        left2 = (setup("/asteroids/Asteroidleft2", gp.Tilesize, gp.Tilesize));
-        
-        up3=(setup("/asteroids/Asteroidup3", gp.Tilesize, gp.Tilesize));
-        upright3=(setup("/asteroids/uprightAsteroid3", gp.Tilesize, gp.Tilesize));
-        upleft3 =(setup("/asteroids/upleftAsteroid3", gp.Tilesize, gp.Tilesize));
-        down3 =(setup("/asteroids/Asteroiddown3", gp.Tilesize, gp.Tilesize));
-        downright3=(setup("/asteroids/downrightAsteroid3", gp.Tilesize, gp.Tilesize));
-        downleft3 = (setup("/asteroids/downleftAsteroid3", gp.Tilesize, gp.Tilesize));
-        right3 = (setup("/asteroids/Asteroidright3", gp.Tilesize, gp.Tilesize));
-        left3 = (setup("/asteroids/Asteroidleft3", gp.Tilesize, gp.Tilesize));
+        Entity1=(setup("/asteroids/Asteroidup", gp.Tilesize, gp.Tilesize));
+        Entity2=(setup("/asteroids/Asteroidup2", gp.Tilesize, gp.Tilesize));
+        Entity3=(setup("/asteroids/Asteroidup3", gp.Tilesize, gp.Tilesize));
         
         DeathImage1 = (setup("/asteroids/death1", gp.Tilesize, gp.Tilesize));
         DeathImage2 = (setup("/asteroids/death2", gp.Tilesize, gp.Tilesize));
@@ -64,31 +43,58 @@ public class OBJ_Asteroid extends Asteroid {
     			
     			Random random = new Random();
     			int i = random.nextInt(240)+1;
-		
-    			if(i<=30) {
-    				direction = "up";
+    			Random random2 = new Random();
+    			int j = random2.nextInt(10)+1;
+    			
+    			if(Aangle==0) {
+    				
+    				if(j>0 && j<=5) {
+        				Aangle = 45;
+        			}
+        			if(j>5 && j<=10) {
+        				Aangle = -45;
+        			}
+        			
     			}
-    			if(i>30 && i<=60) {
-    				direction = "down";
+    			else if(Aangle==180) {
+    				if(j>0 && j<=5) {
+        				Aangle = -135;
+        			}
+        			if(j>5 && j<=10) {
+        				Aangle =135;
+        			}
     			}
-    			if(i>60 && i<=90) {
-    				direction = "left";
+    			else if(Aangle==90) {
+    				if(j>0 && j<=5) {
+        				Aangle = 45;
+        			}
+    				if(j>5 && j<=10) {
+        				Aangle =135;
+        			}
     			}
-    			if(i>90 && i<=120) {
-    				direction = "right";
+    			else if(Aangle==-90) {
+    				if(j>0 && j<=5) {
+        				Aangle = -45;
+        			}
+    				if(j>5 && j<=10) {
+        				Aangle =135;
+        			}
     			}
-    			if(i>120 && i<=150) {
-    				direction = "upright";
+    			else {
+    				if(i<=30) {
+        				Aangle=0;
+        			}
+        			if(i>30 && i<=60) {
+        				Aangle=180;
+        			}
+        			if(i>60 && i<=90) {
+        				Aangle=-90;
+        			}
+        			if(i>90 && i<=120) {
+        				Aangle = 90;
+        			}
     			}
-    			if(i>150 && i<=180) {
-    				direction = "upleft";
-    			}
-    			if(i>180 && i<=210) {
-    				direction = "downleft";
-    			}
-    			if(i>210 && i<=230) {
-    				direction = "downright";
-    			}
+    			
     			ActionLockCounter=0;
     			}
     		}

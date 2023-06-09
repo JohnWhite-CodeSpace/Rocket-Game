@@ -26,10 +26,10 @@ public class OBJ_Mercury extends Mercury{
 	}
 	public void getImage() {
 		int i = 3;	
-		Planet1 = setup("/planets/Mercury1", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
-		Planet2 = setup("/planets/Mercury1", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
-		Planet3 = setup("/planets/Mercury1", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
-		Planet4 = setup("/planets/Mercury1", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
+		Entity1 = setup("/planets/Mercury1", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
+		Entity2 = setup("/planets/Mercury1", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
+		Entity3 = setup("/planets/Mercury1", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
+		Entity4 = setup("/planets/Mercury1", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
     }
 		
     	public void SetAction() {

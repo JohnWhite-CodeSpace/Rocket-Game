@@ -83,7 +83,7 @@ public class Pluto extends Entity{
 		if(PlutoCount==100) {
 			text = "This is Pluto - a dwarf planet.";
 			g2.drawString(text, x, y+gp.Tilesize/2);
-			text = "Atmospheres composition: Carbon monoxide, nitrogen, methane ";
+			text = "Atmosphere composition: Carbon monoxide, nitrogen, methane ";
 			g2.drawString(text, x, y+gp.Tilesize);
 			text = "also trace ammounts of ammonia were found.";
 			g2.drawString(text, x, y+3*gp.Tilesize/2);

@@ -1,5 +1,7 @@
 package Entity;
 
+import java.awt.geom.AffineTransform;
+
 import Game.GamePanel;
 
 
@@ -31,19 +33,18 @@ public class Comet extends Entity{
 				gp.player.invincible=true;
 			}
 		}
-		
+		double newy= velocity * Math.cos(Math.toRadians(Aangle));
+		double newx= velocity * Math.sin(Math.toRadians(Aangle));
 		if(collisionOn==false) {
+//			if(Aangle>=360||Aangle<=-360) {
+//				Aangle=0;
+//			}
 			switch(direction) {
-				case "up":worldy-=speed;break;
-				case "down":worldy+=speed;break;
-				case "left":worldx-=speed;break;
-				case "right":worldx+=speed;break;
-				case "upright":worldy-=speed; worldx+=speed;break;
-				case "upleft": worldy-=speed; worldx-=speed;break;
-				case "downright":worldy+=speed; worldx+=speed; break;
-				case "downleft":worldy+=speed; worldx-=speed;break;
-				}
+				case "comet":worldy-=(int) newy; worldx += (int) newx;break;
+			}
+		}
 			if(invincible==true) {
+				
 				invincibleCounter++;
 				System.out.println(invincibleCounter);
 				if(invincibleCounter>30) {
@@ -65,9 +66,20 @@ public class Comet extends Entity{
 				}
 				spriteCounter=0;
 			}
-		}
+			
+		
 		
 	}
-}
+	public AffineTransform rotatedImage() {
+	    int screenX = worldx - gp.player.worldx + gp.player.screenx;
+	    int screenY = worldy - gp.player.worldy + gp.player.screeny;
 
+	    AffineTransform transform = new AffineTransform();
+	    transform.translate(screenX, screenY);
+	    transform.rotate(Math.toRadians(Aangle), gp.Tilesize/2, gp.Tilesize/2);
+
+	    return transform;
+}
+		
+}
 

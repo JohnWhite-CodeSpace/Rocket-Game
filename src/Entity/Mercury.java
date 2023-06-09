@@ -80,7 +80,7 @@ public class Mercury extends Entity {
 		if(MercuryCount==100) {
 			text = "This is Mercury, the colosest planet to the Sun.";
 			g2.drawString(text, x, y+gp.Tilesize/2);
-			text = "Atmospheres composition: None";
+			text = "Atmosphere composition: None";
 			g2.drawString(text, x, y+gp.Tilesize);
 			text = "Insted of atmosphere, Mercury has a thin expsphere composed mostly of oxygen, sodium, hydrogen and helium.";
 			g2.drawString(text, x, y+3*gp.Tilesize/2);

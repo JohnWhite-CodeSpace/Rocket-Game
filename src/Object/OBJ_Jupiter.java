@@ -29,10 +29,10 @@ public class OBJ_Jupiter extends Jupiter{
 	}
 	public void getImage() {
 		int i = 10;	
-		Planet1 = setup("/planets/Jupiter1", gp.Tilesize*i, gp.Tilesize*i);	
-		Planet2 = setup("/planets/Jupiter2", gp.Tilesize*i, gp.Tilesize*i);	
-		Planet3 = setup("/planets/Jupiter3", gp.Tilesize*i, gp.Tilesize*i);	
-		Planet4 = setup("/planets/Jupiter4", gp.Tilesize*i, gp.Tilesize*i);	
+		Entity1 = setup("/planets/Jupiter1", gp.Tilesize*i, gp.Tilesize*i);	
+		Entity2 = setup("/planets/Jupiter2", gp.Tilesize*i, gp.Tilesize*i);	
+		Entity3 = setup("/planets/Jupiter3", gp.Tilesize*i, gp.Tilesize*i);	
+		Entity4 = setup("/planets/Jupiter4", gp.Tilesize*i, gp.Tilesize*i);	
     }
 		
     public void SetAction() {

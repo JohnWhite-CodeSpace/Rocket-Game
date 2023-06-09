@@ -23,10 +23,10 @@ public class OBJ_Sol extends Sol{
 	}
 	public void getImage() {
 		int i = 13;
-			Planet1 = setup("/planets/Sol1", gp.Tilesize*i, gp.Tilesize*i);
-			Planet2 = setup("/planets/Sol1", gp.Tilesize*i, gp.Tilesize*i);
-			Planet3 = setup("/planets/Sol1", gp.Tilesize*i, gp.Tilesize*i);
-			Planet4 = setup("/planets/Sol1", gp.Tilesize*i, gp.Tilesize*i);
+			Entity1 = setup("/planets/Sol1", gp.Tilesize*i, gp.Tilesize*i);
+			Entity2 = setup("/planets/Sol1", gp.Tilesize*i, gp.Tilesize*i);
+			Entity3 = setup("/planets/Sol1", gp.Tilesize*i, gp.Tilesize*i);
+			Entity4 = setup("/planets/Sol1", gp.Tilesize*i, gp.Tilesize*i);
 		
        
     }

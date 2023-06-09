@@ -27,10 +27,10 @@ public class OBJ_Pluto extends Pluto{
 	}
 	public void getImage() {
 		int i = 3;
-			Planet1 = setup("/planets/Pluto1", gp.Tilesize*i, gp.Tilesize*i);
-			Planet2 = setup("/planets/Pluto2", gp.Tilesize*i, gp.Tilesize*i);
-			Planet3 = setup("/planets/Pluto3", gp.Tilesize*i, gp.Tilesize*i);
-			Planet4 = setup("/planets/Pluto4", gp.Tilesize*i, gp.Tilesize*i);
+			Entity1 = setup("/planets/Pluto1", gp.Tilesize*i, gp.Tilesize*i);
+			Entity2 = setup("/planets/Pluto2", gp.Tilesize*i, gp.Tilesize*i);
+			Entity3 = setup("/planets/Pluto3", gp.Tilesize*i, gp.Tilesize*i);
+			Entity4 = setup("/planets/Pluto4", gp.Tilesize*i, gp.Tilesize*i);
     }
     public void SetAction() {
     	direction = "planet";

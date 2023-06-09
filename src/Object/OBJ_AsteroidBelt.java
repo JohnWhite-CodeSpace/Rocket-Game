@@ -14,7 +14,6 @@ public class OBJ_AsteroidBelt extends Asteroid_Belt{
 		centerx=gp.Tilesize*250;
 		centery=gp.Tilesize*250;
         name = "Asteroid_Belt";
-        speed=1;
         maxLife = 1;
         life = maxLife;
         solidArea = new Rectangle();
@@ -43,7 +42,7 @@ public class OBJ_AsteroidBelt extends Asteroid_Belt{
         	solidArea.width = 60;
         	solidArea.height = 60;
         }
-		AsteroidBelt = setup("/asteroids/Asteroidbelt", gp.Tilesize*i, gp.Tilesize*i);	
+		Entity1 = setup("/asteroids/Asteroidbelt", gp.Tilesize*i, gp.Tilesize*i);	
 		DeathImage1 = setup("/asteroids/AsteroidBeltDying1", gp.Tilesize*i, gp.Tilesize*i);
         DeathImage2 = setup("/asteroids/AsteroidBeltDying2", gp.Tilesize*i, gp.Tilesize*i);
         DeathImage3 = setup("/asteroids/AsteroidBeltDying3", gp.Tilesize*i, gp.Tilesize*i);

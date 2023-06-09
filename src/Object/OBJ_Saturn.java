@@ -29,10 +29,10 @@ public class OBJ_Saturn extends Saturn{
 	public void getImage() {
 		 	int i=14;
 		 	int j=9;
-				Planet1 = setup("/planets/Saturn1", gp.Tilesize*i, gp.Tilesize*j);
-				Planet2 = setup("/planets/Saturn2", gp.Tilesize*i, gp.Tilesize*j);
-				Planet3 = setup("/planets/Saturn3", gp.Tilesize*i, gp.Tilesize*j);
-				Planet4 = setup("/planets/Saturn4", gp.Tilesize*i, gp.Tilesize*j);
+				Entity1 = setup("/planets/Saturn1", gp.Tilesize*i, gp.Tilesize*j);
+				Entity2 = setup("/planets/Saturn2", gp.Tilesize*i, gp.Tilesize*j);
+				Entity3 = setup("/planets/Saturn3", gp.Tilesize*i, gp.Tilesize*j);
+				Entity4 = setup("/planets/Saturn4", gp.Tilesize*i, gp.Tilesize*j);
 				
     }
 		

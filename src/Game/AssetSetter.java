@@ -30,7 +30,7 @@ public class AssetSetter {
 						+10*k[i]-5*j[i];
 				int worldy = gp.Tilesize*250+ gp.Tilesize*j[i]-gp.Tilesize*k[i]
 						+10*k[i]-5*j[i];
-				gp.asteroids[i].set(worldx,worldy,"up",true,null);
+				gp.asteroids[i].set(worldx,worldy,"asteroid",true,null);
 			}
 		
 	}
@@ -56,7 +56,7 @@ public class AssetSetter {
 					+9*m[i]-5*l[i];
 			int worldy = gp.Tilesize*240+ 2*gp.Tilesize*l[i]-gp.Tilesize*k[i]
 					+11*m[i]-6*l[i];
-			gp.comets[i].set(worldx,worldy,"up",true,null);
+			gp.comets[i].set(worldx,worldy,"comet",true,null);
 		}
 	
 }

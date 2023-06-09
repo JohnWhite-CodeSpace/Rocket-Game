@@ -18,22 +18,17 @@ import Utility.UtilityTool;
 public class Entity {
 
 	public int worldx, worldy;
-	public int speed;
 	public int fuel, fuelconsumption,maxfuel;
 	public double velocity;
 	public double PlayerAngle;
 	public double SpsAngle;
+	public double Aangle;
 	public double Acceleration, HyperAcceleration;
 	public double AngularVelocity;
-	public double newx, newy;
-	public int previousX, previousY;
 	public int MaxSpeed;
 	GamePanel gp;
-	public BufferedImage up1, down1, left1, right1, upleft1, upright1, downleft1, downright1, up2, down2, left2, right2, upleft2, upright2, downleft2, downright2,
-	up3, down3,right3,left3,upleft3,upright3,downright3,downleft3, up4, down4, left4, right4, upright4, upleft4, downright4, downleft4;
 	public BufferedImage lifeimage1,lifeimage2,recharge1,recharge2, fuel100, fuel75,fuel50, fuel25, fuel0;
-	public BufferedImage Player1,Player2,Player3, Bullet1, Bullet2, Bullet3,Bullet4, DeathImage1, DeathImage2, DeathImage3,
-	Planet1, Planet2, Planet3, Planet4,SpaceStation1,SpaceStation2,SpaceStation3,AsteroidBelt;
+	public BufferedImage Entity1, Entity2, Entity3, Entity4,DeathImage1, DeathImage2, DeathImage3;
 	public String name;
 	public String Weapon;
 	public int type;
@@ -59,7 +54,7 @@ public class Entity {
 	public int DyingCounter;
 	public int ShotAveilableCounter = 0;
 	public int solidAreaDefaultX, solidAreaDefaultY;
-	public Projectile projectile, projectile2;
+	public Projectile projectile;
 	public Asteroid asteroid;
 	public Asteroid_Belt asteroidBelt;
 	public Comet comet;
@@ -97,7 +92,8 @@ public class Entity {
 	        UtilityTool uTool = new UtilityTool();
 	        
 	        try {
-	            image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(imagePath + ".png")));
+	    
+	        	image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(imagePath + ".png")));
 	            
 	        } catch (IOException e) {
 	            e.printStackTrace();
@@ -117,205 +113,88 @@ public class Entity {
 	        		worldy-12*gp.Tilesize< gp.player.worldy+gp.player.screeny
 	        		) {
 			switch(direction) {
-			case "up", "fastup":
+
+			case "player1","bullet1","space_station","comet","asteroid":
 				if(spriteNum==1) {
-					image = up1;
+					image = Entity1;
 				}
 				if(spriteNum==2) {
-					image=up2;
+					image = Entity2;
 				}
 				if(spriteNum==3) {
-					image=up3;
-				}
-				if(spriteNum==4) {
-					image=up4;
-				}
-				break;
-			case "down", "fastdown":
-				if(spriteNum==1) {
-					image = down1;
-				}
-				if(spriteNum==2) {
-					image = down2;
-				}
-				if(spriteNum==3) {
-					image=down3;
-				}
-				if(spriteNum==4) {
-					image=down4;
-				}
-				break;
-			case "left", "fastleft":
-				if(spriteNum==1) {
-					image=left1;
-				}
-				if(spriteNum==2) {
-					image = left2;
-				}
-				if(spriteNum==3) {
-					image=left3;
-				}
-				if(spriteNum==4) {
-					image=left4;
-				}
-				break;
-			case "right", "fastright":
-				if(spriteNum==1) {
-					image = right1;
-				}
-				if(spriteNum==2) {
-					image = right2;
-				}
-				if(spriteNum==3) {
-					image=right3;
-				}
-				if(spriteNum==4) {
-					image=right4;
-				}
-				break;
-			case "upleft", "fastupleft":
-				if(spriteNum==1) {
-					image = upleft1;
-				}
-				if(spriteNum==2) {
-					image = upleft2;
-				}
-				if(spriteNum==3) {
-					image=upleft3;
-				}
-				if(spriteNum==4) {
-					image=upleft4;
-				}
-				break;
-			case "upright", "fastupright":
-				if(spriteNum==1) {
-					image = upright1;
-				}
-				if(spriteNum==2) {
-					image = upright2;
-				}
-				if(spriteNum==3) {
-					image=upright3;
-				}
-				if(spriteNum==4) {
-					image=upright4;
-				}
-				break;
-			case "downleft", "fastdownleft":
-				if(spriteNum==1) {
-					image = downleft1;
-				}
-				if(spriteNum==2) {
-					image = downleft2;
-				}
-				if(spriteNum==3) {
-					image=downleft3;
-				}
-				if(spriteNum==4) {
-					image=downleft4;
-				}
-				break;
-			case "downright","fastdownright":
-				if(spriteNum==1) {
-					image = downright1;
-				}
-				if(spriteNum==2) {
-					image = downright2;
-				}
-				if(spriteNum==3) {
-					image=downright3;
-				}
-				if(spriteNum==4) {
-					image=downright4;
-				}
-				break;
-			case "player1":
-				if(spriteNum==1) {
-					image = Player1;
-				}
-				if(spriteNum==2) {
-					image = Player2;
-				}
-				if(spriteNum==3) {
-					image=Player3;
-				}
-				break;
-			case "bullet1":
-				if(spriteNum==1) {
-					image = Bullet1;
-				}
-				if(spriteNum==2) {
-					image = Bullet2;
-				}
-				if(spriteNum==3) {
-					image=Bullet3;
+					image=Entity3;
 				}
 				break;
 			case "pellet":
 				if(spriteNum==1) {
-					image = Bullet4;
+					image = Entity4;
 				}
 				if(spriteNum==2) {
-					image = Bullet4;
+					image = Entity4;
 				}
 				if(spriteNum==3) {
-					image=Bullet4;
+					image=Entity4;
 				}
 				break;
 			case "planet":
 				if(spriteNum==1) {
-					image = Planet1;
+					image = Entity1;
 				}
 				if(spriteNum==2) {
-					image = Planet2;
+					image = Entity2;
 				}
 				if(spriteNum==3) {
-					image=Planet3;
+					image=Entity3;
 				}
 				if(spriteNum==4) {
-					image=Planet4;
-				}
-				break;
-			case "space_station":
-				if(spriteNum==1) {
-					image = SpaceStation1;
-				}
-				if(spriteNum==2) {
-					image = SpaceStation2;
-				}
-				if(spriteNum==3) {
-					image=SpaceStation3;
+					image=Entity4;
 				}
 				break;
 			case "ABelt":
 				if(spriteNum==1) {
-					image = AsteroidBelt;
+					image = Entity1;
 				}
 				if(spriteNum==2) {
-					image = AsteroidBelt;
+					image = Entity1;
 				}
 				if(spriteNum==3) {
-					image = AsteroidBelt;
+					image = Entity1;
 				}
 			break;
 			}
 			
 			
 			if(image!=null) {
-			if(image.equals(Player1)||image.equals(Player2)||image.equals(Player3)) {
+			if(direction=="player1") {
 				AffineTransform transform = new AffineTransform();
 		        transform.translate(screenX, screenY);
 		        transform.rotate(Math.toRadians(gp.player.PlayerAngle),gp.Tilesize/2,gp.Tilesize/2);
 		        g2.drawImage(image, transform, null);
 			
 			}
-			else if(image.equals(Bullet1)||image.equals(Bullet2)||image.equals(Bullet3)||image.equals(Bullet4)) {
+			else if(direction=="bullet1") {
 				for(int i=0; i<gp.projectileList.size(); i++)
 		        g2.drawImage(image, ((Projectile) gp.projectileList.get(i)).rotatedImage(i), null);
 			
 			}
-			else if(image.equals(SpaceStation1)||image.equals(SpaceStation2)||image.equals(SpaceStation3)) {
+			else if(direction=="space_station") {
 		        g2.drawImage(image, gp.spacestation.rotatedImage(), null);
+			}
+			else if(direction=="asteroid") {
+				for(int i=0;i<gp.asteroids.length;i++) {
+					if(gp.asteroids[i]!=null) {
+						g2.drawImage(image, gp.asteroids[i].rotatedImage(), null);
+					}
+				}
+		        
+			}
+			else if(direction=="comet") {
+				for(int i=0;i<gp.comets.length;i++) {
+					if(gp.comets[i]!=null) {
+						g2.drawImage(image, gp.comets[i].rotatedImage(), null);
+					}
+				}
+		        
 			}
 			else {
 				g2.drawImage(image, screenX, screenY, null);

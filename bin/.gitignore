@@ -1,8 +1,6 @@
-/Entity/
-/Game/
-/Object/
-/Utility/
-/module-info.class
-/space_station/
+/maps/
 /tile/
-/tiles/
+/Entity/
+/Utility/
+/Object/
+/asteroids/

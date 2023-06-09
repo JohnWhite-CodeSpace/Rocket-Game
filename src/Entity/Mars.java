@@ -80,19 +80,19 @@ public class Mars extends Entity {
 		String text = "Collecting data..." + MarsCount;
 		g2.drawString(text, x, y);
 		if(MarsCount==100) {
-			text = "This is Pluto.";
+			text = "This is Mars - a rocky, red planet.";
 			g2.drawString(text, x, y+gp.Tilesize/2);
-			text = "Atmospheres composition: 76% Hydrogen, 24% Helium, ";
+			text = "Atmosphere composition: 95% Carbon dioxide, 2.8% Nitrogen,2% Argon ";
 			g2.drawString(text, x, y+gp.Tilesize);
-			text = "also trace ammounts of carbon, methane, water vapour and ammonia were found.";
+			text = "also trace ammounts of oxygen, hydrogen, water vapour and carbon monoxide were found.";
 			g2.drawString(text, x, y+3*gp.Tilesize/2);
-			text = "Diameter: 142,984 km";
+			text = "Diameter: 6,779 km";
 			g2.drawString(text, x, y+2*gp.Tilesize);
-			text = "Mass: 1.8982×10^27 kg ";
+			text = "Mass: 6.39×10^23 kg ";
 			g2.drawString(text, x, y+5*gp.Tilesize/2);
-			text = "Average orbital speed: 13.07 km/s";
+			text = "Average orbital speed: 24.07 km/s";
 			g2.drawString(text, x, y+3*gp.Tilesize);
-			text = "Known satelites: 95";
+			text = "Known satelites: 2";
 			g2.drawString(text, x, y+7*gp.Tilesize/2);
 			MarsIsDone=1;
 			
