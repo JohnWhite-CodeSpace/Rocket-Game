@@ -36,9 +36,9 @@ public class Comet extends Entity{
 		double newy= velocity * Math.cos(Math.toRadians(Aangle));
 		double newx= velocity * Math.sin(Math.toRadians(Aangle));
 		if(collisionOn==false) {
-//			if(Aangle>=360||Aangle<=-360) {
-//				Aangle=0;
-//			}
+			if(Aangle>=360 || Aangle<=-360) {
+				Aangle=0;
+			}
 			switch(direction) {
 				case "comet":worldy-=(int) newy; worldx += (int) newx;break;
 			}
@@ -46,7 +46,6 @@ public class Comet extends Entity{
 			if(invincible==true) {
 				
 				invincibleCounter++;
-				System.out.println(invincibleCounter);
 				if(invincibleCounter>30) {
 					invincible=false;
 					invincibleCounter = 0;

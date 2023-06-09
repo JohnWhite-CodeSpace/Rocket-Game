@@ -7,6 +7,9 @@ import Game.GamePanel;
 
 public class OBJ_Comet extends Comet {
 		GamePanel gp;
+		int turncounter;
+		int i=0;
+		int j=0;
     public OBJ_Comet(GamePanel gp) {
         super(gp);
         this.gp = gp;
@@ -21,7 +24,7 @@ public class OBJ_Comet extends Comet {
 		solidArea.height = 60;
         IsAlive = false;
         Random random = new Random();
-        Aangle = random.nextDouble(360);
+        Aangle = random.nextInt(360);
         velocity=10;
         getImage();
     }
@@ -36,69 +39,30 @@ public class OBJ_Comet extends Comet {
         DeathImage3 = (setup("/asteroids/Cometdeath3", gp.Tilesize+gp.Tilesize/2, gp.Tilesize+gp.Tilesize/2));
        
     }
-    	public void SetAction() {
-    		
-    		ActionLockCounter++;
-    		if(ActionLockCounter==240) {
-    			
-    			Random random = new Random();
-    			int i = random.nextInt(240)+1;
-    			Random random2 = new Random();
-    			int j = random2.nextInt(10)+1;
-    			
-    			if(Aangle==0) {
-    				
-    				if(j>0 && j<=5) {
-        				Aangle = 45;
-        			}
-        			if(j>5 && j<=10) {
-        				Aangle = -45;
-        			}
-        			
-    			}
-    			else if(Aangle==180) {
-    				if(j>0 && j<=5) {
-        				Aangle = -135;
-        			}
-        			if(j>5 && j<=10) {
-        				Aangle =135;
-        			}
-    			}
-    			else if(Aangle==90) {
-    				if(j>0 && j<=5) {
-        				Aangle = 45;
-        			}
-    				if(j>5 && j<=10) {
-        				Aangle =135;
-        			}
-    			}
-    			else if(Aangle==-90) {
-    				if(j>0 && j<=5) {
-        				Aangle = -45;
-        			}
-    				if(j>5 && j<=10) {
-        				Aangle =135;
-        			}
-    			}
-    			else {
-    				if(i<=30) {
-        				Aangle=0;
-        			}
-        			if(i>30 && i<=60) {
-        				Aangle=180;
-        			}
-        			if(i>60 && i<=90) {
-        				Aangle=-90;
-        			}
-        			if(i>90 && i<=120) {
-        				Aangle = 90;
-        			}
-    			}
-    			
-    			ActionLockCounter=0;
-    		}
+    public void SetAction() {
+    	if(ActionLockCounter==0) {
+    		Random random = new Random();
+            i = random.nextInt(2)+1;
+            Random random2 = new Random();
+            j = random2.nextInt(10)+1;
     	}
+    	ActionLockCounter++;
+        
 
+        if (ActionLockCounter < 40+2*j) {
+        	
+    		if(j>0 && j<=5) {
+    			Aangle+=i;
+    		}
+    		if(j>5&&j<=10) {
+    			Aangle-=i;
+    		}
+        }
+        if(ActionLockCounter==240) {
+			ActionLockCounter=0;
+		}
+    }
+   
 }
 
 

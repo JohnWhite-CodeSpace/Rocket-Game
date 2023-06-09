@@ -285,8 +285,8 @@ public class CollisionChecker {
 			int index = 999;
 			for(int i=0; i<target.length;i++) {
 				if(target[i]!=null) {
-				double planetSAX= (int) (target[i].worldx + target[i].Xcircle-3*target[i].Radcircle/2);
-				double planetSAY = (int) (target[i].worldy + target[i].Ycircle-3*target[i].Radcircle/2);
+				double planetSAX= (int) (target[i].worldx-target[i].Radcircle/2);
+				double planetSAY = (int) (target[i].worldy-target[i].Radcircle/2);
 				Ellipse2D infoarea = null;
 				if(entity!=null) {
 					
@@ -296,8 +296,6 @@ public class CollisionChecker {
 					switch(entity.direction) {
 					
 					case "player1":
-						planetSAY-=gp.player.velocity * Math.cos(Math.toRadians(gp.player.PlayerAngle));
-						planetSAX+=gp.player.velocity * Math.sin(Math.toRadians(gp.player.PlayerAngle));
 						infoarea = new Ellipse2D.Double(planetSAX, planetSAY,target[i].Radcircle*3,target[i].Radcircle*3);
 						break;
 						

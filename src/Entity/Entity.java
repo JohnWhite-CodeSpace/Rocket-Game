@@ -22,7 +22,7 @@ public class Entity {
 	public double velocity;
 	public double PlayerAngle;
 	public double SpsAngle;
-	public double Aangle;
+	public int Aangle;
 	public double Acceleration, HyperAcceleration;
 	public double AngularVelocity;
 	public int MaxSpeed;
@@ -172,7 +172,7 @@ public class Entity {
 		        g2.drawImage(image, transform, null);
 			
 			}
-			else if(direction=="bullet1") {
+			else if(direction=="bullet1"||direction=="pellet") {
 				for(int i=0; i<gp.projectileList.size(); i++)
 		        g2.drawImage(image, ((Projectile) gp.projectileList.get(i)).rotatedImage(i), null);
 			

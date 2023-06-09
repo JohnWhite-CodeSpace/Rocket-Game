@@ -276,8 +276,8 @@ public class Player extends Entity {
 			if(gp.comets[i].invincible==false) {
 				gp.ui.showMessage("Comet destroyed!");
 				if(ammoType.equals("bullet1")) {
-					gp.comets[i].invincible=true;
 					gp.comets[i].life =-10;
+					gp.comets[i].invincible=true;
 					
 					if(gp.comets[i].life<=0) {
 						gp.comets[i].dying = true;

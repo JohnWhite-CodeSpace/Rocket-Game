@@ -36,9 +36,9 @@ public class Asteroid extends Entity{
 		double newy= velocity * Math.cos(Math.toRadians(Aangle));
 		double newx= velocity * Math.sin(Math.toRadians(Aangle));
 		if(collisionOn==false) {
-//			if(Aangle>=360||Aangle<=-360) {
-//				Aangle=0;
-//			}
+			if(Aangle>=360 || Aangle<=-360) {
+				Aangle=0;
+			}
 			switch(direction) {
 				case "asteroid":worldy-=(int) newy; worldx += (int) newx;break;
 			}
