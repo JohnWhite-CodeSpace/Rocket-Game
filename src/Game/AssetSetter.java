@@ -1,5 +1,6 @@
 package Game;
 
+import Object.OBJ_AlienSpaceship;
 import Object.OBJ_Asteroid;
 import Object.OBJ_AsteroidBelt;
 import Object.OBJ_Comet;

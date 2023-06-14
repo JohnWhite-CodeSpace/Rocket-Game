@@ -114,7 +114,7 @@ public class Entity {
 	        		) {
 			switch(direction) {
 
-			case "player1","bullet1","space_station","comet","asteroid":
+			case "player1","bullet1","space_station","comet","asteroid","alienrocket":
 				if(spriteNum==1) {
 					image = Entity1;
 				}
