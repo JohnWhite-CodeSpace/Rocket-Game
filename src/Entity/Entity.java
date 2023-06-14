@@ -71,6 +71,7 @@ public class Entity {
 	public Sol sol;
 	public OBJ_PlayerLife lifebar;
 	public OBJ_PlayerFuel PFuel;
+	public AlienSpaceship alienrocket;
 	public int ActionLockCounter = 0;
 	public double angle =0;
 	public int radius;
@@ -114,7 +115,7 @@ public class Entity {
 	        		) {
 			switch(direction) {
 
-			case "player1","bullet1","space_station","comet","asteroid":
+			case "player1","bullet1","space_station","comet","asteroid","alienrocket":
 				if(spriteNum==1) {
 					image = Entity1;
 				}
@@ -195,6 +196,13 @@ public class Entity {
 					}
 				}
 		        
+			}
+			else if(direction=="alienrocket") {
+				for(int i=0;i<gp.alienrocket.length;i++) {
+					if(gp.alienrocket[i]!=null) {
+						g2.drawImage(image, gp.alienrocket[i].rotatedImage(), null);
+					}
+				}    
 			}
 			else {
 				g2.drawImage(image, screenX, screenY, null);

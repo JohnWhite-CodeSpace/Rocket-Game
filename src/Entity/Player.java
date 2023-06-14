@@ -99,10 +99,10 @@ public class Player extends Entity {
 			if(keyH.speedPressed==false) {
 				Acceleration=0.1;
 			}
-			planettoken=9;
-//			planettoken=gp.mercury.MercuryIsDone+gp.venus.VenusIsDone+gp.earth.EarthIsDone+
-//			gp.mars.MarsIsDone+gp.jupiter.JupiterIsDone+gp.saturn.SaturnIsDone+gp.uranus.UranusIsDone+
-//			gp.neptune.NeptuneIsDone+gp.pluto.PlutoIsDone;
+			//planettoken=9;
+			planettoken=gp.mercury.MercuryIsDone+gp.venus.VenusIsDone+gp.earth.EarthIsDone+
+			gp.mars.MarsIsDone+gp.jupiter.JupiterIsDone+gp.saturn.SaturnIsDone+gp.uranus.UranusIsDone+
+			gp.neptune.NeptuneIsDone+gp.pluto.PlutoIsDone;
 			System.out.println(planettoken);
 		spriteCounter++;
 		collisionOn=false;
