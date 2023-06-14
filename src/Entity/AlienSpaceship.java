@@ -43,7 +43,8 @@ public class AlienSpaceship extends Entity{
 		}
 			if(invincible==true) {
 
-				System.out.println(invincibleCounter);
+				
+				invincibleCounter++;
 				if(invincibleCounter>30) {
 					invincible=false;
 					invincibleCounter = 0;

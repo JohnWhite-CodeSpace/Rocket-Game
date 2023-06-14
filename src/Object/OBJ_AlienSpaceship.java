@@ -11,7 +11,6 @@ public class OBJ_AlienSpaceship extends AlienSpaceship{
 	int i=0;
 	int j=0;
 	int turncounter;
-
 public OBJ_AlienSpaceship(GamePanel gp) {
     super(gp);
     this.gp = gp;
