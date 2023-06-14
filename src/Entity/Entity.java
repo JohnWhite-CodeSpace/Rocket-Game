@@ -57,6 +57,7 @@ public class Entity {
 	public Projectile projectile;
 	public Asteroid asteroid;
 	public Asteroid_Belt asteroidBelt;
+	public AlienSpaceship alienrocket;
 	public Comet comet;
 	public SpaceStation spacestation;
 	public Pluto pluto;
@@ -114,7 +115,7 @@ public class Entity {
 	        		) {
 			switch(direction) {
 
-			case "player1","bullet1","space_station","comet","asteroid":
+			case "player1","bullet1","space_station","comet","asteroid","alienrocket":
 				if(spriteNum==1) {
 					image = Entity1;
 				}
@@ -180,13 +181,12 @@ public class Entity {
 			else if(direction=="space_station") {
 		        g2.drawImage(image, gp.spacestation.rotatedImage(), null);
 			}
-			else if(direction=="asteroid") {
-				for(int i=0;i<gp.asteroids.length;i++) {
-					if(gp.asteroids[i]!=null) {
-						g2.drawImage(image, gp.asteroids[i].rotatedImage(), null);
+			else if(direction=="alienrocket") {
+				for(int i=0;i<gp.alienrocket.length;i++) {
+					if(gp.alienrocket[i]!=null) {
+						g2.drawImage(image, gp.alienrocket[i].rotatedImage(), null);
 					}
-				}
-		        
+				}    
 			}
 			else if(direction=="comet") {
 				for(int i=0;i<gp.comets.length;i++) {
