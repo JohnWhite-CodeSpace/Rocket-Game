@@ -59,7 +59,7 @@ public class CollisionChecker {
 		    
 
 		    break;
-		case "comet","asteroid":
+		case "comet","asteroid","alienrocket":
 			tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityTopRow];
 		    tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
 		    tileNum3 = gp.tileM.mapTileNum[entityLeftCol][entityBottomRow];
