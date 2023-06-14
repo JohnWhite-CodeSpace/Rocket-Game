@@ -99,9 +99,11 @@ public class Player extends Entity {
 			if(keyH.speedPressed==false) {
 				Acceleration=0.1;
 			}
-			planettoken=gp.mercury.MercuryIsDone+gp.venus.VenusIsDone+gp.earth.EarthIsDone+
-			gp.mars.MarsIsDone+gp.jupiter.JupiterIsDone+gp.saturn.SaturnIsDone+gp.uranus.UranusIsDone+
-			gp.neptune.NeptuneIsDone+gp.pluto.PlutoIsDone;
+			planettoken=9;
+//			planettoken=gp.mercury.MercuryIsDone+gp.venus.VenusIsDone+gp.earth.EarthIsDone+
+//			gp.mars.MarsIsDone+gp.jupiter.JupiterIsDone+gp.saturn.SaturnIsDone+gp.uranus.UranusIsDone+
+//			gp.neptune.NeptuneIsDone+gp.pluto.PlutoIsDone;
+			System.out.println(planettoken);
 		spriteCounter++;
 		collisionOn=false;
 		gp.CollisionCheck.CheckTile(this);
@@ -300,8 +302,9 @@ public class Player extends Entity {
 			if(gp.asteroidBelt[i].invincible==false) {
 				gp.ui.showMessage("Asteroid destroyed!");
 				if(ammoType.equals("bullet1")) {
-					gp.asteroidBelt[i].invincible=true;
 					gp.asteroidBelt[i].life =-10;
+					gp.asteroidBelt[i].invincible=true;
+					
 					
 					if(gp.asteroidBelt[i].life<=0) {
 						gp.asteroidBelt[i].dying = true;
@@ -367,13 +370,10 @@ public class Player extends Entity {
 		ammoType="bullet1";
 	}
 	public void GameStatus() {
-			if(gp.player.fuel>50&&planettoken==9) {
+			if(fuel>=50&&planettoken==9) {
 				gp.gameState=gp.WinState;
 			}
-			if(gp.player.life==0) {
-				gp.gameState=gp.GameOverState;
-			}
-			else {
+			if(life==0||fuel<50) {
 				gp.gameState=gp.GameOverState;
 			}
 			

@@ -27,9 +27,9 @@ public class OBJ_Mars extends Mars{
 	public void getImage() {
 		int i = 4;	
 		Entity1 = setup("/planets/Mars1", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
-		Entity2 = setup("/planets/Mars1", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
-		Entity3 = setup("/planets/Mars1", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
-		Entity4 = setup("/planets/Mars1", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
+		Entity2 = setup("/planets/Mars2", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
+		Entity3 = setup("/planets/Mars3", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
+		Entity4 = setup("/planets/Mars4", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
     }
 		
     public void SetAction() {

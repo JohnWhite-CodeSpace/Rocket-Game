@@ -33,14 +33,14 @@ public class OBJ_AsteroidBelt extends Asteroid_Belt{
         if(i==1) {
         	solidArea.x = 4;
     		solidArea.y = 4;
-    		solidArea.width = 30;
-    		solidArea.height = 30;
+    		solidArea.width = 20;
+    		solidArea.height = 20;
         }
         if(i==2) {
         	solidArea.x = 4;
         	solidArea.y = 4;
-        	solidArea.width = 45;
-        	solidArea.height = 45;
+        	solidArea.width = 40;
+        	solidArea.height = 40;
         }
 		Entity1 = setup("/asteroids/Asteroidbelt", gp.Tilesize*i, gp.Tilesize*i);	
 		DeathImage1 = setup("/asteroids/AsteroidBeltDying1", gp.Tilesize*i, gp.Tilesize*i);

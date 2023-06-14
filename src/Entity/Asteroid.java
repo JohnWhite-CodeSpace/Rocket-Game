@@ -46,8 +46,7 @@ public class Asteroid extends Entity{
 			if(invincible==true) {
 				
 				invincibleCounter++;
-				System.out.println(invincibleCounter);
-				if(invincibleCounter>30) {
+				if(invincibleCounter>60) {
 					invincible=false;
 					invincibleCounter = 0;
 				}

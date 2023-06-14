@@ -70,7 +70,6 @@ public class GamePanel extends JPanel implements Runnable{
 	
 	
 	Thread gamethread;
-	int drawcount = 0;
 	int FPS = 60;
 	String IsOn;
 	public KeyHandler keyH = new KeyHandler(this);
@@ -157,26 +156,23 @@ public class GamePanel extends JPanel implements Runnable{
 	
 	@Override
 	public void run(){
-		double drawInterval = 1000000000/FPS;
-		double delta = 0;
-		long lastTime = System.nanoTime();
+		double drawInterval = 1000000000/FPS; // 1sec/60frames
+		double delta = 0; //initialising delta
+		long lastTime = System.nanoTime();//getting system time in nanoseconds
 		long currentTime;
-		long timer=0;
+		long timer=0;//initialising timer
 		
-		while(gamethread != null) {
-				currentTime = System.nanoTime();
-				delta+=(currentTime-lastTime)/drawInterval;
-				timer+=(currentTime-lastTime);
+		while(gamethread != null) { //if thread is initialised
+				currentTime = System.nanoTime(); //getting system time in nanoseconds
+				delta+=(currentTime-lastTime)/drawInterval; // adding difference between to system times an dividing by draw interval (time between each drawing) 
+				timer+=(currentTime-lastTime);//adding difference to timer
 				lastTime = currentTime;
-				if(delta>=1) {
+				if(delta>=1) {//for delta>= invoking update and repaint method and  subtracting 1 each loop
 					update();
 					repaint();
-
 					delta--;
-					drawcount++;
 				}
-				if(timer>=1000000000) {
-					drawcount=0;
+				if(timer>=1000000000) { // if one sec passes setting timer to 0
 					timer = 0;
 				}
 			}
@@ -384,6 +380,9 @@ public class GamePanel extends JPanel implements Runnable{
 	public void playSE(int i) {
 		sound.setFile(i);
 		sound.play();
+	}
+	public void SaveGame() {
+		
 	}
 	
 }

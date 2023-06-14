@@ -596,7 +596,6 @@ public class UI {
 	public void DrawDialogScreen(int infoplanets) {
 		if(infoplanets!=999) {
 			gp.planets[infoplanets].getPlanetInfo(g2);
-			System.out.println(infoplanets);
 		}
 	}
 }

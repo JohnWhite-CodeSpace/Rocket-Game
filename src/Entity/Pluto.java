@@ -43,7 +43,6 @@ public class Pluto extends Entity{
 				worldy=newY;break;
 				
 				}
-			//System.out.println(angle);
 			if(PlutoIsDone==0&&gp.player.infoplanets==0) {
 				counter++;
 			}

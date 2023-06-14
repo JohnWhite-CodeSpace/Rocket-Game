@@ -42,7 +42,6 @@ public class Mars extends Entity {
 				worldy=newY;break;
 				
 				}
-			//System.out.println(angle);
 			if(MarsIsDone==0&&gp.player.infoplanets==5) {
 				counter++;
 			}

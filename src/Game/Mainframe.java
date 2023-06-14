@@ -23,7 +23,7 @@ public class Mainframe extends JFrame{
 		window.setIconImage(icon.getImage());
 		GamePanel gamePanel = new GamePanel();
 		window.add(gamePanel);
-//		window.setUndecorated(true);
+		window.setUndecorated(true);
 //		window.setExtendedState(MAXIMIZED_BOTH);
 		window.pack();
 		window.setVisible(true);

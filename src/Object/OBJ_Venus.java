@@ -26,9 +26,9 @@ public class OBJ_Venus extends Venus{
 	public void getImage() {
 		int i = 4;	
 		Entity1 = setup("/planets/Venus1", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
-		Entity2 = setup("/planets/Venus1", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
-		Entity3 = setup("/planets/Venus1", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
-		Entity4 = setup("/planets/Venus1", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
+		Entity2 = setup("/planets/Venus2", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
+		Entity3 = setup("/planets/Venus3", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
+		Entity4 = setup("/planets/Venus4", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
     }
 		
     	public void SetAction() {

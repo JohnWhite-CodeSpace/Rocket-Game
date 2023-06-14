@@ -22,7 +22,6 @@ public class OBJ_Saturn extends Saturn{
 		infoArea = new Ellipse2D.Double(Xcircle-Radcircle,Ycircle-Radcircle,Radcircle*2,Radcircle*2);
         IsAlive = false;
         angle=2;
-        planettoken=2;
         getImage();
 		// TODO Auto-generated constructor stub
 	}

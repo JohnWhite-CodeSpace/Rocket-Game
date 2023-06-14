@@ -22,7 +22,6 @@ public class OBJ_Jupiter extends Jupiter{
 		infoArea = new Ellipse2D.Double(Xcircle-Radcircle,Ycircle-Radcircle,Radcircle*2,Radcircle*2);
         IsAlive = false;
         angle=3;
-        planettoken=1;
         
         getImage();
 		// TODO Auto-generated constructor stub
