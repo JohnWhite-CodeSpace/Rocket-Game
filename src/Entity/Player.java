@@ -124,6 +124,8 @@ public class Player extends Entity {
 		interactComet(cometindex);
 		int asteroidbelt = gp.CollisionCheck.checkEntity(this, gp.asteroidBelt);
 		interactAsteroidBelt(asteroidbelt);
+		int alienrocketindex = gp.CollisionCheck.checkEntity(this, gp.alienrocket);
+		interactAlienSpaceship(alienrocketindex);
 		if(PlayerAngle>=360||PlayerAngle<=-360) {
 			PlayerAngle=0;
 		}
@@ -229,6 +231,23 @@ public class Player extends Entity {
 
 		}
 	}
+	public void interactAlienSpaceship(int i) {
+		// TODO Auto-generated method stub
+		if(i!=999) {
+			if(gp.player.invincible==false) {
+			gp.ui.showMessage("Alien spaceship collision detected!");
+			life-=3;
+			gp.alienrocket[i].life=0;
+			gp.alienrocket[i].dying = true;
+			gp.playSE(2);
+			gp.player.invincible = true;
+			}
+			if(life==0) {
+				gp.gameState=gp.GameOverState;
+			}
+
+		}
+	}
 	public void interactAsteroidBelt(int i) {
 		// TODO Auto-generated method stub
 		if(i!=999) {
@@ -289,6 +308,30 @@ public class Player extends Entity {
 					gp.comets[i].invincible=true;
 					if(gp.comets[i].life<=0) {
 						gp.comets[i].dying = true;
+						gp.playSE(2);
+					}
+				}
+			}
+		}
+	}
+	public void damageAlienSpaceship(int i) {
+		if(i!=999) {
+			if(gp.alienrocket[i].invincible==false) {
+				gp.ui.showMessage("Alien spaceship destroyed!");
+				if(ammoType.equals("bullet1")) {
+					gp.alienrocket[i].invincible=true;
+					gp.alienrocket[i].life =-10;
+					
+					if(gp.alienrocket[i].life<=0) {
+						gp.alienrocket[i].dying = true;
+						gp.playSE(2);
+					}
+				}
+				if(ammoType.equals("pellet")) {
+					gp.alienrocket[i].life =-1;
+					gp.alienrocket[i].invincible=true;
+					if(gp.alienrocket[i].life<=0) {
+						gp.alienrocket[i].dying = true;
 						gp.playSE(2);
 					}
 				}
