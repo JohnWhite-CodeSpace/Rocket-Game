@@ -53,8 +53,8 @@ public class GamePanel extends JPanel implements Runnable{
 	final int originalTileSize = 48;
 	final int scale = 1;
 	public final int Tilesize = originalTileSize;
-	public final int maxScreenCol = 32;
-	public final int maxScreenRow = 24;
+	public final int maxScreenCol = 26;
+	public final int maxScreenRow = 17;
 	public final int screenWidth = Tilesize * maxScreenCol;
 	public final int screenHeight = Tilesize * maxScreenRow;
 	public final int maxWorldCol = 500;
@@ -139,6 +139,7 @@ public class GamePanel extends JPanel implements Runnable{
 		aSetter.setAsteroid();
 		aSetter.setAsteroidBelt();
 		aSetter.setComet();
+		aSetter.setAlienSpaceship();
 		aSetter.SetSol();
 		aSetter.setAlienSpaceship();
 		gameState = titleState;

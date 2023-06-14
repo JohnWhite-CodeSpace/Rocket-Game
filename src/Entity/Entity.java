@@ -57,6 +57,7 @@ public class Entity {
 	public Projectile projectile;
 	public Asteroid asteroid;
 	public Asteroid_Belt asteroidBelt;
+	public AlienSpaceship alienrocket;
 	public Comet comet;
 	public SpaceStation spacestation;
 	public Pluto pluto;
@@ -71,7 +72,6 @@ public class Entity {
 	public Sol sol;
 	public OBJ_PlayerLife lifebar;
 	public OBJ_PlayerFuel PFuel;
-	public AlienSpaceship alienrocket;
 	public int ActionLockCounter = 0;
 	public double angle =0;
 	public int radius;
@@ -181,13 +181,12 @@ public class Entity {
 			else if(direction=="space_station") {
 		        g2.drawImage(image, gp.spacestation.rotatedImage(), null);
 			}
-			else if(direction=="asteroid") {
-				for(int i=0;i<gp.asteroids.length;i++) {
-					if(gp.asteroids[i]!=null) {
-						g2.drawImage(image, gp.asteroids[i].rotatedImage(), null);
+			else if(direction=="alienrocket") {
+				for(int i=0;i<gp.alienrocket.length;i++) {
+					if(gp.alienrocket[i]!=null) {
+						g2.drawImage(image, gp.alienrocket[i].rotatedImage(), null);
 					}
-				}
-		        
+				}    
 			}
 			else if(direction=="comet") {
 				for(int i=0;i<gp.comets.length;i++) {

@@ -80,3 +80,4 @@ public class AssetSetter {
 		gp.sol.set(gp.Tilesize*250,gp.Tilesize*250,"planet",true,null);
 	}
 }
+

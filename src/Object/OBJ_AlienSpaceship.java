@@ -11,7 +11,7 @@ public class OBJ_AlienSpaceship extends AlienSpaceship{
 	int i=0;
 	int j=0;
 	int turncounter;
-	
+
 public OBJ_AlienSpaceship(GamePanel gp) {
     super(gp);
     this.gp = gp;
@@ -28,6 +28,8 @@ public OBJ_AlienSpaceship(GamePanel gp) {
     Xcircle=0;
     Ycircle=0;
 	planetSolidArea = new Ellipse2D.Double(Xcircle,Ycircle,Radcircle,Radcircle);
+	solidArea.width = 55;
+	solidArea.height = 55;
     IsAlive = false;
     Random random = new Random();
     Aangle = 36*random.nextInt(10);
@@ -68,6 +70,7 @@ public void SetAction() {
 		ActionLockCounter=0;
 	}
 }
+
 	public void AgressionOn() {
 		
 	}
