@@ -57,6 +57,7 @@ public class Entity {
 	public Projectile projectile;
 	public Asteroid asteroid;
 	public Asteroid_Belt asteroidBelt;
+	public AlienSpaceship alienrocket;
 	public Comet comet;
 	public SpaceStation spacestation;
 	public Pluto pluto;

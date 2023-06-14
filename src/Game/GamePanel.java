@@ -16,6 +16,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JPanel;
 import Entity.Entity;
 import Entity.Player;
+import Entity.AlienSpaceship;
 import Entity.Asteroid;
 import Entity.SpaceStation;
 import Entity.Pluto;
@@ -102,6 +103,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public Asteroid_Belt asteroidBelt[] = new Asteroid_Belt[350];
 	public Entity[] planets = new Entity[9];
 	public Comet comets[] = new Comet[15];
+	public AlienSpaceship alienrocket[] =new AlienSpaceship[20];
 	Minimap map = new Minimap(this);
 	Font font4;
 	public int gameState;
@@ -137,6 +139,7 @@ public class GamePanel extends JPanel implements Runnable{
 		aSetter.setAsteroid();
 		aSetter.setAsteroidBelt();
 		aSetter.setComet();
+		aSetter.setAlienSpaceship();
 		aSetter.SetSol();
 		gameState = titleState;
 		planets[0]=pluto;
@@ -248,6 +251,17 @@ public class GamePanel extends JPanel implements Runnable{
 					}
 				}
 			}
+			for(int i=0; i<alienrocket.length;i++) {
+				if(alienrocket[i]!=null) {
+					if(alienrocket[i].IsAlive==true && alienrocket[i].dying ==false) {
+					alienrocket[i].update();
+					alienrocket[i].SetAction();
+					}
+					if(alienrocket[i].IsAlive==false) {
+						alienrocket[i] = null;
+					}
+				}
+			}
 		}
 		if(gameState==pauseState) {
 			
@@ -270,6 +284,7 @@ public class GamePanel extends JPanel implements Runnable{
 		aSetter.setAsteroid();
 		aSetter.setComet();
 		aSetter.setAsteroidBelt();
+		aSetter.setAlienSpaceship();
 		aSetter.SetSol();
 		ui.playTime=0;
 	}
@@ -320,6 +335,11 @@ public class GamePanel extends JPanel implements Runnable{
 			for(int i=0; i<comets.length; i++) {
 				if(comets[i]!=null) {
 					entityList.add(comets[i]);
+				}
+			}
+			for(int i=0; i<alienrocket.length; i++) {
+				if(alienrocket[i]!=null) {
+					entityList.add(alienrocket[i]);
 				}
 			}
 			Collections.sort(entityList, new Comparator<Entity>() {
