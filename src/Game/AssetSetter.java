@@ -48,7 +48,6 @@ public class AssetSetter {
 					+10*p[i]-5*o[i]);
 			gp.asteroidBelt[i].set(worldx,worldy,"ABelt",true,null);
 		}
-	
 }
 	public void setComet() {
 		for(int i=0; i<l.length; i++) {
@@ -70,12 +69,12 @@ public class AssetSetter {
 		for(int i=0; i<r.length; i++) {
 			r[i] = (random2.nextInt(5)*(max-min)+min);
 			s[i] = (random2.nextInt(5)*(max2-min2)+min2);
-			gp.alienrocket[i] = new OBJ_AlienSpaceship(gp);
+			gp.aliens[i] = new OBJ_AlienSpaceship(gp);
 			int worldx = gp.Tilesize*250+ gp.Tilesize*r[i]-gp.Tilesize*s[i]
 					+10*s[i]-5*r[i];
 			int worldy = gp.Tilesize*250+ gp.Tilesize*r[i]-gp.Tilesize*k[i]
 					+10*s[i]-5*r[i];
-			gp.alienrocket[i].set(worldx,worldy,"alienrocket",true,null);
+			gp.aliens[i].set(worldx,worldy,"aliens",true,null);
 		}
 
 	}

@@ -26,7 +26,7 @@ public class Projectile extends Entity{
 			int Asteroidindex = gp.CollisionCheck.checkEntity(this, gp.asteroids);
 			int Cometindex = gp.CollisionCheck.checkEntity(this, gp.comets);
 			int AsteroidBeltindex = gp.CollisionCheck.checkEntity(this, gp.asteroidBelt);
-			int AlienSpaceshipindex = gp.CollisionCheck.checkEntity(this, gp.alienrocket);
+			int AlienSpaceshipindex = gp.CollisionCheck.checkEntity(this, gp.aliens);
 			if(Asteroidindex!=999) {
 				gp.player.damageAsteroid(Asteroidindex);
 				IsAlive = false;

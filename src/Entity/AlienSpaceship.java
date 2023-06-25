@@ -31,17 +31,18 @@ public class AlienSpaceship extends Entity{
 				gp.player.invincible=true;
 			}
 		}
-		double newy= velocity * Math.cos(Math.toRadians(Aangle));
-		double newx= velocity * Math.sin(Math.toRadians(Aangle));
+		double newy= velocity * Math.cos(Math.toRadians(Alienangle));
+		double newx= velocity * Math.sin(Math.toRadians(Alienangle));
 		if(collisionOn==false) {
-			if(Aangle>=360 || Aangle<=-360) {
-				Aangle=0;
+			if(Alienangle>=360 || Aangle<=-360) {
+				Alienangle=0;
 			}
 			switch(direction) {
-				case "alienrocket":worldy-=(int) newy; worldx += (int) newx;break;
+				case "aliens":worldy-=(int) newy; worldx += (int) newx;break;
 			}
 		}
 			if(invincible==true) {
+				
 				
 				invincibleCounter++;
 				System.out.println(invincibleCounter);
@@ -74,7 +75,7 @@ public class AlienSpaceship extends Entity{
 
 	    AffineTransform transform = new AffineTransform();
 	    transform.translate(screenX, screenY);
-	    transform.rotate(Math.toRadians(Aangle), gp.Tilesize/2, gp.Tilesize/2);
+	    transform.rotate(Math.toRadians(Alienangle), gp.Tilesize/2, gp.Tilesize/2);
 
 	    return transform;
 }

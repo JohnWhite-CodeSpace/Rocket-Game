@@ -23,6 +23,7 @@ public class Entity {
 	public double PlayerAngle;
 	public double SpsAngle;
 	public int Aangle;
+	public int Alienangle;
 	public double Acceleration, HyperAcceleration;
 	public double AngularVelocity;
 	public int MaxSpeed;
@@ -48,16 +49,18 @@ public class Entity {
 	public boolean IsAlive = true;
 	public boolean dying = false;
 	public Rectangle solidArea;
-	public Ellipse2D planetSolidArea, infoArea;
+	public boolean onPath = false;
+	public Ellipse2D planetSolidArea, infoArea, AGRarea;
 	public double Xcircle, Ycircle,Radcircle;
 	public boolean collisionOn = false;
+	public boolean AgressionOn = false;
 	public int DyingCounter;
 	public int ShotAveilableCounter = 0;
 	public int solidAreaDefaultX, solidAreaDefaultY;
 	public Projectile projectile;
 	public Asteroid asteroid;
 	public Asteroid_Belt asteroidBelt;
-	public AlienSpaceship alienrocket;
+	public AlienSpaceship aliens;
 	public Comet comet;
 	public SpaceStation spacestation;
 	public Pluto pluto;
@@ -84,6 +87,44 @@ public class Entity {
 	public void SetAction(){};
 	public void update(){collisionOn=false;
     gp.CollisionCheck.CheckTile(this);
+	}
+	public void searchPath(int goalCol, int goalRow) {
+		int startCol = (worldx + solidArea.x)/gp.Tilesize;
+		int startRow = (worldy + solidArea.y)/gp.Tilesize;
+		gp.pFinder.setNodes(startCol, startRow, goalCol, goalRow);
+		
+		if(gp.pFinder.search()==true) {
+			int nextx = gp.pFinder.pathList.get(0).col*gp.Tilesize;
+			int nexty = gp.pFinder.pathList.get(0).row*gp.Tilesize;
+			
+			int enLeftx = worldx + solidArea.x;
+			int enRightx = worldx + solidArea.x + solidArea.width;
+			int enTopy = worldy + solidArea.y;
+			int enBottomy = worldy + solidArea.y+solidArea.height;
+			if(enTopy>nexty && enLeftx >= nextx && enRightx < nextx + gp.Tilesize) {
+				Alienangle = 0;
+			}
+			else if(enTopy<nexty && enLeftx >= nextx && enRightx < nextx + gp.Tilesize) {
+				Alienangle = 180;
+			}
+			else if(enTopy>=nexty && enBottomy<nexty + gp.Tilesize) {
+				if(enLeftx>nextx) {
+					Alienangle = 270;
+				}
+				if(enLeftx<nextx) {
+					Alienangle = 90;
+				}
+			}
+			else if(enTopy>nexty && enLeftx>nextx) {
+				Alienangle = 0;
+				if(collisionOn ==true) {
+					Alienangle = 270;
+				}
+			}
+			else if(enTopy>nexty && enLeftx < nextx) {
+				
+			}
+		}
 	}
 	public void getPlanetInfo(Graphics2D g2){};
 		
@@ -115,7 +156,7 @@ public class Entity {
 	        		) {
 			switch(direction) {
 
-			case "player1","bullet1","space_station","comet","asteroid","alienrocket":
+			case "player1","bullet1","space_station","comet","asteroid","aliens":
 				if(spriteNum==1) {
 					image = Entity1;
 				}
@@ -185,6 +226,22 @@ public class Entity {
 				for(int i=0;i<gp.comets.length;i++) {
 					if(gp.comets[i]!=null) {
 						g2.drawImage(image, gp.comets[i].rotatedImage(), null);
+					}
+				}
+		        
+			}
+			else if(direction=="asteroid") {
+				for(int i=0;i<gp.asteroids.length;i++) {
+					if(gp.asteroids[i]!=null) {
+						g2.drawImage(image, gp.asteroids[i].rotatedImage(), null);
+					}
+				}
+		        
+			}
+			else if(direction=="aliens") {
+				for(int i=0;i<gp.aliens.length;i++) {
+					if(gp.aliens[i]!=null) {
+						g2.drawImage(image, gp.aliens[i].rotatedImage(), null);
 					}
 				}
 		        

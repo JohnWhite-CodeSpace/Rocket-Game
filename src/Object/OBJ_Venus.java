@@ -31,9 +31,9 @@ public class OBJ_Venus extends Venus{
 		Entity4 = setup("/planets/Venus4", gp.Tilesize*i+gp.Tilesize/2, gp.Tilesize*i+gp.Tilesize/2);	
     }
 		
-    	public void SetAction() {
+    public void SetAction() {
     			direction = "planet";
-    		}
+    }
 }
 
 
