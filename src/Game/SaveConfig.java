@@ -152,7 +152,12 @@ public class SaveConfig {
 		
 	 }
 	 
-	 public void LoadGame() {
+	 public void LoadGame() throws InterruptedException {
+		 int progress =0;
+		 GetLoadingProgress(progress);
+		 String status = "Loading...";
+		 GetLoadingData(status);
+		 Thread.sleep(500);
 		 try {
 			BufferedReader br = new BufferedReader(new FileReader("SaveConfig.txt"));
 			String s = br.readLine();
@@ -163,6 +168,11 @@ public class SaveConfig {
 			}else if(s.replace("FullScreen: ","") == "Off") {
 				gp.fullscreenOn = false;
 			}
+			progress = 1;
+			GetLoadingProgress(progress);
+			status = "Loading player data...";
+			GetLoadingData(status);
+			Thread.sleep(500);
 			s = br.readLine();
 			gp.songs.volumeScale = Integer.parseInt(s.replace("Music Volume: ",""));
 			s = br.readLine();
@@ -183,11 +193,21 @@ public class SaveConfig {
 			life = Integer.parseInt(s.replace("Player life: ", ""));
 			gp.player.SetSavedValues(xpos, ypos, angle, choice, life, fuel, score);
 			s = br.readLine();
+			progress = 2;
+			GetLoadingProgress(progress);
+			status = "Loading space station position";
+			GetLoadingData(status);
+			Thread.sleep(500);
 			gp.spacestation.worldx = Integer.parseInt(s.replace("Space Station X position: ", ""));
 			s = br.readLine();
 			gp.spacestation.worldy = Integer.parseInt(s.replace("Space Station Y position: ", ""));
 			s = br.readLine();
 			gp.spacestation.SpSangle = Integer.parseInt(s.replace("Space Station angle position: ", ""));
+			progress = 3;
+			GetLoadingProgress(progress);
+			status = "Regenerating planets positions";
+			GetLoadingData(status);
+			Thread.sleep(500);
 			for(int i=0; i<gp.planets.length; i++) {
 				s = br.readLine();
 				gp.planets[i].worldx = Integer.parseInt(s.replace("Planet " + i + " X position: ", ""));
@@ -195,6 +215,11 @@ public class SaveConfig {
 				gp.planets[i].worldy = Integer.parseInt(s.replace("Planet " + i + " Y position: ", ""));
 				
 			}
+			progress = 4;
+			GetLoadingProgress(progress);
+			status = "Setting asteroids and comets";
+			GetLoadingData(status);
+			Thread.sleep(500);
 			for(int i=0; i<gp.asteroids.length; i++) {
 				if(gp.asteroids[i]!=null) {
 					s = br.readLine();
@@ -235,6 +260,11 @@ public class SaveConfig {
 					
 				}
 			}
+			progress = 5;
+			GetLoadingProgress(progress);
+			status = "Setting up enemies...";
+			GetLoadingData(status);
+			Thread.sleep(500);
 			for(int i=0; i<gp.aliens.length; i++) {
 				if(gp.aliens[i]!=null) {
 					s = br.readLine();
@@ -246,6 +276,11 @@ public class SaveConfig {
 					}
 				}
 			}
+			progress = 6;
+			GetLoadingProgress(progress);
+			status = "Finalising...";
+			GetLoadingData(status);
+			Thread.sleep(500);
 			br.close();
 			gp.gameState = gp.playState;
 			gp.gameState = gp.pauseState;
@@ -257,5 +292,11 @@ public class SaveConfig {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	 }
+	 public void GetLoadingProgress(int state){
+		 gp.ui.LoadProgress = state;
+	 }
+	 public void GetLoadingData(String LoadingObj) {
+		 gp.ui.LoadMessage = LoadingObj;
 	 }
 }

@@ -220,7 +220,12 @@ public class KeyHandler implements KeyListener{
 					}
 					
 					break;
-				case 1:	gp.config.LoadGame();System.out.println("Game Loaded");break;
+				case 1:	gp.gameState = gp.LoadState; try {
+						gp.config.LoadGame();
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}System.out.println("Game Loaded");break;
 				case 2: gp.ui.titleScreenState=2;break;
 				case 3: System.exit(0); break;
 					
@@ -383,7 +388,12 @@ public class KeyHandler implements KeyListener{
 					
 					break;
 				case 1:	gp.config.SaveGame(); System.out.println("Game Saved");break;
-				case 2: gp.config.LoadGame();System.out.println("Game Loaded");break;
+				case 2: gp.gameState = gp.LoadState; try {
+						gp.config.LoadGame();
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}System.out.println("Game Loaded");break;
 				case 3: gp.ui.titleScreenState=2;break;
 				case 4: System.exit(0); break;
 					

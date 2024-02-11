@@ -120,8 +120,10 @@ public class GamePanel extends JPanel implements Runnable{
 	public final int GameOverState = 4;
 	public final int OptionState = 5;
 	public final int WinState=6;
-	public final int MapState=10;
 	public final int DialogState=7;
+	public final int LoadState=8;
+	public final int MapState=10;
+	
 	public GamePanel() {
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		this.setBackground(Color.black);
@@ -298,6 +300,9 @@ public class GamePanel extends JPanel implements Runnable{
 			LoadStart = System.nanoTime();
 		}
 		if(gameState == titleState) {
+			ui.draw(g2);
+		}
+		if(gameState == LoadState) {
 			ui.draw(g2);
 		}
 		else {

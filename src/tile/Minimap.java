@@ -170,7 +170,7 @@ public class Minimap extends TileManager{
 		}
 	}
 	public void drawPlanetTokens(Graphics2D g2) {
-		if(gp.keyH.ObjectiveOn==true) {
+		if(gp.keyH.ObjectiveOn==true && gp.gameState==gp.playState) {
 			int x = gp.Tilesize/2;
 			int y = gp.Tilesize*5+gp.Tilesize/2;
 			g2.setFont(font4);

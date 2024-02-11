@@ -26,13 +26,15 @@ public class UI {
 	public int commandNum = 0;
 	public int info=999;
 	public int titleScreenState =0;
+	public int LoadProgress;
+	public String LoadMessage;
 	public double playTime =0;
 	public BufferedImage lifefull,lifeempty;
 	public BufferedImage recharge1, recharge2;
 	public BufferedImage Fuel100,Fuel75,Fuel50, Fuel25, Fuel0;
 	Timer timer;
 	OBJ_PlayerLife lifebar;
-	
+	BufferedImage image;
 	public UI(GamePanel gp) {
 		this.gp = gp;
 		lifebar = new OBJ_PlayerLife(gp);
@@ -135,6 +137,14 @@ public class UI {
 			break;
 		case 6:
 			DrawWinScreen();
+			break;
+		case 8:
+			try {
+				DrawLoadScreen();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 			
 		}
@@ -516,13 +526,13 @@ public class UI {
 	}
 	public void DrawLife() throws IOException {
 		if(lifeOn==true) {
-			BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/Heart.png"));
-			g2.drawImage(image, gp.Tilesize*4,0,gp.Tilesize+gp.Tilesize/2,gp.Tilesize+gp.Tilesize/2,null);
+			image = ImageIO.read(getClass().getResourceAsStream("/objects/Heart.png"));
+			g2.drawImage(image, gp.Tilesize*4,gp.Tilesize,gp.Tilesize+gp.Tilesize/2,gp.Tilesize+gp.Tilesize/2,null);
 			g2.setFont(font);
 			g2.setColor(Color.white);
-			g2.drawString("Health", gp.Tilesize-10, gp.Tilesize);
+			g2.drawString("Health", gp.Tilesize-10, 2*gp.Tilesize);
 			int x = gp.Tilesize/2;
-			int y = gp.Tilesize+gp.Tilesize/2;
+			int y = 2*gp.Tilesize;
 			int i=0;
 			while(i<gp.player.maxLife) {
 				g2.drawImage(lifeempty, x, y,gp.Tilesize,gp.Tilesize, null);
@@ -530,7 +540,7 @@ public class UI {
 				x+=gp.Tilesize/3;
 			}
 			x = gp.Tilesize/2;
-			y = gp.Tilesize+gp.Tilesize/2;
+			y = 2*gp.Tilesize;
 			i=0;
 			while(i<gp.player.life) {
 				g2.drawImage(lifefull, x, y,gp.Tilesize,gp.Tilesize, null);
@@ -570,11 +580,11 @@ public class UI {
 	public void DrawFireRecharge() throws IOException {
 		g2.setFont(font);
 		g2.setColor(Color.white);
-		g2.drawString("Fire recharge", gp.Tilesize-10, gp.Tilesize*14+20);
-		BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/"+gp.player.Weapon+".png"));
-		g2.drawImage(image, gp.Tilesize*5,gp.Tilesize*15,gp.Tilesize+gp.Tilesize/2,gp.Tilesize+gp.Tilesize/2,null);
+		g2.drawString("Fire recharge", gp.Tilesize-10, gp.Tilesize*20+20);
+		image = ImageIO.read(getClass().getResourceAsStream("/objects/"+gp.player.Weapon+".png"));
+		g2.drawImage(image, gp.Tilesize*5,gp.Tilesize*21,gp.Tilesize+gp.Tilesize/2,gp.Tilesize+gp.Tilesize/2,null);
 		int x = gp.Tilesize/2;
-		int y = gp.Tilesize*15;
+		int y = gp.Tilesize*21;
 		int i=0;
 		while(i<gp.player.maxrecharge) {
 			g2.drawImage(recharge2, x, y,gp.Tilesize,gp.Tilesize, null);
@@ -582,7 +592,7 @@ public class UI {
 			x+=gp.Tilesize/3;
 		}
 		x = gp.Tilesize/2;
-		y = gp.Tilesize*15;
+		y = gp.Tilesize*21;
 		i=0;
 		while(i<gp.player.recharge) {
 			g2.drawImage(recharge1, x, y,gp.Tilesize,gp.Tilesize, null);
@@ -592,13 +602,13 @@ public class UI {
 	}
 	public void DrawFuelBar() throws IOException {
 		BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/Canister.png"));
-		g2.drawImage(image, gp.Tilesize*28,gp.Tilesize*14+10,gp.Tilesize*2,gp.Tilesize*2,null);
+		g2.drawImage(image, gp.Tilesize*28,gp.Tilesize*21+10,gp.Tilesize*2,gp.Tilesize*2,null);
 		g2.setFont(font);
 		g2.setColor(Color.white);
-		g2.drawString("Fuel", gp.Tilesize*28, gp.Tilesize*13+20);
+		g2.drawString("Fuel", gp.Tilesize*28, gp.Tilesize*20+20);
 		g2.setFont(font);
 		int x = gp.Tilesize*30 + gp.Tilesize/2;
-		int y = gp.Tilesize*15 + gp.Tilesize/2;
+		int y = gp.Tilesize*22 + gp.Tilesize/2;
 		int i=0;
 		while(i<gp.player.maxfuel/20) {
 				g2.drawImage(Fuel0, x, y,gp.Tilesize,gp.Tilesize, null);
@@ -606,7 +616,7 @@ public class UI {
 			y-=gp.Tilesize/3;
 		}
 		x = gp.Tilesize*30 + gp.Tilesize/2;
-		y = gp.Tilesize*15 + gp.Tilesize/2;
+		y = gp.Tilesize*22 + gp.Tilesize/2;
 		i=0;
 		while(i<gp.player.fuel/20) {
 			if(i>=0&&i<3) {
@@ -681,6 +691,27 @@ public class UI {
 		if(infoplanets!=999) {
 			gp.planets[infoplanets].getPlanetInfo(g2);
 		}
+	}
+	public void DrawLoadScreen() throws IOException {
+		BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/TitleScreen.png"));
+		g2.drawImage(image, 0,0,gp.screenWidth,gp.screenHeight,null);
+		g2.setFont(font2);
+		String text = "Loading";
+		int x = getXForCenteredText(text);
+		int y = gp.screenHeight/6;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+5, y+5);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+		
+		x = getXForCenteredText(text);
+		y+=gp.Tilesize*8;
+		g2.setFont(font);
+		text = LoadMessage;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+5, y+5);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
 	}
 }
 

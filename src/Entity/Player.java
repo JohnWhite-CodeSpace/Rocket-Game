@@ -26,7 +26,7 @@ public class Player extends Entity {
 	public Player(GamePanel gp, KeyHandler keyH) {
 		super(gp);
 		screenx = gp.screenWidth/2 - (gp.Tilesize/2);
-		screeny = gp.screenHeight/2 - 3*gp.Tilesize -  (gp.Tilesize/2);
+		screeny = gp.screenHeight/2 -  (gp.Tilesize/2);
 		this.gp =gp;
 		this.keyH =keyH;
 		solidArea = new Rectangle();
