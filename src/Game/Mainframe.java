@@ -24,8 +24,8 @@ public class Mainframe extends JFrame{
 		GamePanel gamePanel = new GamePanel();
 		window.add(gamePanel);
 		window.setUndecorated(true);
-//		window.setExtendedState(MAXIMIZED_BOTH);
 		window.pack();
+		window.setLocationRelativeTo(null);
 		window.setVisible(true);
 	}
 	

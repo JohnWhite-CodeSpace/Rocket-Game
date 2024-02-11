@@ -15,12 +15,13 @@ public class Player extends Entity {
 	public boolean speedy, chonker;
 	public String ammoType;
 	String info = null;
-	int Choice = 0;
+	public int Choice = 0;
 	int timespan;
 	public int recharge;
 	public int maxrecharge;
 	public int rechargeCounter;
 	public int infoplanets;
+	public boolean IsFirstGame = true;
 	
 	public Player(GamePanel gp, KeyHandler keyH) {
 		super(gp);
@@ -42,42 +43,7 @@ public class Player extends Entity {
 		AsteroidCollision=0;
 
 	}
-	public void ChooseRocket() {
-		if(keyH.choice ==1) {
-			getPlayer1Image();
-			HyperAcceleration = 0.15;
-			Choice = 1;
-			MaxSpeed=10;
-			maxLife = 14;
-			maxfuel=280;
-			life=maxLife;
-			fuel=maxfuel;
-			
-		}
-		else if(keyH.choice==2) {
-			getPlayer2Image();
-			HyperAcceleration = 0.25;
-			MaxSpeed=14;
-			Choice=2;
-			maxLife = 10;
-			maxfuel = 200;
-			life=maxLife;
-			fuel=maxfuel;
-		}
-	}
-	public void getPlayer1Image() {
-
-			Entity1 = setup("/player/chonker", gp.Tilesize, gp.Tilesize);			
-			Entity2 = setup("/player/chonker2", gp.Tilesize, gp.Tilesize);
-			Entity3 = setup("/player/chonker3", gp.Tilesize, gp.Tilesize);
-		
-	}
-	public void getPlayer2Image() {
-			Entity1 = setup("/player/speedy1", gp.Tilesize, gp.Tilesize);
-			Entity2 = setup("/player/speedy2", gp.Tilesize, gp.Tilesize);
-			Entity3 = setup("/player/speedy3", gp.Tilesize, gp.Tilesize);
-
-		}
+	
 	public void setDefaultValues() {
 		ChooseRocket();
 		worldx=gp.Tilesize*400;
@@ -95,6 +61,67 @@ public class Player extends Entity {
 		fuelconsumption=0;
 		Weapon = "Rocket";
 	}
+	public void SetSavedValues(int Xpos,int Ypos, double Angle, int choice, int Life, int Fuel, int Planettoken) {
+		ammoType="bullet1";
+		direction = "player1";
+		velocity =0;
+		Acceleration=0.1;
+		AngularVelocity=3;
+		timespan=20;
+		maxrecharge=120;
+		recharge=maxrecharge;
+		rechargeCounter=0;
+		fuelconsumption=0;
+		Weapon = "Rocket";
+		worldx = Xpos;
+		worldy = Ypos;
+		PlayerAngle = Angle;
+		Choice = choice;
+		keyH.choice = choice;
+		life = Life;
+		fuel = Fuel;
+		planettoken = Planettoken;
+		IsFirstGame = false;
+		ChooseRocket();
+		
+	}
+	
+	public void ChooseRocket() {
+		if(keyH.choice ==1) {
+			HyperAcceleration = 0.15;
+			Choice = 1;
+			MaxSpeed=10;
+			maxLife = 14;
+			maxfuel=280;
+			
+		}
+		else if(keyH.choice==2) {
+			HyperAcceleration = 0.25;
+			MaxSpeed=14;
+			Choice=2;
+			maxLife = 10;
+			maxfuel = 200;
+		}
+		if(IsFirstGame==true) {
+			life=maxLife;
+			fuel=maxfuel;
+		}
+		getPlayerImage();
+	}
+	public void getPlayerImage() {
+		if(Choice ==1) {
+			Entity1 = setup("/player/chonker", gp.Tilesize, gp.Tilesize);			
+			Entity2 = setup("/player/chonker2", gp.Tilesize, gp.Tilesize);
+			Entity3 = setup("/player/chonker3", gp.Tilesize, gp.Tilesize);
+		}
+		else if(Choice==2) {
+			Entity1 = setup("/player/speedy1", gp.Tilesize, gp.Tilesize);
+			Entity2 = setup("/player/speedy2", gp.Tilesize, gp.Tilesize);
+			Entity3 = setup("/player/speedy3", gp.Tilesize, gp.Tilesize);
+		}
+		
+	}
+			
 	public void update() {
 		if(Choice!=0) {
 		if(keyH.upPressed==true || keyH.downPressed==true || keyH.leftPressed==true || keyH.rightPressed==true|| keyH.speedPressed==true) {

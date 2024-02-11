@@ -1,0 +1,1342 @@
+FullScreen: Off
+Music Volume: 3
+Sound Volume: 3
+Player type: 2
+Player X position: 9730
+Player Y position: 17142
+Player angle position: -159.0
+Player score: 0
+Player fuel: 148
+Player life: 5
+Space Station X position: 5761
+Space Station Y position: 15753
+Space Station angle position: 0
+Planet 0 X position: 22214
+Planet 0 Y position: 17826
+Planet 1 X position: 18695
+Planet 1 Y position: 4146
+Planet 2 X position: 18396
+Planet 2 Y position: 18833
+Planet 3 X position: 6422
+Planet 3 Y position: 16923
+Planet 4 X position: 6459
+Planet 4 Y position: 10425
+Planet 5 X position: 12981
+Planet 5 Y position: 7301
+Planet 6 X position: 14429
+Planet 6 Y position: 9150
+Planet 7 X position: 12437
+Planet 7 Y position: 14846
+Planet 8 X position: 13705
+Planet 8 Y position: 10451
+Asteroid status: true
+Asteroid 0 X position: 11426
+Asteroid 0 Y position: 6490
+Asteroid status: true
+Asteroid 1 X position: 10063
+Asteroid 1 Y position: 8593
+Asteroid status: true
+Asteroid 2 X position: 15252
+Asteroid 2 Y position: 13495
+Asteroid status: true
+Asteroid 3 X position: 9292
+Asteroid 3 Y position: 15469
+Asteroid status: true
+Asteroid 4 X position: 9993
+Asteroid 4 Y position: 17281
+Asteroid status: true
+Asteroid 5 X position: 17189
+Asteroid 5 Y position: 13148
+Asteroid status: true
+Asteroid 6 X position: 18150
+Asteroid 6 Y position: 17810
+Asteroid status: false
+Asteroid status: true
+Asteroid 8 X position: 14769
+Asteroid 8 Y position: 13342
+Asteroid status: true
+Asteroid 9 X position: 13239
+Asteroid 9 Y position: 11308
+Asteroid status: true
+Asteroid 10 X position: 22031
+Asteroid 10 Y position: 17518
+Asteroid status: true
+Asteroid 11 X position: 16858
+Asteroid 11 Y position: 16149
+Asteroid status: true
+Asteroid 12 X position: 16194
+Asteroid 12 Y position: 9429
+Asteroid status: false
+Asteroid status: true
+Asteroid 14 X position: 11167
+Asteroid 14 Y position: 8817
+Asteroid status: true
+Asteroid 15 X position: 17160
+Asteroid 15 Y position: 16639
+Asteroid status: true
+Asteroid 16 X position: 14290
+Asteroid 16 Y position: 11968
+Asteroid status: true
+Asteroid 17 X position: 16784
+Asteroid 17 Y position: 18369
+Asteroid status: true
+Asteroid 18 X position: 8247
+Asteroid 18 Y position: 6597
+Asteroid status: true
+Asteroid 19 X position: 11914
+Asteroid 19 Y position: 8213
+Asteroid status: true
+Asteroid 20 X position: 11677
+Asteroid 20 Y position: 10322
+Asteroid status: true
+Asteroid 21 X position: 10790
+Asteroid 21 Y position: 11228
+Asteroid status: false
+Asteroid status: true
+Asteroid 23 X position: 17260
+Asteroid 23 Y position: 10071
+Asteroid status: true
+Asteroid 24 X position: 10027
+Asteroid 24 Y position: 10660
+Asteroid status: true
+Asteroid 25 X position: 11723
+Asteroid 25 Y position: 15497
+Asteroid status: true
+Asteroid 26 X position: 14734
+Asteroid 26 Y position: 12745
+Asteroid status: true
+Asteroid 27 X position: 16647
+Asteroid 27 Y position: 13156
+Asteroid status: true
+Asteroid 28 X position: 12560
+Asteroid 28 Y position: 11582
+Asteroid status: true
+Asteroid 29 X position: 11967
+Asteroid 29 Y position: 12295
+Asteroid status: true
+Asteroid 30 X position: 12790
+Asteroid 30 Y position: 12471
+Asteroid status: true
+Asteroid 31 X position: 11819
+Asteroid 31 Y position: 8792
+Asteroid status: false
+Asteroid status: true
+Asteroid 33 X position: 10706
+Asteroid 33 Y position: 12588
+Asteroid status: true
+Asteroid 34 X position: 19800
+Asteroid 34 Y position: 14592
+Asteroid status: false
+Asteroid status: true
+Asteroid 36 X position: 11600
+Asteroid 36 Y position: 11874
+Asteroid status: true
+Asteroid 37 X position: 14998
+Asteroid 37 Y position: 12224
+Asteroid status: true
+Asteroid 38 X position: 11465
+Asteroid 38 Y position: 7936
+Asteroid status: true
+Asteroid 39 X position: 9888
+Asteroid 39 Y position: 8353
+Asteroid status: true
+Asteroid 40 X position: 14222
+Asteroid 40 Y position: 11967
+Asteroid status: true
+Asteroid 41 X position: 13465
+Asteroid 41 Y position: 15116
+Asteroid status: true
+Asteroid 42 X position: 9574
+Asteroid 42 Y position: 10084
+Asteroid status: true
+Asteroid 43 X position: 10324
+Asteroid 43 Y position: 14567
+Asteroid status: true
+Asteroid 44 X position: 16707
+Asteroid 44 Y position: 17369
+Asteroid status: true
+Asteroid 45 X position: 13860
+Asteroid 45 Y position: 15309
+Asteroid status: true
+Asteroid 46 X position: 11713
+Asteroid 46 Y position: 14912
+Asteroid status: false
+Asteroid status: false
+Asteroid status: true
+Asteroid 49 X position: 11111
+Asteroid 49 Y position: 9443
+Asteroid status: true
+Asteroid 50 X position: 8568
+Asteroid 50 Y position: 7787
+Asteroid status: false
+Asteroid status: false
+Asteroid status: true
+Asteroid 53 X position: 12288
+Asteroid 53 Y position: 9058
+Asteroid status: true
+Asteroid 54 X position: 15894
+Asteroid 54 Y position: 13596
+Asteroid status: true
+Asteroid 55 X position: 12017
+Asteroid 55 Y position: 14862
+Asteroid status: true
+Asteroid 56 X position: 12131
+Asteroid 56 Y position: 11129
+Asteroid status: true
+Asteroid 57 X position: 10892
+Asteroid 57 Y position: 9224
+Asteroid status: true
+Asteroid 58 X position: 15191
+Asteroid 58 Y position: 11692
+Asteroid status: true
+Asteroid 59 X position: 11337
+Asteroid 59 Y position: 11213
+Asteroid status: false
+Asteroid status: true
+Asteroid 61 X position: 13569
+Asteroid 61 Y position: 10753
+Asteroid status: true
+Asteroid 62 X position: 10781
+Asteroid 62 Y position: 13213
+Asteroid status: true
+Asteroid 63 X position: 16078
+Asteroid 63 Y position: 14354
+Asteroid status: true
+Asteroid 64 X position: 12217
+Asteroid 64 Y position: 11673
+Asteroid status: true
+Asteroid 65 X position: 15616
+Asteroid 65 Y position: 14646
+Asteroid status: true
+Asteroid 66 X position: 18707
+Asteroid 66 Y position: 17207
+Asteroid status: false
+Asteroid status: false
+Asteroid status: false
+Asteroid status: true
+Asteroid 70 X position: 15281
+Asteroid 70 Y position: 12986
+Asteroid status: true
+Asteroid 71 X position: 13549
+Asteroid 71 Y position: 14924
+Asteroid status: true
+Asteroid 72 X position: 16523
+Asteroid 72 Y position: 10532
+Asteroid status: true
+Asteroid 73 X position: 13605
+Asteroid 73 Y position: 10715
+Asteroid status: true
+Asteroid 74 X position: 13315
+Asteroid 74 Y position: 10337
+Asteroid status: false
+Asteroid status: true
+Asteroid 76 X position: 10223
+Asteroid 76 Y position: 9835
+Asteroid status: true
+Asteroid 77 X position: 9411
+Asteroid 77 Y position: 11836
+Asteroid status: true
+Asteroid 78 X position: 11502
+Asteroid 78 Y position: 13605
+Asteroid status: true
+Asteroid 79 X position: 12666
+Asteroid 79 Y position: 13086
+Asteroid status: true
+Asteroid 80 X position: 7982
+Asteroid 80 Y position: 11637
+Asteroid status: true
+Asteroid 81 X position: 9437
+Asteroid 81 Y position: 14042
+Asteroid status: true
+Asteroid 82 X position: 12403
+Asteroid 82 Y position: 10292
+Asteroid status: true
+Asteroid 83 X position: 13582
+Asteroid 83 Y position: 9618
+Asteroid status: true
+Asteroid 84 X position: 13483
+Asteroid 84 Y position: 11245
+Asteroid status: true
+Asteroid 85 X position: 15525
+Asteroid 85 Y position: 15387
+Asteroid status: true
+Asteroid 86 X position: 12756
+Asteroid 86 Y position: 15258
+Asteroid status: true
+Asteroid 87 X position: 12565
+Asteroid 87 Y position: 9366
+Asteroid status: true
+Asteroid 88 X position: 10630
+Asteroid 88 Y position: 6987
+Asteroid status: true
+Asteroid 89 X position: 16088
+Asteroid 89 Y position: 15916
+Asteroid status: true
+Asteroid 90 X position: 13204
+Asteroid 90 Y position: 14403
+Asteroid status: true
+Asteroid 91 X position: 7171
+Asteroid 91 Y position: 10407
+Asteroid status: true
+Asteroid 92 X position: 16059
+Asteroid 92 Y position: 15144
+Asteroid status: true
+Asteroid 93 X position: 14319
+Asteroid 93 Y position: 12977
+Asteroid status: true
+Asteroid 94 X position: 10624
+Asteroid 94 Y position: 9755
+Asteroid status: true
+Asteroid 95 X position: 8242
+Asteroid 95 Y position: 3585
+Asteroid status: true
+Asteroid 96 X position: 12041
+Asteroid 96 Y position: 14690
+Asteroid status: true
+Asteroid 97 X position: 12525
+Asteroid 97 Y position: 13328
+Asteroid status: true
+Asteroid 98 X position: 9640
+Asteroid 98 Y position: 11538
+Asteroid status: true
+Asteroid 99 X position: 14952
+Asteroid 99 Y position: 13008
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 1 X position: 8247
+Asteroid in belt 1 Y position: 16063
+Asteroid in belt status: true
+Asteroid in belt 2 X position: 11451
+Asteroid in belt 2 Y position: 6680
+Asteroid in belt status: true
+Asteroid in belt 3 X position: 6532
+Asteroid in belt 3 Y position: 11192
+Asteroid in belt status: true
+Asteroid in belt 4 X position: 13865
+Asteroid in belt 4 Y position: 6778
+Asteroid in belt status: true
+Asteroid in belt 5 X position: 15758
+Asteroid in belt 5 Y position: 15748
+Asteroid in belt status: true
+Asteroid in belt 6 X position: 12710
+Asteroid in belt 6 Y position: 6593
+Asteroid in belt status: true
+Asteroid in belt 7 X position: 6518
+Asteroid in belt 7 Y position: 11505
+Asteroid in belt status: true
+Asteroid in belt 8 X position: 17176
+Asteroid in belt 8 Y position: 13303
+Asteroid in belt status: true
+Asteroid in belt 9 X position: 11155
+Asteroid in belt 9 Y position: 6580
+Asteroid in belt status: true
+Asteroid in belt 10 X position: 15229
+Asteroid in belt 10 Y position: 16322
+Asteroid in belt status: true
+Asteroid in belt 11 X position: 6797
+Asteroid in belt 11 Y position: 10630
+Asteroid in belt status: true
+Asteroid in belt 12 X position: 9007
+Asteroid in belt 12 Y position: 16567
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 14 X position: 8198
+Asteroid in belt 14 Y position: 15909
+Asteroid in belt status: false
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 17 X position: 6899
+Asteroid in belt 17 Y position: 14140
+Asteroid in belt status: true
+Asteroid in belt 18 X position: 14234
+Asteroid in belt 18 Y position: 17094
+Asteroid in belt status: true
+Asteroid in belt 19 X position: 8446
+Asteroid in belt 19 Y position: 7752
+Asteroid in belt status: true
+Asteroid in belt 20 X position: 14604
+Asteroid in belt 20 Y position: 16597
+Asteroid in belt status: true
+Asteroid in belt 21 X position: 17177
+Asteroid in belt 21 Y position: 13517
+Asteroid in belt status: true
+Asteroid in belt 22 X position: 17487
+Asteroid in belt 22 Y position: 11506
+Asteroid in belt status: true
+Asteroid in belt 23 X position: 13624
+Asteroid in belt 23 Y position: 6821
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 25 X position: 8474
+Asteroid in belt 25 Y position: 8039
+Asteroid in belt status: true
+Asteroid in belt 26 X position: 11721
+Asteroid in belt 26 Y position: 6465
+Asteroid in belt status: true
+Asteroid in belt 27 X position: 7075
+Asteroid in belt 27 Y position: 14574
+Asteroid in belt status: true
+Asteroid in belt 28 X position: 8899
+Asteroid in belt 28 Y position: 7669
+Asteroid in belt status: true
+Asteroid in belt 29 X position: 15546
+Asteroid in belt 29 Y position: 15994
+Asteroid in belt status: true
+Asteroid in belt 30 X position: 17326
+Asteroid in belt 30 Y position: 12266
+Asteroid in belt status: true
+Asteroid in belt 31 X position: 15285
+Asteroid in belt 31 Y position: 7561
+Asteroid in belt status: true
+Asteroid in belt 32 X position: 7945
+Asteroid in belt 32 Y position: 8420
+Asteroid in belt status: true
+Asteroid in belt 33 X position: 16301
+Asteroid in belt 33 Y position: 8917
+Asteroid in belt status: true
+Asteroid in belt 34 X position: 9215
+Asteroid in belt 34 Y position: 7182
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 36 X position: 7474
+Asteroid in belt 36 Y position: 15100
+Asteroid in belt status: true
+Asteroid in belt 37 X position: 9300
+Asteroid in belt 37 Y position: 16659
+Asteroid in belt status: false
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 40 X position: 16743
+Asteroid in belt 40 Y position: 14503
+Asteroid in belt status: true
+Asteroid in belt 41 X position: 17474
+Asteroid in belt 41 Y position: 10958
+Asteroid in belt status: true
+Asteroid in belt 42 X position: 14651
+Asteroid in belt 42 Y position: 16848
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 44 X position: 14923
+Asteroid in belt 44 Y position: 7545
+Asteroid in belt status: true
+Asteroid in belt 45 X position: 14047
+Asteroid in belt 45 Y position: 7124
+Asteroid in belt status: true
+Asteroid in belt 46 X position: 16983
+Asteroid in belt 46 Y position: 14426
+Asteroid in belt status: true
+Asteroid in belt 47 X position: 6696
+Asteroid in belt 47 Y position: 11977
+Asteroid in belt status: true
+Asteroid in belt 48 X position: 6754
+Asteroid in belt 48 Y position: 10457
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 50 X position: 13700
+Asteroid in belt 50 Y position: 6932
+Asteroid in belt status: true
+Asteroid in belt 51 X position: 13842
+Asteroid in belt 51 Y position: 17167
+Asteroid in belt status: true
+Asteroid in belt 52 X position: 6656
+Asteroid in belt 52 Y position: 10569
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 54 X position: 17304
+Asteroid in belt 54 Y position: 11956
+Asteroid in belt status: true
+Asteroid in belt 55 X position: 8746
+Asteroid in belt 55 Y position: 7678
+Asteroid in belt status: true
+Asteroid in belt 56 X position: 8840
+Asteroid in belt 56 Y position: 7654
+Asteroid in belt status: true
+Asteroid in belt 57 X position: 15824
+Asteroid in belt 57 Y position: 8237
+Asteroid in belt status: true
+Asteroid in belt 58 X position: 9101
+Asteroid in belt 58 Y position: 7577
+Asteroid in belt status: true
+Asteroid in belt 59 X position: 9559
+Asteroid in belt 59 Y position: 16799
+Asteroid in belt status: true
+Asteroid in belt 60 X position: 6658
+Asteroid in belt 60 Y position: 11735
+Asteroid in belt status: true
+Asteroid in belt 61 X position: 16833
+Asteroid in belt 61 Y position: 9643
+Asteroid in belt status: true
+Asteroid in belt 62 X position: 7133
+Asteroid in belt 62 Y position: 14275
+Asteroid in belt status: true
+Asteroid in belt 63 X position: 8456
+Asteroid in belt 63 Y position: 7959
+Asteroid in belt status: true
+Asteroid in belt 64 X position: 17285
+Asteroid in belt 64 Y position: 10433
+Asteroid in belt status: true
+Asteroid in belt 65 X position: 15192
+Asteroid in belt 65 Y position: 7565
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 67 X position: 12150
+Asteroid in belt 67 Y position: 6423
+Asteroid in belt status: true
+Asteroid in belt 68 X position: 8843
+Asteroid in belt 68 Y position: 16333
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 70 X position: 6998
+Asteroid in belt 70 Y position: 14400
+Asteroid in belt status: true
+Asteroid in belt 71 X position: 16849
+Asteroid in belt 71 Y position: 9418
+Asteroid in belt status: true
+Asteroid in belt 72 X position: 16815
+Asteroid in belt 72 Y position: 14797
+Asteroid in belt status: true
+Asteroid in belt 73 X position: 17525
+Asteroid in belt 73 Y position: 12705
+Asteroid in belt status: true
+Asteroid in belt 74 X position: 17262
+Asteroid in belt 74 Y position: 10175
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 76 X position: 7457
+Asteroid in belt 76 Y position: 8969
+Asteroid in belt status: true
+Asteroid in belt 77 X position: 13663
+Asteroid in belt 77 Y position: 6778
+Asteroid in belt status: true
+Asteroid in belt 78 X position: 15831
+Asteroid in belt 78 Y position: 15694
+Asteroid in belt status: true
+Asteroid in belt 79 X position: 7384
+Asteroid in belt 79 Y position: 9226
+Asteroid in belt status: true
+Asteroid in belt 80 X position: 10573
+Asteroid in belt 80 Y position: 6810
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 82 X position: 15646
+Asteroid in belt 82 Y position: 15818
+Asteroid in belt status: true
+Asteroid in belt 83 X position: 15739
+Asteroid in belt 83 Y position: 16095
+Asteroid in belt status: true
+Asteroid in belt 84 X position: 17224
+Asteroid in belt 84 Y position: 11143
+Asteroid in belt status: true
+Asteroid in belt 85 X position: 15172
+Asteroid in belt 85 Y position: 7545
+Asteroid in belt status: true
+Asteroid in belt 86 X position: 16252
+Asteroid in belt 86 Y position: 8652
+Asteroid in belt status: true
+Asteroid in belt 87 X position: 10309
+Asteroid in belt 87 Y position: 6815
+Asteroid in belt status: true
+Asteroid in belt 88 X position: 12718
+Asteroid in belt 88 Y position: 6644
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 90 X position: 13296
+Asteroid in belt 90 Y position: 6873
+Asteroid in belt status: true
+Asteroid in belt 91 X position: 12177
+Asteroid in belt 91 Y position: 6699
+Asteroid in belt status: true
+Asteroid in belt 92 X position: 11164
+Asteroid in belt 92 Y position: 6739
+Asteroid in belt status: true
+Asteroid in belt 93 X position: 16484
+Asteroid in belt 93 Y position: 15052
+Asteroid in belt status: true
+Asteroid in belt 94 X position: 9498
+Asteroid in belt 94 Y position: 7244
+Asteroid in belt status: true
+Asteroid in belt 95 X position: 16900
+Asteroid in belt 95 Y position: 14109
+Asteroid in belt status: true
+Asteroid in belt 96 X position: 6815
+Asteroid in belt 96 Y position: 10122
+Asteroid in belt status: true
+Asteroid in belt 97 X position: 9081
+Asteroid in belt 97 Y position: 16556
+Asteroid in belt status: true
+Asteroid in belt 98 X position: 7598
+Asteroid in belt 98 Y position: 9025
+Asteroid in belt status: true
+Asteroid in belt 99 X position: 7834
+Asteroid in belt 99 Y position: 8310
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 101 X position: 9668
+Asteroid in belt 101 Y position: 7258
+Asteroid in belt status: true
+Asteroid in belt 102 X position: 10654
+Asteroid in belt 102 Y position: 6628
+Asteroid in belt status: true
+Asteroid in belt 103 X position: 17444
+Asteroid in belt 103 Y position: 11862
+Asteroid in belt status: true
+Asteroid in belt 104 X position: 6681
+Asteroid in belt 104 Y position: 10664
+Asteroid in belt status: true
+Asteroid in belt 105 X position: 8381
+Asteroid in belt 105 Y position: 16137
+Asteroid in belt status: true
+Asteroid in belt 106 X position: 7687
+Asteroid in belt 106 Y position: 15458
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 108 X position: 7291
+Asteroid in belt 108 Y position: 9540
+Asteroid in belt status: true
+Asteroid in belt 109 X position: 14680
+Asteroid in belt 109 Y position: 16642
+Asteroid in belt status: true
+Asteroid in belt 110 X position: 16517
+Asteroid in belt 110 Y position: 9180
+Asteroid in belt status: true
+Asteroid in belt 111 X position: 17050
+Asteroid in belt 111 Y position: 13796
+Asteroid in belt status: true
+Asteroid in belt 112 X position: 8642
+Asteroid in belt 112 Y position: 16206
+Asteroid in belt status: true
+Asteroid in belt 113 X position: 16903
+Asteroid in belt 113 Y position: 14464
+Asteroid in belt status: true
+Asteroid in belt 114 X position: 6859
+Asteroid in belt 114 Y position: 10115
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 116 X position: 10687
+Asteroid in belt 116 Y position: 6859
+Asteroid in belt status: true
+Asteroid in belt 117 X position: 6866
+Asteroid in belt 117 Y position: 10446
+Asteroid in belt status: true
+Asteroid in belt 118 X position: 17245
+Asteroid in belt 118 Y position: 13622
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 120 X position: 8186
+Asteroid in belt 120 Y position: 15691
+Asteroid in belt status: true
+Asteroid in belt 121 X position: 15586
+Asteroid in belt 121 Y position: 16186
+Asteroid in belt status: true
+Asteroid in belt 122 X position: 17217
+Asteroid in belt 122 Y position: 10667
+Asteroid in belt status: true
+Asteroid in belt 123 X position: 7453
+Asteroid in belt 123 Y position: 9116
+Asteroid in belt status: true
+Asteroid in belt 124 X position: 17390
+Asteroid in belt 124 Y position: 11936
+Asteroid in belt status: true
+Asteroid in belt 125 X position: 13923
+Asteroid in belt 125 Y position: 6798
+Asteroid in belt status: true
+Asteroid in belt 126 X position: 17208
+Asteroid in belt 126 Y position: 10621
+Asteroid in belt status: true
+Asteroid in belt 127 X position: 9120
+Asteroid in belt 127 Y position: 7529
+Asteroid in belt status: true
+Asteroid in belt 128 X position: 6615
+Asteroid in belt 128 Y position: 11863
+Asteroid in belt status: true
+Asteroid in belt 129 X position: 9959
+Asteroid in belt 129 Y position: 7016
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 131 X position: 13923
+Asteroid in belt 131 Y position: 6769
+Asteroid in belt status: true
+Asteroid in belt 132 X position: 17380
+Asteroid in belt 132 Y position: 12432
+Asteroid in belt status: true
+Asteroid in belt 133 X position: 15945
+Asteroid in belt 133 Y position: 15863
+Asteroid in belt status: true
+Asteroid in belt 134 X position: 10705
+Asteroid in belt 134 Y position: 6771
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 136 X position: 6676
+Asteroid in belt 136 Y position: 11385
+Asteroid in belt status: true
+Asteroid in belt 137 X position: 7112
+Asteroid in belt 137 Y position: 14381
+Asteroid in belt status: true
+Asteroid in belt 138 X position: 6714
+Asteroid in belt 138 Y position: 13048
+Asteroid in belt status: true
+Asteroid in belt 139 X position: 17357
+Asteroid in belt 139 Y position: 13502
+Asteroid in belt status: true
+Asteroid in belt 140 X position: 9349
+Asteroid in belt 140 Y position: 7414
+Asteroid in belt status: true
+Asteroid in belt 141 X position: 16837
+Asteroid in belt 141 Y position: 14696
+Asteroid in belt status: true
+Asteroid in belt 142 X position: 16550
+Asteroid in belt 142 Y position: 8907
+Asteroid in belt status: true
+Asteroid in belt 143 X position: 16768
+Asteroid in belt 143 Y position: 9158
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 145 X position: 16757
+Asteroid in belt 145 Y position: 14334
+Asteroid in belt status: true
+Asteroid in belt 146 X position: 10303
+Asteroid in belt 146 Y position: 6771
+Asteroid in belt status: true
+Asteroid in belt 147 X position: 9814
+Asteroid in belt 147 Y position: 6901
+Asteroid in belt status: true
+Asteroid in belt 148 X position: 17236
+Asteroid in belt 148 Y position: 13193
+Asteroid in belt status: true
+Asteroid in belt 149 X position: 14897
+Asteroid in belt 149 Y position: 16713
+Asteroid in belt status: true
+Asteroid in belt 150 X position: 13085
+Asteroid in belt 150 Y position: 6746
+Asteroid in belt status: true
+Asteroid in belt 151 X position: 14795
+Asteroid in belt 151 Y position: 16574
+Asteroid in belt status: true
+Asteroid in belt 152 X position: 6832
+Asteroid in belt 152 Y position: 13426
+Asteroid in belt status: true
+Asteroid in belt 153 X position: 17305
+Asteroid in belt 153 Y position: 11082
+Asteroid in belt status: true
+Asteroid in belt 154 X position: 11725
+Asteroid in belt 154 Y position: 6524
+Asteroid in belt status: true
+Asteroid in belt 155 X position: 6885
+Asteroid in belt 155 Y position: 10054
+Asteroid in belt status: true
+Asteroid in belt 156 X position: 14976
+Asteroid in belt 156 Y position: 7502
+Asteroid in belt status: true
+Asteroid in belt 157 X position: 9606
+Asteroid in belt 157 Y position: 7261
+Asteroid in belt status: true
+Asteroid in belt 158 X position: 11611
+Asteroid in belt 158 Y position: 6702
+Asteroid in belt status: true
+Asteroid in belt 159 X position: 6621
+Asteroid in belt 159 Y position: 12959
+Asteroid in belt status: true
+Asteroid in belt 160 X position: 7021
+Asteroid in belt 160 Y position: 14031
+Asteroid in belt status: true
+Asteroid in belt 161 X position: 16947
+Asteroid in belt 161 Y position: 9835
+Asteroid in belt status: false
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 164 X position: 7214
+Asteroid in belt 164 Y position: 9133
+Asteroid in belt status: true
+Asteroid in belt 165 X position: 6678
+Asteroid in belt 165 Y position: 10767
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 167 X position: 16618
+Asteroid in belt 167 Y position: 8950
+Asteroid in belt status: true
+Asteroid in belt 168 X position: 11678
+Asteroid in belt 168 Y position: 6447
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 170 X position: 13457
+Asteroid in belt 170 Y position: 6833
+Asteroid in belt status: true
+Asteroid in belt 171 X position: 16937
+Asteroid in belt 171 Y position: 14008
+Asteroid in belt status: true
+Asteroid in belt 172 X position: 14927
+Asteroid in belt 172 Y position: 7329
+Asteroid in belt status: true
+Asteroid in belt 173 X position: 8122
+Asteroid in belt 173 Y position: 8361
+Asteroid in belt status: true
+Asteroid in belt 174 X position: 15744
+Asteroid in belt 174 Y position: 15993
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 176 X position: 7819
+Asteroid in belt 176 Y position: 8472
+Asteroid in belt status: true
+Asteroid in belt 177 X position: 7470
+Asteroid in belt 177 Y position: 8981
+Asteroid in belt status: true
+Asteroid in belt 178 X position: 16046
+Asteroid in belt 178 Y position: 8295
+Asteroid in belt status: true
+Asteroid in belt 179 X position: 6673
+Asteroid in belt 179 Y position: 12988
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 181 X position: 13641
+Asteroid in belt 181 Y position: 6840
+Asteroid in belt status: true
+Asteroid in belt 182 X position: 6679
+Asteroid in belt 182 Y position: 12375
+Asteroid in belt status: true
+Asteroid in belt 183 X position: 17033
+Asteroid in belt 183 Y position: 13792
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 185 X position: 9689
+Asteroid in belt 185 Y position: 7039
+Asteroid in belt status: true
+Asteroid in belt 186 X position: 9264
+Asteroid in belt 186 Y position: 16579
+Asteroid in belt status: true
+Asteroid in belt 187 X position: 16452
+Asteroid in belt 187 Y position: 15231
+Asteroid in belt status: true
+Asteroid in belt 188 X position: 10336
+Asteroid in belt 188 Y position: 6783
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 190 X position: 13181
+Asteroid in belt 190 Y position: 6671
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 192 X position: 17147
+Asteroid in belt 192 Y position: 13324
+Asteroid in belt status: true
+Asteroid in belt 193 X position: 8849
+Asteroid in belt 193 Y position: 7706
+Asteroid in belt status: true
+Asteroid in belt 194 X position: 16561
+Asteroid in belt 194 Y position: 15184
+Asteroid in belt status: true
+Asteroid in belt 195 X position: 14788
+Asteroid in belt 195 Y position: 7271
+Asteroid in belt status: true
+Asteroid in belt 196 X position: 7006
+Asteroid in belt 196 Y position: 14299
+Asteroid in belt status: true
+Asteroid in belt 197 X position: 17083
+Asteroid in belt 197 Y position: 10327
+Asteroid in belt status: true
+Asteroid in belt 198 X position: 16773
+Asteroid in belt 198 Y position: 9733
+Asteroid in belt status: true
+Asteroid in belt 199 X position: 14226
+Asteroid in belt 199 Y position: 7052
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 201 X position: 7658
+Asteroid in belt 201 Y position: 15500
+Asteroid in belt status: true
+Asteroid in belt 202 X position: 13448
+Asteroid in belt 202 Y position: 6852
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 204 X position: 13488
+Asteroid in belt 204 Y position: 6925
+Asteroid in belt status: true
+Asteroid in belt 205 X position: 13996
+Asteroid in belt 205 Y position: 6952
+Asteroid in belt status: true
+Asteroid in belt 206 X position: 7348
+Asteroid in belt 206 Y position: 14970
+Asteroid in belt status: true
+Asteroid in belt 207 X position: 10917
+Asteroid in belt 207 Y position: 6579
+Asteroid in belt status: true
+Asteroid in belt 208 X position: 16221
+Asteroid in belt 208 Y position: 15307
+Asteroid in belt status: true
+Asteroid in belt 209 X position: 14490
+Asteroid in belt 209 Y position: 16723
+Asteroid in belt status: true
+Asteroid in belt 210 X position: 16965
+Asteroid in belt 210 Y position: 14445
+Asteroid in belt status: true
+Asteroid in belt 211 X position: 6829
+Asteroid in belt 211 Y position: 14041
+Asteroid in belt status: true
+Asteroid in belt 212 X position: 6739
+Asteroid in belt 212 Y position: 13291
+Asteroid in belt status: true
+Asteroid in belt 213 X position: 17239
+Asteroid in belt 213 Y position: 13541
+Asteroid in belt status: true
+Asteroid in belt 214 X position: 16948
+Asteroid in belt 214 Y position: 13995
+Asteroid in belt status: true
+Asteroid in belt 215 X position: 11900
+Asteroid in belt 215 Y position: 6459
+Asteroid in belt status: true
+Asteroid in belt 216 X position: 14655
+Asteroid in belt 216 Y position: 16837
+Asteroid in belt status: true
+Asteroid in belt 217 X position: 8820
+Asteroid in belt 217 Y position: 16337
+Asteroid in belt status: true
+Asteroid in belt 218 X position: 9559
+Asteroid in belt 218 Y position: 7106
+Asteroid in belt status: true
+Asteroid in belt 219 X position: 14081
+Asteroid in belt 219 Y position: 6976
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 221 X position: 15416
+Asteroid in belt 221 Y position: 16311
+Asteroid in belt status: true
+Asteroid in belt 222 X position: 16203
+Asteroid in belt 222 Y position: 15249
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 224 X position: 8675
+Asteroid in belt 224 Y position: 7563
+Asteroid in belt status: true
+Asteroid in belt 225 X position: 17131
+Asteroid in belt 225 Y position: 9945
+Asteroid in belt status: true
+Asteroid in belt 226 X position: 11063
+Asteroid in belt 226 Y position: 6505
+Asteroid in belt status: true
+Asteroid in belt 227 X position: 16180
+Asteroid in belt 227 Y position: 8771
+Asteroid in belt status: true
+Asteroid in belt 228 X position: 7580
+Asteroid in belt 228 Y position: 8748
+Asteroid in belt status: true
+Asteroid in belt 229 X position: 16952
+Asteroid in belt 229 Y position: 9551
+Asteroid in belt status: true
+Asteroid in belt 230 X position: 15686
+Asteroid in belt 230 Y position: 8217
+Asteroid in belt status: true
+Asteroid in belt 231 X position: 6933
+Asteroid in belt 231 Y position: 13958
+Asteroid in belt status: true
+Asteroid in belt 232 X position: 16788
+Asteroid in belt 232 Y position: 14282
+Asteroid in belt status: true
+Asteroid in belt 233 X position: 17348
+Asteroid in belt 233 Y position: 12674
+Asteroid in belt status: true
+Asteroid in belt 234 X position: 12219
+Asteroid in belt 234 Y position: 6590
+Asteroid in belt status: true
+Asteroid in belt 235 X position: 12663
+Asteroid in belt 235 Y position: 6729
+Asteroid in belt status: true
+Asteroid in belt 236 X position: 7017
+Asteroid in belt 236 Y position: 10040
+Asteroid in belt status: true
+Asteroid in belt 237 X position: 17152
+Asteroid in belt 237 Y position: 14002
+Asteroid in belt status: true
+Asteroid in belt 238 X position: 6685
+Asteroid in belt 238 Y position: 13289
+Asteroid in belt status: true
+Asteroid in belt 239 X position: 6618
+Asteroid in belt 239 Y position: 12788
+Asteroid in belt status: true
+Asteroid in belt 240 X position: 6466
+Asteroid in belt 240 Y position: 12435
+Asteroid in belt status: true
+Asteroid in belt 241 X position: 8779
+Asteroid in belt 241 Y position: 16188
+Asteroid in belt status: true
+Asteroid in belt 242 X position: 12446
+Asteroid in belt 242 Y position: 6451
+Asteroid in belt status: true
+Asteroid in belt 243 X position: 9323
+Asteroid in belt 243 Y position: 16714
+Asteroid in belt status: false
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 246 X position: 8430
+Asteroid in belt 246 Y position: 7864
+Asteroid in belt status: true
+Asteroid in belt 247 X position: 10416
+Asteroid in belt 247 Y position: 6847
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 249 X position: 16899
+Asteroid in belt 249 Y position: 14123
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 251 X position: 11011
+Asteroid in belt 251 Y position: 6717
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 253 X position: 15184
+Asteroid in belt 253 Y position: 7743
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 255 X position: 6770
+Asteroid in belt 255 Y position: 12957
+Asteroid in belt status: true
+Asteroid in belt 256 X position: 6848
+Asteroid in belt 256 Y position: 13506
+Asteroid in belt status: true
+Asteroid in belt 257 X position: 11878
+Asteroid in belt 257 Y position: 6572
+Asteroid in belt status: true
+Asteroid in belt 258 X position: 14587
+Asteroid in belt 258 Y position: 16820
+Asteroid in belt status: true
+Asteroid in belt 259 X position: 11767
+Asteroid in belt 259 Y position: 17547
+Asteroid in belt status: true
+Asteroid in belt 260 X position: 11295
+Asteroid in belt 260 Y position: 6701
+Asteroid in belt status: true
+Asteroid in belt 261 X position: 12643
+Asteroid in belt 261 Y position: 6734
+Asteroid in belt status: true
+Asteroid in belt 262 X position: 7978
+Asteroid in belt 262 Y position: 15459
+Asteroid in belt status: true
+Asteroid in belt 263 X position: 6977
+Asteroid in belt 263 Y position: 9868
+Asteroid in belt status: true
+Asteroid in belt 264 X position: 15894
+Asteroid in belt 264 Y position: 15780
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 266 X position: 17329
+Asteroid in belt 266 Y position: 11776
+Asteroid in belt status: true
+Asteroid in belt 267 X position: 8570
+Asteroid in belt 267 Y position: 16137
+Asteroid in belt status: true
+Asteroid in belt 268 X position: 8123
+Asteroid in belt 268 Y position: 15659
+Asteroid in belt status: true
+Asteroid in belt 269 X position: 10909
+Asteroid in belt 269 Y position: 6783
+Asteroid in belt status: true
+Asteroid in belt 270 X position: 16887
+Asteroid in belt 270 Y position: 9945
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 272 X position: 8375
+Asteroid in belt 272 Y position: 16213
+Asteroid in belt status: true
+Asteroid in belt 273 X position: 14376
+Asteroid in belt 273 Y position: 7167
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 275 X position: 8611
+Asteroid in belt 275 Y position: 7730
+Asteroid in belt status: true
+Asteroid in belt 276 X position: 15348
+Asteroid in belt 276 Y position: 16403
+Asteroid in belt status: true
+Asteroid in belt 277 X position: 8305
+Asteroid in belt 277 Y position: 8206
+Asteroid in belt status: true
+Asteroid in belt 278 X position: 10550
+Asteroid in belt 278 Y position: 6830
+Asteroid in belt status: false
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 281 X position: 6640
+Asteroid in belt 281 Y position: 10488
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 283 X position: 17188
+Asteroid in belt 283 Y position: 10385
+Asteroid in belt status: true
+Asteroid in belt 284 X position: 16623
+Asteroid in belt 284 Y position: 14622
+Asteroid in belt status: true
+Asteroid in belt 285 X position: 9764
+Asteroid in belt 285 Y position: 16828
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 287 X position: 14293
+Asteroid in belt 287 Y position: 7096
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 289 X position: 16202
+Asteroid in belt 289 Y position: 15336
+Asteroid in belt status: true
+Asteroid in belt 290 X position: 6672
+Asteroid in belt 290 Y position: 11692
+Asteroid in belt status: true
+Asteroid in belt 291 X position: 16945
+Asteroid in belt 291 Y position: 14046
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 293 X position: 15644
+Asteroid in belt 293 Y position: 15862
+Asteroid in belt status: true
+Asteroid in belt 294 X position: 6956
+Asteroid in belt 294 Y position: 10005
+Asteroid in belt status: true
+Asteroid in belt 295 X position: 9354
+Asteroid in belt 295 Y position: 7243
+Asteroid in belt status: true
+Asteroid in belt 296 X position: 16363
+Asteroid in belt 296 Y position: 8609
+Asteroid in belt status: true
+Asteroid in belt 297 X position: 16561
+Asteroid in belt 297 Y position: 9320
+Asteroid in belt status: true
+Asteroid in belt 298 X position: 17544
+Asteroid in belt 298 Y position: 12245
+Asteroid in belt status: true
+Asteroid in belt 299 X position: 8404
+Asteroid in belt 299 Y position: 8066
+Asteroid in belt status: true
+Asteroid in belt 300 X position: 13617
+Asteroid in belt 300 Y position: 6785
+Asteroid in belt status: true
+Asteroid in belt 301 X position: 17421
+Asteroid in belt 301 Y position: 12464
+Asteroid in belt status: true
+Asteroid in belt 302 X position: 6717
+Asteroid in belt 302 Y position: 11903
+Asteroid in belt status: true
+Asteroid in belt 303 X position: 17019
+Asteroid in belt 303 Y position: 10167
+Asteroid in belt status: true
+Asteroid in belt 304 X position: 15338
+Asteroid in belt 304 Y position: 7720
+Asteroid in belt status: true
+Asteroid in belt 305 X position: 17241
+Asteroid in belt 305 Y position: 12957
+Asteroid in belt status: true
+Asteroid in belt 306 X position: 6636
+Asteroid in belt 306 Y position: 13256
+Asteroid in belt status: true
+Asteroid in belt 307 X position: 10238
+Asteroid in belt 307 Y position: 17005
+Asteroid in belt status: true
+Asteroid in belt 308 X position: 8426
+Asteroid in belt 308 Y position: 7969
+Asteroid in belt status: false
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 311 X position: 15422
+Asteroid in belt 311 Y position: 7898
+Asteroid in belt status: true
+Asteroid in belt 312 X position: 15426
+Asteroid in belt 312 Y position: 7780
+Asteroid in belt status: true
+Asteroid in belt 313 X position: 14625
+Asteroid in belt 313 Y position: 7305
+Asteroid in belt status: true
+Asteroid in belt 314 X position: 8323
+Asteroid in belt 314 Y position: 7820
+Asteroid in belt status: true
+Asteroid in belt 315 X position: 7377
+Asteroid in belt 315 Y position: 14878
+Asteroid in belt status: true
+Asteroid in belt 316 X position: 15327
+Asteroid in belt 316 Y position: 7573
+Asteroid in belt status: true
+Asteroid in belt 317 X position: 6520
+Asteroid in belt 317 Y position: 10989
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 319 X position: 6448
+Asteroid in belt 319 Y position: 12055
+Asteroid in belt status: true
+Asteroid in belt 320 X position: 16324
+Asteroid in belt 320 Y position: 8794
+Asteroid in belt status: true
+Asteroid in belt 321 X position: 14610
+Asteroid in belt 321 Y position: 7361
+Asteroid in belt status: true
+Asteroid in belt 322 X position: 7521
+Asteroid in belt 322 Y position: 8785
+Asteroid in belt status: true
+Asteroid in belt 323 X position: 15440
+Asteroid in belt 323 Y position: 16229
+Asteroid in belt status: true
+Asteroid in belt 324 X position: 6935
+Asteroid in belt 324 Y position: 13933
+Asteroid in belt status: true
+Asteroid in belt 325 X position: 6729
+Asteroid in belt 325 Y position: 10229
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 327 X position: 15118
+Asteroid in belt 327 Y position: 7686
+Asteroid in belt status: true
+Asteroid in belt 328 X position: 6813
+Asteroid in belt 328 Y position: 10349
+Asteroid in belt status: true
+Asteroid in belt 329 X position: 6866
+Asteroid in belt 329 Y position: 13706
+Asteroid in belt status: true
+Asteroid in belt 330 X position: 10120
+Asteroid in belt 330 Y position: 6851
+Asteroid in belt status: true
+Asteroid in belt 331 X position: 12227
+Asteroid in belt 331 Y position: 6476
+Asteroid in belt status: true
+Asteroid in belt 332 X position: 7510
+Asteroid in belt 332 Y position: 14994
+Asteroid in belt status: true
+Asteroid in belt 333 X position: 10436
+Asteroid in belt 333 Y position: 6750
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 335 X position: 12555
+Asteroid in belt 335 Y position: 6470
+Asteroid in belt status: true
+Asteroid in belt 336 X position: 16649
+Asteroid in belt 336 Y position: 9107
+Asteroid in belt status: false
+Asteroid in belt status: true
+Asteroid in belt 338 X position: 15721
+Asteroid in belt 338 Y position: 15819
+Asteroid in belt status: true
+Asteroid in belt 339 X position: 15903
+Asteroid in belt 339 Y position: 15792
+Asteroid in belt status: true
+Asteroid in belt 340 X position: 15904
+Asteroid in belt 340 Y position: 15822
+Asteroid in belt status: true
+Asteroid in belt 341 X position: 14831
+Asteroid in belt 341 Y position: 16456
+Asteroid in belt status: true
+Asteroid in belt 342 X position: 16334
+Asteroid in belt 342 Y position: 15385
+Asteroid in belt status: true
+Asteroid in belt 343 X position: 17524
+Asteroid in belt 343 Y position: 11287
+Asteroid in belt status: true
+Asteroid in belt 344 X position: 6537
+Asteroid in belt 344 Y position: 11892
+Asteroid in belt status: true
+Asteroid in belt 345 X position: 11402
+Asteroid in belt 345 Y position: 6748
+Asteroid in belt status: true
+Asteroid in belt 346 X position: 17120
+Asteroid in belt 346 Y position: 13390
+Asteroid in belt status: true
+Asteroid in belt 347 X position: 11477
+Asteroid in belt 347 Y position: 6486
+Asteroid in belt status: true
+Asteroid in belt 348 X position: 16969
+Asteroid in belt 348 Y position: 9471
+Asteroid in belt status: true
+Asteroid in belt 349 X position: 15891
+Asteroid in belt 349 Y position: 8302
+Comet status: true
+Comet 0 X position: 17748
+Comet 0 Y position: 11957
+Comet status: true
+Comet 1 X position: 1637
+Comet 1 Y position: 21669
+Comet status: true
+Comet 2 X position: 3631
+Comet 2 Y position: 14870
+Comet status: true
+Comet 3 X position: 21655
+Comet 3 Y position: 23607
+Comet status: true
+Comet 4 X position: 17007
+Comet 4 Y position: 17906
+Comet status: true
+Comet 5 X position: 23655
+Comet 5 Y position: 6682
+Comet status: true
+Comet 6 X position: 17757
+Comet 6 Y position: 11685
+Comet status: true
+Comet 7 X position: 16663
+Comet 7 Y position: 14495
+Comet status: true
+Comet 8 X position: 13597
+Comet 8 Y position: 7512
+Comet status: false
+Comet status: true
+Comet 10 X position: 15558
+Comet 10 Y position: 16601
+Comet status: true
+Comet 11 X position: 5917
+Comet 11 Y position: 16314
+Comet status: true
+Comet 12 X position: 14924
+Comet 12 Y position: 14992
+Comet status: true
+Comet 13 X position: 10200
+Comet 13 Y position: 11596
+Comet status: true
+Comet 14 X position: 11756
+Comet 14 Y position: 10450
+Alien Spaceship status: true
+Alien Spaceship 0 X position: 29545
+Alien Spaceship 0 Y position: 4763
+Alien Spaceship status: true
+Alien Spaceship 1 X position: 36217
+Alien Spaceship 1 Y position: 21333
+Alien Spaceship status: true
+Alien Spaceship 2 X position: 1867
+Alien Spaceship 2 Y position: -4379
+Alien Spaceship status: true
+Alien Spaceship 3 X position: 49187
+Alien Spaceship 3 Y position: 19722
+Alien Spaceship status: true
+Alien Spaceship 4 X position: -13707
+Alien Spaceship 4 Y position: 8748
+Alien Spaceship status: true
+Alien Spaceship 5 X position: 47519
+Alien Spaceship 5 Y position: 29608
+Alien Spaceship status: true
+Alien Spaceship 6 X position: 4791
+Alien Spaceship 6 Y position: -14326
+Alien Spaceship status: true
+Alien Spaceship 7 X position: 21681
+Alien Spaceship 7 Y position: 7877
+Alien Spaceship status: true
+Alien Spaceship 8 X position: 13807
+Alien Spaceship 8 Y position: 45726
+Alien Spaceship status: true
+Alien Spaceship 9 X position: 24513
+Alien Spaceship 9 Y position: 467
+Alien Spaceship status: true
+Alien Spaceship 10 X position: -31207
+Alien Spaceship 10 Y position: 14473
+Alien Spaceship status: true
+Alien Spaceship 11 X position: 30211
+Alien Spaceship 11 Y position: -22305
+Alien Spaceship status: true
+Alien Spaceship 12 X position: -4051
+Alien Spaceship 12 Y position: 38212
+Alien Spaceship status: true
+Alien Spaceship 13 X position: 2735
+Alien Spaceship 13 Y position: 21903
+Alien Spaceship status: true
+Alien Spaceship 14 X position: 19453
+Alien Spaceship 14 Y position: -2479
+Alien Spaceship status: true
+Alien Spaceship 15 X position: 11979
+Alien Spaceship 15 Y position: -22954
+Alien Spaceship status: true
+Alien Spaceship 16 X position: 22275
+Alien Spaceship 16 Y position: 16967
+Alien Spaceship status: true
+Alien Spaceship 17 X position: 3181
+Alien Spaceship 17 Y position: -5463
+Alien Spaceship status: true
+Alien Spaceship 18 X position: -18945
+Alien Spaceship 18 Y position: 44442
+Alien Spaceship status: true
+Alien Spaceship 19 X position: -3293
+Alien Spaceship 19 Y position: -13525

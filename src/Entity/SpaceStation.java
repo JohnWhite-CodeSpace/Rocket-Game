@@ -9,7 +9,7 @@ import Game.GamePanel;
 public class SpaceStation extends Entity{
 	Entity user;
 	int counter=0;
-	int SpSangle;
+	public int SpSangle;
 	public SpaceStation(GamePanel gp) {
 		super(gp);
 		// TODO Auto-generated constructor stub

@@ -24,6 +24,11 @@ public class AssetSetter {
 	public AssetSetter(GamePanel gp) {
 		this.gp = gp;
 	}
+	public void setAsteroid(int x, int y, int index) {
+		gp.asteroids[index] = new OBJ_Asteroid(gp);
+		gp.asteroids[index].set(x,y,"asteroid",true,null);
+	}
+	
 	public void setAsteroid() {
 			for(int i=0; i<j.length; i++) {
 				j[i] = (random2.nextInt(5)*(max-min)+min);
@@ -37,6 +42,10 @@ public class AssetSetter {
 			}
 		
 	}
+	public void setAsteroidBelt(int x, int y, int index) {
+		gp.asteroidBelt[index] = new OBJ_AsteroidBelt(gp);
+		gp.asteroidBelt[index].set(x,y,"ABelt",true,null);
+	}
 	public void setAsteroidBelt() {
 		for(int i=0; i<o.length; i++) {
 			o[i] = (random2.nextDouble(100));
@@ -48,7 +57,11 @@ public class AssetSetter {
 					+10*p[i]-5*o[i]);
 			gp.asteroidBelt[i].set(worldx,worldy,"ABelt",true,null);
 		}
-}
+	}
+	public void setComet(int x, int y, int index) {
+		gp.comets[index] = new OBJ_Comet(gp);
+		gp.comets[index].set(x,y,"comet",true,null);
+	}
 	public void setComet() {
 		for(int i=0; i<l.length; i++) {
 			l[i] = (random2.nextInt(5)*(max-min)+min);
@@ -64,6 +77,10 @@ public class AssetSetter {
 }
 	public void SetSol() {
 		gp.sol.set(gp.Tilesize*250,gp.Tilesize*250,"planet",true,null);
+	}
+	public void setAlienSpaceship(int x, int y, int index) {
+		gp.aliens[index] = new OBJ_AlienSpaceship(gp);
+		gp.aliens[index].set(x,y,"aliens",true,null);
 	}
 	public void setAlienSpaceship() {
 		for(int i=0; i<r.length; i++) {

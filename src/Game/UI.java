@@ -55,7 +55,6 @@ public class UI {
 		Fuel0 = PFuel.fuel0;
 	}
 	public void showMessage(String text) {
-		
 		Message = text;
 		messageOn = true;
 	}
@@ -67,6 +66,7 @@ public class UI {
 		case 0:
 			try {
 				DrawTitleScreen("NEW GAME");
+				LoadSaveConsole(g2);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -118,6 +118,7 @@ public class UI {
 		case 3:
 			try {
 				DrawTitleScreen("RESUME GAME");
+				LoadSaveConsole(g2);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -152,7 +153,7 @@ public class UI {
 	}
 	public void DrawTitleScreen(String State) throws IOException {
 		BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/TitleScreen.png"));
-		g2.drawImage(image, 0,0,gp.screenWidth,gp.screenHeight-100,null);
+		g2.drawImage(image, 0,0,gp.screenWidth,gp.screenHeight,null);
 		switch(titleScreenState) {
 		case 0:
 			g2.setFont(font2);
@@ -407,7 +408,78 @@ public class UI {
 			}
 			break;
 		
+		case 4:
+			g2.setFont(font2);
+			text = "GAME PAUSED";
+			x = getXForCenteredText(text);
+			y = gp.screenHeight/6;
+			g2.setColor(Color.black);
+			g2.drawString(text, x+5, y+5);
+			g2.setColor(Color.white);
+			g2.drawString(text, x, y);
+			BufferedImage image4 = ImageIO.read(getClass().getResourceAsStream("/player/chonker.png"));
+			x = gp.screenWidth/2 - gp.Tilesize;
+			y=gp.screenHeight/6 +35;
+			g2.drawImage(image4, x, y, gp.Tilesize*2, gp.Tilesize*2,null);
+			//MENU
 			
+			g2.setFont(font);
+			text = State;;
+			x = getXForCenteredText(text);
+			y+=gp.Tilesize*4;
+			g2.setColor(Color.black);
+			g2.drawString(text, x+5, y+5);
+			g2.setColor(Color.white);
+			g2.drawString(text, x, y);
+			if(commandNum==0) {
+				g2.setColor(Color.green);
+				g2.drawString(">", x-gp.Tilesize, y);
+			}
+			text = "SAVE GAME";
+			x = getXForCenteredText(text);
+			y+=gp.Tilesize*2;
+			g2.setColor(Color.black);
+			g2.drawString(text, x+5, y+5);
+			g2.setColor(Color.white);
+			g2.drawString(text, x, y);
+			if(commandNum==1) {
+				g2.setColor(Color.green);
+				g2.drawString(">", x-gp.Tilesize, y);
+			}
+			text = "LOAD GAME";
+			x = getXForCenteredText(text);
+			y+=gp.Tilesize*2;
+			g2.setColor(Color.black);
+			g2.drawString(text, x+5, y+5);
+			g2.setColor(Color.white);
+			g2.drawString(text, x, y);
+			if(commandNum==2) {
+				g2.setColor(Color.green);
+				g2.drawString(">", x-gp.Tilesize, y);
+			}
+			text = "OPTIONS";
+			x = getXForCenteredText(text);
+			y+=gp.Tilesize*2;
+			g2.setColor(Color.black);
+			g2.drawString(text, x+5, y+5);
+			g2.setColor(Color.white);
+			g2.drawString(text, x, y);
+			if(commandNum==3) {
+				g2.setColor(Color.green);
+				g2.drawString(">", x-gp.Tilesize, y);
+			}
+			text = "EXIT";
+			x = getXForCenteredText(text);
+			y+=gp.Tilesize*2;
+			g2.setColor(Color.black);
+			g2.drawString(text, x+5, y+5);
+			g2.setColor(Color.white);
+			g2.drawString(text, x, y);
+			if(commandNum==4) {
+				g2.setColor(Color.green);
+				g2.drawString(">", x-gp.Tilesize, y);
+			}
+			break;
 		}
 }
 	
@@ -429,6 +501,18 @@ public class UI {
 	                }
 	            }
 	        
+	}
+	public synchronized void LoadSaveConsole(Graphics2D g2) {
+	        g2.setColor(Color.white);
+	            if (messageOn) {
+	                g2.setFont(font3);
+	                g2.drawString(Message, gp.Tilesize, 2*gp.Tilesize);
+	                messageCounter++;
+	                if (messageCounter > 180) {
+	                    messageCounter = 0;
+	                    messageOn = false;
+	                }
+	            }
 	}
 	public void DrawLife() throws IOException {
 		if(lifeOn==true) {

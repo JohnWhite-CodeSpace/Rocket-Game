@@ -170,7 +170,7 @@ public class KeyHandler implements KeyListener{
 			gp.playSE(3);
 			if(gp.gameState==gp.playState) {
 				gp.gameState=gp.exitpauseState;
-				gp.ui.titleScreenState=0;
+				gp.ui.titleScreenState=4;
 			}
 			else if(gp.gameState==gp.exitpauseState) {
 				gp.gameState=gp.playState;
@@ -220,7 +220,7 @@ public class KeyHandler implements KeyListener{
 					}
 					
 					break;
-				case 1:	break;
+				case 1:	gp.config.LoadGame();System.out.println("Game Loaded");break;
 				case 2: gp.ui.titleScreenState=2;break;
 				case 3: System.exit(0); break;
 					
@@ -317,8 +317,11 @@ public class KeyHandler implements KeyListener{
 				gp.playSE(3);
 				switch(gp.ui.commandNum) {
 				case 0:
-					IsFullSCOn=!IsFullSCOn;
-					gp.fullscreenOn=!gp.fullscreenOn;
+					if(gp.fullscreenOn==true) {
+						gp.setWindowScreen();
+					}else {
+						gp.setFullScreen();
+					}
 				break;
 				case 1: break;
 				case 2: break;
@@ -351,7 +354,43 @@ public class KeyHandler implements KeyListener{
 				}
 			}
 		break;
-		}	
+		case 4:
+			if(code == KeyEvent.VK_W) {
+				gp.ui.commandNum-- ;
+				gp.playSE(4);
+				if(gp.ui.commandNum<0) {
+					gp.ui.commandNum=4 ;
+				}
+			}
+			if(code == KeyEvent.VK_S) {
+				gp.ui.commandNum++ ;
+				gp.playSE(4);
+				if(gp.ui.commandNum>4) {
+					gp.ui.commandNum=0 ;
+				}
+			}
+			if(code==KeyEvent.VK_ENTER) {
+				gp.playSE(3);
+				switch(gp.ui.commandNum) {
+				case 0: 
+					if(ReturnToGame==false) {
+						gp.ui.titleScreenState=1; 
+					}
+					else if(ReturnToGame==true) {
+						gp.gameState=gp.playState;
+						ReturnToGame=false;
+					}
+					
+					break;
+				case 1:	gp.config.SaveGame(); System.out.println("Game Saved");break;
+				case 2: gp.config.LoadGame();System.out.println("Game Loaded");break;
+				case 3: gp.ui.titleScreenState=2;break;
+				case 4: System.exit(0); break;
+					
+				}
+			}
+		break;
+		}
 	}
 	public void ExitPauseHandler(int code) {
 			ReturnToGame=true;

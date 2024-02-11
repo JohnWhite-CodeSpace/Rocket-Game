@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,6 +16,8 @@ import java.util.Comparator;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+
 import Entity.Entity;
 import Entity.Player;
 import Entity.AlienSpaceship;
@@ -51,9 +55,9 @@ public class GamePanel extends JPanel implements Runnable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	final int originalTileSize = 48;
-	final int scale = 1;
-	public final int Tilesize = originalTileSize;
+	final int originalTileSize = 16;
+	final int scale = 3;
+	public final int Tilesize = originalTileSize*scale;
 	public final int maxScreenCol = 32;
 	public final int maxScreenRow = 24;
 	public final int screenWidth = Tilesize * maxScreenCol;
@@ -79,11 +83,12 @@ public class GamePanel extends JPanel implements Runnable{
 	public Entity obj[] = new Entity[10];
 	public AssetSetter aSetter = new AssetSetter(this);
 	public CollisionChecker CollisionCheck = new CollisionChecker(this);
-	Sound sound = new Sound();
-	Soundtracks songs = new Soundtracks();
+	public Sound sound = new Sound();
+	public Soundtracks songs = new Soundtracks();
 	public TileManager tileM = new TileManager(this);
 	boolean musicOn = true;
 	public boolean fullscreenOn = false;
+	public SaveConfig config = new SaveConfig(this);
 	public PathFinder pFinder = new PathFinder(this);
 	public Graphics2D g2;
 	public ArrayList<Entity> entityList = new ArrayList<>();
@@ -124,13 +129,10 @@ public class GamePanel extends JPanel implements Runnable{
 		this.addKeyListener(keyH);
 		this.setFocusable(true);
 		font4  = new Font("Arial",Font.BOLD,20);
+		SetupGame();
 		startGameThread();	
 	}
-	public void startGameThread() {
-		gamethread = new Thread(this);
-		gamethread.start();
-//		tempScreen = new BufferedImage(screenWidth,screenHeight,BufferedImage.TYPE_INT_ARGB);
-//		g2 = (Graphics2D) tempScreen.getGraphics();
+	public void SetupGame() {
 		try {
 			songs.PlayMusic();
 		} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
@@ -153,25 +155,31 @@ public class GamePanel extends JPanel implements Runnable{
 		planets[7]=venus;
 		planets[8]=mercury;
 		songs.Play();
-		
-		
+		tempScreen = new BufferedImage(screenWidth,screenHeight,BufferedImage.TYPE_INT_ARGB);
+		g2 = (Graphics2D) tempScreen.getGraphics();
+		setWindowScreen();
+	}
+	public void startGameThread() {
+		gamethread = new Thread(this);
+		gamethread.start();
 	}
 	
 	
 	@Override
 	public void run(){
 		double drawInterval = 1000000000/FPS; // 1sec/60frames
-		double delta = 0; //initialising delta
+		double delta = 0; //initializing delta
 		long lastTime = System.nanoTime();//getting system time in nanoseconds
 		long currentTime;
 		
-		while(gamethread != null) { //if thread is initialised
+		while(gamethread != null) { //if thread is initialized
 				currentTime = System.nanoTime(); //getting system time in nanoseconds
 				delta+=(currentTime-lastTime)/drawInterval; // adding difference between to system times an dividing by draw interval (time between each drawing) 
 				lastTime = currentTime;
 				if(delta>=1) {//for delta>= invoking update and repaint method and  subtracting 1 each loop
 					update();
-					repaint();
+					DrawToTempScreen();
+					drawToScreen();
 					delta--;
 				}
 			}
@@ -284,11 +292,7 @@ public class GamePanel extends JPanel implements Runnable{
 		aSetter.SetSol();
 		ui.playTime=0;
 	}
-
-
-	public synchronized void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		g2 = (Graphics2D) g;
+	public void DrawToTempScreen() {
 		long LoadStart = 0;
 		if(keyH.DebugMode==true) {
 			LoadStart = System.nanoTime();
@@ -390,15 +394,36 @@ public class GamePanel extends JPanel implements Runnable{
 			ui.draw(g2);
 		}
 		
-	        g2.dispose();
-	   
+	}
+	public void drawToScreen() {
+		Graphics g = getGraphics();
+		g.drawImage(tempScreen, 0, 0, screenWidth2, screenHeight2, null);
+		g.dispose();
+	}
+	
+	public void setFullScreen() {
+		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		GraphicsDevice gd = ge.getDefaultScreenDevice();
+		screenWidth2 = gd.getDisplayMode().getWidth();
+		screenHeight2 = gd.getDisplayMode().getHeight();
+		Mainframe.window.setSize(screenWidth2,screenHeight2);
+		Mainframe.window.setLocationRelativeTo(null);
+		SwingUtilities.updateComponentTreeUI(Mainframe.window);
+		fullscreenOn = true;
+		
+	}
+	public void setWindowScreen() {
+		screenWidth2 = screenWidth;
+		screenHeight2 = screenHeight;
+		Mainframe.window.setSize(screenWidth2,screenHeight2);
+		Mainframe.window.setLocationRelativeTo(null);
+		SwingUtilities.updateComponentTreeUI(Mainframe.window);
+		fullscreenOn = false;
+		
 	}
 	public void playSE(int i) {
 		sound.setFile(i);
 		sound.play();
-	}
-	public void SaveGame() {
-		
 	}
 	
 }
