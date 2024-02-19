@@ -78,11 +78,11 @@ public class Mercury extends Entity {
 		String text = "Collecting data..." + MercuryCount;
 		g2.drawString(text, x, y);
 		if(MercuryCount==100) {
-			text = "This is Mercury, the colosest planet to the Sun.";
+			text = "This is Mercury, the closest planet to the Sun.";
 			g2.drawString(text, x, y+gp.Tilesize/2);
 			text = "Atmosphere composition: None";
 			g2.drawString(text, x, y+gp.Tilesize);
-			text = "Insted of atmosphere, Mercury has a thin expsphere composed mostly of oxygen, sodium, hydrogen and helium.";
+			text = "Insted of atmosphere, Mercury has a thin exoSsphere composed mostly of oxygen, sodium, hydrogen and helium.";
 			g2.drawString(text, x, y+3*gp.Tilesize/2);
 			text = "Diameter: 4,879.4 km";
 			g2.drawString(text, x, y+2*gp.Tilesize);

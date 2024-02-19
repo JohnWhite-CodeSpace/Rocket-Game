@@ -79,6 +79,8 @@ public class Entity {
 	public double angle =0;
 	public int radius;
 	public int centerx, centery;
+	public int AdjustX=0;
+	public int AdjustY=0;
 	public Entity(GamePanel gp) {
 		this.gp=gp;
 	}
@@ -247,7 +249,7 @@ public class Entity {
 		        
 			}
 			else {
-				g2.drawImage(image, screenX, screenY, null);
+				g2.drawImage(image, screenX + AdjustX, screenY+ AdjustY, null);
 			}
 			if(dying==true) {
 				dyingAnimation(g2,screenX,screenY);

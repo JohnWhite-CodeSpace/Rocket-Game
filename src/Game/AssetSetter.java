@@ -12,8 +12,8 @@ public class AssetSetter {
 	int[] k = new int [100];
 	int[] l = new int[15];
 	int[] m = new int[15];
-	double[] o = new double[350];
-	double[] p = new double[350];
+	double[] o = new double[600];
+	double[] p = new double[600];
 	int[] r = new int[20];
 	int[] s =new int[20];
 	int max = 15;
@@ -48,13 +48,13 @@ public class AssetSetter {
 	}
 	public void setAsteroidBelt() {
 		for(int i=0; i<o.length; i++) {
-			o[i] = (random2.nextDouble(100));
-			p[i] = (random2.nextDouble(100));
+			o[i] = (random2.nextDouble(200));
+			p[i] = (random2.nextDouble(200));
 			gp.asteroidBelt[i] = new OBJ_AsteroidBelt(gp);
-			int worldx = (int) (gp.Tilesize*250+ gp.Tilesize*o[i]-gp.Tilesize*p[i]
-					+10*p[i]-5*o[i]);
-			int worldy = (int) (gp.Tilesize*250+ gp.Tilesize*o[i]-gp.Tilesize*p[i]
-					+10*p[i]-5*o[i]);
+			int worldx = (int) (gp.Tilesize*500+ gp.Tilesize*o[i]-gp.Tilesize*p[i]
+					+20*p[i]-10*o[i]);
+			int worldy = (int) (gp.Tilesize*500+ gp.Tilesize*o[i]-gp.Tilesize*p[i]
+					+20*p[i]-10*o[i]);
 			gp.asteroidBelt[i].set(worldx,worldy,"ABelt",true,null);
 		}
 	}
@@ -76,7 +76,7 @@ public class AssetSetter {
 	
 }
 	public void SetSol() {
-		gp.sol.set(gp.Tilesize*250,gp.Tilesize*250,"planet",true,null);
+		gp.sol.set(gp.Tilesize*500,gp.Tilesize*500,"planet",true,null);
 	}
 	public void setAlienSpaceship(int x, int y, int index) {
 		gp.aliens[index] = new OBJ_AlienSpaceship(gp);

@@ -20,28 +20,35 @@ public class TileManager {
 		tile = new Tile[50];
 		mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 		getTileImage();
-		LoadMap("/maps/map6.txt");
+		LoadMap("/maps/GameMap1.txt");
 	}
 	public void getTileImage() {
-			setup(0,"empty",false);
-			setup(1,"neutronstar",false);
-			setup(2,"star1",false);
-			setup(3,"reddwarf",false);
-			setup(4,"smallstars",false);
-			setup(5,"border2",true);
-			setup(6,"SagitariusA1",false);
-			setup(7,"SagitariusA2",false);
-			setup(8,"SagitariusA3",false);
-			setup(9,"SagitariusA4",false);
-			setup(10,"smallstars2",false);
-			setup(11,"star2",false);
-			setup(12,"star3",false);
-			setup(13,"reddwarf2",false);
-			setup(14,"SagitariusAmiddle",false);
-			setup(15,"SagitariusAright",false);
-			setup(16,"SagitariusAleft",false);
-			setup(17,"SagitariusAmiddleUP",false);
-			setup(18,"SagitariusAmiddleDOWN", false);
+			setup(0,"0",true);
+			setup(1,"1",false);
+			setup(2,"2",false);
+			setup(3,"3",false);
+			setup(4,"4",false);
+			setup(5,"5",false);
+			setup(6,"6",false);
+			setup(7,"7",false);
+			setup(8,"8",false);
+			setup(9,"9",false);
+			setup(10,"10",false);
+			setup(11,"11",false);
+			setup(12,"12",false);
+			setup(13,"13",false);
+			setup(14,"14",false);
+			setup(15,"15",false);
+			setup(16,"16",false);
+			setup(17,"17",false);
+			setup(18,"18", false);
+			setup(19,"19",false);
+			setup(20,"20",false);
+			setup(21,"21",false);
+			setup(22,"22",false);
+			setup(23,"23",false);
+			setup(24,"24",false);
+			setup(25,"25", false);
 	}
 	
 	public void setup(int index, String imagePath, boolean collision) {

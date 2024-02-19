@@ -14,9 +14,9 @@ public class OBJ_SpaceStation extends SpaceStation{
 	public OBJ_SpaceStation(GamePanel gp) {
 		super(gp);
 		this.gp = gp;
-		radius = 28*gp.Tilesize;
-		centerx=gp.Tilesize*250;
-		centery=gp.Tilesize*250;
+		radius = 40*gp.Tilesize;
+		centerx=gp.Tilesize*500;
+		centery=gp.Tilesize*500;
         name = "SpaceStation";
         solidArea = new Rectangle();
 		solidArea.x = 44;

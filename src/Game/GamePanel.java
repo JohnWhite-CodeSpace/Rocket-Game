@@ -62,8 +62,8 @@ public class GamePanel extends JPanel implements Runnable{
 	public final int maxScreenRow = 24;
 	public final int screenWidth = Tilesize * maxScreenCol;
 	public final int screenHeight = Tilesize * maxScreenRow;
-	public final int maxWorldCol = 500;
-	public final int maxWorldRow = 500;
+	public final int maxWorldCol = 1000;
+	public final int maxWorldRow = 1000;
 	public final int WorldWidth = Tilesize*maxWorldCol;
 	public final int WorldHeight = Tilesize*maxWorldRow;
 	public final int maxMap = 1;
@@ -106,7 +106,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public Sol sol = new OBJ_Sol(this);
 	public UI ui = new UI(this);
 	public Asteroid asteroids[] = new Asteroid[100];
-	public Asteroid_Belt asteroidBelt[] = new Asteroid_Belt[350];
+	public Asteroid_Belt asteroidBelt[] = new Asteroid_Belt[600];
 	public Entity[] planets = new Entity[9];
 	public Comet comets[] = new Comet[15];
 	public AlienSpaceship aliens[] =new AlienSpaceship[20];
@@ -320,7 +320,6 @@ public class GamePanel extends JPanel implements Runnable{
 			entityList.add(venus);
 			entityList.add(mercury);
 			entityList.add(sol);
-			
 			
 			for(int i=0; i < projectileList.size(); i++) {
 				if(projectileList.get(i)!=null) {

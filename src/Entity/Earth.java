@@ -80,7 +80,7 @@ public class Earth extends Entity {
 		if(EarthCount==100) {
 			text = "This is Earth - our home planet.";
 			g2.drawString(text, x, y+gp.Tilesize/2);
-			text = "Atmospheres composition: 78.8% Nitrogen, 20.95% Oxygen,1% Water vapout=r, <1% argon ";
+			text = "Atmospheres composition: 78.8% Nitrogen, 20.95% Oxygen,1% Water vapour, <1% Argon ";
 			g2.drawString(text, x, y+gp.Tilesize);
 			text = "also trace ammounts of carbon dioxide, neon, helium, methane, krypton and hydrogen were found.";
 			g2.drawString(text, x, y+3*gp.Tilesize/2);

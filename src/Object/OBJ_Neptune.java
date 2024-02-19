@@ -11,13 +11,15 @@ public class OBJ_Neptune extends Neptune{
 	public OBJ_Neptune(GamePanel gp) {
 		super(gp);
 		this.gp = gp;
-		radius = 215*gp.Tilesize;
-		centerx=gp.Tilesize*250;
-		centery=gp.Tilesize*250;
+		radius = 420*gp.Tilesize;
+		centerx=gp.Tilesize*500-5*gp.Tilesize;
+		centery=gp.Tilesize*500-5*gp.Tilesize;
         name = "Neptune";
-        Xcircle=0;
-        Ycircle=0;
-        Radcircle=gp.Tilesize*8;
+        Xcircle=Radcircle/2;
+	    Ycircle=Radcircle/2;
+	    AdjustX = (int) Radcircle/2;
+	    AdjustY=(int) Radcircle/2;
+        Radcircle=gp.Tilesize*10;
         planetSolidArea = new Ellipse2D.Double(Xcircle,Ycircle,Radcircle,Radcircle);
         infoArea = new Ellipse2D.Double(Xcircle-Radcircle,Ycircle-Radcircle,Radcircle*2,Radcircle*2);
 		solidAreaDefaultX = (int) planetSolidArea.getX();
@@ -29,7 +31,7 @@ public class OBJ_Neptune extends Neptune{
 		// TODO Auto-generated constructor stub
 	}
 	public void getImage() {
-		 	int i = 8;
+		 	int i = 10;
 			Entity1 = setup("/planets/Neptune1", gp.Tilesize*i, gp.Tilesize*i);
 			Entity2 = setup("/planets/Neptune2", gp.Tilesize*i, gp.Tilesize*i);
 			Entity3 = setup("/planets/Neptune3", gp.Tilesize*i, gp.Tilesize*i);

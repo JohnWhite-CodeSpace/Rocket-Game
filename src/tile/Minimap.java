@@ -23,13 +23,26 @@ public class Minimap extends TileManager{
 		font4 = new Font("Arial",Font.BOLD,15);
 	}
 	public void CreateMiniMap() {	
-		if(worldMap==null) {
-			try {
-				worldMap = ImageIO.read(getClass().getResourceAsStream("/maps/Map2.png"));
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		int worldMapWidth = 1600;
+		int worldMapHeight = 1600;
+		worldMap = new BufferedImage(worldMapWidth,worldMapHeight, BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g2 = (Graphics2D)worldMap.createGraphics();
+		int col=0;
+		int row=0;
+		while(col < gp.maxWorldCol && row < gp.maxWorldRow) {
+			
+			int tileNum = mapTileNum[col][row];
+			int x = 16 * col/10;
+			int y = 16 * row/10;
+			
+			g2.drawImage(tile[tileNum].image, x, y, null);
+			col+=10;
+			
+			if(col == gp.maxWorldCol) {
+				col=0;
+				row+=10;
 			}
+			
 		}
 		
 		

@@ -11,13 +11,15 @@ public class OBJ_Saturn extends Saturn{
 	public OBJ_Saturn(GamePanel gp) {
 		super(gp);
 		this.gp = gp;
-		radius = 155*gp.Tilesize;
-		centerx=gp.Tilesize*250;
-		centery=gp.Tilesize*250;
+		radius = 310*gp.Tilesize;
+		centerx=gp.Tilesize*500-8*gp.Tilesize;
+		centery=gp.Tilesize*500-(11*gp.Tilesize)/2;
         name = "Saturn";
-		Radcircle=gp.Tilesize*4;
-		Xcircle=gp.Tilesize*5;
-	    Ycircle=gp.Tilesize*2+gp.Tilesize/2;
+		Radcircle=gp.Tilesize*6;
+		Xcircle=Radcircle/2;
+	    Ycircle=Radcircle/2;
+	    AdjustX = (int) Radcircle/2;
+	    AdjustY=(int) Radcircle/2;
 		planetSolidArea = new Ellipse2D.Double(Xcircle,Ycircle,Radcircle,Radcircle);
 		infoArea = new Ellipse2D.Double(Xcircle-Radcircle,Ycircle-Radcircle,Radcircle*2,Radcircle*2);
         IsAlive = false;
@@ -26,8 +28,8 @@ public class OBJ_Saturn extends Saturn{
 		// TODO Auto-generated constructor stub
 	}
 	public void getImage() {
-		 	int i=14;
-		 	int j=9;
+		 	int i=16;
+		 	int j=11;
 				Entity1 = setup("/planets/Saturn1", gp.Tilesize*i, gp.Tilesize*j);
 				Entity2 = setup("/planets/Saturn2", gp.Tilesize*i, gp.Tilesize*j);
 				Entity3 = setup("/planets/Saturn3", gp.Tilesize*i, gp.Tilesize*j);

@@ -69,7 +69,7 @@ public class SaveConfig {
 			
 			for(int i=0; i<gp.asteroids.length; i++) {
 				if(gp.asteroids[i]!=null) {
-					bw.write("Asteroid status: " + gp.asteroids[i].IsAlive);
+					bw.write("Asteroid "+i+" status: " + gp.asteroids[i].IsAlive);
 					bw.newLine();
 					if(gp.asteroids[i].IsAlive==true) {
 						bw.write("Asteroid " + i + " X position: " + String.valueOf(gp.asteroids[i].worldx) );
@@ -79,7 +79,7 @@ public class SaveConfig {
 					}
 					
 				}else {
-					bw.write("Asteroid status: false");
+					bw.write("Asteroid "+i+" status: false");
 					bw.newLine();
 				}
 				
@@ -89,7 +89,7 @@ public class SaveConfig {
 			
 			for(int i=0; i<gp.asteroidBelt.length; i++) {
 				if(gp.asteroidBelt[i]!=null) {
-					bw.write("Asteroid in belt status: " + String.valueOf(gp.asteroidBelt[i].IsAlive));
+					bw.write("Asteroid in belt "+i+" status: " + String.valueOf(gp.asteroidBelt[i].IsAlive));
 					bw.newLine();
 					if(gp.asteroidBelt[i].IsAlive==true) {
 						bw.write("Asteroid in belt " + i + " X position: " + String.valueOf(gp.asteroidBelt[i].worldx) );
@@ -99,7 +99,7 @@ public class SaveConfig {
 					}
 					
 				}else {
-					bw.write("Asteroid in belt status: false");
+					bw.write("Asteroid in belt "+i+" status: false");
 					bw.newLine();
 				}
 				
@@ -109,7 +109,7 @@ public class SaveConfig {
 			
 			for(int i=0; i<gp.comets.length; i++) {
 				if(gp.comets[i]!=null) {
-					bw.write("Comet status: " + String.valueOf(gp.comets[i].IsAlive));
+					bw.write("Comet "+i+" status: " + String.valueOf(gp.comets[i].IsAlive));
 					bw.newLine();
 					if(gp.comets[i].IsAlive==true) {
 						bw.write("Comet " + i + " X position: " + String.valueOf(gp.comets[i].worldx) );
@@ -119,7 +119,7 @@ public class SaveConfig {
 					}
 					
 				}else {
-					bw.write("Comet status: false");
+					bw.write("Comet "+i+" status: false");
 					bw.newLine();
 				}
 			}
@@ -128,7 +128,7 @@ public class SaveConfig {
 			
 			for(int i=0; i<gp.aliens.length; i++) {
 				if(gp.aliens[i]!=null) {
-					bw.write("Alien Spaceship status: " + gp.aliens[i].IsAlive);
+					bw.write("Alien Spaceship "+i+" status: " + gp.aliens[i].IsAlive);
 					bw.newLine();
 					if(gp.aliens[i].IsAlive==true) {
 						bw.write("Alien Spaceship " + i + " X position: " + String.valueOf(gp.aliens[i].worldx) );
@@ -138,7 +138,7 @@ public class SaveConfig {
 					}
 					
 				}else {
-					bw.write("Alien Spaceship status: false");
+					bw.write("Alien Spaceship "+i+" status: false");
 					bw.newLine();
 				}
 			}
@@ -223,7 +223,7 @@ public class SaveConfig {
 			for(int i=0; i<gp.asteroids.length; i++) {
 				if(gp.asteroids[i]!=null) {
 					s = br.readLine();
-					if(Boolean.parseBoolean(s.replace("Asteroid status: ",""))==true) {
+					if(Boolean.parseBoolean(s.replace("Asteroid "+i+" status: ",""))==true) {
 						s = br.readLine();
 						gp.asteroids[i].worldx = Integer.parseInt(s.replace("Asteroid " + i + " X position: ", ""));
 						System.out.println(gp.asteroids[i].worldx);
@@ -238,7 +238,7 @@ public class SaveConfig {
 			for(int i=0; i<gp.asteroidBelt.length; i++) {
 				if(gp.asteroidBelt[i]!=null) {
 					s = br.readLine();
-					if(Boolean.parseBoolean(s.replace("Asteroid in belt status: ",""))==true) {
+					if(Boolean.parseBoolean(s.replace("Asteroid in belt "+i+" status: ",""))==true) {
 						s = br.readLine();
 						gp.asteroidBelt[i].worldx = Integer.parseInt(s.replace("Asteroid in belt " + i + " X position: ", ""));
 						s = br.readLine();
@@ -251,7 +251,7 @@ public class SaveConfig {
 			for(int i=0; i<gp.comets.length; i++) {
 				if(gp.comets[i]!=null) {
 					s = br.readLine();
-					if(Boolean.parseBoolean(s.replace("Comet status: ",""))==true) {
+					if(Boolean.parseBoolean(s.replace("Comet "+i+" status: ",""))==true) {
 						s = br.readLine();
 						gp.comets[i].worldx = Integer.parseInt(s.replace("Comet " + i + " X position: ", ""));
 						s = br.readLine();
@@ -268,7 +268,7 @@ public class SaveConfig {
 			for(int i=0; i<gp.aliens.length; i++) {
 				if(gp.aliens[i]!=null) {
 					s = br.readLine();
-					if(Boolean.parseBoolean(s.replace("Alien Spaceship status: ",""))==true) {
+					if(Boolean.parseBoolean(s.replace("Alien Spaceship "+i+" status: ",""))==true) {
 						s = br.readLine();
 						gp.aliens[i].worldx = Integer.parseInt(s.replace("Alien Spaceship " + i + " X position: ", ""));
 						s = br.readLine();

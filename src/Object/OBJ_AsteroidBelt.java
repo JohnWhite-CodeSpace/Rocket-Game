@@ -11,8 +11,8 @@ public class OBJ_AsteroidBelt extends Asteroid_Belt{
 		super(gp);
 		this.gp = gp;
 		
-		centerx=gp.Tilesize*250;
-		centery=gp.Tilesize*250;
+		centerx=gp.Tilesize*500;
+		centery=gp.Tilesize*500;
         name = "Asteroid_Belt";
         maxLife = 1;
         life = maxLife;
@@ -21,9 +21,9 @@ public class OBJ_AsteroidBelt extends Asteroid_Belt{
         IsAlive = false;
         Random random = new Random();
         double RDangle = random.nextDouble(6.28);
-        int RDradius = random.nextInt(300);
+        int RDradius = random.nextInt(600);
         angle=RDangle;
-        radius = 110*gp.Tilesize+RDradius;
+        radius = 220*gp.Tilesize+RDradius;
         getImage();
 		// TODO Auto-generated constructor stub
 	}
