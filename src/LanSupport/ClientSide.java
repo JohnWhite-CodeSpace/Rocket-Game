@@ -23,23 +23,31 @@ public class ClientSide implements Runnable{
 		ClientThread = new Thread();
 		ClientThread.start();
 		ServerData = new ArrayList<String>();
+		try {
+			br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	@Override
 	public synchronized void run() {
 		// TODO Auto-generated method stub
 		while(gp.Multiplayer==true && ClientThread!=null) {
 			try {
-				br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-				bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+				//SendClientPlayerData();
+				GetServerPlayerData();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 		}
+		CloseConnection();
 	}
 	//CHnage String to bytes later on for faster data transfer between client/s and server 
-	public void SendClientPlayerPosition(ArrayList<String> ClientInfo) {
+	public void SendClientPlayerData(ArrayList<String> ClientInfo) {
 		try {
 			for(int i=0; i<= ClientInfo.size(); i++) {
 				bw.write(ClientInfo.get(i));
@@ -53,9 +61,20 @@ public class ClientSide implements Runnable{
 		
 		
 	}
-	public void GetServerPlayerPosition() throws IOException {
+	public void GetServerPlayerData() throws IOException {
 		while(br.ready()) {
 			ServerData.add(br.readLine());
 		}
+	}
+	public void CloseConnection() {
+		try {
+			br.close();
+			bw.close();
+			socket.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }
