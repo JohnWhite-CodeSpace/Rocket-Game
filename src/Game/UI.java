@@ -22,7 +22,7 @@ public class UI {
 	int messageCounter = 0;
 	public boolean gameFinished = false;
 	public String CurrentDialogue = "";
-	Font font, font2, font3, font4;
+	Font font, font2, font3, font4, font5;
 	public int commandNum = 0;
 	public int info=999;
 	public int titleScreenState =0;
@@ -42,6 +42,7 @@ public class UI {
 		font2 = new Font("Arial", Font.BOLD,90);
 		font3 = new Font("Arial",Font.BOLD,20);
 		font4 = new Font("Arial",Font.BOLD,15);
+		font5 = new Font("Arial", Font.BOLD,35);
 		lifeOn=true;
 		OBJ_PlayerLife life1 = new OBJ_PlayerLife(gp);
 		OBJ_PlayerFireRecharge rechargebar = new OBJ_PlayerFireRecharge(gp);
@@ -176,7 +177,7 @@ public class UI {
 			g2.drawString(text, x, y);
 			BufferedImage image2 = ImageIO.read(getClass().getResourceAsStream("/player/chonker.png"));
 			x = gp.screenWidth/2 - gp.Tilesize;
-			y=gp.screenHeight/6 +35;
+			y=gp.screenHeight/6 +gp.Tilesize;
 			g2.drawImage(image2, x, y, gp.Tilesize*2, gp.Tilesize*2,null);
 			//MENU
 			
@@ -188,10 +189,12 @@ public class UI {
 			g2.drawString(text, x+5, y+5);
 			g2.setColor(Color.white);
 			g2.drawString(text, x, y);
+			
 			if(commandNum==0) {
 				g2.setColor(Color.green);
 				g2.drawString(">", x-gp.Tilesize, y);
 			}
+			
 			text = "LOAD GAME";
 			x = getXForCenteredText(text);
 			y+=gp.Tilesize*2;
@@ -210,10 +213,12 @@ public class UI {
 			g2.drawString(text, x+5, y+5);
 			g2.setColor(Color.white);
 			g2.drawString(text, x, y);
+			
 			if(commandNum==2) {
 				g2.setColor(Color.green);
 				g2.drawString(">", x-gp.Tilesize, y);
 			}
+			
 			text = "EXIT";
 			x = getXForCenteredText(text);
 			y+=gp.Tilesize*2;
@@ -262,6 +267,7 @@ public class UI {
 				g2.setColor(Color.green);
 				g2.drawString(">", x-gp.Tilesize, y);
 			}
+			
 			text = "Back";
 			x = getXForCenteredText(text);
 			y +=gp.Tilesize*3+24;
@@ -528,7 +534,7 @@ public class UI {
 		if(lifeOn==true) {
 			image = ImageIO.read(getClass().getResourceAsStream("/objects/Heart.png"));
 			g2.drawImage(image, gp.Tilesize*4,gp.Tilesize,gp.Tilesize+gp.Tilesize/2,gp.Tilesize+gp.Tilesize/2,null);
-			g2.setFont(font);
+			g2.setFont(font5);
 			g2.setColor(Color.white);
 			g2.drawString("Health", gp.Tilesize-10, 2*gp.Tilesize);
 			int x = gp.Tilesize/2;
@@ -578,13 +584,14 @@ public class UI {
 
 	}
 	public void DrawFireRecharge() throws IOException {
-		g2.setFont(font);
+		g2.setFont(font5);
 		g2.setColor(Color.white);
-		g2.drawString("Fire recharge", gp.Tilesize-10, gp.Tilesize*20+20);
+		g2.drawString("Weapon: "+gp.player.Weapon, gp.Tilesize-10, gp.screenHeight-11/2*gp.Tilesize);
 		image = ImageIO.read(getClass().getResourceAsStream("/objects/"+gp.player.Weapon+".png"));
-		g2.drawImage(image, gp.Tilesize*5,gp.Tilesize*21,gp.Tilesize+gp.Tilesize/2,gp.Tilesize+gp.Tilesize/2,null);
+		//here sizes
+		g2.drawImage(image, gp.Tilesize*5,gp.screenHeight-5*gp.Tilesize,gp.Tilesize+gp.Tilesize/2,gp.Tilesize+gp.Tilesize/2,null);
 		int x = gp.Tilesize/2;
-		int y = gp.Tilesize*21;
+		int y = gp.screenHeight-4*gp.Tilesize;
 		int i=0;
 		while(i<gp.player.maxrecharge) {
 			g2.drawImage(recharge2, x, y,gp.Tilesize,gp.Tilesize, null);
@@ -592,7 +599,7 @@ public class UI {
 			x+=gp.Tilesize/3;
 		}
 		x = gp.Tilesize/2;
-		y = gp.Tilesize*21;
+		y = gp.screenHeight-4*gp.Tilesize;
 		i=0;
 		while(i<gp.player.recharge) {
 			g2.drawImage(recharge1, x, y,gp.Tilesize,gp.Tilesize, null);
@@ -602,21 +609,21 @@ public class UI {
 	}
 	public void DrawFuelBar() throws IOException {
 		BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/Canister.png"));
-		g2.drawImage(image, gp.Tilesize*28,gp.Tilesize*21+10,gp.Tilesize*2,gp.Tilesize*2,null);
-		g2.setFont(font);
+		g2.drawImage(image, gp.screenWidth-3*gp.Tilesize,gp.screenHeight-4*gp.Tilesize,gp.Tilesize*2,gp.Tilesize*2,null);
+		g2.setFont(font5);
 		g2.setColor(Color.white);
-		g2.drawString("Fuel", gp.Tilesize*28, gp.Tilesize*20+20);
+		g2.drawString("Fuel", gp.screenWidth-3*gp.Tilesize, gp.screenHeight-5*gp.Tilesize);
 		g2.setFont(font);
-		int x = gp.Tilesize*30 + gp.Tilesize/2;
-		int y = gp.Tilesize*22 + gp.Tilesize/2;
+		int x = gp.screenWidth-5*gp.Tilesize+ gp.Tilesize/2;
+		int y = gp.screenHeight-4*gp.Tilesize + gp.Tilesize/2;
 		int i=0;
 		while(i<gp.player.maxfuel/20) {
 				g2.drawImage(Fuel0, x, y,gp.Tilesize,gp.Tilesize, null);
 			i++;
 			y-=gp.Tilesize/3;
 		}
-		x = gp.Tilesize*30 + gp.Tilesize/2;
-		y = gp.Tilesize*22 + gp.Tilesize/2;
+		x = gp.screenWidth-5*gp.Tilesize + gp.Tilesize/2;
+		y = gp.screenHeight-4*gp.Tilesize + gp.Tilesize/2;
 		i=0;
 		while(i<gp.player.fuel/20) {
 			if(i>=0&&i<3) {

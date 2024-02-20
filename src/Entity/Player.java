@@ -59,7 +59,7 @@ public class Player extends Entity {
 		recharge=maxrecharge;
 		rechargeCounter=0;
 		fuelconsumption=0;
-		Weapon = "Rocket";
+		Weapon = "Rockets";
 	}
 	public void SetSavedValues(int Xpos,int Ypos, double Angle, int choice, int Life, int Fuel, int Planettoken) {
 		ammoType="bullet1";
@@ -72,7 +72,7 @@ public class Player extends Entity {
 		recharge=maxrecharge;
 		rechargeCounter=0;
 		fuelconsumption=0;
-		Weapon = "Rocket";
+		Weapon = "Rockets";
 		worldx = Xpos;
 		worldy = Ypos;
 		PlayerAngle = Angle;
@@ -221,10 +221,10 @@ public class Player extends Entity {
 				rechargeCounter = 0;
 				recharge=120;
 				gp.ui.showMessage("Ready to fire!");
-				if(Weapon.equals("Bullets")) {
-					Weapon="Rocket";
-				}else if(Weapon.equals("Rocket")) {
-					Weapon="Bullets";
+				if(Weapon.equals("Machine gun")) {
+					Weapon="Rockets";
+				}else if(Weapon.equals("Rockets")) {
+					Weapon="Machine gun";
 				}
 			}
 		}

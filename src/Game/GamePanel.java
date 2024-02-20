@@ -58,10 +58,10 @@ public class GamePanel extends JPanel implements Runnable{
 	final int originalTileSize = 16;
 	final int scale = 3;
 	public final int Tilesize = originalTileSize*scale;
-	public final int maxScreenCol = 32;
-	public final int maxScreenRow = 24;
-	public final int screenWidth = Tilesize * maxScreenCol;
-	public final int screenHeight = Tilesize * maxScreenRow;
+	public int maxScreenCol = 32;
+	public int maxScreenRow = 20;
+	public int screenWidth = Tilesize * maxScreenCol;
+	public int screenHeight = Tilesize * maxScreenRow;
 	public final int maxWorldCol = 1000;
 	public final int maxWorldRow = 1000;
 	public final int WorldWidth = Tilesize*maxWorldCol;
@@ -123,8 +123,11 @@ public class GamePanel extends JPanel implements Runnable{
 	public final int DialogState=7;
 	public final int LoadState=8;
 	public final int MapState=10;
+	public boolean Multiplayer = false;
 	
 	public GamePanel() {
+		
+		//getPreferedGraphicsScale();
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		this.setBackground(Color.black);
 		this.setDoubleBuffered(true);
@@ -132,7 +135,7 @@ public class GamePanel extends JPanel implements Runnable{
 		this.setFocusable(true);
 		font4  = new Font("Arial",Font.BOLD,20);
 		SetupGame();
-		startGameThread();	
+		startGameThread();
 	}
 	public void SetupGame() {
 		try {
@@ -168,13 +171,13 @@ public class GamePanel extends JPanel implements Runnable{
 	
 	
 	@Override
-	public void run(){
+	public synchronized void run(){
 		double drawInterval = 1000000000/FPS; // 1sec/60frames
-		double delta = 0; //initializing delta
+		double delta = 0; //initialising delta
 		long lastTime = System.nanoTime();//getting system time in nanoseconds
 		long currentTime;
 		
-		while(gamethread != null) { //if thread is initialized
+		while(gamethread != null) { //if thread is initialised
 				currentTime = System.nanoTime(); //getting system time in nanoseconds
 				delta+=(currentTime-lastTime)/drawInterval; // adding difference between to system times an dividing by draw interval (time between each drawing) 
 				lastTime = currentTime;
@@ -423,6 +426,21 @@ public class GamePanel extends JPanel implements Runnable{
 		Mainframe.window.setLocationRelativeTo(null);
 		SwingUtilities.updateComponentTreeUI(Mainframe.window);
 		fullscreenOn = false;
+		
+	}
+	public void getPreferedGraphicsScale() {
+		
+		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		GraphicsDevice gd = ge.getDefaultScreenDevice();
+		int DeviceDisplayWidth = gd.getDisplayMode().getWidth();
+		int DeviceDisplayHeight = gd.getDisplayMode().getHeight();
+		System.out.println(DeviceDisplayWidth + "x" + DeviceDisplayHeight);
+		maxScreenCol = (int) DeviceDisplayWidth/Tilesize;
+		maxScreenRow = (int) DeviceDisplayHeight/Tilesize;
+		screenWidth = Tilesize * maxScreenCol;
+		screenHeight = Tilesize * maxScreenRow;
+		System.out.println(screenWidth+"x"+screenHeight);
+		System.out.println(maxScreenCol + "x" + maxScreenRow);
 		
 	}
 	public void playSE(int i) {
