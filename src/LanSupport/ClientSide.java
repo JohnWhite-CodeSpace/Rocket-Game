@@ -46,7 +46,7 @@ public class ClientSide implements Runnable{
 		}
 		CloseConnection();
 	}
-	//CHnage String to bytes later on for faster data transfer between client/s and server 
+	//Change String to bytes later on for faster data transfer between client/s and server 
 	public void SendClientPlayerData(ArrayList<String> ClientInfo) {
 		try {
 			for(int i=0; i<= ClientInfo.size(); i++) {

@@ -6,13 +6,13 @@
 /planets/
 /player/
 /sound/
+/tile/
 /AI/
 /Entity/
 /Game/
+/LanSupport/
 /Object/
 /Utility/
 /module-info.class
 /space_station/
-/tile/
 /tiles/
-/LanSupport/

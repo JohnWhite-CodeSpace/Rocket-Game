@@ -21,6 +21,7 @@ public class UI {
 	public int lifecounter = 0;
 	int messageCounter = 0;
 	public boolean gameFinished = false;
+	public int ClientServerConnection=1;
 	public String CurrentDialogue = "";
 	Font font, font2, font3, font4, font5;
 	public int commandNum = 0;
@@ -28,6 +29,7 @@ public class UI {
 	public int titleScreenState =0;
 	public int LoadProgress;
 	public String LoadMessage;
+	public String MultiplayerLoadMessage;
 	public double playTime =0;
 	public BufferedImage lifefull,lifeempty;
 	public BufferedImage recharge1, recharge2;
@@ -182,7 +184,7 @@ public class UI {
 			//MENU
 			
 			g2.setFont(font);
-			text = State;;
+			text = State;
 			x = getXForCenteredText(text);
 			y+=gp.Tilesize*4;
 			g2.setColor(Color.black);
@@ -195,6 +197,20 @@ public class UI {
 				g2.drawString(">", x-gp.Tilesize, y);
 			}
 			
+			g2.setFont(font);
+			text = "Multiplayer";
+			x = getXForCenteredText(text);
+			y+=gp.Tilesize*2;
+			g2.setColor(Color.black);
+			g2.drawString(text, x+5, y+5);
+			g2.setColor(Color.white);
+			g2.drawString(text, x, y);
+			
+			if(commandNum==1) {
+				g2.setColor(Color.green);
+				g2.drawString(">", x-gp.Tilesize, y);
+			}
+			
 			text = "LOAD GAME";
 			x = getXForCenteredText(text);
 			y+=gp.Tilesize*2;
@@ -202,7 +218,7 @@ public class UI {
 			g2.drawString(text, x+5, y+5);
 			g2.setColor(Color.white);
 			g2.drawString(text, x, y);
-			if(commandNum==1) {
+			if(commandNum==2) {
 				g2.setColor(Color.green);
 				g2.drawString(">", x-gp.Tilesize, y);
 			}
@@ -214,7 +230,7 @@ public class UI {
 			g2.setColor(Color.white);
 			g2.drawString(text, x, y);
 			
-			if(commandNum==2) {
+			if(commandNum==3) {
 				g2.setColor(Color.green);
 				g2.drawString(">", x-gp.Tilesize, y);
 			}
@@ -226,7 +242,8 @@ public class UI {
 			g2.drawString(text, x+5, y+5);
 			g2.setColor(Color.white);
 			g2.drawString(text, x, y);
-			if(commandNum==3) {
+			
+			if(commandNum==4) {
 				g2.setColor(Color.green);
 				g2.drawString(">", x-gp.Tilesize, y);
 			}
@@ -712,6 +729,27 @@ public class UI {
 		g2.drawString(text, x+5, y+5);
 		g2.setColor(Color.white);
 		g2.drawString(text, x, y);
+	}
+	public void LoadMultiplayerScreen() throws IOException {
+		BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/TitleScreen.png"));
+		g2.drawImage(image, 0,0,gp.screenWidth,gp.screenHeight,null);
+		g2.setFont(font2);
+		String text = "Loading";
+		int x = getXForCenteredText(text);
+		int y = gp.screenHeight/6;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+5, y+5);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+		x = getXForCenteredText(text);
+		y+=gp.Tilesize*8;
+		g2.setFont(font);
+		if(ClientServerConnection==1) {
+			text = MultiplayerLoadMessage;
+		}
+		else if(ClientServerConnection==2) {
+			text = MultiplayerLoadMessage;
+		}
 	}
 }
 

@@ -197,13 +197,13 @@ public class KeyHandler implements KeyListener{
 				gp.ui.commandNum-- ;
 				gp.playSE(4);
 				if(gp.ui.commandNum<0) {
-					gp.ui.commandNum=3 ;
+					gp.ui.commandNum=4 ;
 				}
 			}
 			if(code == KeyEvent.VK_S) {
 				gp.ui.commandNum++ ;
 				gp.playSE(4);
-				if(gp.ui.commandNum>3) {
+				if(gp.ui.commandNum>4) {
 					gp.ui.commandNum=0 ;
 				}
 			}
@@ -429,5 +429,6 @@ public class KeyHandler implements KeyListener{
 				IsFirstGame=false;
 			}
 		}
+		
 	}
 }
