@@ -3,6 +3,9 @@ package Game;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import LanSupport.ClientSide;
+import LanSupport.ServerSide;
+
 public class KeyHandler implements KeyListener{
 
 	public boolean upPressed;
@@ -425,10 +428,10 @@ public class KeyHandler implements KeyListener{
 		if(code==KeyEvent.VK_ENTER) {
 			gp.playSE(3);
 			switch(gp.ui.commandNum) {
-			case 0: break;
-			case 1: break;
-			case 2: break;
-			case 3: break;	
+			case 0: gp.Server.StartServer(); break;
+			case 1: gp.Server.StartServer(); break;
+			case 2: gp.Server.StartServer(); break;
+			case 3: gp.Clients.StartClient(); break;	
 			case 4: gp.gameState = gp.titleState;
 				gp.ui.titleScreenState=0;
 			}

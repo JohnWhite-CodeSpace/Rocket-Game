@@ -1,5 +1,6 @@
 package LanSupport;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -19,6 +20,16 @@ public class ClientSide implements Runnable{
 	BufferedReader br;
 	BufferedWriter bw;
 	public ClientSide(GamePanel gp, Socket socket) {
+		try {
+			socket = new Socket("localhost",20);
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.gp=gp;
 		this.socket=socket;
 		ClientThread = new Thread();
@@ -32,6 +43,10 @@ public class ClientSide implements Runnable{
 			e.printStackTrace();
 		}
 		
+	}
+	public void StartClient() {
+		ClientThread = new Thread();
+		ClientThread.start();
 	}
 	@Override
 	public synchronized void run() {
@@ -73,6 +88,7 @@ public class ClientSide implements Runnable{
 			br.close();
 			bw.close();
 			socket.close();
+			ClientThread = null;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

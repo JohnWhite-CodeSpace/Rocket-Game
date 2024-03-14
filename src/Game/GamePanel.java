@@ -10,6 +10,7 @@ import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -32,6 +33,8 @@ import Entity.Comet;
 import Entity.Mars;
 import Entity.Earth;
 import Entity.Venus;
+import LanSupport.ClientSide;
+import LanSupport.ServerSide;
 import Entity.Mercury;
 import Entity.Sol;
 import Object.OBJ_Pluto;
@@ -49,6 +52,7 @@ import Entity.Asteroid_Belt;
 import tile.TileManager;
 import tile.Minimap;
 import AI.PathFinder;
+import java.net.ServerSocket;
 public class GamePanel extends JPanel implements Runnable{
 
 	/**
@@ -126,6 +130,10 @@ public class GamePanel extends JPanel implements Runnable{
 	public final int MapState=10;
 	public boolean Multiplayer = false;
 	
+	public ClientSide Clients;
+	public ServerSide Server;
+	
+	
 	public GamePanel() {
 		
 		//getPreferedGraphicsScale();
@@ -169,8 +177,20 @@ public class GamePanel extends JPanel implements Runnable{
 		gamethread = new Thread(this);
 		gamethread.start();
 	}
-	
-	
+	public void startHostGame() {
+		ServerSocket Bus;
+		try {
+			Bus = new ServerSocket(22);
+			Server = new ServerSide(this,Bus);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	public void ConnectToGame() {
+		
+	}
 	@Override
 	public synchronized void run(){
 		double drawInterval = 1000000000/FPS; // 1sec/60frames

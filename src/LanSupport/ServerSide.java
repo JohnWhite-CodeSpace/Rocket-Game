@@ -21,14 +21,14 @@ public class ServerSide implements Runnable{
 	public ArrayList <String> Client2Data;
 	public ArrayList <String> Client3Data;
 	public ArrayList <String> Client4Data;
+	public ArrayList <String> HostData;
 	public Map<Integer, ArrayList<String>> ClientsData;
 	BufferedReader br;
 	BufferedWriter bw;
 	public int key=0;
-	public ServerSide(GamePanel gp, ServerSocket Ssocket, Socket socket) {
+	public ServerSide(GamePanel gp, ServerSocket Ssocket) {
 		this.gp=gp;
 		this.Ssocket = Ssocket;
-		this.socket=socket;
 		try {
 			socket = Ssocket.accept();
 			br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -64,8 +64,9 @@ public class ServerSide implements Runnable{
 			ClientsData.put(key, Client);
 		}
 	}
-	public void SenHostData(ArrayList<String> ServerData) {
+	public void SendHostData(ArrayList<String> ServerData) {
 		try {
+			GetHostData();
 			for(int i=0; i<= ServerData.size(); i++) {
 				bw.write(ServerData.get(i));
 				bw.newLine();
@@ -74,6 +75,30 @@ public class ServerSide implements Runnable{
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
+	}
+	public void CloseServer() {
+		try {
+			br.close();
+			bw.close();
+			socket.close();
+			ServerThread = null;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void GetHostData() {
+		HostData = new ArrayList<String>();
+		HostData.add(gp.player.ammoType);
+		HostData.add(gp.player.Weapon);
+		HostData.add(gp.player.direction);
+		HostData.add(Double.toString(gp.player.worldx));
+		HostData.add(Double.toString(gp.player.worldy));
+		HostData.add(Double.toString(gp.player.PlayerAngle));
+		HostData.add(Double.toString(gp.player.life));
+		HostData.add(Double.toString(gp.player.fuel));
+		HostData.add(Double.toString(gp.player.Choice));
+		SendHostData(HostData);
 	}
 	
 }
