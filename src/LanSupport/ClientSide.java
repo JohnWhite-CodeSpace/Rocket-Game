@@ -20,16 +20,6 @@ public class ClientSide implements Runnable{
 	BufferedReader br;
 	BufferedWriter bw;
 	public ClientSide(GamePanel gp, Socket socket) {
-		try {
-			socket = new Socket("localhost",20);
-		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		this.gp=gp;
 		this.socket=socket;
 		ClientThread = new Thread();

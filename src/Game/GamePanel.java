@@ -189,7 +189,12 @@ public class GamePanel extends JPanel implements Runnable{
 		
 	}
 	public void ConnectToGame() {
-		
+		try {
+			Clients = new ClientSide(this,new Socket("localhost",22));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	@Override
 	public synchronized void run(){
