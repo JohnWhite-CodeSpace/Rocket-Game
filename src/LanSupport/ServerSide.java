@@ -64,7 +64,7 @@ public class ServerSide implements Runnable{
 			ClientsData.put(key, Client);
 		}
 	}
-	public void SendClientsPlayerData(ArrayList<String> ServerData) {
+	public void SenHostData(ArrayList<String> ServerData) {
 		try {
 			for(int i=0; i<= ServerData.size(); i++) {
 				bw.write(ServerData.get(i));

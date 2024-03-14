@@ -1,12 +1,7 @@
-/asteroids/
-/chonker.ico
-/chonker.png
-/maps/
 /objects/
 /planets/
 /player/
 /sound/
-/tile/
 /AI/
 /Entity/
 /Game/
@@ -15,4 +10,5 @@
 /Utility/
 /module-info.class
 /space_station/
+/tile/
 /tiles/

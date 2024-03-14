@@ -149,6 +149,13 @@ public class UI {
 				e.printStackTrace();
 			}
 			break;
+		case 9:
+			try {
+				LoadMultiplayerScreen();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 		}
 
@@ -198,7 +205,7 @@ public class UI {
 			}
 			
 			g2.setFont(font);
-			text = "Multiplayer";
+			text = "MULTIPLAYER (LAN)";
 			x = getXForCenteredText(text);
 			y+=gp.Tilesize*2;
 			g2.setColor(Color.black);
@@ -457,7 +464,7 @@ public class UI {
 			//MENU
 			
 			g2.setFont(font);
-			text = State;;
+			text = State;
 			x = getXForCenteredText(text);
 			y+=gp.Tilesize*4;
 			g2.setColor(Color.black);
@@ -713,7 +720,7 @@ public class UI {
 		BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/TitleScreen.png"));
 		g2.drawImage(image, 0,0,gp.screenWidth,gp.screenHeight,null);
 		g2.setFont(font2);
-		String text = "Loading";
+		String text = "Waiting for players...";
 		int x = getXForCenteredText(text);
 		int y = gp.screenHeight/6;
 		g2.setColor(Color.black);
@@ -734,13 +741,78 @@ public class UI {
 		BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/TitleScreen.png"));
 		g2.drawImage(image, 0,0,gp.screenWidth,gp.screenHeight,null);
 		g2.setFont(font2);
-		String text = "Loading";
+		String text = "Choose multiplayer mode:";
 		int x = getXForCenteredText(text);
 		int y = gp.screenHeight/6;
 		g2.setColor(Color.black);
 		g2.drawString(text, x+5, y+5);
 		g2.setColor(Color.white);
 		g2.drawString(text, x, y);
+		g2.setFont(font);
+		text = "HOST GAME";
+		x = getXForCenteredText(text);
+		y+=gp.Tilesize*4;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+5, y+5);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+		g2.setFont(font5);
+		text = "2 Players";
+		x= getXForCenteredText(text)+ gp.Tilesize/4;
+		y+=gp.Tilesize*2;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+3, y+3);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+		if(commandNum==0) {
+			g2.setColor(Color.green);
+			g2.drawString(">", x-gp.Tilesize, y);
+		}
+		text = "3 Players";
+		x= getXForCenteredText(text)+ gp.Tilesize/4;
+		y+=gp.Tilesize;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+3, y+3);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+		if(commandNum==1) {
+			g2.setColor(Color.green);
+			g2.drawString(">", x-gp.Tilesize, y);
+		}
+		text = "4 Players";
+		x= getXForCenteredText(text)+ gp.Tilesize/4;
+		y+=gp.Tilesize;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+3, y+3);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+		if(commandNum==2) {
+			g2.setColor(Color.green);
+			g2.drawString(">", x-gp.Tilesize, y);
+		}
+		g2.setFont(font);
+		text = "CONNECT TO EXISTING GAME";
+		x = getXForCenteredText(text);
+		y+=gp.Tilesize*2;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+5, y+5);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+		if(commandNum==3) {
+			g2.setColor(Color.green);
+			g2.drawString(">", x-gp.Tilesize, y);
+		}
+		text = "EXIT TO MENU";
+		x = getXForCenteredText(text);
+		y+=gp.Tilesize*2;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+5, y+5);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+		if(commandNum==4) {
+			g2.setColor(Color.green);
+			g2.drawString(">", x-gp.Tilesize, y);
+		}
 		x = getXForCenteredText(text);
 		y+=gp.Tilesize*8;
 		g2.setFont(font);
@@ -750,6 +822,26 @@ public class UI {
 		else if(ClientServerConnection==2) {
 			text = MultiplayerLoadMessage;
 		}
+	}
+	public void DrawMultiplayerWaitingRoom() throws IOException {
+		BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/TitleScreen.png"));
+		g2.drawImage(image, 0,0,gp.screenWidth,gp.screenHeight,null);
+		g2.setFont(font2);
+		String text = "WAITING ROOM";
+		int x = getXForCenteredText(text);
+		int y = gp.screenHeight/6;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+5, y+5);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+		gp.setFont(font);
+		text = "HOST THE GAME";
+		x = getXForCenteredText(text);
+		y+=gp.Tilesize*5;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+5, y+5);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
 	}
 }
 

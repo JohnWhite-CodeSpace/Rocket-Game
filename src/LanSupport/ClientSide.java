@@ -15,6 +15,7 @@ public class ClientSide implements Runnable{
 	Thread ClientThread;
 	public Socket socket;
 	public ArrayList <String> ServerData;
+	public ArrayList <String> playerParams;
 	BufferedReader br;
 	BufferedWriter bw;
 	public ClientSide(GamePanel gp, Socket socket) {
@@ -38,6 +39,7 @@ public class ClientSide implements Runnable{
 		while(gp.Multiplayer==true && ClientThread!=null) {
 			try {
 				//SendClientPlayerData();
+				GetClientData();
 				GetServerPlayerData();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -76,5 +78,18 @@ public class ClientSide implements Runnable{
 			e.printStackTrace();
 		}
 		
+	}
+	public void GetClientData() {
+		playerParams = new ArrayList<String>();
+		playerParams.add(gp.player.ammoType);
+		playerParams.add(gp.player.Weapon);
+		playerParams.add(gp.player.direction);
+		playerParams.add(Double.toString(gp.player.worldx));
+		playerParams.add(Double.toString(gp.player.worldy));
+		playerParams.add(Double.toString(gp.player.PlayerAngle));
+		playerParams.add(Double.toString(gp.player.life));
+		playerParams.add(Double.toString(gp.player.fuel));
+		playerParams.add(Double.toString(gp.player.Choice));
+		SendClientPlayerData(playerParams);
 	}
 }

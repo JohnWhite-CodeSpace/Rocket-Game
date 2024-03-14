@@ -52,6 +52,9 @@ public class KeyHandler implements KeyListener{
 		if(gp.gameState==gp.WinState) {
 			WinState(code);
 		}
+		if(gp.gameState==gp.MultiplayerSetup) {
+			MultiplayerMenuHandler(code);
+		}
 	}
 	
 
@@ -220,14 +223,16 @@ public class KeyHandler implements KeyListener{
 					}
 					
 					break;
-				case 1:	gp.gameState = gp.LoadState; try {
-						gp.config.LoadGame();
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}System.out.println("Game Loaded");break;
-				case 2: gp.ui.titleScreenState=2;break;
-				case 3: System.exit(0); break;
+				case 1:
+					gp.gameState=gp.MultiplayerSetup; break;
+				case 2: gp.gameState = gp.LoadState; try {
+					gp.config.LoadGame();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}System.out.println("Game Loaded"); break;
+				case 3: gp.ui.titleScreenState=2; break;
+				case 4: System.exit(0); break;
 					
 				}
 			}
@@ -400,6 +405,33 @@ public class KeyHandler implements KeyListener{
 				}
 			}
 		break;
+		}
+	}
+	public void MultiplayerMenuHandler(int code) {
+		if(code == KeyEvent.VK_W) {
+			gp.ui.commandNum-- ;
+			gp.playSE(4);
+			if(gp.ui.commandNum<0) {
+				gp.ui.commandNum=4 ;
+			}
+		}
+		if(code == KeyEvent.VK_S) {
+			gp.ui.commandNum++ ;
+			gp.playSE(4);
+			if(gp.ui.commandNum>4) {
+				gp.ui.commandNum=0 ;
+			}
+		}
+		if(code==KeyEvent.VK_ENTER) {
+			gp.playSE(3);
+			switch(gp.ui.commandNum) {
+			case 0: break;
+			case 1: break;
+			case 2: break;
+			case 3: break;	
+			case 4: gp.gameState = gp.titleState;
+				gp.ui.titleScreenState=0;
+			}
 		}
 	}
 	public void ExitPauseHandler(int code) {

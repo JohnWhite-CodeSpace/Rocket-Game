@@ -122,6 +122,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public final int WinState=6;
 	public final int DialogState=7;
 	public final int LoadState=8;
+	public final int MultiplayerSetup = 9;
 	public final int MapState=10;
 	public boolean Multiplayer = false;
 	
@@ -284,6 +285,9 @@ public class GamePanel extends JPanel implements Runnable{
 		if(gameState==WinState) {
 			
 		}
+		if(gameState==MultiplayerSetup) {
+			
+		}
 
 		
 	}
@@ -306,6 +310,9 @@ public class GamePanel extends JPanel implements Runnable{
 			ui.draw(g2);
 		}
 		if(gameState == LoadState) {
+			ui.draw(g2);
+		}
+		if(gameState == MultiplayerSetup) {
 			ui.draw(g2);
 		}
 		else {
