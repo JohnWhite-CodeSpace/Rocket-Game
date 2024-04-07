@@ -133,26 +133,22 @@ public class Player extends Entity {
 				Acceleration=0.1;
 			}
 			//planettoken=9;
-			planettoken=gp.mercury.MercuryIsDone+gp.venus.VenusIsDone+gp.earth.EarthIsDone+
-			gp.mars.MarsIsDone+gp.jupiter.JupiterIsDone+gp.saturn.SaturnIsDone+gp.uranus.UranusIsDone+
-			gp.neptune.NeptuneIsDone+gp.pluto.PlutoIsDone;
+			int tp = 0;
+			for(int i=0; i<gp.SolarSystem.size(); i++) {
+				tp+=gp.SolarSystem.get(i).ResearchIsDone;
+			}
+			planettoken = tp;
 			System.out.println(planettoken);
 		spriteCounter++;
 		collisionOn=false;
 		gp.CollisionCheck.CheckTile(this);
 		boolean IsRefueling = gp.CollisionCheck.checkEntity(this, gp.spacestation);
 		FuelRefill(IsRefueling);
-		gp.CollisionCheck.PlanetPlayerCheck(this, gp.saturn);
-		gp.CollisionCheck.PlanetPlayerCheck(this, gp.neptune);
-		gp.CollisionCheck.PlanetPlayerCheck(this, gp.pluto);
-		gp.CollisionCheck.PlanetPlayerCheck(this, gp.uranus);
-		gp.CollisionCheck.PlanetPlayerCheck(this, gp.jupiter);
-		gp.CollisionCheck.PlanetPlayerCheck(this, gp.mars);
-		gp.CollisionCheck.PlanetPlayerCheck(this, gp.earth);
-		gp.CollisionCheck.PlanetPlayerCheck(this, gp.venus);
-		gp.CollisionCheck.PlanetPlayerCheck(this, gp.mercury);
+		for(int i=0; i<gp.SolarSystem.size(); i++) {
+			gp.CollisionCheck.PlanetPlayerCheck(this, gp.SolarSystem.get(i));
+		}
 		gp.CollisionCheck.PlanetPlayerCheck(this, gp.sol);
-		infoplanets = gp.CollisionCheck.checkPlanetInfo(this, gp.planets);
+		infoplanets = gp.CollisionCheck.checkPlanetInfo(this, gp.SolarSystem);
 		int asteroidindex = gp.CollisionCheck.checkEntity(this, gp.asteroids);
 		interactAsteroid(asteroidindex);
 		int cometindex = gp.CollisionCheck.checkEntity(this, gp.comets);
@@ -447,7 +443,7 @@ public class Player extends Entity {
 	public void restoreDefaultValues() {
 		velocity =0;
 		PlayerAngle = 0;
-		Weapon = "Rocket";
+		Weapon = "Rockets";
 		fuelconsumption=0;
 		invincible=false;
 		ammoType="bullet1";

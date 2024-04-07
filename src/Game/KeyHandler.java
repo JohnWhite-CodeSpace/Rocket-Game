@@ -92,6 +92,7 @@ public class KeyHandler implements KeyListener{
 		//OBJECTIVES
 		if(code==KeyEvent.VK_TAB) {
 			ObjectiveOn=!ObjectiveOn;
+			System.out.println("Fuck me");
 		}
 		//MINI MAP
 		if(code==KeyEvent.VK_N) {
@@ -227,7 +228,8 @@ public class KeyHandler implements KeyListener{
 					
 					break;
 				case 1:
-					gp.gameState=gp.MultiplayerSetup; break;
+					gp.gameState=gp.MultiplayerSetup; 
+					enterPressed = false; break;
 				case 2: gp.gameState = gp.LoadState; try {
 					gp.config.LoadGame();
 				} catch (InterruptedException e) {
@@ -411,6 +413,7 @@ public class KeyHandler implements KeyListener{
 		}
 	}
 	public void MultiplayerMenuHandler(int code) {
+	if(gp.gameState==gp.MultiplayerSetup) {
 		if(code == KeyEvent.VK_W) {
 			gp.ui.commandNum-- ;
 			gp.playSE(4);
@@ -428,14 +431,41 @@ public class KeyHandler implements KeyListener{
 		if(code==KeyEvent.VK_ENTER) {
 			gp.playSE(3);
 			switch(gp.ui.commandNum) {
-			case 0: gp.Server.StartServer(); break;
-			case 1: gp.Server.StartServer(); break;
-			case 2: gp.Server.StartServer(); break;
-			case 3: gp.Clients.StartClient(); break;	
+			case 0: 
+				if(enterPressed==true) {
+					gp.startHostGame();
+					gp.Server.StartServer();
+				}
+				enterPressed=true;
+				break;
+			case 1: 
+				if(enterPressed==true) {
+					gp.startHostGame();
+					gp.Server.StartServer();
+				}
+				enterPressed=true;
+				break;
+			case 2: 
+				if(enterPressed==true) {
+					gp.startHostGame();
+					gp.Server.StartServer();
+				}
+				enterPressed=true;
+				break;
+			case 3: 
+				if(enterPressed==true) {
+					gp.ConnectToGame();
+					gp.Clients.StartClient();
+				}
+				enterPressed=true;
+				break;	
 			case 4: gp.gameState = gp.titleState;
 				gp.ui.titleScreenState=0;
+				break;
 			}
 		}
+	}
+		
 	}
 	public void ExitPauseHandler(int code) {
 			ReturnToGame=true;

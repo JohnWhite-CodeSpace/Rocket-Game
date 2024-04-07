@@ -69,8 +69,11 @@ public class ClientSide implements Runnable{
 		
 	}
 	public void GetServerPlayerData() throws IOException {
+		String line;
 		while(br.ready()) {
-			ServerData.add(br.readLine());
+			line = br.readLine();
+			ServerData.add(line);
+			System.out.println(line);
 		}
 	}
 	public void CloseConnection() {

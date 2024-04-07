@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 import Utility.UtilityTool;
 import Game.GamePanel;
 
-public class TileManager {
+public class TileManager{
 	
 	GamePanel gp;
 	public Tile[] tile;

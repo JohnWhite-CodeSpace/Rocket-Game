@@ -63,15 +63,6 @@ public class Entity {
 	public AlienSpaceship aliens;
 	public Comet comet;
 	public SpaceStation spacestation;
-	public Pluto pluto;
-	public Neptune neptune;
-	public Uranus uranus;
-	public Saturn saturn;
-	public Jupiter jupiter;
-	public Mars mars;
-	public Earth earth;
-	public Venus venus;
-	public Mercury mercury;
 	public Sol sol;
 	public OBJ_PlayerLife lifebar;
 	public OBJ_PlayerFuel PFuel;
@@ -151,10 +142,10 @@ public class Entity {
 			BufferedImage image = null;
 			int screenX = worldx - gp.player.worldx + gp.player.screenx;
 	        int screenY = worldy - gp.player.worldy + gp.player.screeny;
-	        if(worldx + 12*gp.Tilesize> gp.player.worldx - gp.player.screenx&&
-	        		worldx-12*gp.Tilesize< gp.player.worldx+gp.player.screenx&&
-	        		worldy+12*gp.Tilesize>gp.player.worldy-gp.player.screeny&&
-	        		worldy-12*gp.Tilesize< gp.player.worldy+gp.player.screeny
+	        if(worldx + 15*gp.Tilesize> gp.player.worldx - gp.player.screenx&&
+	        		worldx-15*gp.Tilesize< gp.player.worldx+gp.player.screenx&&
+	        		worldy+15*gp.Tilesize>gp.player.worldy-gp.player.screeny&&
+	        		worldy-15*gp.Tilesize< gp.player.worldy+gp.player.screeny
 	        		) {
 			switch(direction) {
 

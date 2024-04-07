@@ -39,13 +39,13 @@ public class ServerSide implements Runnable{
 		}
 	}
 	public void StartServer() {
-		ServerThread = new Thread();
+		ServerThread = new Thread(this);
 		ServerThread.start();
 	}
 	@Override
 	public synchronized void run() {
 		// TODO Auto-generated method stub
-		while(socket.isConnected()) {
+		while(socket.isConnected()&&ServerThread!=null) {
 			try {
 				//SendClientPlayerData();
 				for(int i=0; i<key; i++) {

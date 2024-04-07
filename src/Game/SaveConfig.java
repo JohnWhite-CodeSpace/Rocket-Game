@@ -58,10 +58,10 @@ public class SaveConfig {
 			
 			//Planets
 			
-			for(int i=0; i<gp.planets.length; i++) {
-				bw.write("Planet " + i + " X position: " + String.valueOf(gp.planets[i].worldx) );
+			for(int i=0; i<gp.SolarSystem.size(); i++) {
+				bw.write("Planet " + i + " X position: " + String.valueOf(gp.SolarSystem.get(i).worldx) );
 				bw.newLine();
-				bw.write("Planet " + i + " Y position: " + String.valueOf(gp.planets[i].worldy) );
+				bw.write("Planet " + i + " Y position: " + String.valueOf(gp.SolarSystem.get(i).worldy) );
 				bw.newLine();
 			}
 			
@@ -208,11 +208,11 @@ public class SaveConfig {
 			status = "Regenerating planets positions";
 			GetLoadingData(status);
 			Thread.sleep(500);
-			for(int i=0; i<gp.planets.length; i++) {
+			for(int i=0; i<gp.SolarSystem.size(); i++) {
 				s = br.readLine();
-				gp.planets[i].worldx = Integer.parseInt(s.replace("Planet " + i + " X position: ", ""));
+				gp.SolarSystem.get(i).worldx = Integer.parseInt(s.replace("Planet " + i + " X position: ", ""));
 				s = br.readLine();
-				gp.planets[i].worldy = Integer.parseInt(s.replace("Planet " + i + " Y position: ", ""));
+				gp.SolarSystem.get(i).worldy = Integer.parseInt(s.replace("Planet " + i + " Y position: ", ""));
 				
 			}
 			progress = 4;

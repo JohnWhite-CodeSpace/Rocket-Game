@@ -65,41 +65,21 @@ public class Minimap extends TileManager{
 		int playerX = (int)(x+gp.player.worldx/scale);
 		int playerY = (int)(y+gp.player.worldy/scale);
 		int playerSize = (int)(gp.Tilesize/2);
+		int planetX =0;
+		int planetY=0;
+		int planetSize=0;
 		g2.drawImage(gp.player.Entity1,playerX,playerY,playerSize,playerSize,null);
-		int planetX = (int)(x+gp.pluto.worldx/scale);
-		int planetY = (int)(y+gp.pluto.worldy/scale);
-		int planetSize = (int)(gp.Tilesize/3);
-		g2.drawImage(gp.pluto.Entity1,planetX,planetY, planetSize, planetSize, null);
-		planetSize = (int)(gp.Tilesize/2);
-		planetX = (int)(x+gp.neptune.worldx/scale);
-		planetY = (int)(y+gp.neptune.worldy/scale);
-		g2.drawImage(gp.neptune.Entity1,planetX,planetY,planetSize,planetSize,null );
-		planetX = (int)(x+gp.uranus.worldx/scale);
-		planetY = (int)(y+gp.uranus.worldy/scale);
-		g2.drawImage(gp.uranus.Entity1,planetX,planetY,planetSize,planetSize,null );
-		planetX = (int)(x+gp.saturn.worldx/scale);
-		planetY = (int)(y+gp.saturn.worldy/scale);
-		g2.drawImage(gp.saturn.Entity1,planetX,planetY,planetSize,planetSize,null );
-		planetX = (int)(x+gp.jupiter.worldx/scale);
-		planetY = (int)(y+gp.jupiter.worldy/scale);
-		g2.drawImage(gp.jupiter.Entity1,planetX,planetY,planetSize,planetSize,null );
-		planetSize = (int)(gp.Tilesize/3);
-		planetX = (int)(x+gp.mars.worldx/scale);
-		planetY = (int)(y+gp.mars.worldy/scale);
-		g2.drawImage(gp.mars.Entity1,planetX,planetY,planetSize,planetSize,null );
-		planetX = (int)(x+gp.earth.worldx/scale);
-		planetY = (int)(y+gp.earth.worldy/scale);
-		g2.drawImage(gp.earth.Entity1,planetX,planetY,planetSize,planetSize,null );
-		planetX = (int)(x+gp.venus.worldx/scale);
-		planetY = (int)(y+gp.venus.worldy/scale);
-		g2.drawImage(gp.venus.Entity1,planetX,planetY,planetSize,planetSize,null );
-		planetX = (int)(x+gp.mercury.worldx/scale);
-		planetY = (int)(y+gp.mercury.worldy/scale);
-		g2.drawImage(gp.mercury.Entity1,planetX,planetY,planetSize,planetSize,null );
-		planetSize = (int)(gp.Tilesize);
+		for(int i=0; i<gp.SolarSystem.size(); i++) {
+			planetX = (int)(x+gp.SolarSystem.get(i).worldx/scale);
+			planetY = (int)(y+gp.SolarSystem.get(i).worldy/scale);
+			planetSize = (int)(gp.Tilesize/3);
+			g2.drawImage(gp.SolarSystem.get(i).Entity1,planetX,planetY, planetSize, planetSize, null);
+		}
+		planetSize=(int)(gp.Tilesize/2);
 		planetX = (int)(x+gp.sol.worldx/scale);
 		planetY = (int)(y+gp.sol.worldy/scale);
 		g2.drawImage(gp.sol.Entity1,planetX,planetY,planetSize,planetSize,null );
+		
 		int SpaceStationX = (int)(x+gp.spacestation.worldx/scale);
 		int SpaceStationY = (int)(y+gp.spacestation.worldy/scale);
 		int SpaceStationSize = (int)(gp.Tilesize/2);
@@ -128,54 +108,33 @@ public class Minimap extends TileManager{
 			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.9f));
 			g2.drawImage(worldMap,x,y,width,height,null);
 			double scale = (double)(gp.Tilesize*gp.maxWorldCol)/width;
-			int playerX = (int)(x+gp.player.worldx/scale);
-			int playerY = (int)(y+gp.player.worldy/scale);
-			int playerSize = (int)(gp.Tilesize/2);
+			int playerSize = (int)(gp.Tilesize/3);
+			int playerX = (int)(x+gp.player.worldx/scale - playerSize/2);
+			int playerY = (int)(y+gp.player.worldy/scale - playerSize/2);
+			int planetX = 0;
+			int planetY = 0;
+			int planetSize = 0;
 			g2.drawImage(gp.player.Entity1,playerX,playerY,playerSize,playerSize,null);
-			int planetX = (int)(x+gp.pluto.worldx/scale);
-			int planetY = (int)(y+gp.pluto.worldy/scale);
-			int planetSize = (int)(gp.Tilesize/4);
-			g2.drawImage(gp.pluto.Entity1,planetX,planetY, planetSize, planetSize, null);
-			planetSize=(int)(gp.Tilesize/3);
-			planetX = (int)(x+gp.neptune.worldx/scale);
-			planetY = (int)(y+gp.neptune.worldy/scale);
-			g2.drawImage(gp.neptune.Entity1,planetX,planetY,planetSize,planetSize,null );
-			planetX = (int)(x+gp.uranus.worldx/scale);
-			planetY = (int)(y+gp.uranus.worldy/scale);
-			g2.drawImage(gp.uranus.Entity1,planetX,planetY,planetSize,planetSize,null );
-			planetX = (int)(x+gp.saturn.worldx/scale);
-			planetY = (int)(y+gp.saturn.worldy/scale);
-			g2.drawImage(gp.saturn.Entity1,planetX,planetY,planetSize,planetSize,null );
-			
-			planetX = (int)(x+gp.jupiter.worldx/scale);
-			planetY = (int)(y+gp.jupiter.worldy/scale);
-			g2.drawImage(gp.jupiter.Entity1,planetX,planetY,planetSize,planetSize,null );
-			planetSize=(int)(gp.Tilesize/4);
-			planetX = (int)(x+gp.mars.worldx/scale);
-			planetY = (int)(y+gp.mars.worldy/scale);
-			g2.drawImage(gp.mars.Entity1,planetX,planetY,planetSize,planetSize,null );
-			planetX = (int)(x+gp.earth.worldx/scale);
-			planetY = (int)(y+gp.earth.worldy/scale);
-			g2.drawImage(gp.earth.Entity1,planetX,planetY,planetSize,planetSize,null );
-			planetX = (int)(x+gp.venus.worldx/scale);
-			planetY = (int)(y+gp.venus.worldy/scale);
-			g2.drawImage(gp.venus.Entity1,planetX,planetY,planetSize,planetSize,null );
-			planetX = (int)(x+gp.mercury.worldx/scale);
-			planetY = (int)(y+gp.mercury.worldy/scale);
-			g2.drawImage(gp.mercury.Entity1,planetX,planetY,planetSize,planetSize,null );
-			planetSize=(int)(gp.Tilesize/2);
-			planetX = (int)(x+gp.sol.worldx/scale);
-			planetY = (int)(y+gp.sol.worldy/scale);
+			for(int i=0; i<gp.SolarSystem.size(); i++) {
+				planetSize = (int)(gp.Tilesize/gp.SolarSystem.get(i).PlanetSizeFactor);
+				planetX = (int)(x+gp.SolarSystem.get(i).worldx/scale - planetSize/2);
+				planetY = (int)(y+gp.SolarSystem.get(i).worldy/scale - planetSize/2);
+				
+				g2.drawImage(gp.SolarSystem.get(i).Entity1,planetX,planetY, planetSize, planetSize, null);
+			}
+			planetSize=(int)(gp.Tilesize-12);
+			planetX = (int)(x+gp.sol.worldx/scale - planetSize/2);
+			planetY = (int)(y+gp.sol.worldy/scale - planetSize/2);
 			g2.drawImage(gp.sol.Entity1,planetX,planetY,planetSize,planetSize,null );
-			int SpaceStationX = (int)(x+gp.spacestation.worldx/scale);
-			int SpaceStationY = (int)(y+gp.spacestation.worldy/scale);
 			int SpaceStationSize = (int)(gp.Tilesize/3);
+			int SpaceStationX = (int)(x+gp.spacestation.worldx/scale - SpaceStationSize/2);
+			int SpaceStationY = (int)(y+gp.spacestation.worldy/scale - SpaceStationSize/2);		
 			g2.drawImage(gp.spacestation.Entity1,SpaceStationX,SpaceStationY,SpaceStationSize,SpaceStationSize,null );
 			for(int i=0; i<gp.asteroidBelt.length;i++) {
 				if(gp.asteroidBelt[i]!=null) {
-				int asteroidSize = (int)(gp.Tilesize/4);
-					planetX = (int)(x+gp.asteroidBelt[i].worldx/scale);
-					planetY = (int)(y+gp.asteroidBelt[i].worldy/scale);
+				int asteroidSize = (int)(gp.Tilesize/5);
+					planetX = (int)(x+gp.asteroidBelt[i].worldx/scale - asteroidSize/2);
+					planetY = (int)(y+gp.asteroidBelt[i].worldy/scale - asteroidSize/2);
 					g2.drawImage(gp.asteroidBelt[i].Entity1,planetX,planetY,asteroidSize,asteroidSize,null );
 				}
 			}
@@ -187,7 +146,9 @@ public class Minimap extends TileManager{
 			int x = gp.Tilesize/2;
 			int y = gp.Tilesize*5+gp.Tilesize/2;
 			g2.setFont(font4);
-			g2.drawString("Objective: Study all planets in the solar system and return safely to Earth with gathered data.", x, y);
+			g2.drawString("Objective: Study all planets of the Solar System and return safely to Earth with gathered data.", x, y);
+			y+=gp.Tilesize/2;
+			g2.drawString("Remember to save at least 25% of fuel before you land on Earth.", x, y);
 			y+=gp.Tilesize/2;
 			g2.drawString("Planets Visited:" + gp.player.planettoken, x, y);
 			y+=gp.Tilesize/2;

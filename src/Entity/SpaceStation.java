@@ -26,8 +26,8 @@ public class SpaceStation extends Entity{
 		collisionOn=false;
 		gp.CollisionCheck.CheckTile(this);
 		gp.CollisionCheck.playerCheck(this);
-		centerx=gp.saturn.worldx;
-		centery=gp.saturn.worldy;
+		centerx=gp.SolarSystem.get(5).worldx;
+		centery=gp.SolarSystem.get(5).worldy;
 			 
 		int newX = (int) ((radius * Math.cos(SpsAngle))  + centerx);
         int newY = (int) ((radius * Math.sin(SpsAngle))  + centery);

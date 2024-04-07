@@ -1,6 +1,9 @@
 package Game;
 import Entity.Entity;
+import Entity.Planets;
+
 import java.awt.geom.Ellipse2D;
+import java.util.ArrayList;
 public class CollisionChecker {
 	GamePanel gp;
 	public CollisionChecker(GamePanel gp) {
@@ -234,10 +237,10 @@ public class CollisionChecker {
 				if(solidarea!=null)
 				if(solidarea.intersects(entity.solidArea)) {
 					entity.collisionOn = true;
-					if(target!=gp.earth) {
+					if(target!=gp.SolarSystem.get(2)) {
 						entity.life=0;
 					}
-					if(target==gp.earth) {
+					if(target==gp.SolarSystem.get(2)) {
 						gp.player.GameStatus();
 					}
 					contactPlayer = true;
@@ -251,12 +254,12 @@ public class CollisionChecker {
 			return contactPlayer;
 		
 		}
-		public int checkPlanetInfo(Entity entity, Entity[] target) {
+		public int checkPlanetInfo(Entity entity, ArrayList<Planets> target) {
 			int index = 999;
-			for(int i=0; i<target.length;i++) {
-				if(target[i]!=null) {
-				double planetSAX= (int) (target[i].worldx-target[i].Radcircle/2);
-				double planetSAY = (int) (target[i].worldy-target[i].Radcircle/2);
+			for(int i=0; i<target.size();i++) {
+				if(target.get(i)!=null) {
+				double planetSAX= (int) (target.get(i).worldx-target.get(i).Radcircle/2);
+				double planetSAY = (int) (target.get(i).worldy-target.get(i).Radcircle/2);
 				Ellipse2D infoarea = null;
 				if(entity!=null) {
 					
@@ -266,7 +269,7 @@ public class CollisionChecker {
 					switch(entity.direction) {
 					
 					case "player1":
-						infoarea = new Ellipse2D.Double(planetSAX, planetSAY,target[i].Radcircle*3,target[i].Radcircle*3);
+						infoarea = new Ellipse2D.Double(planetSAX, planetSAY,target.get(i).Radcircle*3,target.get(i).Radcircle*3);
 						break;
 						
 					}
@@ -278,8 +281,8 @@ public class CollisionChecker {
 				}
 				entity.solidArea.x = entity.solidAreaDefaultX;
 				entity.solidArea.y = entity.solidAreaDefaultY;
-				planetSAX = target[i].solidAreaDefaultX;
-				planetSAY = target[i].solidAreaDefaultY;
+				planetSAX = target.get(i).solidAreaDefaultX;
+				planetSAY = target.get(i).solidAreaDefaultY;
 				}
 			}
 			

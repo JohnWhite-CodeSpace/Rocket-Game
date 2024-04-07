@@ -24,29 +24,13 @@ import Entity.Player;
 import Entity.AlienSpaceship;
 import Entity.Asteroid;
 import Entity.SpaceStation;
-import Entity.Pluto;
-import Entity.Neptune;
-import Entity.Jupiter;
-import Entity.Uranus;
-import Entity.Saturn;
+import Entity.Planets;
 import Entity.Comet;
-import Entity.Mars;
-import Entity.Earth;
-import Entity.Venus;
 import LanSupport.ClientSide;
 import LanSupport.ServerSide;
-import Entity.Mercury;
 import Entity.Sol;
-import Object.OBJ_Pluto;
 import Object.OBJ_SpaceStation;
-import Object.OBJ_Neptune;
-import Object.OBJ_Jupiter;
-import Object.OBJ_Uranus;
-import Object.OBJ_Saturn;
-import Object.OBJ_Mars;
-import Object.OBJ_Earth;
-import Object.OBJ_Venus;
-import Object.OBJ_Mercury;
+import Object.OBJ_Planets;
 import Object.OBJ_Sol;
 import Entity.Asteroid_Belt;
 import tile.TileManager;
@@ -98,20 +82,11 @@ public class GamePanel extends JPanel implements Runnable{
 	public ArrayList<Entity> entityList = new ArrayList<>();
 	public ArrayList<Entity> projectileList = new ArrayList<>();
 	public SpaceStation spacestation = new OBJ_SpaceStation(this);
-	public Pluto pluto = new OBJ_Pluto(this);
-	public Neptune neptune = new OBJ_Neptune(this);
-	public Uranus uranus = new OBJ_Uranus(this);
-	public Saturn saturn = new OBJ_Saturn(this);
-	public Jupiter jupiter = new OBJ_Jupiter(this);
-	public Mars mars = new OBJ_Mars(this);
-	public Earth earth = new OBJ_Earth(this);
-	public Venus venus = new OBJ_Venus(this);
-	public Mercury mercury = new OBJ_Mercury(this);
+	public ArrayList<Planets> SolarSystem = new ArrayList<>();
 	public Sol sol = new OBJ_Sol(this);
 	public UI ui = new UI(this);
 	public Asteroid asteroids[] = new Asteroid[100];
 	public Asteroid_Belt asteroidBelt[] = new Asteroid_Belt[600];
-	public Entity[] planets = new Entity[9];
 	public Comet comets[] = new Comet[15];
 	public AlienSpaceship aliens[] =new AlienSpaceship[20];
 	Minimap map = new Minimap(this);
@@ -159,15 +134,9 @@ public class GamePanel extends JPanel implements Runnable{
 		aSetter.setAlienSpaceship();
 		aSetter.SetSol();
 		gameState = titleState;
-		planets[0]=pluto;
-		planets[1]=neptune;
-		planets[2]=uranus;
-		planets[3]=saturn;
-		planets[4]=jupiter;
-		planets[5]=mars;
-		planets[6]=earth;
-		planets[7]=venus;
-		planets[8]=mercury;
+		for(int i=0; i<9; i++) {
+			SolarSystem.add(new OBJ_Planets(this, i));
+		}
 		songs.Play();
 		tempScreen = new BufferedImage(screenWidth,screenHeight,BufferedImage.TYPE_INT_ARGB);
 		g2 = (Graphics2D) tempScreen.getGraphics();
@@ -199,11 +168,11 @@ public class GamePanel extends JPanel implements Runnable{
 	@Override
 	public synchronized void run(){
 		double drawInterval = 1000000000/FPS; // 1sec/60frames
-		double delta = 0; //initialising delta
+		double delta = 0; //initializing delta
 		long lastTime = System.nanoTime();//getting system time in nanoseconds
 		long currentTime;
 		
-		while(gamethread != null) { //if thread is initialised
+		while(gamethread != null) { //if thread is initialized
 				currentTime = System.nanoTime(); //getting system time in nanoseconds
 				delta+=(currentTime-lastTime)/drawInterval; // adding difference between to system times an dividing by draw interval (time between each drawing) 
 				lastTime = currentTime;
@@ -220,24 +189,12 @@ public class GamePanel extends JPanel implements Runnable{
 			player.update();
 			spacestation.update();
 			spacestation.SetAction();
-			pluto.update();
-			pluto.SetAction();
-			neptune.update();
-			neptune.SetAction();
-			uranus.update();
-			uranus.SetAction();
-			saturn.update();
-			saturn.SetAction();
-			jupiter.update();
-			jupiter.SetAction();
-			mars.update();
-			mars.SetAction();
-			earth.update();
-			earth.SetAction();
-			venus.update();
-			venus.SetAction();
-			mercury.update();
-			mercury.SetAction();
+			
+			for(int i=0; i<SolarSystem.size(); i++){
+				SolarSystem.get(i).update();
+				SolarSystem.get(i).SetAction();
+			}
+			
 			sol.update();
 			for(int i=0; i<projectileList.size(); i++) {
 				if(projectileList.get(i)!=null) {
@@ -345,15 +302,9 @@ public class GamePanel extends JPanel implements Runnable{
 			tileM.draw(g2);
 			entityList.add(player);
 			entityList.add(spacestation);
-			entityList.add(pluto);
-			entityList.add(neptune);
-			entityList.add(uranus);
-			entityList.add(saturn);
-			entityList.add(jupiter);
-			entityList.add(mars);
-			entityList.add(earth);
-			entityList.add(venus);
-			entityList.add(mercury);
+			for(int i=0; i<SolarSystem.size(); i++) {
+				entityList.add(SolarSystem.get(i));
+			}
 			entityList.add(sol);
 			
 			for(int i=0; i < projectileList.size(); i++) {
@@ -445,6 +396,7 @@ public class GamePanel extends JPanel implements Runnable{
 		GraphicsDevice gd = ge.getDefaultScreenDevice();
 		screenWidth2 = gd.getDisplayMode().getWidth();
 		screenHeight2 = gd.getDisplayMode().getHeight();
+		//getPreferedGraphicsScale();
 		Mainframe.window.setSize(screenWidth2,screenHeight2);
 		Mainframe.window.setLocationRelativeTo(null);
 		SwingUtilities.updateComponentTreeUI(Mainframe.window);
@@ -469,8 +421,8 @@ public class GamePanel extends JPanel implements Runnable{
 		System.out.println(DeviceDisplayWidth + "x" + DeviceDisplayHeight);
 		maxScreenCol = (int) DeviceDisplayWidth/Tilesize;
 		maxScreenRow = (int) DeviceDisplayHeight/Tilesize;
-		screenWidth = Tilesize * maxScreenCol;
-		screenHeight = Tilesize * maxScreenRow;
+		screenWidth2 = Tilesize * maxScreenCol;
+		screenHeight2 = Tilesize * maxScreenRow;
 		System.out.println(screenWidth+"x"+screenHeight);
 		System.out.println(maxScreenCol + "x" + maxScreenRow);
 		

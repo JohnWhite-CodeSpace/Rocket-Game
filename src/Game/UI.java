@@ -12,7 +12,7 @@ import Object.OBJ_PlayerFuel;
 import javax.imageio.ImageIO;
 import javax.swing.Timer;
 
-public class UI {
+public class UI{
 	GamePanel gp;
 	public Graphics2D g2;
 	public boolean messageOn = false;
@@ -34,6 +34,7 @@ public class UI {
 	public BufferedImage lifefull,lifeempty;
 	public BufferedImage recharge1, recharge2;
 	public BufferedImage Fuel100,Fuel75,Fuel50, Fuel25, Fuel0;
+	private int FPS = 60;
 	Timer timer;
 	OBJ_PlayerLife lifebar;
 	BufferedImage image;
@@ -713,7 +714,7 @@ public class UI {
 	}
 	public void DrawDialogScreen(int infoplanets) {
 		if(infoplanets!=999) {
-			gp.planets[infoplanets].getPlanetInfo(g2);
+			gp.SolarSystem.get(infoplanets).getPlanetInfo(g2, infoplanets);
 		}
 	}
 	public void DrawLoadScreen() throws IOException {
