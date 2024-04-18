@@ -307,12 +307,12 @@ public class UI{
 			}
 			image2 = ImageIO.read(getClass().getResourceAsStream("/player/chonker.png"));
 			x = gp.screenWidth/2 - gp.Tilesize;
-			y=gp.screenHeight/6 +3*gp.Tilesize+16;
+			y=gp.screenHeight/6 +4*gp.Tilesize;
 			g2.drawImage(image2, x, y, gp.Tilesize*2, gp.Tilesize*2,null);
 			
 			BufferedImage image3 = ImageIO.read(getClass().getResourceAsStream("/player/speedy1.png"));
 			x = gp.screenWidth/2 - gp.Tilesize;
-			y=gp.screenHeight/6 +7*gp.Tilesize+16;
+			y=gp.screenHeight/6 +8*gp.Tilesize;
 			g2.drawImage(image3, x, y,gp.Tilesize*2,gp.Tilesize*2,null);
 			break;
 			
@@ -558,12 +558,12 @@ public class UI{
 	public void DrawLife() throws IOException {
 		if(lifeOn==true) {
 			image = ImageIO.read(getClass().getResourceAsStream("/objects/Heart.png"));
-			g2.drawImage(image, gp.Tilesize*4,gp.Tilesize,gp.Tilesize+gp.Tilesize/2,gp.Tilesize+gp.Tilesize/2,null);
+			g2.drawImage(image, gp.Tilesize*3,gp.Tilesize/8,gp.Tilesize+gp.Tilesize/2,gp.Tilesize+gp.Tilesize/2,null);
 			g2.setFont(font5);
 			g2.setColor(Color.white);
-			g2.drawString("Health", gp.Tilesize-10, 2*gp.Tilesize);
+			g2.drawString("Health", gp.Tilesize-10, gp.Tilesize);
 			int x = gp.Tilesize/2;
-			int y = 2*gp.Tilesize;
+			int y = gp.Tilesize+gp.Tilesize/4;
 			int i=0;
 			while(i<gp.player.maxLife) {
 				g2.drawImage(lifeempty, x, y,gp.Tilesize,gp.Tilesize, null);
@@ -571,7 +571,7 @@ public class UI{
 				x+=gp.Tilesize/3;
 			}
 			x = gp.Tilesize/2;
-			y = 2*gp.Tilesize;
+			y = gp.Tilesize+gp.Tilesize/4;
 			i=0;
 			while(i<gp.player.life) {
 				g2.drawImage(lifefull, x, y,gp.Tilesize,gp.Tilesize, null);
@@ -611,12 +611,12 @@ public class UI{
 	public void DrawFireRecharge() throws IOException {
 		g2.setFont(font5);
 		g2.setColor(Color.white);
-		g2.drawString("Weapon: "+gp.player.Weapon, gp.Tilesize-10, gp.screenHeight-11/2*gp.Tilesize);
+		g2.drawString("Weapon: "+gp.player.Weapon, gp.Tilesize-10, gp.screenHeight-gp.Tilesize*3+ gp.Tilesize/2);
 		image = ImageIO.read(getClass().getResourceAsStream("/objects/"+gp.player.Weapon+".png"));
 		//here sizes
-		g2.drawImage(image, gp.Tilesize*5,gp.screenHeight-5*gp.Tilesize,gp.Tilesize+gp.Tilesize/2,gp.Tilesize+gp.Tilesize/2,null);
+		g2.drawImage(image, gp.Tilesize*5,gp.screenHeight-3*gp.Tilesize+gp.Tilesize/2,gp.Tilesize+gp.Tilesize/2,gp.Tilesize+gp.Tilesize/2,null);
 		int x = gp.Tilesize/2;
-		int y = gp.screenHeight-4*gp.Tilesize;
+		int y = gp.screenHeight-2*gp.Tilesize;
 		int i=0;
 		while(i<gp.player.maxrecharge) {
 			g2.drawImage(recharge2, x, y,gp.Tilesize,gp.Tilesize, null);
@@ -624,7 +624,7 @@ public class UI{
 			x+=gp.Tilesize/3;
 		}
 		x = gp.Tilesize/2;
-		y = gp.screenHeight-4*gp.Tilesize;
+		y = gp.screenHeight-2*gp.Tilesize;
 		i=0;
 		while(i<gp.player.recharge) {
 			g2.drawImage(recharge1, x, y,gp.Tilesize,gp.Tilesize, null);
@@ -634,21 +634,21 @@ public class UI{
 	}
 	public void DrawFuelBar() throws IOException {
 		BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/Canister.png"));
-		g2.drawImage(image, gp.screenWidth-3*gp.Tilesize,gp.screenHeight-4*gp.Tilesize,gp.Tilesize*2,gp.Tilesize*2,null);
+		g2.drawImage(image, gp.screenWidth-3*gp.Tilesize,gp.screenHeight-3*gp.Tilesize+gp.Tilesize/2,gp.Tilesize*2,gp.Tilesize*2,null);
 		g2.setFont(font5);
 		g2.setColor(Color.white);
-		g2.drawString("Fuel", gp.screenWidth-3*gp.Tilesize, gp.screenHeight-5*gp.Tilesize);
+		g2.drawString("Fuel", gp.screenWidth-3*gp.Tilesize, gp.screenHeight-3*gp.Tilesize-gp.Tilesize/2);
 		g2.setFont(font);
-		int x = gp.screenWidth-5*gp.Tilesize+ gp.Tilesize/2;
-		int y = gp.screenHeight-4*gp.Tilesize + gp.Tilesize/2;
+		int x = gp.screenWidth-4*gp.Tilesize;
+		int y = gp.screenHeight-2*gp.Tilesize + gp.Tilesize/2;
 		int i=0;
 		while(i<gp.player.maxfuel/20) {
 				g2.drawImage(Fuel0, x, y,gp.Tilesize,gp.Tilesize, null);
 			i++;
 			y-=gp.Tilesize/3;
 		}
-		x = gp.screenWidth-5*gp.Tilesize + gp.Tilesize/2;
-		y = gp.screenHeight-4*gp.Tilesize + gp.Tilesize/2;
+		x = gp.screenWidth-4*gp.Tilesize;
+		y = gp.screenHeight-2*gp.Tilesize + gp.Tilesize/2;
 		i=0;
 		while(i<gp.player.fuel/20) {
 			if(i>=0&&i<3) {

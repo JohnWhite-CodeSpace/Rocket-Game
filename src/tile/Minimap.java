@@ -148,11 +148,11 @@ public class Minimap extends TileManager{
 			g2.setFont(font4);
 			g2.drawString("Objective: Study all planets of the Solar System and return safely to Earth with gathered data.", x, y);
 			y+=gp.Tilesize/2;
-			g2.drawString("Remember to save at least 25% of fuel before you land on Earth.", x, y);
+			g2.drawString("Remember to save at least 25% of your fuel before you land on Earth.", x, y);
 			y+=gp.Tilesize/2;
 			g2.drawString("Planets Visited:" + gp.player.planettoken, x, y);
 			y+=gp.Tilesize/2;
-			g2.drawString("Press 'TAB' Key to hide the objective info.", x, y);
+			g2.drawString("Press 'I' Key to hide the objective info.", x, y);
 		}
 		
 	}

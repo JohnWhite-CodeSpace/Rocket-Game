@@ -353,7 +353,6 @@ public class GamePanel extends JPanel implements Runnable{
 			ui.draw(g2);
 			map.drawMiniMap(g2);
 			map.drawPlanetTokens(g2);
-			
 			if(keyH.DebugMode==true) {
 				long LoadEnd = System.nanoTime();
 				long passed = LoadEnd-LoadStart;

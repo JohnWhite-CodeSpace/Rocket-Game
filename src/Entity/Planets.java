@@ -71,7 +71,7 @@ public class Planets extends Entity{
 			int x = gp.screenWidth/4;
 			int y = gp.Tilesize;
 			int width = gp.screenWidth/3;
-			int height = gp.screenHeight/6;
+			int height = gp.screenHeight/4;
 			g2.fillRect(x, y, width, height);
 			g2.setColor(Color.white);
 			String text = "Collecting data..." + ResearchCount;
@@ -146,41 +146,41 @@ public class Planets extends Entity{
 			
 	}
 		public void DrawData(Graphics2D g2, String[] temparray) {
-			g2.setFont(new Font("Arial",Font.BOLD,10));
+			g2.setFont(new Font("Arial",Font.BOLD,12));
 			int x = gp.screenWidth/4;
-			int y = gp.Tilesize+gp.Tilesize/8;
+			int y = gp.Tilesize+gp.Tilesize/2;
 			String text="";
 			text = "Planet: " + temparray[0];
-			g2.drawString(text, x, y+(int) 0.5*gp.Tilesize/4);
+			g2.drawString(text, x, y+(int) 0.5*gp.Tilesize/3);
 			text = "Mass[10E24 kg]: "+ temparray[1];
-			g2.drawString(text, x, y+1*gp.Tilesize/5);
+			g2.drawString(text, x, y+1*gp.Tilesize/4);
 			text = "Diameter[km]:" + temparray[2];
-			g2.drawString(text, x, y+2*gp.Tilesize/5);
+			g2.drawString(text, x, y+2*gp.Tilesize/4);
 			text = "Density[kq/m^3]: "+temparray[3];
-			g2.drawString(text, x, y+3*gp.Tilesize/5);
+			g2.drawString(text, x, y+3*gp.Tilesize/4);
 			text = "Gravity[m/s^2]: "+ temparray[4];
-			g2.drawString(text, x, y+4*gp.Tilesize/5);
+			g2.drawString(text, x, y+4*gp.Tilesize/4);
 			text = "Escape Velocity[km/s]: "+ temparray[5];
-			g2.drawString(text, x, y+5*gp.Tilesize/5);
+			g2.drawString(text, x, y+5*gp.Tilesize/4);
 			text = "Rotation Period[hours]: "+temparray[6];
-			g2.drawString(text, x, y+6*gp.Tilesize/5);
+			g2.drawString(text, x, y+6*gp.Tilesize/4);
 			text = "Length of Day[hours]: "+temparray[7];
-			g2.drawString(text, x, y+7*gp.Tilesize/5);
+			g2.drawString(text, x, y+7*gp.Tilesize/4);
 			text = "Distance from Sun[10e6 km]: "+ temparray[8];
-			g2.drawString(text, x, y+8*gp.Tilesize/5);
+			g2.drawString(text, x, y+8*gp.Tilesize/4);
 			text = "Perihelion[10E6 km]: "+ temparray[9];
-			g2.drawString(text, x, y+9*gp.Tilesize/5);
+			g2.drawString(text, x, y+9*gp.Tilesize/4);
 			text = "Aphelion[10E6 km]: " + temparray[10];
-			g2.drawString(text, x, y+10*gp.Tilesize/5);
+			g2.drawString(text, x, y+10*gp.Tilesize/4);
 			text = "Mean Temperature [C]: " + temparray[11];
-			g2.drawString(text, x, y+11*gp.Tilesize/5);
+			g2.drawString(text, x, y+11*gp.Tilesize/4);
 			text = "Surface Pressure[bars]: " + temparray[12];
-			g2.drawString(text, x, y+12*gp.Tilesize/5);
+			g2.drawString(text, x, y+12*gp.Tilesize/4);
 			text = "Number of Moons: " + temparray[13];
-			g2.drawString(text, x, y+13*gp.Tilesize/5);
+			g2.drawString(text, x, y+13*gp.Tilesize/4);
 			text = "Ring System?: " + temparray[14];
-			g2.drawString(text, x, y+14*gp.Tilesize/5);
+			g2.drawString(text, x, y+14*gp.Tilesize/4);
 			text = "Global Magnetic Field?: " + temparray[15];
-			g2.drawString(text, x, y+15*gp.Tilesize/5);
+			g2.drawString(text, x, y+15*gp.Tilesize/4);
 		}
 }

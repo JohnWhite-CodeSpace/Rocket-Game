@@ -90,9 +90,9 @@ public class KeyHandler implements KeyListener{
 			SetMap(MapOn);
 		}
 		//OBJECTIVES
-		if(code==KeyEvent.VK_TAB) {
+		if(code==KeyEvent.VK_I) {
 			ObjectiveOn=!ObjectiveOn;
-			System.out.println("Fuck me");
+			System.out.println("Please kill me. I haven't slept for 3 days and my eyes are bleeding. Please end my suffering...");
 		}
 		//MINI MAP
 		if(code==KeyEvent.VK_N) {

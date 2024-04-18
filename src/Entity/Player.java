@@ -138,7 +138,6 @@ public class Player extends Entity {
 				tp+=gp.SolarSystem.get(i).ResearchIsDone;
 			}
 			planettoken = tp;
-			System.out.println(planettoken);
 		spriteCounter++;
 		collisionOn=false;
 		gp.CollisionCheck.CheckTile(this);
