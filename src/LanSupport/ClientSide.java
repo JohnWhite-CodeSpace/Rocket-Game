@@ -13,18 +13,20 @@ import Game.GamePanel;
 public class ClientSide implements Runnable{
 	
 	public GamePanel gp;
-	Thread ClientThread;
+	public Thread ClientThread;
 	public Socket socket;
-	public ArrayList <String> ServerData;
+	public String ServerData;
 	public ArrayList <String> playerParams;
 	BufferedReader br;
 	BufferedWriter bw;
-	public ClientSide(GamePanel gp, Socket socket) {
+	private int lock = 0;
+	private Object Mlock;
+	public ClientSide(GamePanel gp, Socket socket, Object Mlock) {
 		this.gp=gp;
 		this.socket=socket;
+		this.Mlock = Mlock;
 		ClientThread = new Thread();
 		ClientThread.start();
-		ServerData = new ArrayList<String>();
 		try {
 			br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
@@ -35,46 +37,74 @@ public class ClientSide implements Runnable{
 		
 	}
 	public void StartClient() {
-		ClientThread = new Thread();
-		ClientThread.start();
+	    ClientThread = new Thread(this);
+	    ClientThread.start(); // Start the client thread
+	    System.out.println("Client started...");
 	}
 	@Override
-	public synchronized void run() {
-		// TODO Auto-generated method stub
-		while(gp.Multiplayer==true && ClientThread!=null) {
-			try {
-				//SendClientPlayerData();
-				GetClientData();
-				GetServerPlayerData();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		CloseConnection();
+	public void run() {
+	    System.out.println("Client thread: ");
+	    while (gp.Multiplayer) {
+	            try {
+//	            	synchronized (Mlock) {
+//	                    Mlock.wait();
+//	                }
+	                if (lock == 1) {
+	                    // Client logic to send data packet
+	                    SendClientData(GetClientData());
+	                    lock = 0; // Set lock to 0 after sending data
+	                }
+	                if(lock==0){
+	                	ServerData = GetServerData();
+		                gp.serverProjection.receiveServerData(ServerData);
+		                if(ServerData!=null) {
+		                	String[] data = ServerData.split("-");
+		                	if(data.length==7) {
+		                		lock = Integer.parseInt(data[6]);
+			                	System.out.println("Client lock: " + lock);
+		                	}
+		                }
+	                }
+//	                synchronized (Mlock) {
+//	                    Mlock.notify();
+//	                }s
+	            } catch (IOException e) {
+	                e.printStackTrace();
+	            } 
+//	            catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+	    }
+	    System.out.println("Lost connection to the client");
 	}
+
 	//Change String to bytes later on for faster data transfer between client/s and server 
-	public void SendClientPlayerData(ArrayList<String> ClientInfo) {
+	public void SendClientData(String ClientInfo) {
+		System.out.println("Sending packet to the server...");
 		try {
-			for(int i=0; i<= ClientInfo.size(); i++) {
-				bw.write(ClientInfo.get(i));
-				bw.newLine();
-				bw.flush();
-			}
-		}catch(IOException e) {
+			bw.write(ClientInfo);
+			bw.newLine();
+			bw.flush();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("Packet sent");
 		
 		
 		
 	}
-	public void GetServerPlayerData() throws IOException {
-		String line;
-		while(br.ready()) {
-			line = br.readLine();
-			ServerData.add(line);
-			System.out.println(line);
+	public String GetServerData() throws IOException {
+		String dataline =null;
+		if(br.ready()) {
+			System.out.println("Reading server datapacket");
+			System.out.println("Acquired server data: ");
+			dataline = br.readLine();
+			System.out.println(dataline);
+			System.out.println("Server datapacket acquired");
 		}
+		return dataline;
 	}
 	public void CloseConnection() {
 		try {
@@ -88,17 +118,15 @@ public class ClientSide implements Runnable{
 		}
 		
 	}
-	public void GetClientData() {
-		playerParams = new ArrayList<String>();
-		playerParams.add(gp.player.ammoType);
-		playerParams.add(gp.player.Weapon);
-		playerParams.add(gp.player.direction);
-		playerParams.add(Double.toString(gp.player.worldx));
-		playerParams.add(Double.toString(gp.player.worldy));
-		playerParams.add(Double.toString(gp.player.PlayerAngle));
-		playerParams.add(Double.toString(gp.player.life));
-		playerParams.add(Double.toString(gp.player.fuel));
-		playerParams.add(Double.toString(gp.player.Choice));
-		SendClientPlayerData(playerParams);
-	}
+	public String GetClientData() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("serverprojection").append("-");
+        sb.append(gp.player.velocity).append("-");
+        sb.append(gp.player.PlayerAngle).append("-");
+        sb.append(gp.player.life).append("-");
+        sb.append(gp.player.fuel).append("-");
+        sb.append(gp.player.Choice).append("-");
+        sb.append(lock);
+        return sb.toString();
+    }
 }

@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import Object.OBJ_PlayerLife;
+import Object.CustomTextField;
 import Object.OBJ_PlayerFireRecharge;
 import Object.OBJ_PlayerFuel;
 import javax.imageio.ImageIO;
@@ -38,6 +39,7 @@ public class UI{
 	Timer timer;
 	OBJ_PlayerLife lifebar;
 	BufferedImage image;
+	public CustomTextField IPTextField, PortTextField;
 	public UI(GamePanel gp) {
 		this.gp = gp;
 		lifebar = new OBJ_PlayerLife(gp);
@@ -59,6 +61,8 @@ public class UI{
 		Fuel50 = PFuel.fuel50;
 		Fuel25 = PFuel.fuel25;
 		Fuel0 = PFuel.fuel0;
+		IPTextField = new CustomTextField();
+		PortTextField = new CustomTextField();
 	}
 	public void showMessage(String text) {
 		Message = text;
@@ -157,7 +161,14 @@ public class UI{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+			break;
+		case 11:
+			try {
+				ServerHostScreen();
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
+			break;
 		}
 
 	}
@@ -824,6 +835,65 @@ public class UI{
 			text = MultiplayerLoadMessage;
 		}
 	}
+	public void ServerHostScreen() throws IOException {
+		BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/TitleScreen.png"));
+		g2.drawImage(image, 0,0,gp.screenWidth,gp.screenHeight,null);
+		g2.setFont(font);
+		String text = "Enter IP and port number:";
+		int x = getXForCenteredText(text);
+		int y = gp.screenHeight/6;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+5, y+5);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+		y +=gp.Tilesize*4;
+	    x = getXForCenteredText(text);
+	    IPTextField.draw(g2, x+gp.Tilesize*2, y-gp.Tilesize,gp.Tilesize*9, gp.Tilesize*(3/2)+5);
+	    text="IP: ";
+	    g2.setColor(Color.black);
+		g2.drawString(text, x+5, y+5);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+	    if(commandNum==0) {
+			g2.setColor(Color.green);
+			g2.drawString(">", x-gp.Tilesize, y);
+		}
+	    y +=gp.Tilesize*3;
+	    PortTextField.draw(g2, x+gp.Tilesize*3, y-gp.Tilesize,gp.Tilesize*8, gp.Tilesize*(3/2)+5);
+	    text="Port: ";
+	    g2.setColor(Color.black);
+		g2.drawString(text, x+5, y+5);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+	    if(commandNum==1) {
+			g2.setColor(Color.green);
+			g2.drawString(">", x-gp.Tilesize, y);
+		}
+		text = "START";
+		x= getXForCenteredText(text)+ gp.Tilesize/4;
+		y+=gp.Tilesize*2.5;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+3, y+3);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+		if(commandNum==2) {
+			g2.setColor(Color.green);
+			g2.drawString(">", x-gp.Tilesize, y);
+		}
+		text = "EXIT";
+		x= getXForCenteredText(text)+ gp.Tilesize/4;
+		y+=gp.Tilesize;
+		g2.setColor(Color.black);
+		g2.drawString(text, x+3, y+3);
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+		if(commandNum==3) {
+			g2.setColor(Color.green);
+			g2.drawString(">", x-gp.Tilesize, y);
+		}
+	}
+	
+	
 	public void DrawMultiplayerWaitingRoom() throws IOException {
 		BufferedImage image = ImageIO.read(getClass().getResourceAsStream("/objects/TitleScreen.png"));
 		g2.drawImage(image, 0,0,gp.screenWidth,gp.screenHeight,null);

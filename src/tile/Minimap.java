@@ -56,7 +56,7 @@ public class Minimap extends TileManager{
 		int width=700;
 		int height=700;
 		int x = gp.screenWidth/2-width/2;
-		int y = gp.screenHeight/2-height/2-3*gp.Tilesize;
+		int y = gp.screenHeight/2-height/2;
 		g2.fillRect(x-10, y-10, width+20, height+20);
 		g2.drawImage(worldMap,x,y,width,height,null);
 
@@ -115,6 +115,16 @@ public class Minimap extends TileManager{
 			int planetY = 0;
 			int planetSize = 0;
 			g2.drawImage(gp.player.Entity1,playerX,playerY,playerSize,playerSize,null);
+			if(gp.clientProjection!=null) {
+				playerX = (int)(x+gp.clientProjection.worldx/scale - playerSize/2);
+				playerY = (int)(y+gp.clientProjection.worldy/scale - playerSize/2);
+				g2.drawImage(gp.player.Entity1,playerX,playerY,playerSize,playerSize,null);
+			}
+			if(gp.serverProjection!=null) {
+				playerX = (int)(x+gp.serverProjection.worldx/scale - playerSize/2);
+				playerY = (int)(y+gp.serverProjection.worldy/scale - playerSize/2);
+				g2.drawImage(gp.player.Entity1,playerX,playerY,playerSize,playerSize,null);
+			}
 			for(int i=0; i<gp.SolarSystem.size(); i++) {
 				planetSize = (int)(gp.Tilesize/gp.SolarSystem.get(i).PlanetSizeFactor);
 				planetX = (int)(x+gp.SolarSystem.get(i).worldx/scale - planetSize/2);

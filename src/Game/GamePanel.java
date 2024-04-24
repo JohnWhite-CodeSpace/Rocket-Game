@@ -26,7 +26,9 @@ import Entity.Asteroid;
 import Entity.SpaceStation;
 import Entity.Planets;
 import Entity.Comet;
+import LanSupport.ClientProjection;
 import LanSupport.ClientSide;
+import LanSupport.ServerProjection;
 import LanSupport.ServerSide;
 import Entity.Sol;
 import Object.OBJ_SpaceStation;
@@ -60,8 +62,8 @@ public class GamePanel extends JPanel implements Runnable{
 	int screenHeight2 = screenHeight;
 	BufferedImage tempScreen;
 	Graphics2D g2d;
-	
-	
+	public ServerProjection serverProjection;
+	public ClientProjection clientProjection;
 	
 	Thread gamethread;
 	int FPS = 60;
@@ -103,10 +105,12 @@ public class GamePanel extends JPanel implements Runnable{
 	public final int LoadState=8;
 	public final int MultiplayerSetup = 9;
 	public final int MapState=10;
+	public final int IPPortScreen = 11;
 	public boolean Multiplayer = false;
 	
 	public ClientSide Clients;
 	public ServerSide Server;
+	private Object lock;
 	
 	
 	public GamePanel() {
@@ -146,24 +150,29 @@ public class GamePanel extends JPanel implements Runnable{
 		gamethread = new Thread(this);
 		gamethread.start();
 	}
-	public void startHostGame() {
-		ServerSocket Bus;
-		try {
-			Bus = new ServerSocket(22);
-			Server = new ServerSide(this,Bus);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+	public void startHostGame(String IP, int PORT) {
+	    try {
+	        ServerSocket serverSocket = new ServerSocket(PORT);
+	        clientProjection = new ClientProjection(this);
+			lock = new Object();
+	        Server = new ServerSide(this, serverSocket,lock);
+	        Server.StartServer(); // Start the server thread
+	        System.out.println("Server started...");
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
 	}
-	public void ConnectToGame() {
-		try {
-			Clients = new ClientSide(this,new Socket("localhost",22));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void ConnectToGame(String IP, int PORT) {
+	    try {
+	        Socket socket = new Socket(IP, PORT);
+	        serverProjection = new ServerProjection(this);
+			lock = new Object();
+	        Clients = new ClientSide(this, socket,lock);
+	        Clients.StartClient(); // Start the client thread
+	        System.out.println("Connected to server...");
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
 	}
 	@Override
 	public synchronized void run(){
@@ -182,11 +191,31 @@ public class GamePanel extends JPanel implements Runnable{
 					drawToScreen();
 					delta--;
 				}
+//				if(lock!=null) {
+//					synchronized (lock) {
+//			            lock.notify(); // Notify ServerSide to start
+//			            try {
+//			                lock.wait(); // Wait for ClientSide to finish
+//			            } catch (InterruptedException e) {
+//			                e.printStackTrace();
+//			            }
+//			        }
+//				}
 			}
 	}
 	public void update() {
 		if(gameState==playState) {
 			player.update();
+			if(serverProjection!=null) {
+				System.out.println("updating projections");
+				serverProjection.update();
+				System.out.println("projections updated");
+			}
+			if(clientProjection!=null) {
+				System.out.println("updating projections");
+				clientProjection.update();
+				System.out.println("projections updated");
+			}
 			spacestation.update();
 			spacestation.SetAction();
 			
@@ -270,6 +299,9 @@ public class GamePanel extends JPanel implements Runnable{
 		if(gameState==MultiplayerSetup) {
 			
 		}
+		if(gameState==IPPortScreen) {
+			
+		}
 
 		
 	}
@@ -291,16 +323,47 @@ public class GamePanel extends JPanel implements Runnable{
 		if(gameState == titleState) {
 			ui.draw(g2);
 		}
-		if(gameState == LoadState) {
+		else if(gameState == LoadState) {
 			ui.draw(g2);
 		}
-		if(gameState == MultiplayerSetup) {
+		else if(gameState == MultiplayerSetup) {
+			ui.draw(g2);
+		}
+		else if(gameState==IPPortScreen) {
+			ui.draw(g2);
+		}
+		else if(gameState==pauseState) {
+			ui.draw(g2);
+		}
+		else if(gameState==exitpauseState) {
+			ui.draw(g2);
+		}
+		else if(gameState==MapState) {
+			map.drawFullMapScreen(g2);
+		}
+		else if(gameState==GameOverState) {
+			ui.draw(g2);
+		}
+		else if(gameState==WinState) {
+			ui.draw(g2);
+		}
+		else if(gameState==DialogState) {
 			ui.draw(g2);
 		}
 		else {
 			
 			tileM.draw(g2);
 			entityList.add(player);
+			if(serverProjection!=null) {
+				System.out.println("drawing projections");
+				serverProjection.draw(g2);;
+				System.out.println("projections drawn");
+			}
+			if(clientProjection!=null) {
+				System.out.println("drawing projections");
+				clientProjection.draw(g2);
+				System.out.println("projections drawn");
+			}
 			entityList.add(spacestation);
 			for(int i=0; i<SolarSystem.size(); i++) {
 				entityList.add(SolarSystem.get(i));
@@ -364,25 +427,6 @@ public class GamePanel extends JPanel implements Runnable{
 			}
 			
 		}
-		if(gameState==pauseState) {
-			ui.draw(g2);
-		}
-		else if(gameState==exitpauseState) {
-			ui.draw(g2);
-		}
-		if(gameState==MapState) {
-			map.drawFullMapScreen(g2);
-		}
-		if(gameState==GameOverState) {
-			ui.draw(g2);
-		}
-		if(gameState==WinState) {
-			ui.draw(g2);
-		}
-		if(gameState==DialogState) {
-			ui.draw(g2);
-		}
-		
 	}
 	public void drawToScreen() {
 		Graphics g = getGraphics();

@@ -149,7 +149,8 @@ public class Entity {
 	        		) {
 			switch(direction) {
 
-			case "player1","bullet1","space_station","comet","asteroid","aliens":
+			case "player1","bullet1","space_station","comet","asteroid","aliens", 
+			"clientprojection", "serverprojection":
 				if(spriteNum==1) {
 					image = Entity1;
 				}
@@ -203,7 +204,7 @@ public class Entity {
 			if(direction=="player1") {
 				AffineTransform transform = new AffineTransform();
 		        transform.translate(screenX, screenY);
-		        transform.rotate(Math.toRadians(gp.player.PlayerAngle),gp.Tilesize/2,gp.Tilesize/2);
+		        transform.rotate(Math.toRadians(PlayerAngle),gp.Tilesize/2,gp.Tilesize/2);
 		        g2.drawImage(image, transform, null);
 			
 			}
@@ -214,6 +215,12 @@ public class Entity {
 			}
 			else if(direction=="space_station") {
 		        g2.drawImage(image, gp.spacestation.rotatedImage(), null);
+			}
+			else if(direction=="serverprojection") {
+		        g2.drawImage(image, gp.serverProjection.rotatedImage(), null);
+			}
+			else if(direction=="clientprojection") {
+		        g2.drawImage(image, gp.clientProjection.rotatedImage(), null);
 			}
 			else if(direction=="comet") {
 				for(int i=0;i<gp.comets.length;i++) {

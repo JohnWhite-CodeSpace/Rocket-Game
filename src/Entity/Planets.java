@@ -10,7 +10,7 @@ public class Planets extends Entity{
 		Entity user;
 		int counter=0;
 		public int Index;
-		int ResearchIsDone=0;
+		public int ResearchIsDone=0;
 		int ResearchCount = 0;
 		public int PlanetSizeFactor = 1;
 		public Planets(GamePanel gp) {

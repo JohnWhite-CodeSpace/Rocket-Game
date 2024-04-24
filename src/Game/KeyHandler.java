@@ -2,6 +2,7 @@ package Game;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 
 import LanSupport.ClientSide;
 import LanSupport.ServerSide;
@@ -24,6 +25,7 @@ public class KeyHandler implements KeyListener{
 	public boolean MinimapOn=false;
 	public boolean IsFullSCOn=false;
 	public boolean ReturnToGame=false;
+	public int ClientOrServer = 1;
 	GamePanel gp;
 	//DEBUG
 	boolean DebugMode = false;
@@ -41,8 +43,9 @@ public class KeyHandler implements KeyListener{
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		int code = e.getKeyCode();
+		if(gp.gameState == gp.playState) {
 			PlayerKeyBounds(code);
-		
+		}
 		if(gp.gameState==gp.titleState) {
 			TitleScreenHandler(code,0);
 		}		
@@ -56,7 +59,21 @@ public class KeyHandler implements KeyListener{
 			WinState(code);
 		}
 		if(gp.gameState==gp.MultiplayerSetup) {
-			MultiplayerMenuHandler(code);
+			try {
+				MultiplayerMenuHandler(code);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		if(gp.gameState == gp.IPPortScreen) {
+			IPPortMenuHandler(code);
+			if(gp.ui.IPTextField.isEditing) {
+				gp.ui.IPTextField.processKeyEvent(e);
+			}
+			else if(gp.ui.PortTextField.isEditing) {
+				gp.ui.PortTextField.processKeyEvent(e);
+			}
 		}
 	}
 	
@@ -237,7 +254,14 @@ public class KeyHandler implements KeyListener{
 					e.printStackTrace();
 				}System.out.println("Game Loaded"); break;
 				case 3: gp.ui.titleScreenState=2; break;
-				case 4: System.exit(0); break;
+				case 4: 
+					if(gp.Server!=null) {
+						gp.Server.CloseServer();
+					}
+					if(gp.Clients!=null) {
+						gp.Clients.CloseConnection();
+					}
+					System.exit(0); break;
 					
 				}
 			}
@@ -271,6 +295,12 @@ public class KeyHandler implements KeyListener{
 						gp.player.setDefaultValues();
 						gp.restart();
 						gp.gameState=gp.playState;
+					}if(gp.Multiplayer==true&&ClientOrServer==1) {
+						gp.startHostGame(gp.ui.IPTextField.text, Integer.parseInt(gp.ui.PortTextField.text));
+                		System.out.println("Starting Server...");
+					}else if(gp.Multiplayer==true && ClientOrServer==0) {
+						gp.ConnectToGame(gp.ui.IPTextField.text, Integer.parseInt(gp.ui.PortTextField.text));
+                		System.out.println("Starting Client..."); 
 					}
 				break;
 				case 1:
@@ -284,7 +314,14 @@ public class KeyHandler implements KeyListener{
 						gp.player.setDefaultValues();
 						gp.restart();
 						gp.gameState=gp.playState;
+					}if(gp.Multiplayer==true&&ClientOrServer==1) {
+						gp.startHostGame(gp.ui.IPTextField.text, Integer.parseInt(gp.ui.PortTextField.text));
+                		System.out.println("Starting Server...");
+					}else if(gp.Multiplayer==true && ClientOrServer==0) {
+						gp.ConnectToGame(gp.ui.IPTextField.text, Integer.parseInt(gp.ui.PortTextField.text));
+                		System.out.println("Starting Client..."); 
 					}
+					
 				break;
 				case 2: gp.ui.titleScreenState=0; break;
 				}
@@ -412,7 +449,7 @@ public class KeyHandler implements KeyListener{
 		break;
 		}
 	}
-	public void MultiplayerMenuHandler(int code) {
+	public void MultiplayerMenuHandler(int code) throws IOException {
 	if(gp.gameState==gp.MultiplayerSetup) {
 		if(code == KeyEvent.VK_W) {
 			gp.ui.commandNum-- ;
@@ -433,29 +470,33 @@ public class KeyHandler implements KeyListener{
 			switch(gp.ui.commandNum) {
 			case 0: 
 				if(enterPressed==true) {
-					gp.startHostGame();
-					gp.Server.StartServer();
+					gp.ui.commandNum=0;
+					gp.gameState=gp.IPPortScreen;
+					ClientOrServer = 1;
 				}
 				enterPressed=true;
 				break;
 			case 1: 
 				if(enterPressed==true) {
-					gp.startHostGame();
-					gp.Server.StartServer();
+					gp.ui.commandNum=0;
+					gp.gameState=gp.IPPortScreen;
+					ClientOrServer = 1;
 				}
 				enterPressed=true;
 				break;
 			case 2: 
 				if(enterPressed==true) {
-					gp.startHostGame();
-					gp.Server.StartServer();
+					gp.ui.commandNum=0;
+					gp.gameState=gp.IPPortScreen;
+					ClientOrServer = 0;
 				}
 				enterPressed=true;
 				break;
 			case 3: 
 				if(enterPressed==true) {
-					gp.ConnectToGame();
-					gp.Clients.StartClient();
+					gp.ui.commandNum=0;
+					gp.gameState=gp.IPPortScreen;
+					ClientOrServer = 1;
 				}
 				enterPressed=true;
 				break;	
@@ -467,6 +508,64 @@ public class KeyHandler implements KeyListener{
 	}
 		
 	}
+	public void IPPortMenuHandler(int code) {
+	    if (gp.gameState == gp.IPPortScreen) {
+	        if (code == KeyEvent.VK_W && gp.ui.IPTextField.isEditing==false &&
+	        		gp.ui.PortTextField.isEditing==false) {
+	            gp.ui.commandNum--;
+	            gp.playSE(4);
+	            if (gp.ui.commandNum < 0) {
+	                gp.ui.commandNum = 3;
+	            }
+	        }
+	        if (code == KeyEvent.VK_S && gp.ui.IPTextField.isEditing==false &&
+	        		gp.ui.PortTextField.isEditing==false) {
+	            gp.ui.commandNum++;
+	            gp.playSE(4);
+	            if (gp.ui.commandNum > 3) {
+	                gp.ui.commandNum = 0;
+	            }
+	        }
+	        if (code == KeyEvent.VK_ENTER) {
+	            gp.playSE(3);
+	            switch (gp.ui.commandNum) {
+	                case 0:
+	                    // Toggle editing mode of the custom text field
+	                	gp.ui.IPTextField.isSelected=!gp.ui.IPTextField.isSelected;
+	                    if (!gp.ui.IPTextField.isEditing) {
+	                        gp.ui.IPTextField.startEditing();
+	                    } else {
+	                        gp.ui.IPTextField.stopEditing();
+	                    }
+	                    break;
+	                case 1:
+	                	gp.ui.PortTextField.isSelected=!gp.ui.PortTextField.isSelected;
+	                	if (!gp.ui.PortTextField.isEditing) {
+	                        gp.ui.PortTextField.startEditing();
+	                    } else {
+	                        gp.ui.PortTextField.stopEditing();
+	                    }
+	                	break;
+	                case 2:
+	                	if (enterPressed==true) {
+                        	gp.ui.commandNum=0;
+                        		gp.gameState=gp.titleState;
+                        		gp.ui.titleScreenState = 1;
+                        		gp.Multiplayer=true;                        		
+                        }
+	                    break;
+	                case 3:
+	                    if (enterPressed==true) {
+	                        gp.gameState = gp.MultiplayerSetup;
+	                    }
+	                    enterPressed=true;
+	                    break;
+	            }
+	            enterPressed = true;
+	        }
+	    }
+	}
+	
 	public void ExitPauseHandler(int code) {
 			ReturnToGame=true;
 			TitleScreenHandler(code,0);
