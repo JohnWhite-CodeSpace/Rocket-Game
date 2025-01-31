@@ -14,6 +14,7 @@ public class Projectiles extends Entity{
 		solidArea.setY(20);
 		solidArea.setWidth(gp.tileSize-40);
 		solidArea.setHeight(gp.tileSize-40);
+		name = "bullet";
 		// TODO Auto-generated constructor stub
 	}
 	public void setSpawnPosition(int worldX, int worldY, double angle, boolean alive) {

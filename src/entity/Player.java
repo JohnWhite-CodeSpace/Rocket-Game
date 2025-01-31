@@ -10,9 +10,11 @@ import javafx.scene.shape.Rectangle;
 public class Player extends Entity {
 	GamePanel gp;
 	KeyHandler keyH;
-	Image playerImage1, playerImage2, playerImage3;
+	public Image playerImage1;
+	Image playerImage2;
+	Image playerImage3;
 	int spriteTime = 0;
-	int maxVelocity = 8;
+	int maxVelocity = 16;
 	int reload_time = 60;
 	public final int screenX, screenY;
 	
@@ -49,7 +51,8 @@ public class Player extends Entity {
         collisionOn = false;
         gp.cChecker.checkMapBoundaries(this);
         gp.cChecker.checkEntities(this, gp.entityList);
-        gp.cChecker.checkEntities(this, gp.entityList);
+        gp.cChecker.checkPlanets(this, gp.planetList);
+        
 		if (keyH.upPressed) {
             velocity += acceleration;
         }
@@ -66,7 +69,7 @@ public class Player extends Entity {
             if (reload_time == 0) {
                 Projectiles bullet = new Projectiles(gp);
                 bullet.setSpawnPosition(worldX, worldY, angle, true);
-                gp.addEntity(bullet); // Dodanie pocisku do entityList
+                gp.addEntity(bullet);
                 reload_time = 60;
                 gp.playSE(1);
             }

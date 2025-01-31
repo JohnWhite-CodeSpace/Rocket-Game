@@ -16,19 +16,19 @@ public class AsteroidBelt extends Entity{
 	    solidArea.setY(12);
 	    solidArea.setWidth(gp.tileSize - 24);
 	    solidArea.setHeight(gp.tileSize - 24);
-		orbitRadius = 50*gp.tileSize;
-		orbitCenterX= 500*gp.tileSize;
-		orbitCenterY = 500*gp.tileSize;
+		orbitRadius = 430*gp.tileSize;
+		orbitCenterX= 5000*gp.tileSize;
+		orbitCenterY = 5000*gp.tileSize;
 	}
 	
-	public void setSpawnPosition(int radius_coeff, double angle, boolean alive) {
+	public void setSpawnPosition(int radius_coeff, double angle, int offset, boolean alive) {
 		this.worldX = orbitCenterX;
 		this.worldY = orbitCenterY;
 		this.angle = angle;
 		this.alive = alive;
 		this.life = 5;
 		this.velocity = 3;
-		orbitRadius = orbitRadius+ gp.tileSize*radius_coeff;
+		orbitRadius = orbitRadius+ gp.tileSize*radius_coeff + offset;
 	}
 	
 	@Override
@@ -52,18 +52,4 @@ public class AsteroidBelt extends Entity{
 	}
 	
     public void SetAction() {};
-	public void drawSolidArea(GraphicsContext gc) {
-        gc.setStroke(Color.BLUE);
-        gc.strokeRect(
-            solidArea.getX(),
-            solidArea.getY(),
-            solidArea.getWidth(),
-            solidArea.getHeight()
-        );
-	}
-	@Override
-	public void draw(GraphicsContext gc) {
-	    super.draw(gc);
-	    drawSolidArea(gc);
-	}
 }

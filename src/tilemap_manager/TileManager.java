@@ -27,7 +27,7 @@ public class TileManager {
 		System.out.println("Loading images");
 		getTileImage();
 		System.out.println("Loading map");
-		LoadMap("/maps/GameMap1.txt");
+		LoadMap("/maps/GameMap.txt");
 	}
 	
 	private Image loadImage(String path) {

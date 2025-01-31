@@ -73,4 +73,43 @@ public class CollisionChecker {
         }
         return false;
     }
+    public boolean checkPlanets(Entity entity, ArrayList<Entity> planets) {
+    	for (Entity planet : planets){
+    		if(checkPlanet(entity, planet)) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+    
+    private boolean checkPlanet(Entity entity, Entity planet) {
+        if (planet != null) {
+            if (entity.solidArea.intersects(planet.planetSolidArea.getBoundsInLocal())) {
+            	
+                double entityCenterX = entity.worldX + entity.solidArea.getX() + entity.solidArea.getWidth() / 2;
+                double entityCenterY = entity.worldY + entity.solidArea.getY() + entity.solidArea.getHeight() / 2;
+                
+                double planetCenterX = planet.worldX + planet.planetSolidArea.getCenterX();
+                double planetCenterY = planet.worldY + planet.planetSolidArea.getCenterY();
+
+                double angleToTarget = Math.toDegrees(Math.atan2(planetCenterY - entityCenterY, planetCenterX - entityCenterX));
+                if (angleToTarget < 0) angleToTarget += 360;
+
+                double entityAngle = entity.angle % 360;
+                if (entityAngle < 0) entityAngle += 360;
+
+                double angleDifference = Math.abs(entityAngle - angleToTarget);
+                if (angleDifference > 180) angleDifference = 360 - angleDifference;
+
+                if (angleDifference > 90) {
+                    entity.collisionOn = false;
+                    return false;
+                }
+
+                entity.collisionOn = true;
+                return true;
+            }
+        }
+    	return false;
+    }
 }
