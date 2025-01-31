@@ -16,5 +16,6 @@ This is my project for the Object-Oriented Programming laboratories at the Warsa
 This game, as mentioned above, is a project for our Object-Oriented Programming classes at the Warsaw University of Technology. It is currently intended solely for educational purposes. Perhaps in the future, it will be available to other users, but for now, it serves as a testing ground for our knowledge of Java programming.
 
 ## Branches
-- The `main` branch contains the old version of the game, which was written in Java Swing. It **does not** include a pathfinding algorithm for the player and is prone to bugs.
 - The `master` branch contains the most recent version of the game, which has been rewritten in JavaFX. It is still in the process of transferring various functionalities from the old version and developing new ones, such as the **player pathfinding method** (`BestRoute.java` class), which is based on the **Traveling Salesman Problem (TSP) genetic algorithm** *(note for my professor from Genetic Algorithms classes).*
+- The `master_swing` branch contains the old version of the game, which was written in Java Swing. It **does not** include a pathfinding algorithm for the player and is prone to bugs.
+
