@@ -1,15 +1,20 @@
-# Rocket-Game
-This is our project for Object Oriented Programming laboratories in Warsaw University fo Technology
+# Rocket Adventure
 
-BEFORE RUNNING THE PROGRAM:
--Check if every graphic, text or audio files are definitely inside 'res' folder and also that they're accesable via commands inside the code. If any of those files aren't in the 'res' folder somehow or they're not accesable in any way (especially im talking about audio files) then you can try to comment those lines of code with instantiated objects that use those resources. Most of those instantiations are inside 'GamePanel' class. 
--Check also if your IDE is capable of running this program.
-RULES:
--Please consoult me before commiting any changes.
--Do NOT change the extensions of audio files inside 'res' folder. Java swing, as I am aware, supports only '.wav' files. 
--Also please inform me about any bugs, performance drops and any other issues you might find while running this beta version.
-BASIC INFO:
-This game, as it is stated above, is a project for our Object Oriented Programming classes at the Warsaw University of Technology. This whole thing is only for educational purpouses (for now). Meybe in the future this game will be aveilable for other users, but for now its only the testing ground of our knowledge in java programming. 
+This is my project for the Object-Oriented Programming laboratories at the Warsaw University of Technology.
 
-BRIEF CODE DESCRIPTION:
-to be continued...
+## Before Running the Program
+- Ensure that all graphic, text, and audio files are located inside the `res` folder and are accessible via commands in the code.
+- If any files are missing from the `res` folder or are inaccessible (especially audio files), you can try commenting out the corresponding instantiations in the code. Most of these instantiations are located in the `GamePanel` class.
+- Check if your IDE is capable of running this program.
+
+## Rules
+- **Consult me before committing any changes.**
+- **Do not change the extensions of audio files** inside the `res` folder. Java Swing, as far as I am aware, only supports `.wav` files.
+- **Report any bugs, performance drops, or other issues** you encounter while running this beta version.
+
+## Basic Info
+This game, as mentioned above, is a project for our Object-Oriented Programming classes at the Warsaw University of Technology. It is currently intended solely for educational purposes. Perhaps in the future, it will be available to other users, but for now, it serves as a testing ground for our knowledge of Java programming.
+
+## Branches
+- The `main` branch contains the old version of the game, which was written in Java Swing. It **does not** include a pathfinding algorithm for the player and is prone to bugs.
+- The `master` branch contains the most recent version of the game, which has been rewritten in JavaFX. It is still in the process of transferring various functionalities from the old version and developing new ones, such as the **player pathfinding method** (`BestRoute.java` class), which is based on the **Traveling Salesman Problem (TSP) genetic algorithm** *(note for my professor from Genetic Algorithms classes).*
